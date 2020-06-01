@@ -1,0 +1,222 @@
+// ul, li {
+//   list-style: none;
+// }
+
+/* need css reset file */
+
+body {
+  margin: 0;
+}
+
+section.fp-top {
+  background-image: linear-gradient(#4d69a1, #2e4c91);
+  border-bottom: 1px solid 	#143783;
+  height: 80px;
+  position: relative;
+
+  section.header {
+    width: 980px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+
+    span.hname {
+      color: #ffffff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 36px;
+      font-weight: 600;
+      line-height: 2.5;
+    }
+
+    form.login {
+      display: flex;
+      position: relative;
+
+      label.email, label.pw {
+        display: flex;
+        flex-direction: column;
+        padding-top: 16px;
+
+        input {
+          border: 1px solid #1d2a5b;
+          line-height: 1.4;
+          margin-right: 16px;
+        }
+      }
+
+      label.pw > span:last-child {
+        color: #99b0d5;
+        cursor: pointer;
+        padding-top: 2px;
+      }
+
+      span {
+        color: white;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 12px;
+        padding-bottom: 6px;
+        padding-left: 2px;
+      }
+
+      button {
+        background-color: #4166b1;
+        border: 1px solid #29487d;
+        border-radius: 2px;
+        color: white;
+        height: 24px;
+        font-size: 12px;
+        font-weight: bold;
+        width: 50px;
+        margin-top: 36px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+
+section.fp-main {
+  background-color: #eef0f4;
+  border-top: 1px solid #a5b2ce;
+  height: 625px;
+
+  section.body {
+    width: 980px;
+    margin: auto;
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: space-between;
+
+    .fp-main-left {
+      width: 490px;
+      
+      p {
+        color: #333333;
+        font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif; 
+        font-size: 28px;
+        font-weight: bold;
+        padding-top: 30px;
+      }
+    }
+  }
+}
+
+div.fp-icons > li {
+  padding: 16px 0 20px 0;
+  display: flex;
+
+  .fa-newspaper, .fa-share-square, .fa-globe {
+    color: #adb9d3;
+    font-size: 44px;
+  }
+}
+
+
+span.bold {
+  color: #333333;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif; 
+  font-size: 16px;
+  font-weight: bold;
+
+  span {
+    color: #666666;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0 0 0 6px;
+  }
+}
+
+.fp-left-text {
+  line-height: 2.5;
+  padding-left: 20px;
+}
+
+
+.fp-main-right {
+  width: 400px;
+  /* border: 1px solid red; */
+
+  .fplmh p:first-child {
+    color: #333333;
+    font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif; 
+    font-size: 36px;
+    font-weight: bold;
+    margin: 20px 0 4px 0;
+  }
+
+  .fplmh p:last-child {
+    color: #333333;
+    font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+    font-size: 18px;
+    margin: 0 0 18px 0;
+  }
+}
+
+div.sfname {
+  display: flex;
+  justify-content: space-between;
+}
+
+div.sfname label input, label.sfemail > input, label.sfpw > input {
+  border: 1px solid #bdc7d8;
+  border-radius: 6px;
+  font-size: 18px;
+  padding: 0 0 0 10px;
+  height: 36px;
+}
+
+div.sfname label input {
+  width: 182px;
+}
+
+label.sfemail > input, label.sfpw > input {
+  margin: 10px 0 0 0;
+  width: 388px;
+}
+
+::placeholder {
+  color: #999999;
+}
+
+div.bday {
+  padding-top: 20px;
+
+  select.month, select.day, select.yr {
+    height: 50px;
+  }
+}
+
+label.bday, span.mf {
+  color: #90949c;
+  display: block;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+
+label.mfc {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  padding: 0 18px 0 0;
+
+  input {
+    margin: 0 6px 0 0;
+  }
+}
+
+button.btn-s {
+  background-image: linear-gradient(#65a853, #578843);
+  border: 1px solid #94d77c;
+  border-radius: 4px;
+  box-shadow: 0 -1px #3a6e21;
+  border-style: outset;
+  color: #ffffff;
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  height: 40px;
+  width: 200px;
+  text-shadow: 0 2px 2px #446938;
+}

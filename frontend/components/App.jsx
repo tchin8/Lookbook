@@ -1,8 +1,9 @@
 import React from "react";
+import Frontpage from './frontpage/frontpage';
 
 const App = () => (
   <div>
-    <h1>Lookbook</h1>
+    <Frontpage />
   </div>
 );
 
