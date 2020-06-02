@@ -5,10 +5,10 @@ import Root from "./components/root";
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
-import { faBell, faHome, faSortDown, faTv, faPlay, faStoreAlt, faUsers, faVideo, faImages, faLaugh, faEdit, faBookOpen, faAward, faCalendarPlus, faShoppingBag, faCommentAlt, faExclamation, faCog, faQuestionCircle, faMoon, faArrowCircleLeft, faSignOutAlt, faGlobe } from '@fortawesome/free-solid-svg-icons';
+import { faExclamationCircle, faBell, faHome, faSortDown, faTv, faPlay, faStoreAlt, faUsers, faVideo, faImages, faLaugh, faEdit, faBookOpen, faAward, faCalendarPlus, faShoppingBag, faCommentAlt, faExclamation, faCog, faQuestionCircle, faMoon, faArrowCircleLeft, faSignOutAlt, faGlobe } from '@fortawesome/free-solid-svg-icons';
 import { faNewspaper, faShareSquare } from '@fortawesome/free-regular-svg-icons';
 
-library.add(fab, faBell, faHome, faSortDown, faTv, faPlay, faStoreAlt, faUsers, faVideo, faImages, faLaugh, faEdit, faBookOpen, faAward, faCalendarPlus, faShoppingBag, faCommentAlt, faExclamation, faCog, faQuestionCircle, faMoon, faArrowCircleLeft, faSignOutAlt, faGlobe, faNewspaper, faShareSquare);
+library.add(fab, faExclamationCircle, faBell, faHome, faSortDown, faTv, faPlay, faStoreAlt, faUsers, faVideo, faImages, faLaugh, faEdit, faBookOpen, faAward, faCalendarPlus, faShoppingBag, faCommentAlt, faExclamation, faCog, faQuestionCircle, faMoon, faArrowCircleLeft, faSignOutAlt, faGlobe, faNewspaper, faShareSquare);
 
 
 document.addEventListener("DOMContentLoaded", () => {

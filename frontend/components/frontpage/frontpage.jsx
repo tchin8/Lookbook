@@ -2,8 +2,8 @@ import React from 'react'
 import { Redirect } from 'react-router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import LoginForm from '../session/login_form';
-import SignupForm from '../session/signup_form';
+import LoginFormContainer from '../session/login_form_container';
+import SignupFormContainer from '../session/signup_form_container';
 
 class Frontpage extends React.Component {
   constructor(props) {
@@ -28,7 +28,7 @@ class Frontpage extends React.Component {
           <section className="header">
             <span className="hname">lookbook</span>
 
-            <LoginForm login={login} />
+            <LoginFormContainer />
           </section>
         </section>
 
@@ -73,7 +73,7 @@ class Frontpage extends React.Component {
                 <p>It's quick and easy.</p>
               </section>
 
-              <SignupForm signup={signup} />
+              <SignupFormContainer />
 
               <div className="demo-btn-div">
                 <button onClick={this.handleClick}>Demo Login</button>
