@@ -2,7 +2,7 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import LoginFormContainer from '../session/login_form_container';
-import SignupForm from '../session/signup_form';
+import SignupFormContainer from '../session/signup_form_container';
 
 const Frontpage = () => (
   <div className="fp">
@@ -55,7 +55,7 @@ const Frontpage = () => (
             <p>It's quick and easy.</p>
           </section>
 
-          <SignupForm />
+          <SignupFormContainer />
 
         </section>
       </section>

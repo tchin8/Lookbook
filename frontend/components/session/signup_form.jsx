@@ -4,31 +4,56 @@ class SignupForm extends React.Component {
   constructor(props) {
     super(props);
 
+    let date = new Date();
+    this.day = date.getDate();
+    this.month = date.getMonth() + 1;
+    this.year = date.getFullYear();
+
     this.state = {
       fname: '',
       lname: '',
       email: '',
       password: '',
-      birthday: '',
+      birthday: `${this.year}-${this.month}-${this.day}`,
       gender: ''
     };
 
-    // this.handleClick = this.handleClick.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  // handleClick(e) {
-  // receive user & login?
-  // }
+  handleSubmit(e) {
+    debugger; 
+    e.preventDefault();
+    debugger;
+    // do we still need this if user will be redirected after signup/login
+    
+    this.props.signup( this.state );
+  }
 
   update(field) {
+    debugger;
     return e => (
       this.setState({ [field]: e.target.value })
     )
   }
 
+  updateBday(field) {
+    return e => {
+      if (field === 'month') {
+        this.month = e.target.value;
+      } else if (field === 'year') {
+        this.year = e.target.value;
+      } else {
+        this.day = e.target.value;
+      }
+      return this.setState({ birthday: `${this.year}-${this.month}-${this.day}` });
+    }
+  }
+
   render() {
     return (
-      <form className="signup">
+      <form className="signup" 
+        onSubmit={this.handleSubmit} >
         <div className="sfname">
           <label>
             <input type="text" 
@@ -61,30 +86,36 @@ class SignupForm extends React.Component {
 
         <div className="bday">
           <label className="bday">Birthday</label>
-          <select name="month">
-            <option value="01" selected>January</option>
-            <option value="02">February</option>
-            <option value="03">March</option>
-            <option value="04">April</option>
-            <option value="05">May</option>
-            <option value="06">June</option>
-            <option value="07">July</option>
-            <option value="08">August</option>
-            <option value="09">September</option>
-            <option value="10">October</option>
-            <option value="11">November</option>
-            <option value="12">December</option>
+          <select className="month" 
+            value={this.state.birthday.split('-')[1]}
+            onChange={this.updateBday('month')}>
+            <option>Month</option>
+            <option value={1}>Jan</option>
+            <option value={2}>Feb</option>
+            <option value={3}>Mar</option>
+            <option value={4}>Apr</option>
+            <option value={5}>May</option>
+            <option value={6}>Jun</option>
+            <option value={7}>Jul</option>
+            <option value={8}>Aug</option>
+            <option value={9}>Sep</option>
+            <option value={10}>Oct</option>
+            <option value={11}>Nov</option>
+            <option value={12}>Dec</option>
           </select>
-          <select name="day">
-            <option value="01" selected>1</option>
-            <option value="02">2</option>
-            <option value="03">3</option>
-            <option value="04">4</option>
-            <option value="05">5</option>
-            <option value="06">6</option>
-            <option value="07">7</option>
-            <option value="08">8</option>
-            <option value="09">9</option>
+          <select className="day" 
+            value={this.state.birthday.split('-')[2]}
+            onChange={this.updateBday('day')}>
+            <option>Day</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
             <option value="10">10</option>
             <option value="11">11</option>
             <option value="12">12</option>
@@ -108,7 +139,10 @@ class SignupForm extends React.Component {
             <option value="30">30</option>
             <option value="31">31</option>
           </select>
-          <select name="yr">
+          <select className="yr" 
+            value={this.state.birthday.split('-')[0]}
+            onChange={this.updateBday('year')}>
+            <option>Year</option>
             <option value="2020">2020</option>
             <option value="2019">2019</option>
             <option value="2018">2018</option>
@@ -134,7 +168,7 @@ class SignupForm extends React.Component {
             <option value="1998">1998</option>
             <option value="1997">1997</option>
             <option value="1996">1996</option>
-            <option value="1995" selected>1995</option>
+            <option value="1995">1995</option>
             <option value="1994">1994</option>
             <option value="1993">1993</option>
             <option value="1992">1992</option>
@@ -245,9 +279,9 @@ class SignupForm extends React.Component {
           <input type="radio" value="Custom" />Custom
         </label>
 
-        <p>By clicking Sign Up, you agree to our Terms, Data Policy and Cookies Policy. You may receive SMS Notifications from us and can opt out any time.</p>
+        <p className="tac">By clicking Sign Up, you agree to our <span>Terms</span>, <span>Data Policy</span> and <span>Cookies Policy</span>. You may receive SMS Notifications from us and can opt out any time.</p>
 
-        <button onClick={this.handleClick} className="btn-s">Sign Up</button>
+        <button className="btn-s" type="submit">Sign Up</button>
       </form>
     )
   }
