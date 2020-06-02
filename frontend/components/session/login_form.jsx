@@ -10,13 +10,11 @@ class LoginForm extends React.Component {
       password: ''
     }
 
-    this.loggedIn = false;
-
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update(field) {
-    debugger;
+    // debugger;
     return e => (
       this.setState({ [field]: e.target.value })
     )
@@ -24,15 +22,11 @@ class LoginForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.loggedIn = true;
     this.props.login(this.state);
+    <Redirect to="/" />
   }
 
   render() {
-    if (this.loggedIn === true) {
-      return (<Redirect to="/" />);
-    }
-
     return (
       <form onSubmit={this.handleSubmit} className="login">
         <label className="email">

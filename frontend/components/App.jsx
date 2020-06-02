@@ -6,14 +6,16 @@ import {
   Switch,
   Link
 } from 'react-router-dom';
-import Frontpage from './frontpage/frontpage';
-import Newsfeed from './frontpage/newsfeed';
+
+import FrontpageContainer from './frontpage/frontpage_container';
+import NewsfeedContainer from './frontpage/newsfeed_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
   <div>
-    <ProtectedRoute exact path="/" component={Newsfeed} /> 
-    <Route path="/login" component={Frontpage} />
+    <ProtectedRoute exact path="/" component={NewsfeedContainer} /> 
+    {/* <ProtectedRoute exact path="/users/:userId" component={ProfileContainer} />  */}
+    <AuthRoute path="/login" component={FrontpageContainer} />
   </div>
 );
 

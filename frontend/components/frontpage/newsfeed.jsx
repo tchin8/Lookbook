@@ -5,6 +5,7 @@ class Newsfeed extends React.Component {
     return (
       <div>
         <h1>Hello from the Newsfeed!</h1>
+        <button onClick={this.props.logout}>Logout</button>
       </div>
     )
   }

@@ -22,16 +22,16 @@ class SignupForm extends React.Component {
   }
 
   handleSubmit(e) {
-    debugger; 
+    // debugger; 
     e.preventDefault();
-    debugger;
+    // debugger;
     // do we still need this if user will be redirected after signup/login
     
     this.props.signup( this.state );
   }
 
   update(field) {
-    debugger;
+    // debugger;
     return e => (
       this.setState({ [field]: e.target.value })
     )
