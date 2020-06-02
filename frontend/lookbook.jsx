@@ -5,30 +5,37 @@ import Root from "./components/root";
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
-import { faBell, faSortDown, faTv, faPlay, faStoreAlt, faUsers, faVideo, faImages, faLaugh, faEdit, faBookOpen, faAward, faCalendarPlus, faShoppingBag, faCommentAlt, faExclamation, faCog, faQuestionCircle, faMoon, faArrowCircleLeft, faSignOutAlt, faGlobe } from '@fortawesome/free-solid-svg-icons';
+import { faBell, faHome, faSortDown, faTv, faPlay, faStoreAlt, faUsers, faVideo, faImages, faLaugh, faEdit, faBookOpen, faAward, faCalendarPlus, faShoppingBag, faCommentAlt, faExclamation, faCog, faQuestionCircle, faMoon, faArrowCircleLeft, faSignOutAlt, faGlobe } from '@fortawesome/free-solid-svg-icons';
 import { faNewspaper, faShareSquare } from '@fortawesome/free-regular-svg-icons';
 
-library.add(fab, faBell, faSortDown, faTv, faPlay, faStoreAlt, faUsers, faVideo, faImages, faLaugh, faEdit, faBookOpen, faAward, faCalendarPlus, faShoppingBag, faCommentAlt, faExclamation, faCog, faQuestionCircle, faMoon, faArrowCircleLeft, faSignOutAlt, faGlobe, faNewspaper, faShareSquare);
+library.add(fab, faBell, faHome, faSortDown, faTv, faPlay, faStoreAlt, faUsers, faVideo, faImages, faLaugh, faEdit, faBookOpen, faAward, faCalendarPlus, faShoppingBag, faCommentAlt, faExclamation, faCog, faQuestionCircle, faMoon, faArrowCircleLeft, faSignOutAlt, faGlobe, faNewspaper, faShareSquare);
 
 
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("root");
 
-  let preloadedState = undefined;
+  let preloadedState = {};
   if (window.currentUser) {
+    // console.log(window.currentUser);
+
     preloadedState = {
       session: {
-        currentUser: window.currentUser
+        id: window.currentUser.id
+      },
+      entities: {
+        users: {
+          [window.currentUser.id]: window.currentUser
+        }
       }
     };
   }
 
-  const store = configureStore();
+  const store = configureStore(preloadedState);
 
-  // // TESTING START
-  // window.getState = store.getState;
-  // window.dispatch = store.dispatch;
-  // // TESTING END
+  // TESTING START
+  window.getState = store.getState;
+  window.dispatch = store.dispatch;
+  // TESTING END
 
   ReactDOM.render(<Root store={store} />, root);
 });

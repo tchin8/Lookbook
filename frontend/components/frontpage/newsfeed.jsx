@@ -1,11 +1,13 @@
 import React from 'react';
+import NavBar from './navbar';
+import NewsfeedMain from './newsfeed_main';
 
 class Newsfeed extends React.Component {
   render() {
     return (
       <div>
-        <h1>Hello from the Newsfeed!</h1>
-        <button onClick={this.props.logout}>Logout</button>
+        <NavBar />
+        <NewsfeedMain logout={this.props.logout}/>
       </div>
     )
   }

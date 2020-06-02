@@ -17,7 +17,6 @@ class Frontpage extends React.Component {
       email: 'ctiff@lookbook.com',
       password: 'password'
     });
-    <Redirect to="/" />
   }
 
   render() {
