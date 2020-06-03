@@ -34,8 +34,8 @@ section.p-header {
         border-radius: 100%;
         height: 36px;
         position: relative;
-        top: 116px;
-        left: 134px;
+        top: 126px;
+        left: 130px;
         width: 36px;
         opacity: .4;
 
@@ -202,12 +202,12 @@ section.profile-main {
   height: 1000px;
 
   div.pm-div {
-    border: 1px solid white;
+    // border: 1px solid white;
     display: flex;
     justify-content: space-between;
     height: 100%;
     margin: auto;
-    padding: 18px 0 0 0;
+    padding: 15px 0 0 0;
     width: 878px;
 
     div.main-left {
@@ -217,7 +217,7 @@ section.profile-main {
     }
 
     div.main-right {
-      border: 1px solid red;
+      // border: 1px solid red;
       height: 100%;
       width: 500px;
     }
