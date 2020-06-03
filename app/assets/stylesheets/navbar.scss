@@ -128,6 +128,7 @@ section.right-navbar {
   border-radius: 8px;
   height: 50px;
   width: 116px;
+  position: relative;
   // padding: 12px 44px 12px 44px;
 }
 
@@ -148,8 +149,8 @@ section.right-navbar {
   color: #b1b3b9;
   font-size: 9px;
   position: absolute;
-  top: 7px;
-  right: 10px;
+  top: 5px;
+  right: 8px;
   margin: 12px 44px 12px 44px;
 }
 

@@ -1,7 +1,11 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  Link
+} from 'react-router-dom';
 
 class NavBar extends React.Component {
+
 
   handleClick(e) {
     //redirect to profile component
@@ -9,32 +13,38 @@ class NavBar extends React.Component {
 
   render () {
     const fblogo = window.fblogo;
+    const { user } = this.props;
 
     return (
       <section className="whole-nav">
         <section className="navbar-dark">
           <section className="left-navbar">
+            <Link to="/">
             <img src={fblogo} alt="" className="fb-logo" />
+            </Link>
               <div>
                 <input type="text" className="search dark" placeholder="Search Lookbook" /> 
               </div>
           </section>
 
           <section className="center-nav">
+            <Link to="/">
             <div>
               <div className="house-div dark">
                 <FontAwesomeIcon icon="home"
                   className="fa-house dark" />
               </div>
             </div>
+            </Link>
 
             <div>
               <div className="tv-div dark">
                 <FontAwesomeIcon icon="tv"
                   className="fa-tv dark" />
-                {/* <i className="fas fa-tv dark">
-                    <i className="fas fa-play dark"></i>
-                  </i> */}
+                
+                <FontAwesomeIcon icon="play"
+                  className="fa-play dark" />
+
               </div>
             </div>
 
@@ -66,12 +76,14 @@ class NavBar extends React.Component {
 
           <section className="right-navbar">
             <div>
-              <div className="profile" onClick={this.handleClick}>
+              <Link to={`/users/${user.id}`}>
+              <div className="profile">
                 {/* change to user's image_url */}
                 <img src={fblogo} alt="" className="pfp" />
                 {/* needa use current user's name!! */}
-                <span>Tiffany</span>
+                <span>{user.fname}</span>
               </div>
+              </Link>
             </div>
 
             <div>

@@ -16,7 +16,17 @@
       <script type="text/javascript" >
         window.currentUser = {
           "id": <%= current_user.id %>,
-          "email": "<%= current_user.email %>"
+          "email": "<%= current_user.email %>",
+          "fname": "<%= current_user.fname %>",
+          "lname": "<%= current_user.lname %>",
+          "birthday": "<%= current_user.birthday %>",
+          "gender": "<%= current_user.gender %>",
+          "bio": "<%= current_user.bio %>",
+          "currentCity": "<%= current_user.current_city %>",
+          "workplace": "<%= current_user.workplace %>",
+          "school": "<%= current_user.school %>",
+          "hometown": "<%= current_user.hometown %>",
+          "relationshipStatus": "<%= current_user.relationship_status %>"
         };
       </script>
     <% end %>
