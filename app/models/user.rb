@@ -27,6 +27,14 @@ class User < ApplicationRecord
   attr_reader :password
   after_initialize :ensure_session_token
 
+  has_many :authored_posts,
+    class_name: :User,
+    foreign_key: :author_id
+  
+  has_many :wall_posts,
+    class_name: :User,
+    foreign_key: :user_id
+
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
     if !user 

@@ -32,3 +32,10 @@ export const deletePost = postId => (
     method: 'delete'
   })
 );
+
+export const fetchUserPosts = userId => (
+  $.ajax({
+    url: `/api/users/${userId}/post`
+  })
+);
+// is this needed?? see a user's wall posts... index of their wall posts...
