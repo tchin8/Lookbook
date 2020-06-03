@@ -9,8 +9,39 @@ import DownDropdown from './down_dropdown';
 class NavBar extends React.Component {
 
 
-  handleClick(e) {
-    //redirect to profile component
+  // handleClick(e) {
+  //   //redirect to profile component
+  //   // no need, already added link
+  // }
+
+  handleFocus(e) {
+    console.log('on click/focus');
+    let classN = '';
+    // e.currentTarget.focus();
+    if (e.currentTarget.classList.contains('down-arrow-circle')) {
+      classN += 'down-drop';
+    } else if (e.currentTarget.classList.contains('plus-circle')) {
+      classN += 'plus-drop';
+    }
+    console.log(classN);
+
+    $(`section.${classN}`).toggleClass('hidden');
+    // shouldn't toggle, will need to add class hidden if clicking outside 
+  }
+
+  handleBlur(e) {
+    console.log('on blue');
+    let classN = '';
+    // e.currentTarget.focus();
+    if (e.currentTarget.classList.contains('down-arrow-circle')) {
+      classN += 'down-drop';
+    } else if (e.currentTarget.classList.contains('plus-circle')) {
+      classN += 'plus-drop';
+    }
+    console.log(classN);
+
+    $(`section.down-down`).addClass('hidden');
+    $(`section.plus-drop`).addClass('hidden');
   }
 
   render () {
@@ -77,8 +108,9 @@ class NavBar extends React.Component {
           </section>
 
           <section className="right-navbar">
-            <div>
-              <Link to={`/users/${user.id}`}>
+            <div className="right-navbar">
+              <Link to={`/users/${user.id}`} 
+                style={{ textDecoration: 'none' }}>
               <div className="profile">
                 {/* change to user's image_url */}
                 <img src={fblogo} alt="" className="pfp" />
@@ -88,39 +120,40 @@ class NavBar extends React.Component {
               </Link>
             </div>
 
-            <div>
-              <div className="plus-circle dark">
+            <div className="right-navbar">
+              <div className="plus-circle dark"
+                onFocus={this.handleFocus}>
                 <span className="plus dark">+</span>
-                </div>
               </div>
+            </div>
 
-              <div>
-                <div className="msg-circle dark">
-                  <FontAwesomeIcon icon={['fab','facebook-messenger']} 
-                    className="fa-facebook-messenger dark" />
-                </div>
+            <div className="right-navbar">
+              <div className="msg-circle dark">
+                <FontAwesomeIcon icon={['fab','facebook-messenger']} 
+                  className="fa-facebook-messenger dark" />
               </div>
+            </div>
 
-              <div>
-                <div className="bell-circle dark">
-                  <FontAwesomeIcon icon="bell" 
-                    className="fa-bell dark" />
-                </div>
+            <div className="right-navbar">
+              <div className="bell-circle dark">
+                <FontAwesomeIcon icon="bell" 
+                  className="fa-bell dark" />
               </div>
+            </div>
 
-              <div>
-                <div className="down-arrow-circle dark">
-                  <FontAwesomeIcon icon="sort-down" 
-                    className="fa-sort-down dark" />
-                </div>
-
-                <DownDropdown user={user} logout={this.props.logout} />
+            <div className="right-navbar" >
+              <div className="down-arrow-circle dark"
+                onClick={this.handleFocus}
+                onBlur={this.handleBlur}>
+                <FontAwesomeIcon icon="sort-down" 
+                  className="fa-sort-down dark" />
               </div>
-            </section>
-
-            
+              
+              <DownDropdown user={user} logout={this.props.logout} />
+            </div>
           </section>
         </section>
+      </section>
   )}
 };
 

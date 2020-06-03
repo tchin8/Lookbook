@@ -1,12 +1,4 @@
-// .create-drop-not-needed.dark {
-//   // background-color: #18191a;
-//   height: 600px;
-//   top: 40px;
-//   right: 100px;
-//   position: absolute;
-// }
-
-.create-drop.dark {
+.down-drop.dark {
   background-color:	#242526;
   border: 1px solid #2f3031;
   border-radius: 6px;
@@ -20,11 +12,42 @@
   right: 14px;
   top: 56px;
   width: 340px;
+
+  .down-drop.dark > span {
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 2px 0 10px 8px;
+  }
 }
 
-// .create-drop.dark > div:first-child {
-//   margin-bottom: 8px;
-// }
+.down-drop > div {
+  border-radius: 10px;
+  display: flex;
+  padding: 6px 0 6px 8px;
+
+  div.text {
+    display: flex;
+    flex-direction: column;
+
+    span {
+      padding: 0 0 0 14px;
+    }
+  }
+}
+
+.down-drop > div:first-child {
+  margin: 2px 0 8px 0;
+}
+
+.down-drop > div:hover {
+  background-color: #3a3b3c;
+  cursor: pointer;
+
+  div.icon-circle.dark {
+    background-color:	#4e4f50;
+  }
+}
 
 span.name {
   font-size: 18px;
@@ -37,20 +60,10 @@ span.see-profile {
   line-height: 0;
 }
 
-.fb-logo {
+// change to dynamic -- pfp of currentUser
+.fb-pfp {
   height: 60px;
   border-radius: 50px;
-}
-
-.create-drop.dark > span {
-  display: block;
-  font-size: 24px;
-  font-weight: bold;
-  margin: 2px 0 10px 8px;
-}
-
-div.text > span {
-  padding: 0 0 0 14px;
 }
 
 div.t2 > span:last-child {
@@ -68,17 +81,6 @@ div.cog {
   margin-top: 10px;
 }
 
-.create-drop > div {
-  border-radius: 10px;
-  display: flex;
-  padding: 6px 0 6px 8px;
-}
-
-.create-drop > div:hover {
-  background-color: #3a3b3c;
-  cursor: pointer;
-}
-
 div.feedback {
   margin: 8px 0 8px 0;
 }
@@ -88,11 +90,6 @@ div.line {
   margin: auto;
   padding: 0;
   width: 326px;
-}
-
-.create-drop > div > div.text {
-  display: flex;
-  flex-direction: column;
 }
 
 span.centered {
@@ -105,16 +102,11 @@ span.centered {
   height: 38px;
   width: 38px;
   position: relative;
-}
 
-.create-drop > div:hover > div.icon-circle.dark {
-  background-color:	#4e4f50;
-}
-
-/* .fa-edit.dark, .fa-book-open.dark, .fa-award.dark, .fa-font-awesome-flag.dark, .fa-calendar-plus.dark  */
-.icon-circle.dark > i {
-  color: #a7abaf;
-  position: absolute;
+  .fa-comment-alt.dark, .fa-cog.dark, .fa-question-circle, .fa-moon.dark, .fa-arrow-circle-left.dark, .fa-sign-out-alt.dark {
+    color: #a7abaf;
+    position: absolute;
+  }
 }
 
 .fa-comment-alt {
@@ -127,8 +119,8 @@ span.centered {
   color: #47494a;
   font-size: 12px;
   position: absolute;
-  top: 2px;
-  right: 8px;
+  top: 13px;
+  right: 17px;
 }
 
 .fa-cog, .fa-question-circle, .fa-moon, .fa-arrow-circle-left, .fa-sign-out-alt {
@@ -137,6 +129,7 @@ span.centered {
   left: 8px;
 }
 
+// FIX THIS
 #copyright {
   color: #929497;
   font-size: 12px;

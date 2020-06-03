@@ -42,8 +42,8 @@ section.right-navbar {
   width: 305px;
   margin: 0 16px 0 0;
   
-  div {
-    div {
+  div.right-navbar {
+    div.profile, div.plus-circle, div.msg-circle, div.bell-circle, div.down-arrow-circle {
       margin: 10px 0 10px 0;
     }
 

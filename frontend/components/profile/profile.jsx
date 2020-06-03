@@ -1,5 +1,6 @@
 import React from 'react';
 import NavBar from '../navbar/navbar';
+import ProfileHeader from './profile_header';
 
 class Profile extends React.Component {
 
@@ -9,9 +10,10 @@ class Profile extends React.Component {
       <div>
         <NavBar user={user} />
         {user.fname}'s Profile Page
+        <ProfileHeader user={user}/>
       </div>
     )
   }
-}
+};
 
 export default Profile;
