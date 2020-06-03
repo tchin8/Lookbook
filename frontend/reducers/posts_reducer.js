@@ -6,7 +6,7 @@ import {
 import merge from 'lodash/merge';
 
 
-function PostsReducer(state = {}, action) {
+function postsReducer(state = {}, action) {
   Object.freeze(state);
   let newState = Object.assign({}, state);
 
@@ -23,4 +23,4 @@ function PostsReducer(state = {}, action) {
   }
 };
 
-export default PostsReducer;
+export default postsReducer;
