@@ -16,7 +16,10 @@ User.create!(
     email: 'ctiff@lookbook.com',
     birthday: '2000-1-8',
     gender: 'Female',
-    password: 'password'
+    password: 'password',
+    bio: "good vibes only",
+    current_city: "New York City, NY",
+    school: "App Academy"
   )
 
 def random_bday() 

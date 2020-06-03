@@ -1,0 +1,227 @@
+section.p-header {
+  background-color: #242526;
+  border-bottom: 1px solid #1a1b1c;
+  padding: 60px 0 0 0;
+  height: 100%;
+  // 530px?
+
+  div.cover-pic {
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display: flex;
+    justify-content: center;
+    height: 350px;
+    margin: auto;
+    position: relative;
+    width: 940px;
+    // z-index: 10;
+
+    div.pfp.dark {
+      background-color: black;
+      border: 4px solid #242526;
+      border-radius: 100%;
+      height: 170px;
+      width: 170px;
+      position: absolute;
+      top: 190px;
+      z-index: 0;
+
+      div.cam-circle.dark {
+        background-color:	#4e4f50;
+        border-radius: 100%;
+        height: 36px;
+        position: relative;
+        top: 116px;
+        left: 134px;
+        width: 36px;
+        opacity: .4;
+
+        .fa-camera.dark {
+          color: #ffffff;
+          font-size: 20px;
+          position: absolute;
+          top: 8px;
+          left: 8px;
+        }
+      }
+
+      div.cam-circle:hover {
+        opacity: .6;
+      }
+    }
+
+    button.dark {
+      background-color: #4e4f50;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-size: 15px;
+      height: 36px;
+      width: 166px;
+      position: absolute;
+      right: 32px;
+      bottom: 16px;
+      opacity: .2;
+
+      .fa-camera.dark {
+        font-size: 18px;
+        padding: 0 8px 0 0;
+      }
+    }
+
+    button.dark:hover {
+      opacity: .6;
+    }
+  }
+
+  div.under-cover {
+    // remove later
+    // border: 1px solid red;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: auto;
+    width: 878px;
+    height: 180px;
+
+    div.under-top {
+      height: 120px;
+      position: relative;
+      text-align: center;
+      width: 100%;
+
+      span.name.dark {
+        color: white;
+        display: block;
+        font-size: 34px;
+        // padding: 10px 0 0 0;
+      }
+
+      span.bio.dark {
+        color: #b1b3b9;
+        font-size: 16px;
+        // font-weight: lighter;
+        position: relative;
+        top: -16px;
+
+        button {
+          background:none;
+          border:none;
+          color: #2e89ff;
+          cursor: pointer;
+          display: block;
+          font-size: 14px;
+          margin: 0;
+          padding: 0;
+          position: absolute;
+          top: 20px;
+          left: 42px;
+        }
+
+        button:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    div.under-bottom.dark {
+      border-top:  1px solid #3d3f41;
+      display: flex;
+      justify-content: space-between;
+      height: 60px;
+      width: 100%;
+
+      div.left-nav {
+        display: flex;
+
+        div {
+          color: #b1b3b9;
+          cursor: pointer;
+          // background-color: #3a3b3c;
+          border-radius: 6px;
+          font-size: 14px;
+          margin: 4px 0 4px 0;
+          padding: 17px 16px 17px 16px;
+
+          span.more {
+            position: relative;
+
+            .pi-sort-down.dark {
+              color: #b1b3b9;
+              font-size: 16px;
+              position: absolute;
+              top: -8px;
+              right: -16px;
+            }
+          }
+        }
+
+        div:hover {
+          background-color: #3a3b3c;
+        }
+
+        div:last-child {
+          padding:  17px 32px 17px 16px;
+        }
+      }
+
+      div.right-nav.dark {
+        display: flex;
+        
+        div {
+          margin: 12px 8px 12px 0;
+
+          button {
+            background-color: #3a3b3c;
+            border: none;
+            border-radius:  6px;
+            color: 	#ffffff;
+            padding: 10px 16px 10px 16px;
+
+            .fa-pencil-alt {
+              padding: 0 8px 0 0;
+            }
+          }
+        }
+
+        div:hover {
+          button {
+            cursor: pointer;
+            background-color: #4e4f50;
+          }
+        }
+      }
+    }
+  }
+}
+
+section.profile-main {
+  background-color: #18191a;
+  border-top: 1px solid #171819;
+  height: 1000px;
+
+  div.pm-div {
+    border: 1px solid white;
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    margin: auto;
+    padding: 18px 0 0 0;
+    width: 878px;
+
+    div.main-left {
+      border: 1px solid red;
+      height: 100%;
+      width: 360px;
+    }
+
+    div.main-right {
+      border: 1px solid red;
+      height: 100%;
+      width: 500px;
+    }
+
+  }
+
+}
