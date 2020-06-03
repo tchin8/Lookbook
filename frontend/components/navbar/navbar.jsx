@@ -4,6 +4,8 @@ import {
   Link
 } from 'react-router-dom';
 
+import DownDropdown from './down_dropdown';
+
 class NavBar extends React.Component {
 
 
@@ -111,6 +113,8 @@ class NavBar extends React.Component {
                   <FontAwesomeIcon icon="sort-down" 
                     className="fa-sort-down dark" />
                 </div>
+
+                <DownDropdown logout={this.props.logout} />
               </div>
             </section>
 

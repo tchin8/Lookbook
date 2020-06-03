@@ -1,0 +1,148 @@
+// .create-drop-not-needed.dark {
+//   // background-color: #18191a;
+//   height: 600px;
+//   top: 40px;
+//   right: 100px;
+//   position: absolute;
+// }
+
+.create-drop.dark {
+  background-color:	#242526;
+  border: 1px solid #2f3031;
+  border-radius: 6px;
+  box-shadow: -4px 6px 4px #151516;
+  color: #e4e6ea;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+  height: 470px;
+  margin: auto;
+  padding: 6px 8px 6px 8px;
+  position: absolute;
+  right: 14px;
+  top: 56px;
+  width: 340px;
+}
+
+.create-drop.dark > div:first-child {
+  margin-bottom: 8px;
+}
+
+span.name {
+  font-size: 18px;
+  line-height: 2.5;
+}
+
+span.see-profile {
+  color: #929497;
+  font-size: 14px;
+  line-height: 0;
+}
+
+.fb-logo {
+  height: 60px;
+  border-radius: 50px;
+}
+
+.create-drop.dark > span {
+  display: block;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 2px 0 10px 8px;
+}
+
+div.text > span {
+  padding: 0 0 0 14px;
+}
+
+div.t2 > span:last-child {
+  color: #929497;
+  font-size: 12px;
+}
+
+div.t2 > span:first-child {
+  color: #dadce0;
+  font-size: 15px;
+  padding-bottom: 4px;
+}
+
+div.cog {
+  margin-top: 10px;
+}
+
+.create-drop > div {
+  border-radius: 10px;
+  display: flex;
+  padding: 6px 0 6px 8px;
+}
+
+.create-drop > div:hover {
+  background-color: #3a3b3c;
+  cursor: pointer;
+}
+
+div.feedback {
+  margin: 8px 0 8px 0;
+}
+
+div.line {
+  border-top: 1px solid	#3e4042;
+  margin: auto;
+  padding: 0;
+  width: 326px;
+}
+
+.create-drop > div > div.text {
+  display: flex;
+  flex-direction: column;
+}
+
+span.centered {
+  line-height: 2.5;
+}
+
+.icon-circle.dark {
+  background-color:	#3a3b3c;
+  border-radius: 50%;
+  height: 38px;
+  width: 38px;
+  position: relative;
+}
+
+.create-drop > div:hover > div.icon-circle.dark {
+  background-color:	#4e4f50;
+}
+
+/* .fa-edit.dark, .fa-book-open.dark, .fa-award.dark, .fa-font-awesome-flag.dark, .fa-calendar-plus.dark  */
+.icon-circle.dark > i {
+  color: #a7abaf;
+  position: absolute;
+}
+
+.fa-comment-alt {
+  font-size: 20px;
+  top: 11px;
+  left: 9px;
+}
+
+.fa-exclamation.dark {
+  color: #47494a;
+  font-size: 12px;
+  position: absolute;
+  top: 2px;
+  right: 8px;
+}
+
+.fa-cog, .fa-question-circle, .fa-moon, .fa-arrow-circle-left, .fa-sign-out-alt {
+  font-size: 22px;
+  top: 8px; 
+  left: 8px;
+}
+
+#copyright {
+  color: #929497;
+  font-size: 12px;
+}
+
+#copyright:hover {
+  background-color: #242526;
+  text-decoration: underline;
+}

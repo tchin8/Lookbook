@@ -6,7 +6,7 @@ class Newsfeed extends React.Component {
   render() {
     return (
       <div>
-        <NavBar user={this.props.user}/>
+        <NavBar user={this.props.user} logout={this.props.logout}/>
         <NewsfeedMain logout={this.props.logout}/>
       </div>
     )
