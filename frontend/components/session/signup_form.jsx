@@ -23,18 +23,9 @@ class SignupForm extends React.Component {
 
   }
 
-  componentDidUpdate() {
-    const errors = Array.from(this.props.errors)
-    if (errors) {
-      this.handleErrors();
-    }
-  }
-
   handleSubmit(e) {
-    // debugger; 
+    debugger; 
     e.preventDefault();
-    // debugger;
-    // do we still need this if user will be redirected after signup/login
     
     this.props.signup( this.state );
   }
@@ -51,6 +42,8 @@ class SignupForm extends React.Component {
       classN += "email";
     } else if (e.currentTarget.classList.contains('pw')) {
       classN += "pw";
+    } else if (e.currentTarget.classList.contains('mfc')) {
+      classN += "mfc";
     }
 
     if (e.currentTarget.value.length === 0) {
@@ -60,7 +53,14 @@ class SignupForm extends React.Component {
     } else {
       e.currentTarget.classList.remove("blur");
       $(`.fa-exclamation-circle-${classN}`).addClass('hidden');
+      $(`.${classN}-error-msg`).addClass('hidden');
     }
+
+    $(`.fname-error-msg`).addClass('hidden');
+    $(`.lname-error-msg`).addClass('hidden');
+    $(`.email-error-msg`).addClass('hidden');
+    $(`.pw-error-msg`).addClass('hidden');
+    $(`.mfc-error-msg`).addClass('hidden');
   }
 
   handleFocus(e) {
@@ -73,10 +73,18 @@ class SignupForm extends React.Component {
       classN += "email";
     } else if (e.currentTarget.classList.contains('pw')) {
       classN += "pw";
+    } else if (e.currentTarget.classList.contains('mfc')) {
+      classN += "mfc";
     }
 
-    $(`.fa-exclamation-circle-${classN}`).addClass('hidden');
-    $(`.${classN}-error-msg`).addClass('hidden');
+    $(`.fname-error-msg`).addClass('hidden');
+    $(`.lname-error-msg`).addClass('hidden');
+    $(`.email-error-msg`).addClass('hidden');
+    $(`.pw-error-msg`).addClass('hidden');
+    $(`.mfc-error-msg`).addClass('hidden');
+
+    // $(`.fa-exclamation-circle-${classN}`).addClass('hidden');
+    $(`.${classN}-error-msg`).removeClass('hidden');
     
   }
 
@@ -101,6 +109,7 @@ class SignupForm extends React.Component {
   }
 
   handleErrors() {
+    // $(`.${firstClassN}-error-msg`).removeClass('hidden');
     const errors = Array.from(this.props.errors);
     let classN = "";
     let firstClassN ="";
@@ -117,6 +126,8 @@ class SignupForm extends React.Component {
         classN = "email";
       } else if (error.includes('Password')) {
         classN = "pw";
+      } else if (error.includes('Gender')) {
+        classN = "mfc";
       }
 
       // console.log(classN);
@@ -126,14 +137,20 @@ class SignupForm extends React.Component {
 
       $(`.fa-exclamation-circle-${classN}`).removeClass('hidden');
       $(`.${firstClassN}-error-msg`).removeClass('hidden');
+      if (classN !== firstClassN) {
+        $(`.${classN}-error-msg`).addClass('hidden');
+      }
       $(`input.${classN}`).addClass('blur');
 
       this.props.errors.shift();
     }
-    
   }
 
   render() {
+    const errors = Array.from(this.props.errors)
+    if (errors && !errors.join(' ').includes("entered")) {
+      this.handleErrors();
+    }
 
     return (
       <form className="signup" 
@@ -387,6 +404,9 @@ class SignupForm extends React.Component {
           <input type="radio" 
             value="Female" 
             name="g"
+            className="mfc"
+            onBlur={this.handleBlur}
+            onFocus={this.handleFocus}
             onClick={this.update('gender')}/>Female
         </label>
 
@@ -394,11 +414,20 @@ class SignupForm extends React.Component {
           <input type="radio" 
             value="Male" 
             name="g"
+            className="mfc"
+            onBlur={this.handleBlur}
+            onFocus={this.handleFocus}
             onClick={this.update('gender')}/>Male
         </label>
 
         <label className="mfc">
-          <input type="radio" name="g" value="Custom" />Custom
+          <input type="radio" 
+            name="g" 
+            className="mfc"
+            onBlur={this.handleBlur}
+            onFocus={this.handleFocus}
+            value="Custom" />Custom
+          <FontAwesomeIcon icon='exclamation-circle' className="fa-exclamation-circle-mfc hidden" />
         </label>
 
         <p className="tac">By clicking Sign Up, you agree to our <span>Terms</span>, <span>Data Policy</span> and <span>Cookies Policy</span>. You may receive SMS Notifications from us and can opt out any time.</p>
