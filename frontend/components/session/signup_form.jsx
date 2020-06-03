@@ -1,4 +1,5 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -19,6 +20,14 @@ class SignupForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+
+  }
+
+  componentDidUpdate() {
+    const errors = Array.from(this.props.errors)
+    if (errors) {
+      this.handleErrors();
+    }
   }
 
   handleSubmit(e) {
@@ -30,11 +39,52 @@ class SignupForm extends React.Component {
     this.props.signup( this.state );
   }
 
+  handleBlur(e) {
+    e.preventDefault();
+
+    let classN = "";
+    if (e.currentTarget.classList.contains('fname')) {
+      classN = "fname";
+    } else if (e.currentTarget.classList.contains('lname')) {
+      classN += "lname";
+    } else if (e.currentTarget.classList.contains('email')) {
+      classN += "email";
+    } else if (e.currentTarget.classList.contains('pw')) {
+      classN += "pw";
+    }
+
+    if (e.currentTarget.value.length === 0) {
+      e.currentTarget.classList.add("blur");
+      // e.target.classList.remove("hidden");
+      $(`.fa-exclamation-circle-${classN}`).removeClass('hidden');
+    } else {
+      e.currentTarget.classList.remove("blur");
+      $(`.fa-exclamation-circle-${classN}`).addClass('hidden');
+    }
+  }
+
+  handleFocus(e) {
+    let classN = "";
+    if (e.currentTarget.classList.contains('fname')) {
+      classN += "fname";
+    } else if (e.currentTarget.classList.contains('lname')) {
+      classN += "lname";
+    } else if (e.currentTarget.classList.contains('email')) {
+      classN += "email";
+    } else if (e.currentTarget.classList.contains('pw')) {
+      classN += "pw";
+    }
+
+    $(`.fa-exclamation-circle-${classN}`).addClass('hidden');
+    $(`.${classN}-error-msg`).addClass('hidden');
+    
+  }
+
   update(field) {
     // debugger;
-    return e => (
-      this.setState({ [field]: e.target.value })
-    )
+    return e => {
+      return this.setState({ [field]: e.target.value });
+    }
   }
 
   updateBday(field) {
@@ -50,7 +100,41 @@ class SignupForm extends React.Component {
     }
   }
 
+  handleErrors() {
+    const errors = Array.from(this.props.errors);
+    let classN = "";
+    let firstClassN ="";
+
+    for (let i = 0; i < errors.length; i++) {
+      const error = errors[i];
+      // console.log(error);
+
+      if (error.includes('Fname')) {
+        classN = "fname";
+      } else if (error.includes('Lname')) {
+        classN = "lname";
+      } else if (error.includes('Email')) {
+        classN = "email";
+      } else if (error.includes('Password')) {
+        classN = "pw";
+      }
+
+      // console.log(classN);
+      if (i === 0) {
+        firstClassN = classN;
+      }
+
+      $(`.fa-exclamation-circle-${classN}`).removeClass('hidden');
+      $(`.${firstClassN}-error-msg`).removeClass('hidden');
+      $(`input.${classN}`).addClass('blur');
+
+      this.props.errors.shift();
+    }
+    
+  }
+
   render() {
+
     return (
       <form className="signup" 
         onSubmit={this.handleSubmit} >
@@ -58,30 +142,66 @@ class SignupForm extends React.Component {
           <label>
             <input type="text" 
               placeholder="First name" 
-              value={this.state.fname}
+              className="fname"
+              value={this.state.fname} 
+              onBlur={this.handleBlur}
+              onFocus={this.handleFocus}
               onChange={this.update('fname')}/>
+
+              <FontAwesomeIcon icon='exclamation-circle' className="fa-exclamation-circle-fname hidden" />
+
+              <div className="fname-error-msg hidden">
+                <p>What's your name?</p>
+              </div>
           </label>
 
           <label>
             <input type="text" 
               placeholder="Last name" 
+              className="lname"
               value={this.state.lname}
+              onBlur={this.handleBlur}
+              onFocus={this.handleFocus}
               onChange={this.update('lname')}/>
+
+            <FontAwesomeIcon icon='exclamation-circle' className="fa-exclamation-circle-lname hidden" />
+
+            <div className="lname-error-msg hidden">
+              <p>What's your name?</p>
+            </div>
           </label>
         </div>
 
         <label className="sfemail">
           <input type="text" 
-            placeholder="Mobile number or email" 
+            placeholder="Mobile number or email"
+            className="email" 
             value={this.state.email}
+            onBlur={this.handleBlur}
+            onFocus={this.handleFocus}
             onChange={this.update('email')}/>
+
+          <FontAwesomeIcon icon='exclamation-circle' className="fa-exclamation-circle-email hidden" />
+
+          <div className="email-error-msg hidden">
+            <p>You'll use this when you log in and if you ever need to reset your password</p>
+          </div>
         </label>
 
         <label className="sfpw">
           <input type="password" 
             placeholder="New password" 
+            className="pw"
             value={this.state.password}
+            onBlur={this.handleBlur}
+            onFocus={this.handleFocus}
             onChange={this.update('password')}/>
+
+          <FontAwesomeIcon icon='exclamation-circle' className="fa-exclamation-circle-pw hidden" />
+
+          <div className="pw-error-msg hidden">
+            <p>Enter a combination of at least six numbers, letters and punctuation marks (like ! and &).</p>
+          </div>
         </label>
 
         <div className="bday">
@@ -266,17 +386,19 @@ class SignupForm extends React.Component {
         <label className="mfc">
           <input type="radio" 
             value="Female" 
+            name="g"
             onClick={this.update('gender')}/>Female
         </label>
 
         <label className="mfc">
           <input type="radio" 
             value="Male" 
+            name="g"
             onClick={this.update('gender')}/>Male
         </label>
 
         <label className="mfc">
-          <input type="radio" value="Custom" />Custom
+          <input type="radio" name="g" value="Custom" />Custom
         </label>
 
         <p className="tac">By clicking Sign Up, you agree to our <span>Terms</span>, <span>Data Policy</span> and <span>Cookies Policy</span>. You may receive SMS Notifications from us and can opt out any time.</p>

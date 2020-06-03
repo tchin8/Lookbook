@@ -1,13 +1,3 @@
-// ul, li {
-//   list-style: none;
-// }
-
-/* need css reset file */
-
-body {
-  margin: 0;
-}
-
 section.fp-top {
   background-image: linear-gradient(#4d69a1, #2e4c91);
   border-bottom: 1px solid 	#143783;
@@ -96,7 +86,7 @@ section.fp-main {
         font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif; 
         font-size: 28px;
         font-weight: bold;
-        padding-top: 30px;
+        padding: 60px 0 30px 0;
       }
     }
   }
@@ -155,9 +145,155 @@ span.bold {
   }
 }
 
-div.sfname {
-  display: flex;
-  justify-content: space-between;
+form.signup {
+  // div {
+    label {
+      position: relative;
+
+      .fa-exclamation-circle {
+        position: absolute;
+        font-size: 20px;
+      }
+    }
+  // }
+  
+  div.sfname {
+    display: flex;
+    justify-content: space-between;
+    
+    label {
+      .fa-exclamation-circle {
+        top: 10px;
+        left: 166px;
+      }
+    }
+    label {
+      .fa-exclamation-circle.hidden {
+        visibility: hidden;
+      }
+    }
+  }
+
+  label.sfemail, label.sfpw {
+    .fa-exclamation-circle {
+      top: -2px;
+      left: 372px;
+    }
+    .fa-exclamation-circle.hidden {
+      visibility: hidden;
+    }
+  }
+}
+
+div.fname-error-msg, div.lname-error-msg, div.email-error-msg, div.pw-error-msg {
+  background-color: #bd4b49;
+  // border: 1px solid #9d3f3b;
+  box-shadow: 0 2px 2px #bfb9bb;
+  // -moz-box-shadow: 0 0 3px #bfb9bb;
+  // -webkit-box-shadow: 0 0 3px #bfb9bb;
+  // box-shadow: 0 0 3px #bfb9bb;
+  border-radius: 4px;
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 13px;
+  position: absolute;
+  // right: 200px;
+}
+
+div.fname-error-msg {
+  right: 210px;
+  height: 44px;
+  top: -4px;
+  width: 140px;
+  p {
+    padding: 14px 0 0 14px;
+  }
+}
+
+div.fname-error-msg:before {
+  content: "";
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  border: 10px solid;
+  border-color: transparent transparent transparent #bd4b49 ;
+  right: -20px;
+  top: 11px;
+}
+
+div.lname-error-msg {
+  height: 44px;
+  right: 54px;
+  top: 56px;
+  width: 140px;
+  p {
+    padding: 14px 0 0 14px;
+  }
+  z-index: 1;
+}
+
+div.lname-error-msg:before {
+  content: "";
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  border: 10px solid;
+  border-color: transparent transparent #bd4b49 ;
+  right: 106px;
+  top: -20px;
+}
+
+
+div.email-error-msg, div.pw-error-msg {
+  height: 64px;
+  right: 416px;
+  top: -16px;
+  width: 300px;
+  p {
+    padding: 14px 0 0 14px;
+  }
+}
+
+div.email-error-msg:before, div.pw-error-msg:before {
+  content: "";
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  border: 10px solid;
+  border-color: transparent transparent transparent #bd4b49 ;
+  right: -20px;
+  top: 11px;
+}
+
+// div.pw-error-msg {
+//   right: 416px;
+//   height: 64px;
+//   top: -16px;
+//   width: 300px;
+//   p {
+//     padding: 14px 0 0 14px;
+//   }
+// }
+
+// div.pw-error-msg:before {
+//   content: "";
+//   position: absolute;
+//   width: 0px;
+//   height: 0px;
+//   border: 10px solid;
+//   border-color: transparent transparent transparent #bd4b49 ;
+//   right: -20px;
+//   top: 11px;
+// }
+
+// input:focus {
+//   div {
+//     display: block;
+//   }
+// }
+
+.hidden {
+  display: none;
 }
 
 div.sfname label input, label.sfemail > input, label.sfpw > input {
@@ -166,6 +302,10 @@ div.sfname label input, label.sfemail > input, label.sfpw > input {
   font-size: 18px;
   padding: 0 0 0 10px;
   height: 36px;
+}
+
+div.sfname label input.blur, label.sfemail > input.blur, label.sfpw > input.blur {
+  border: 1px solid red;
 }
 
 div.sfname label input {
@@ -215,15 +355,15 @@ label.mfc {
 
 button.btn-s {
   background-image: linear-gradient(#65a853, #578843);
-  border: 1px solid #94d77c;
+  border: 1px solid #578843;
   border-radius: 6px;
-  box-shadow: 0 -1px #3a6e21;
+  box-shadow: inset 0 1px #94d77c;
   border-style: outset;
   color: #ffffff;
   cursor: pointer;
-  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+  // font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
   font-size: 20px;
-  font-weight: bold;
+  // font-weight: bold;
   height: 40px;
   width: 200px;
   text-shadow: 0 2px 2px #446938;
@@ -234,7 +374,7 @@ p.tac {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 12px;
   line-height: 1.4;
-  padding: 6px 0 10px 0;
+  padding: 20px 0 20px 0;
   width: 300px;
 
   span {
@@ -253,15 +393,15 @@ div.demo-btn-div {
 
   button {
     background-image: linear-gradient(#65a853, #578843);
-    border: 1px solid #94d77c;
+    border: 1px solid #578843;
     border-radius: 6px;
-    box-shadow: 0 -1px #3a6e21;
+    box-shadow: inset 0 1px #94d77c;
     border-style: outset;
     color: #ffffff;
     cursor: pointer;
-    font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+    // font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
     font-size: 20px;
-    font-weight: bold;
+    // font-weight: bold;
     height: 40px;
     width: 200px;
     text-shadow: 0 2px 2px #446938;
@@ -311,4 +451,8 @@ section.fp-footer {
     font-size: 11px;
     padding: 40px 0 0 0;
   }
+}
+
+.fa-exclamation-circle {
+  color: #b94a48;
 }

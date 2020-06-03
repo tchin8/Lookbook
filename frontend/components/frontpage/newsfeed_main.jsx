@@ -12,4 +12,4 @@ class NewsfeedMain extends React.Component {
   }
 };
 
-export default NewsfeedMain
+export default NewsfeedMain;
