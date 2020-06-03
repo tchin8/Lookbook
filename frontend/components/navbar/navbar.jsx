@@ -114,7 +114,7 @@ class NavBar extends React.Component {
                     className="fa-sort-down dark" />
                 </div>
 
-                <DownDropdown logout={this.props.logout} />
+                <DownDropdown user={user} logout={this.props.logout} />
               </div>
             </section>
 

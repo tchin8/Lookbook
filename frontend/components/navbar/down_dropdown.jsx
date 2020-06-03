@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const DownDropdown = ( {logout} ) => {
+const DownDropdown = ( { user, logout } ) => {
   const fblogo = window.fblogo;
   return (
     <section className="create-drop dark">
@@ -11,7 +11,7 @@ const DownDropdown = ( {logout} ) => {
         </div>
 
         <div className="text">
-          <span className="name">Tiffany Chin</span>
+          <span className="name">{`${user.fname} ${user.lname}`}</span>
           <span className="see-profile">See your profile</span>
         </div>
       </div>
