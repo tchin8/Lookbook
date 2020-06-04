@@ -9,7 +9,7 @@ import { faExclamationCircle, faBell, faHome, faSortDown, faTv, faPlay,
   faStoreAlt, faUsers, faVideo, faImages, faLaugh, faEdit, faBookOpen, faAward, 
   faCalendarPlus, faShoppingBag, faCommentAlt, faExclamation, faCog, 
   faQuestionCircle, faMoon, faArrowCircleLeft, faSignOutAlt, faGlobe, faCamera, 
-  faPencilAlt, faEye, faSearch, faEllipsisH, faTimes} from '@fortawesome/free-solid-svg-icons';
+  faPencilAlt, faEye, faSearch, faEllipsisH, faTimes, faUserTag, faMapMarkerAlt} from '@fortawesome/free-solid-svg-icons';
 import { faNewspaper, faShareSquare } from '@fortawesome/free-regular-svg-icons';
 
 library.add(fab, faExclamationCircle, faBell, faHome, faSortDown, faTv, faPlay, 
@@ -17,7 +17,7 @@ library.add(fab, faExclamationCircle, faBell, faHome, faSortDown, faTv, faPlay,
   faCalendarPlus, faShoppingBag, faCommentAlt, faExclamation, faCog, 
   faQuestionCircle, faMoon, faArrowCircleLeft, faSignOutAlt, faGlobe, 
   faNewspaper, faShareSquare, faCamera, faPencilAlt, faEye, faSearch, 
-  faEllipsisH, faTimes);
+  faEllipsisH, faTimes, faUserTag, faMapMarkerAlt);
 
 
 document.addEventListener("DOMContentLoaded", () => {

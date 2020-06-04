@@ -340,7 +340,7 @@ label.sfemail > input, label.sfpw > input {
   width: 388px;
 }
 
-::placeholder {
+input.lname::placeholder, input.fname::placeholder, input.email::placeholder, input.pw::placeholder {
   color: #999999;
 }
 
