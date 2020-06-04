@@ -12,8 +12,6 @@ class WallPost extends React.Component {
         <div className="top dark">
           {/* change to user's img */}
           <img src={fblogo} alt="" className="thumbnail" />
-          {/* <input type="text" 
-            className="wall-search dark" placeholder="What's on your mind?" /> */}
 
           <button className="wall-post dark"
             onClick={() => openModal('create post')}>What's on your mind?</button> 

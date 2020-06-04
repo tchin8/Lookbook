@@ -16,6 +16,7 @@ function postsReducer(state = {}, action) {
     case RECEIVE_POST:
       return Object.assign({}, state, { [action.post.id]: action.post });
     case REMOVE_POST:
+      // debugger;
       delete newState[action.postId];
       return newState;
     default:

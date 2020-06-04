@@ -2,7 +2,7 @@ import React, { Profiler } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import WallPostContainer from '../posts/wall_post_container';
-import PostsIndexContainer from '../posts/posts_index_container';
+import PostsIndexContainer from '../posts/post_index_container';
 
 class ProfileMain extends React.Component {
   render() {
