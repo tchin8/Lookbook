@@ -46,7 +46,7 @@ class NavBar extends React.Component {
 
   render () {
     const fblogo = window.fblogo;
-    const { user } = this.props;
+    const { currentUser } = this.props;
 
     return (
       <section className="whole-nav">
@@ -109,13 +109,13 @@ class NavBar extends React.Component {
 
           <section className="right-navbar">
             <div className="right-navbar">
-              <Link to={`/users/${user.id}`} 
+              <Link to={`/users/${currentUser.id}`} 
                 style={{ textDecoration: 'none' }}>
               <div className="profile">
                 {/* change to user's image_url */}
                 <img src={fblogo} alt="" className="pfp" />
                 {/* needa use current user's name!! */}
-                <span>{user.fname}</span>
+                <span>{currentUser.fname}</span>
               </div>
               </Link>
             </div>
@@ -149,7 +149,7 @@ class NavBar extends React.Component {
                   className="fa-sort-down dark" />
               </div>
               
-              <DownDropdown user={user} logout={this.props.logout} />
+              <DownDropdown currentUser={currentUser} logout={this.props.logout} />
             </div>
           </section>
         </section>

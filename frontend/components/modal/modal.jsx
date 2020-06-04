@@ -1,14 +1,18 @@
 import React from 'react';
 import CreatePostFormContainer from '../posts/create_post_form_container';
 
-function Modal({ modal, closeModal }) {
+function Modal({ currentUser, user, modal, closeModal }) {
+  // const { currentUser, user, modal, closeModal } = this.props;
+
   if (!modal) {
     return null;
   }
   let component;
   switch (modal) {
     case 'create post':
-      component = <CreatePostFormContainer />;
+      component = <CreatePostFormContainer 
+        currentUser={currentUser}
+        user={user}/>;
       break;
     // case 'edit post':
     //   component = <SignupFormContainer />;

@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 
 import Modal from './modal';
 
-const mapStateToProps = state => {
-  return {
-    modal: state.ui.modal
-  };
-};
+const mapStateToProps = (state, ownProps) => ({
+  currentUser: state.entities.users[state.session.id],
+  user: state.entities.users[ownProps.match.params.userId],
+  modal: state.ui.modal, 
+});
 
 const mapDispatchToProps = dispatch => {
   return {

@@ -6,7 +6,7 @@ import PostForm from './post_form';
 
 const mSTP = (state, ownProps) => ({
   // currentUser: Object.values(state.session)[0],
-  currentUser: state.entities.users[Object.values(state.session)[0]],
+  // currentUser: state.entities.users[state.session.id],
   // wall: ownProps.match.params.userId,
   formType: 'create post'
   // formType: 'Create Post'

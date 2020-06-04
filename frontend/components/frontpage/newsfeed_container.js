@@ -4,7 +4,7 @@ import Newsfeed from './newsfeed';
 import { logout } from '../../actions/session_actions';
 
 const mSTP = state => ({
-  user: state.entities.users[state.session.id]
+  currentUser: state.entities.users[state.session.id]
 });
 
 const mDTP = dispatch => ({

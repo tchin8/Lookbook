@@ -4,10 +4,12 @@ import NewsfeedMain from './newsfeed_main';
 
 class Newsfeed extends React.Component {
   render() {
+    const { currentUser, logout } = this.props;
+    
     return (
       <div>
-        <NavBar user={this.props.user} logout={this.props.logout}/>
-        <NewsfeedMain logout={this.props.logout}/>
+        <NavBar currentUser={currentUser} logout={logout}/>
+        <NewsfeedMain logout={logout}/>
       </div>
     )
   }

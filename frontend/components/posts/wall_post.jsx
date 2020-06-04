@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 class WallPost extends React.Component {
 
   render() {
-    const { openModal, closeModal } = this.props;
+    const { currentUser, user, openModal, closeModal } = this.props;
     const fblogo = window.fblogo;
 
     return (

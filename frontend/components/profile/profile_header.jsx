@@ -4,8 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 class ProfileHeader extends React.Component {
 
   render() {
+
     const { user } = this.props;
+    
     const buttonText = user.bio ? "Edit" : "Add Bio";
+
     return (
       <section className="p-header">
         <div className="cover-pic">

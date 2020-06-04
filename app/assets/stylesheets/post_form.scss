@@ -58,22 +58,54 @@ div.create-post-form-container {
   div.me {
     display: flex;
     margin: 10px;
+    position: relative;
 
     img.thumbnail {
       height: 40px;
       border-radius: 100%;
+      position: relative;
+      top: 2px;
     }
 
     div {
-      height: 30px;
+      // height: 44px;
+      margin: 0 0 0 10px;
 
       div {
         background-color: #3a3b3c;
         border-radius: 6px;
+        cursor: pointer;
+        margin: 4px 0 0 0;
         height: 25px;
-        // line-height: 1.2;
-        text-align: center;
         width: 95px;
+        position: relative;
+
+        span.pname {
+          font-size: 15px;
+          display: block;
+          margin: 0 0 2px 0;
+        }
+
+        .fa-user-friends.dark{
+          font-size: 12px;
+          position: relative;
+          left: 8px;
+          bottom: 1px;
+        }
+
+        span.friends {
+          font-size: 13px;
+          position: relative;
+          left: 12px;
+          bottom: 1px;
+        }
+
+        .fa-sort-down.dark {
+          font-size: 14px;
+          position: relative;
+          bottom: 3px;
+          left: 4px;
+        }
       }
     }
   }

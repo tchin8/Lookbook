@@ -4,7 +4,7 @@ import {
   Link
 } from 'react-router-dom';
 
-const DownDropdown = ( { user, logout } ) => {
+const DownDropdown = ( { currentUser, logout } ) => {
   const fblogo = window.fblogo;
   return (
     <section className="down-drop dark hidden">
@@ -15,7 +15,7 @@ const DownDropdown = ( { user, logout } ) => {
         </div>
 
         <div className="text">
-          <span className="name">{`${user.fname} ${user.lname}`}</span>
+          <span className="name">{`${currentUser.fname} ${currentUser.lname}`}</span>
           <span className="see-profile">See your profile</span>
         </div>
       </div>

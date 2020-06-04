@@ -6,8 +6,8 @@ class PostForm extends React.Component {
     super(props);
 
     this.state = {
-      author_id: this.props.currentUser,
-      user_id: this.props.wall,
+      author_id: this.props.currentUser.id,
+      user_id: this.props.user.id,
       body: ''
     };
 
@@ -22,12 +22,14 @@ class PostForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    this.props.closeModal();
+    this.props.createPost(this.state);
     // other stuff here
   }
 
   render() {
     const thumbnail = window.fblogo;
-    const { currentUser, createPost, closeModal } = this.props;
+    const { currentUser, user, createPost, closeModal } = this.props;
     return (
     <div className="create-post-form-container">
       <div className="header">
@@ -48,15 +50,21 @@ class PostForm extends React.Component {
         <img src={fblogo} alt="" className="thumbnail" />
 
         <div>
-          <span>{currentUser.fname} {currentUser.lname}</span>
+          <span className="pname">{currentUser.fname} {currentUser.lname}</span>
 
-          <div>Friends</div>
+          <div>
+            <FontAwesomeIcon icon="user-friends"
+              className="fa-user-friends dark" />
+            <span className="friends">Friends</span>
+            <FontAwesomeIcon icon="sort-down"
+                className="fa-sort-down dark" />
+          </div>
         </div>
       </div>
 
-      <form onSubmit={this.handleSubmit}
+      <form
         className="create-post-form">
-        <textarea onChange={this.update('title')} 
+        <textarea onChange={this.update('body')} 
           placeholder="What's on your mind?"></textarea>
         
         <div className="add-to-post">
@@ -92,7 +100,9 @@ class PostForm extends React.Component {
           </div>
         </div>
 
-        <button className="create-post" disabled={!this.state.body}>Post</button>
+        <button onClick={this.handleSubmit}
+          className="create-post" 
+          disabled={!this.state.body}>Post</button>
       </form>
     </div>
     )

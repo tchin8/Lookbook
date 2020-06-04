@@ -6,13 +6,13 @@ import ProfileMain from './profile_main';
 class Profile extends React.Component {
 
   render() {
-    const { user, logout } = this.props;
+    const { user, currentUser, logout } = this.props;
     return (
       <div>
-        <NavBar user={user} logout={logout} />
+        <NavBar currentUser={currentUser} logout={logout} />
         {/* {user.fname}'s Profile Page */}
-        <ProfileHeader user={user} />
-        <ProfileMain user={user} />
+        <ProfileHeader currentUser={currentUser} user={user}/>
+        <ProfileMain currentUser={currentUser} user={user}/>
       </div>
     )
   }
