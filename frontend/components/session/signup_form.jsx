@@ -24,7 +24,7 @@ class SignupForm extends React.Component {
   }
 
   handleSubmit(e) {
-    debugger; 
+    // debugger; 
     e.preventDefault();
     
     this.props.signup( this.state );
@@ -84,8 +84,9 @@ class SignupForm extends React.Component {
     $(`.mfc-error-msg`).addClass('hidden');
 
     // $(`.fa-exclamation-circle-${classN}`).addClass('hidden');
-    $(`.${classN}-error-msg`).removeClass('hidden');
-    
+    if (classN !== 'mfc') {
+      $(`.${classN}-error-msg`).removeClass('hidden');
+    }
   }
 
   update(field) {
@@ -405,9 +406,13 @@ class SignupForm extends React.Component {
             value="Female" 
             name="g"
             className="mfc"
-            onBlur={this.handleBlur}
+            // onBlur={this.handleBlur}
             onFocus={this.handleFocus}
             onClick={this.update('gender')}/>Female
+
+            <div className="mfc-error-msg hidden">
+            <p>Please choose a gender. You can change who <br /> can see this later.</p>
+          </div>
         </label>
 
         <label className="mfc">
@@ -415,7 +420,7 @@ class SignupForm extends React.Component {
             value="Male" 
             name="g"
             className="mfc"
-            onBlur={this.handleBlur}
+            // onBlur={this.handleBlur}
             onFocus={this.handleFocus}
             onClick={this.update('gender')}/>Male
         </label>
@@ -424,7 +429,7 @@ class SignupForm extends React.Component {
           <input type="radio" 
             name="g" 
             className="mfc"
-            onBlur={this.handleBlur}
+            // onBlur={this.handleBlur}
             onFocus={this.handleFocus}
             value="Custom" />Custom
           <FontAwesomeIcon icon='exclamation-circle' className="fa-exclamation-circle-mfc hidden" />

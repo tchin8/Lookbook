@@ -20,9 +20,10 @@
 #  updated_at          :datetime         not null
 #
 class User < ApplicationRecord
-  validates :fname, :lname, :email, :gender, :password_digest, :session_token, presence: true
+  validates :fname, :lname, :email, :password_digest, :session_token, presence: true
   validates :email, uniqueness: true
   validates :password, length: { minimum: 6 }, allow_nil: true
+  validates :gender, presence: true
 
   attr_reader :password
   after_initialize :ensure_session_token

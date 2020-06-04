@@ -185,7 +185,7 @@ label.mfc {
   }
 }
 
-div.fname-error-msg, div.lname-error-msg, div.email-error-msg, div.pw-error-msg, div.lemail-error-msg, div.lpw-error-msg {
+div.fname-error-msg, div.lname-error-msg, div.email-error-msg, div.pw-error-msg, div.lemail-error-msg, div.lpw-error-msg, div.mfc-error-msg {
   background-color: #bd4b49;
   // border: 1px solid #9d3f3b;
   box-shadow: 0 2px 2px #bfb9bb;
@@ -253,6 +253,27 @@ div.email-error-msg, div.pw-error-msg {
 }
 
 div.email-error-msg:before, div.pw-error-msg:before {
+  content: "";
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  border: 10px solid;
+  border-color: transparent transparent transparent #bd4b49 ;
+  right: -20px;
+  top: 11px;
+}
+
+div.mfc-error-msg {
+  height: 64px;
+  right: 114px;
+  top: -10px;
+  width: 300px;
+  p {
+    padding: 14px 0 0 14px;
+  }
+}
+
+div.mfc-error-msg:before {
   content: "";
   position: absolute;
   width: 0px;
