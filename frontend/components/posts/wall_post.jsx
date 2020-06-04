@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 class WallPost extends React.Component {
 
   render() {
+    const { openModal, closeModal } = this.props;
     const fblogo = window.fblogo;
 
     return (
@@ -14,7 +15,8 @@ class WallPost extends React.Component {
           {/* <input type="text" 
             className="wall-search dark" placeholder="What's on your mind?" /> */}
 
-          <button className="wall-post dark">What's on your mind?</button> 
+          <button className="wall-post dark"
+            onClick={() => openModal('create post')}>What's on your mind?</button> 
         </div>
 
         <div className="bottom dark">

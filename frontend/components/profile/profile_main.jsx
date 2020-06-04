@@ -1,7 +1,7 @@
 import React, { Profiler } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import WallPost from '../posts/wall_post';
+import WallPostContainer from '../posts/wall_post_container';
 import PostsIndexContainer from '../posts/posts_index_container';
 
 class ProfileMain extends React.Component {
@@ -15,7 +15,7 @@ class ProfileMain extends React.Component {
           </div>
 
           <div className="main-right">
-            <WallPost />
+            <WallPostContainer />
 
             <PostsIndexContainer />
           </div>

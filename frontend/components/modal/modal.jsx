@@ -1,5 +1,5 @@
 import React from 'react';
-import PostFormContainer from '../posts/post_form_container';
+import CreatePostFormContainer from '../posts/create_post_form_container';
 
 function Modal({ modal, closeModal }) {
   if (!modal) {
@@ -7,10 +7,10 @@ function Modal({ modal, closeModal }) {
   }
   let component;
   switch (modal) {
-    case 'post':
-      component = <PostFormContainer />;
+    case 'create post':
+      component = <CreatePostFormContainer />;
       break;
-    // case 'signup':
+    // case 'edit post':
     //   component = <SignupFormContainer />;
     //   break;
     default:
