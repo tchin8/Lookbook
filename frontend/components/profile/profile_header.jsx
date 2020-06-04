@@ -7,7 +7,9 @@ class ProfileHeader extends React.Component {
 
     const { user } = this.props;
     
-    const buttonText = user.bio ? "Edit" : "Add Bio";
+    const button = user.bio ? 
+      <button className="edit">Edit</button> : 
+      <button className="add-bio">Add Bio</button>
 
     return (
       <section className="p-header">
@@ -35,7 +37,7 @@ class ProfileHeader extends React.Component {
             <span className="bio dark">
               {user.bio}
 
-              <button>{buttonText}</button>
+              {button}
             </span>
           </div>
 

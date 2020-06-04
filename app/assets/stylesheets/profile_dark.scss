@@ -83,10 +83,10 @@ section.p-header {
     font-family: Arial, Helvetica, sans-serif;
     margin: auto;
     width: 878px;
-    height: 180px;
+    min-height: 160px;
 
     div.under-top {
-      height: 120px;
+      min-height: 100px;
       position: relative;
       text-align: center;
       width: 100%;
@@ -105,7 +105,7 @@ section.p-header {
         position: relative;
         top: -16px;
 
-        button {
+        button.edit {
           background:none;
           border:none;
           color: #2e89ff;
@@ -114,9 +114,24 @@ section.p-header {
           font-size: 14px;
           margin: 0;
           padding: 0;
-          position: absolute;
-          top: 20px;
-          left: 42px;
+          position: relative;
+          top: 4px;
+          left: 426px;
+        }
+
+        button.add-bio {
+          background:none;
+          border:none;
+          color: #2e89ff;
+          cursor: pointer;
+          display: block;
+          font-size: 14px;
+          margin: 0;
+          padding: 0;
+          position: relative;
+          width: 100px;
+          // top: 4px;
+          left: 390px;
         }
 
         button:hover {
@@ -317,12 +332,13 @@ section.profile-main {
             }
           }
 
+          // KEEP FOR NOW!!!
           // div.list.dark:focus, div.grid.dark:focus {
           //   border-bottom: 3px solid #2e89ff;
           //   border-radius: 0;
           //   color: #2e89ff;
           // }
-
+          // KEEP!!
           
           div.grid.dark, div.list.dark {
             color: #a7abaf;

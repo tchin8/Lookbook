@@ -9,6 +9,7 @@ require 'faker'
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
+Post.destroy_all
 
 User.create!(
     fname: 'Tiffany',
@@ -72,3 +73,21 @@ end
     relationship_status: random_relation()
   )
 end 
+
+Post.create!(
+  author_id: 1, 
+  user_id: 1, 
+  body: "First post ever!"
+)
+
+Post.create!(
+  author_id: 1, 
+  user_id: 1, 
+  body: "Second post"
+)
+
+Post.create!(
+  author_id: 1, 
+  user_id: 1, 
+  body: "Third post"
+)
