@@ -20,7 +20,9 @@ section.p-header {
     // z-index: 10;
 
     div.pfp.dark {
-      background-color: black;
+      background-image: url("default_pfp.png");
+      background-size: 170px;
+      // background-color: black;
       border: 4px solid #242526;
       border-radius: 100%;
       height: 170px;
@@ -722,6 +724,7 @@ ul.wall-posts {
     }
 
     div.post-comment.dark {
+      height: 50px;
       
       div.comment {
         display: flex;
@@ -737,6 +740,7 @@ ul.wall-posts {
         }
 
         form.comment.dark {
+          position: relative;
 
           input.comment {
             background-color: #3a3b3c;
@@ -750,6 +754,17 @@ ul.wall-posts {
           input.comment::placeholder {
             color: #a6a8ae;
             font-size: 14px;
+          }
+
+          div.icons {
+            position: absolute;
+            top: 8px;
+            left: 326px;
+
+            .fa-smile.dark, .fa-image.dark, .fa-film.dark, .fa-github-alt.dark {
+              color: #8a8d90;
+              margin: 0 4px;
+            }
           }
         }
       }

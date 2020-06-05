@@ -12,6 +12,7 @@ class PostIndexItem extends React.Component {
     this.handleDeletePost = this.handleDeletePost.bind(this);
   }
 
+  // DONT NEED THIS DONT UNCOMMENT BACK
   // componentDidMount() {
   //   this.props.fetchPost(this.state.id);
   // }
@@ -58,7 +59,7 @@ class PostIndexItem extends React.Component {
       amOrPm = "PM";
     }
     
-    // debugger;
+    debugger;
     const hour = then.getHours() % 12;
     const min = then.getMinutes() < 10 ? `0${then.getMinutes()}` : then.getMinutes();
     if (secs >= 86400 && secs < 172800) {
@@ -80,19 +81,21 @@ class PostIndexItem extends React.Component {
     // debugger;
 
     // $(`div.${classN}`).toggleClass('hidden');
-    $(`#dd-${this.state.id}`).toggleClass('hidden');
+    $(`#dd-${this.state.id}`).toggleClass('show hidden');
     // shouldn't toggle, will need to add class hidden if clicking outside 
   }
 
   handleDeletePost(e) {
     e.preventDefault();
     this.props.deletePost(this.state.id);
+    $(`.show`).toggleClass('show hidden');
   }
 
   render() {
-    const { post, deletePost, updatePost } = this.props;
-    const fblogo = window.fblogo;
-
+    const { post, deletePost, updatePost, openModal } = this.props;
+    const defaultpfp = window.defaultpfp;
+    
+    debugger;
     if (!post) {
       debugger;
       return null;
@@ -104,7 +107,7 @@ class PostIndexItem extends React.Component {
 
           <div className="user-info">
 
-            <img src={fblogo} alt="" className="thumbnail" />
+            <img src={defaultpfp} alt="" className="thumbnail" />
 
             <div>
               <span className="pname">{currentUser.fname} {currentUser.lname}</span>
@@ -140,7 +143,7 @@ class PostIndexItem extends React.Component {
                 <div className="pdd-divider"></div>
 
                 <div className="edit-post"
-                  onClick={() => updatePost(post)}>
+                  onClick={() => openModal('edit post')}>
                   <FontAwesomeIcon icon={['far', 'edit']}
                     className="fa-edit dark" />
 
@@ -235,7 +238,7 @@ class PostIndexItem extends React.Component {
 
         <div className="post-comment dark">
           <div className="comment">
-            <img src={fblogo} alt="" className="thumbnail" />
+            <img src={defaultpfp} alt="" className="thumbnail" />
 
             <form className="comment dark">
               <input className="comment"
@@ -243,8 +246,19 @@ class PostIndexItem extends React.Component {
                 placeholder="Write a comment..."/>
               
               <div className="icons">
-
+                <FontAwesomeIcon icon={['far', 'smile']}
+                  className="fa-smile dark" />
+                <FontAwesomeIcon icon={['far', 'image']}
+                  className="fa-image dark" />
+                {/* <FontAwesomeIcon icon={['fab', 'searchengin']}
+                  className="fa-searchengin dark" /> */}
+                <FontAwesomeIcon icon="film"
+                  className="fa-film dark" />
+                <FontAwesomeIcon icon={['fab', 'github-alt']}
+                  className="fa-github-alt dark" />
               </div>
+
+              {/* needs an onSubmit later on for commenting */}
             </form>
           </div>
         </div>

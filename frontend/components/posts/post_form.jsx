@@ -23,13 +23,13 @@ class PostForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.closeModal();
-    this.props.createPost(this.state);
+    this.props.action(this.state);
     // other stuff here
   }
 
   render() {
     const thumbnail = window.fblogo;
-    const { currentUser, user, createPost, closeModal } = this.props;
+    const { currentUser, user, action, closeModal } = this.props;
     return (
     <div className="create-post-form-container">
       <div className="header">
@@ -64,7 +64,8 @@ class PostForm extends React.Component {
 
       <form
         className="create-post-form">
-        <textarea onChange={this.update('body')} 
+        <textarea value={this.state.body}
+          onChange={this.update('body')} 
           placeholder="What's on your mind?"></textarea>
         
         <div className="add-to-post">
@@ -100,7 +101,7 @@ class PostForm extends React.Component {
           </div>
         </div>
 
-        <button onClick={this.handleSubmit}
+          <button onClick={this.handleSubmit}
           className="create-post" 
           disabled={!this.state.body}>Post</button>
       </form>

@@ -47,6 +47,7 @@ class NavBar extends React.Component {
 
   render () {
     const fblogo = window.fblogo;
+    const defaultpfp = window.defaultpfp;
     const { currentUser } = this.props;
 
     return (
@@ -114,7 +115,7 @@ class NavBar extends React.Component {
                 style={{ textDecoration: 'none' }}>
               <div className="profile">
                 {/* change to user's image_url */}
-                <img src={fblogo} alt="" className="pfp" />
+                <img src={defaultpfp} alt="" className="pfp" />
                 {/* needa use current user's name!! */}
                 <span>{currentUser.fname}</span>
               </div>

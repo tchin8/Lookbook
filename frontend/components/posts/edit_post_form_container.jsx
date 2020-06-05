@@ -32,7 +32,7 @@ const mSTP = (state, ownProps) => ({
 
 const mDTP = dispatch => ({
   fetchPost: postId => dispatch(fetchPost(postId)),
-  updatePost: post => dispatch(updatePost(post)),
+  action: post => dispatch(updatePost(post)),
   closeModal: () => dispatch(closeModal())
 });
 

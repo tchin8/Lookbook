@@ -5,13 +5,13 @@ class WallPost extends React.Component {
 
   render() {
     const { currentUser, user, openModal, closeModal } = this.props;
-    const fblogo = window.fblogo;
+    const defaultpfp = window.defaultpfp;
 
     return (
       <section className="wall-post-container dark">
         <div className="top dark">
           {/* change to user's img */}
-          <img src={fblogo} alt="" className="thumbnail" />
+          <img src={defaultpfp} alt="" className="thumbnail" />
 
           <button className="wall-post dark"
             onClick={() => openModal('create post')}>What's on your mind?</button> 

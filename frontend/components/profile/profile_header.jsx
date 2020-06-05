@@ -36,7 +36,6 @@ class ProfileHeader extends React.Component {
   // }
 
   render() {
-
     const { user, updateUser } = this.props;
 
     let button;

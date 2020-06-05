@@ -16,7 +16,7 @@ class PostIndex extends React.Component {
   }
 
   render() {
-    const { posts, deletePost, updatePost, fetchPost } = this.props;
+    const { posts, deletePost, updatePost, fetchPost, openModal } = this.props;
 
     let postIds = posts.map(post => (post.id));
     // console.log(postIds);
@@ -34,7 +34,8 @@ class PostIndex extends React.Component {
             post={post} 
             fetchPost={fetchPost}
             updatePost={updatePost}
-            deletePost={deletePost} />
+            deletePost={deletePost} 
+            openModal={openModal}/>
         ))}
       </ul>
     )
