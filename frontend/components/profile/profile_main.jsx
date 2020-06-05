@@ -2,7 +2,7 @@ import React, { Profiler } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import WallPostContainer from '../posts/wall_post_container';
-import PostsIndexContainer from '../posts/post_index_container';
+import PostIndexContainer from '../posts/post_index_container';
 
 class ProfileMain extends React.Component {
   render() {
@@ -13,11 +13,50 @@ class ProfileMain extends React.Component {
           <div className="main-left">
             <div className="intro dark">
               <span>Intro</span>
+              <button className="edit-details">Edit Details</button>
 
+              <div className="featured-pics">
+                <div className="featured-row-1-3">
+                  <div className="pic-1-9"></div>
+                  <div className="pic-2-9"></div>
+                  <div className="pic-3-9"></div>
+                </div>
+                <div className="featured-row-2-3">
+                  <div className="pic-4-9"></div>
+                  <div className="pic-5-9"></div>
+                  <div className="pic-6-9"></div>
+                </div>
+                <div className="featured-row-3-3">
+                  <div className="pic-7-9"></div>
+                  <div className="pic-8-9"></div>
+                  <div className="pic-9-9"></div>
+                </div>
+              </div>
+
+              <button className="edit-featured">Edit Featured</button>
             </div>
 
             <div className="photos dark">
               <span>Photos</span>
+
+              <div className="photos">
+                <div className="photos-row-1-3">
+                  <div className="pic-1-9"></div>
+                  <div className="pic-2-9"></div>
+                  <div className="pic-3-9"></div>
+                </div>
+
+                <div className="photos-row-2-3">
+                  <div className="pic-4-9"></div>
+                  <div className="pic-5-9"></div>
+                  <div className="pic-6-9"></div>
+                </div>
+                <div className="photos-row-3-3">
+                  <div className="pic-7-9"></div>
+                  <div className="pic-8-9"></div>
+                  <div className="pic-9-9"></div>
+                </div>
+              </div>
             </div>
 
             <div className="friends dark">
@@ -68,7 +107,7 @@ class ProfileMain extends React.Component {
               </div>
             </div>
 
-            <PostsIndexContainer />
+            <PostIndexContainer currentUser={currentUser}/>
           </div>
         </div>
       </section>

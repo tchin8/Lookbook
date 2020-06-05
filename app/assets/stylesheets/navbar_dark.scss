@@ -54,6 +54,19 @@ section.right-navbar {
   margin: 0 16px 0 0;
   
   div.right-navbar {
+    div.down-arrow-circle.blue, div.plus-circle.blue, div.msg-circle.blue, div.bell-circle.blue {
+      .fa-sort-down, .plus, .fa-dacebook-messenger, .fa-bell {
+        color: #0088ff;
+      }
+    }
+
+    div.profile.blue {
+      background-color: #3a3b3c;
+      span {
+        color: #2e89ff;
+      }
+    }
+
     div.profile, div.plus-circle, div.msg-circle, div.bell-circle, div.down-arrow-circle {
       margin: 10px 0 10px 0;
     }

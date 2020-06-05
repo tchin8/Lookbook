@@ -16,7 +16,7 @@ class NavBar extends React.Component {
 
 
   handleFocus(e) {
-    console.log('on click/focus');
+    // console.log('on click/focus');
     let classN = '';
     // e.currentTarget.focus();
     if (e.currentTarget.classList.contains('down-arrow-circle')) {
@@ -24,9 +24,10 @@ class NavBar extends React.Component {
     } else if (e.currentTarget.classList.contains('plus-circle')) {
       classN += 'plus-drop';
     }
-    console.log(classN);
+    // console.log(classN);
 
     $(`section.${classN}`).toggleClass('hidden');
+    e.currentTarget.classList.toggle('blue');
     // shouldn't toggle, will need to add class hidden if clicking outside 
   }
 
@@ -45,10 +46,26 @@ class NavBar extends React.Component {
     $(`section.plus-drop`).addClass('hidden');
   }
 
+  handleProfile(e) {
+    if (this.props.match.params.userId === this.props.currentUser.id) {
+      e.currentTarget.classList.add('blue');
+    } else {
+      e.currentTarget.classList.remove('blue');
+    }
+  }
+
   render () {
     const fblogo = window.fblogo;
     const defaultpfp = window.defaultpfp;
+    const me = window.me;
     const { currentUser } = this.props;
+
+    let pic;
+    if (currentUser.id === 1) {
+      pic = me;
+    } else {
+      pic = defaultpfp;
+    }
 
     return (
       <section className="whole-nav">
@@ -113,10 +130,11 @@ class NavBar extends React.Component {
             <div className="right-navbar">
               <Link to={`/users/${currentUser.id}`} 
                 style={{ textDecoration: 'none' }}>
-              <div className="profile">
+              <div className="profile"
+                onClick={this.handleProfile}>
                 {/* change to user's image_url */}
-                <img src={defaultpfp} alt="" className="pfp" />
-                {/* needa use current user's name!! */}
+                <img src={pic} alt="" className="pfp" />
+
                 <span>{currentUser.fname}</span>
               </div>
               </Link>
@@ -130,14 +148,16 @@ class NavBar extends React.Component {
             </div>
 
             <div className="right-navbar">
-              <div className="msg-circle dark">
+              <div className="msg-circle dark"
+                onFocus={this.handleFocus}>
                 <FontAwesomeIcon icon={['fab','facebook-messenger']} 
                   className="fa-facebook-messenger dark" />
               </div>
             </div>
 
             <div className="right-navbar">
-              <div className="bell-circle dark">
+              <div className="bell-circle dark"
+                onFocus={this.handleFocus}>
                 <FontAwesomeIcon icon="bell" 
                   className="fa-bell dark" />
               </div>

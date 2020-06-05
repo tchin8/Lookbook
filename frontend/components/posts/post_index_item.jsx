@@ -92,8 +92,23 @@ class PostIndexItem extends React.Component {
   }
 
   render() {
-    const { post, deletePost, updatePost, openModal } = this.props;
+    const { post, deletePost, updatePost, openModal, currentUser } = this.props;
     const defaultpfp = window.defaultpfp;
+    const me = window.me;
+
+    let posterPic;
+    if (post.author_id === 1) {
+      posterPic = me;
+    } else {
+      posterPic = defaultpfp;
+    }
+
+    let commenterPic;
+    if (currentUser.id === 1) {
+      commenterPic= me;
+    } else {
+      commenterPic = defaultpfp;
+    }
     
     debugger;
     if (!post) {
@@ -107,7 +122,7 @@ class PostIndexItem extends React.Component {
 
           <div className="user-info">
 
-            <img src={defaultpfp} alt="" className="thumbnail" />
+            <img src={posterPic} alt="" className="thumbnail" />
 
             <div>
               <span className="pname">{currentUser.fname} {currentUser.lname}</span>
@@ -238,7 +253,7 @@ class PostIndexItem extends React.Component {
 
         <div className="post-comment dark">
           <div className="comment">
-            <img src={defaultpfp} alt="" className="thumbnail" />
+            <img src={commenterPic} alt="" className="thumbnail" />
 
             <form className="comment dark">
               <input className="comment"

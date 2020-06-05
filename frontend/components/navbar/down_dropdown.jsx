@@ -12,13 +12,21 @@ class DownDropdown extends React.Component {
 
   render () {
     const { currentUser, logout } = this.props;
-    const fblogo = window.fblogo;
+    const me = window.me;
+    const defaultpfp = window.defaultpfp;
+    let pic;
+    if (currentUser.id === 1) {
+      pic = me;
+    } else {
+      pic = defaultpfp;
+    }
+
     return (
       <section className="down-drop dark hidden">
         {/* <Link to={`/users/${user.id}`}> */}
         <div>
           <div>
-            <img src={fblogo} alt="" className="fb-pfp" />
+            <img src={pic} alt="" className="fb-pfp" />
           </div>
 
           <div className="text">

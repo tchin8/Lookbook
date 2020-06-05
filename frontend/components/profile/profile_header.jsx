@@ -36,6 +36,22 @@ class ProfileHeader extends React.Component {
   // }
 
   render() {
+    const defaultpfp = window.defaultpfp;
+    const me = window.me;
+    const myCv = window.cv;
+
+    let pic;
+    let cv;
+    if (currentUser.id === 1) {
+      pic = me;
+      cv = myCv;
+    } else {
+      pic = defaultpfp;
+    }
+
+
+
+
     const { user, updateUser } = this.props;
 
     let button;
@@ -50,7 +66,10 @@ class ProfileHeader extends React.Component {
     return (
       <section className="p-header">
         <div className="cover-pic">
+          <img src={cv} alt="" className="cover-pic" />
+
           <div className="pfp dark">
+            <img src={pic} alt="" className="pfp" />
             <div className="cam-circle dark">
               <FontAwesomeIcon icon="camera"
                 className="fa-camera dark" />

@@ -36,6 +36,8 @@ class User < ApplicationRecord
     class_name: :Post,
     foreign_key: :user_id
 
+  has_one_attached :pfp
+
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
     if !user 
