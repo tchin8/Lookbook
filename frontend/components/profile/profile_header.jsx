@@ -2,14 +2,51 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class ProfileHeader extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = this.props.user;
+  }
+
+  handleClick(e) {
+    e.preventDefault();
+    $('.bio').toggleClass("show hidden");
+  }
+
+  // count() {
+  //   let chars = this.state.bio.length
+  //   if (chars > 0) {
+  //     const rem = 101 - chars;
+  //     return `${rem} characters remaining`;
+  //   }
+
+  //   return '101 characters remaining'
+  // }
+
+  update(field) {
+    return e => (
+      this.setState({ [field]: e.currentTarget.value })
+    )
+  }
+
+  // handleSubmit(e) {
+  //   e.preventDefault();
+  //   this.props.updateUser(this.state);
+  //   $('.bio').toggleClass("show hidden");
+  // }
 
   render() {
 
-    const { user } = this.props;
-    
-    const button = user.bio ? 
-      <button className="edit">Edit</button> : 
-      <button className="add-bio">Add Bio</button>
+    const { user, updateUser } = this.props;
+
+    let button;
+    if (currentUser.id === user.id) {
+      button = (user.bio !== undefined) ? 
+        <button className="edit"
+          onClick={this.handleClick}>Edit</button> : 
+        <button className="add-bio"
+          onClick={this.handleClick}>Add Bio</button>
+    }
 
     return (
       <section className="p-header">
@@ -34,11 +71,28 @@ class ProfileHeader extends React.Component {
               {user.fname} {user.lname}
             </span>
 
-            <span className="bio dark">
+            <span className="bio dark show">
               {user.bio}
 
               {button}
             </span>
+
+            <form className="bio dark hidden">
+              <textarea className="text-bio dark"
+                value={this.state.bio}
+                placeholder="Describe who you are"
+                onChange={this.update('bio')}
+                />
+              {/* <span>{101 - this.bio.length} characters remaining</span> */}
+              <div>
+                <button className="cxl-bio" 
+                  onClick={this.handleClick}>Cancel</button>
+                <button className="save-bio"
+                  onClick={() => updateUser(this.state)}
+                  disabled={!this.state.bio}>Save</button>
+              </div>
+            </form>
+
           </div>
 
           <div className="under-bottom dark">

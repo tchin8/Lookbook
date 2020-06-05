@@ -14,6 +14,7 @@ class NavBar extends React.Component {
   //   // no need, already added link
   // }
 
+
   handleFocus(e) {
     console.log('on click/focus');
     let classN = '';

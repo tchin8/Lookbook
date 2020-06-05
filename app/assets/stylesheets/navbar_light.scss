@@ -1,0 +1,203 @@
+// section.whole-nav {
+//   background-color:	#242526;
+//   border-bottom: 1px solid #393a3b;
+//   box-shadow: 0 3px 2px #212222;
+//   height: 60px;
+//   width: 100%;
+//   position: fixed;
+//   z-index: 1;
+// }
+
+// section.navbar-light {
+//   display: flex;
+//   justify-content: space-between;
+
+//   section.left-navbar {
+//     display: flex;
+//     margin: 9px 0 0 16px;
+//     width: 305px;
+
+//     .fb-logo:hover {
+//       cursor: pointer;
+//     }
+//   }
+// }
+
+// .fb-logo {
+//   height: 40px;
+//   border-radius: 100%;
+// }
+
+// .search.light {
+//   color: #64676b;
+//   height: 40px;
+//   background-color: #f0f2f5;
+//   border: none;
+//   // border-color: #3a3b3c;
+//   border-radius: 50px;
+//   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+//   font-size: 14px;
+//   font-weight: 300;
+//   margin: 0 0 0 10px;
+//   width: 280px;
+// }
+
+// input.search.light::placeholder {
+//   padding: 0 0 0 10px;
+// }
+
+// /* right-nav */
+// section.right-navbar {
+//   display: flex;
+//   justify-content: space-between;
+//   width: 305px;
+//   margin: 0 16px 0 0;
+  
+//   div.right-navbar {
+//     div.profile, div.plus-circle, div.msg-circle, div.bell-circle, div.down-arrow-circle {
+//       margin: 10px 0 10px 0;
+//     }
+
+//     div.profile {
+//       color: white;
+//       border-radius: 50px;
+//       font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+//       padding: 0 4px 2px 4px;
+
+//       img.pfp {
+//         height: 34px;
+//         border-radius: 100%;
+//         margin: 4px 0 0 0;
+//       }
+
+//       span {
+//         padding: 0 6px 0 6px;
+//         position: relative;
+//         top: -10px;
+//       }
+//     }
+//   }
+// }
+
+// .msg-circle.light, .bell-circle.light, .down-arrow-circle.light, .plus-circle.light {
+//   width: 42px;
+//   height: 42px;
+//   background-color: #e4e6ea;
+//   border-radius: 100%;
+//   position: relative;
+// }
+
+// .msg-circle.light:hover, .bell-circle.light:hover, .down-arrow-circle.light:hover, .plus-circle.light:hover, div.profile:hover {
+//   background-color: #d8dade;
+//   cursor: pointer;
+// }
+
+
+// .fa-facebook-messenger.light {
+//   color: #1d1f23;
+//   font-size: 22px;
+//   padding: 11px;
+//   position: absolute;
+// }
+
+// .fa-bell.light {
+//   color: #1d1f23;
+//   font-size: 20px;
+//   padding: 12px;
+//   position: absolute;
+// }
+
+// .fa-sort-down.light {
+//   color: #1d1f23;
+//   font-size: 24px;
+//   padding: 6px 0 0 13px;
+//   position: absolute;
+// }
+
+// .plus.light {
+//   color: #1d1f23;
+//   font-size: 35px;
+//   padding-left: 11px;
+//   position: absolute;
+// }
+
+// /* center nav */
+// .center-nav {
+//   display: flex;
+//   justify-content: space-between;
+//   width: 680px;
+//   margin: 5px 0 5px 0;
+  
+//   .center-nav > div {
+//     padding: 0 4px 0 4px;
+//   }
+// }
+
+
+// .tv-div.light, .users-div.light, .game-div.light, .store-div.light, .house-div.light {
+//   border: 1px solid #242526;
+//   border-radius: 8px;
+//   height: 50px;
+//   width: 116px;
+//   position: relative;
+//   // padding: 12px 44px 12px 44px;
+// }
+
+// .tv-div.light:hover, .users-div.light:hover, .house-div.light:hover, .game-div.light:hover, .store-div.light:hover {
+//   background-color: #d8dade;
+//   cursor: pointer;
+// }
+
+// .fa-tv.light {
+//   color: #1d1f23;
+//   font-size: 24px;
+//   padding-top: 2px;
+//   position: relative;
+//   padding: 12px 44px 12px 44px;
+// }
+
+// .fa-play.light {
+//   color: #1d1f23;
+//   font-size: 9px;
+//   position: absolute;
+//   top: 5px;
+//   right: 8px;
+//   margin: 12px 44px 12px 44px;
+// }
+
+// .fa-store-alt.light {
+//   color: #1d1f23;
+//   font-size: 24px;
+//   margin: 12px 44px 12px 44px;
+// }
+
+// .users-circle.light {
+//   width: 24px;
+//   height: 24px;
+//   border: 2px solid #1d1f23;
+//   border-radius: 100%;
+//   position: relative;
+//   margin: 12px 44px 12px 44px;
+// }
+
+// .fa-users.light {
+//   color: #1d1f23;
+//   font-size: 16px;
+//   position: absolute;
+//   padding-top: 4px;
+//   padding-left: 2px;
+// }
+
+// .fa-house.light {
+//   color: #1d1f23;
+//   font-size: 30px;
+//   margin: 10px 42px 10px 42px;
+// }
+
+// .fa-delicious.light {
+//   color: #1d1f23;
+//   font-size: 26px;
+//   margin: 12px 46px 12px 46px;
+// }
+
+// /* when selected/ active, change color to #2d88ff  - blue */

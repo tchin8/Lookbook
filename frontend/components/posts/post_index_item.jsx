@@ -9,6 +9,11 @@ class PostIndexItem extends React.Component {
   }
 
   postedTimeAgo(datetime) {
+    if (this.props.post.created_at === undefined) {
+      debugger;
+      return "Just now";
+    }
+
     const months = [
       "January",
       "February",
@@ -49,6 +54,7 @@ class PostIndexItem extends React.Component {
     if (now.getHours() > 12) {
       amOrPm = "PM";
     }
+    
     debugger;
     const hour = then.getHours() % 12;
     const min = then.getMinutes() < 10 ? `0${then.getMinutes()}` : then.getMinutes();
@@ -64,6 +70,11 @@ class PostIndexItem extends React.Component {
   render() {
     const { post, deletePost } = this.props;
     const fblogo = window.fblogo;
+
+    if (!post) {
+      debugger;
+      return null;
+    }
 
     return (
       <li className="each-post dark">
@@ -83,7 +94,7 @@ class PostIndexItem extends React.Component {
               </div>
 
               <div className="ellipsis-container dark"
-                onClick={() => this.deletePost(post.id)}>
+                onClick={() => deletePost(post.id)}>
                 <FontAwesomeIcon icon="ellipsis-h"
                   className="fa-ellipsis-h dark" />
               </div>

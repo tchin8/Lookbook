@@ -138,6 +138,81 @@ section.p-header {
           text-decoration: underline;
         }
       }
+
+      form.bio.dark {
+        position: relative;
+        bottom: 16px;
+
+        textarea.text-bio.dark {
+          background-color: #3a3b3c;
+          border: 1px solid #3e4042;
+          border-radius: 6px;
+          color: 	#e4e6ea;
+          font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+          font-size: 16px;
+          height: 62px;
+          padding: 10px 0 0 0;
+          width: 300px;
+          resize: none;
+          text-align: center;
+        }
+
+        textarea.text-bio:hover {
+          background-color: #4e4f50;
+        }
+
+        textarea.text-bio::placeholder {
+          color: #8b8d91;
+          font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+          font-size: 16px;
+          text-align: center;
+        }
+
+        textarea.text-bio:focus {
+          border: 1px solid #2e89ff;
+        }
+
+        div {
+          // display: flex;
+          // justify-content: flex-end;
+          margin: 6px 0 0 0;
+          position: relative;
+          left: 80px;
+          
+          button.cxl-bio {
+            background-color: #3a3b3c;
+            border: none;
+            border-radius: 6px;
+            color: #e4e6ea;
+            font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+            font-size: 15px;
+            height: 38px;
+            width: 74px;
+          }
+
+          button.cxl-bio:hover {
+            background-color: #4e4f50;
+            cursor: pointer;
+          }
+
+          button.save-bio {
+            background-color: #2d88ff;
+            border: none;
+            border-radius: 6px;
+            color: #e4e6ea;
+            font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+            font-size: 15px;
+            height: 38px;
+            margin: 0 0 0 4px;
+            width: 58px;
+          }
+
+          button.save-bio:hover {
+            background-color: #4894ff;
+            cursor: pointer;
+          }
+        }
+      }
     }
 
     div.under-bottom.dark {
