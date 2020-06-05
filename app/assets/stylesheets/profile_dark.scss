@@ -659,6 +659,7 @@ ul.wall-posts {
           cursor: pointer;
         }
       }
+
       div.body {
         color: #e1e3e7;
         font-size: 24px;
@@ -756,29 +757,145 @@ ul.wall-posts {
   }
 }
 
-// // POST-DROPDOWN
-// div.post-dropdown {
-//   background-color: #242526;
-//   border: 1px solid #2f3031;
-//   border-radius: 6px;
-//   box-shadow: -2px 2px 4px #151516;
-//   height: 322px;
-//   width: 344px;
-//   position: absolute;
-//   z-index: 1;
-//   // margin: auto;
 
-//   div.pdd-1-3.dark {
-//     height: 62px;
-//     width: 100px;
-//     // margin: auto;
 
-//     div.save-post {
-//       background-color: #3a3b3c;
-//       border-radius: 4px;
-//       height: 45px;
-//       width: 328px;
-//       margin: 8px 0 0 8px;
-//     }
-//   }
-// }
+
+
+// POST-DROPDOWN
+div.post-dropdown {
+  background-color: #242526;
+  border: 1px solid #2f3031;
+  border-radius: 6px;
+  box-shadow: -2px 2px 4px #151516;
+  height: 332px;
+  width: 344px;
+  position: absolute;
+  z-index: 1;
+  // margin: auto;
+
+  div.pdd-1-3.dark {
+    height: 62px;
+    width: 100px;
+    // margin: auto;
+
+    div.save-post, div.hide-timeline {
+      // background-color: #3a3b3c;
+      border-radius: 4px;
+      height: 45px;
+      width: 330px;
+      margin: 6px 0 0 6px;
+    }
+
+    div {
+      display: flex;
+
+      .fa-bookmark.dark, .fa-edit.dark, .fa-user-circle.dark, .fa-trash-alt.dark, .fa-bell-slash.dark, .fa-calendar-alt.dark, .fa-times-circle.dark {
+        color:	#a7abaf;
+        font-size: 20px;
+        margin: 8px 0 0 10px;
+        position: relative;
+      }
+
+      .fa-bookmark.dark {
+        margin: 8px 0 0 11px;
+      }
+
+      .fa-bell-slash.dark, .fa-edit.dark {
+        font-size: 18px;
+      }
+
+      .fa-trash-alt.dark {
+        left: 1px;
+      }
+
+      .fa-calendar-alt.dark {
+        left: 2px;
+      }
+      
+      div.pdd-text {
+        color: #e4e6ea;
+        display: flex;
+        flex-direction: column;
+        font-size: 14px;
+        margin: 4px 0 0 16px;
+
+        span.pdd-t2 {
+          color: 	#abadb2;
+          font-size: 12px;
+          margin: 4px 0 0 0;
+          // padding: 0 0 0 14px;
+        }
+        
+      }
+
+      div.pdd-text2 {
+        color: #e4e6ea;
+        display: flex;
+        flex-direction: column;
+        font-size: 14px;
+        margin: 4px 0 0 12px;
+
+        span.pdd-t2 {
+          color: 	#abadb2;
+          font-size: 12px;
+          margin: 4px 0 0 0;
+          // padding: 0 0 0 14px;
+        }
+      }
+    }
+
+    div.save-post {
+        div.pdd-text {
+          margin: 4px 0 0 17px;
+        }
+      }
+
+    div.edit-post, div.edit-audience {
+      div.pdd-text {
+        margin: 4px 0 0 13px;
+      }
+    }
+
+    div.turn-off-nots {
+      div.pdd-text {
+        margin: 4px 0 0 10px;
+      }
+    }
+
+    div.edit-post, div.edit-audience, div.delete-post, div.turn-off-nots, div.change-date {
+      // background-color: #3a3b3c;
+      border-radius: 4px;
+      height: 36px;
+      width: 330px;
+      margin: 6px 0 0 6px;
+
+      span {
+        padding: 5px 0 0 0;
+      }
+    }
+
+    div.save-post:hover, div.edit-post:hover, div.edit-audience:hover, div.delete-post:hover, div.turn-off-nots:hover, div.change-date:hover, div.hide-timeline:hover {
+      background-color: #3a3b3c;
+      cursor: pointer;
+    }
+  }
+
+  div.pdd-divider {
+    border-top: 1px solid #3e4042;
+    margin: 6px 0 6px 15px;
+    width: 314px;
+  }
+
+  
+}
+
+div.pdd-1-3.dark:before {
+  content: "";
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  border: 10px solid;
+  border-color: transparent transparent #242526 ;
+  right: 4px;
+  top: -20px;
+}
