@@ -1,5 +1,6 @@
 import React from 'react';
 import CreatePostFormContainer from '../posts/create_post_form_container';
+import DownDropdown from '../navbar/down_dropdown';
 
 function Modal({ currentUser, user, modal, closeModal }) {
   // const { currentUser, user, modal, closeModal } = this.props;
@@ -16,6 +17,9 @@ function Modal({ currentUser, user, modal, closeModal }) {
       break;
     // case 'edit post':
     //   component = <SignupFormContainer />;
+    //   break;
+    // case 'nav down dropdown':
+    //   component = <DownDropdown />;
     //   break;
     default:
       return null;
