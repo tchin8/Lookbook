@@ -12,7 +12,7 @@
   right: 14px;
   top: 56px;
   width: 340px;
-  z-index: 1;
+  z-index: 999;
 
   .down-drop.dark > span {
     display: block;
@@ -70,6 +70,7 @@ span.see-profile {
 div.t2 > span:last-child {
   color: #929497;
   font-size: 12px;
+  // padding: 0;
 }
 
 div.t2 > span:first-child {

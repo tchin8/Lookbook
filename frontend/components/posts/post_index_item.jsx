@@ -55,7 +55,7 @@ class PostIndexItem extends React.Component {
       amOrPm = "PM";
     }
     
-    debugger;
+    // debugger;
     const hour = then.getHours() % 12;
     const min = then.getMinutes() < 10 ? `0${then.getMinutes()}` : then.getMinutes();
     if (secs >= 86400 && secs < 172800) {
@@ -99,6 +99,10 @@ class PostIndexItem extends React.Component {
                   className="fa-ellipsis-h dark" />
               </div>
             </div>
+
+            {/* <div className="post-dropdown dark">
+
+            </div> */}
           </div>
 
           <div className="body">

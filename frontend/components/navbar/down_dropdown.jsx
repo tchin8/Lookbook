@@ -99,7 +99,7 @@ class DownDropdown extends React.Component {
             <span>Switch to Classic Lookbook</span>
             <span>Go back to the previous Lookbook design at
               <br />
-            <span>any time.</span>
+            <p>any time.</p>
             </span>
           </div>
         </div>
