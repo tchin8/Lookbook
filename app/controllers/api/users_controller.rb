@@ -1,7 +1,7 @@
 class Api::UsersController < ApplicationController
   skip_before_action :verify_authenticity_token
   
-  before_action :ensure_logged_in, only: [:index, :show, :update]
+  #before_action :ensure_logged_in, only: [:index, :show, :update]
 
   def index 
     @user = User.all
@@ -26,13 +26,13 @@ class Api::UsersController < ApplicationController
 
   def update 
     @user = User.find(params[:id])
-    if @user.id == current_user.id
+    #if @user.id == current_user.id
       if @user.update(user_params)
         render :show
       else  
         render json: @user.errors.full_messages, status: 422
       end 
-    end 
+    #end 
   end 
 
   private

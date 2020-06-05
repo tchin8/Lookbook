@@ -13,6 +13,7 @@ export const fetchUser = userId => (
 export const updateUser = user => (
   $.ajax({
     url: `/api/users/${user.id}`,
-    method: 'patch'
+    method: 'patch',
+    data: { user }
   })
 );
