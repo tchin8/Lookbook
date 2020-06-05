@@ -11,6 +11,22 @@ class ProfileMain extends React.Component {
       <section className="profile-main">
         <div className="pm-div">
           <div className="main-left">
+            <div className="intro dark">
+              <span>Intro</span>
+
+            </div>
+
+            <div className="photos dark">
+              <span>Photos</span>
+            </div>
+
+            <div className="friends dark">
+              <span>Friends</span>
+            </div>
+
+            <div className="life-events dark">
+              <span>Life Events</span>
+            </div>
           </div>
 
           <div className="main-right">

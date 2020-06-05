@@ -301,9 +301,61 @@ section.profile-main {
     width: 878px;
 
     div.main-left {
-      border: 1px solid red;
-      height: 500px;
+      // border: 1px solid red;
+      height: 100%;
       width: 360px;
+
+      div.intro.dark, div.photos.dark, div.life-events.dark, div.friends.dark {
+        span {
+          color: #e4e6ea;
+          display: block;
+          font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+          font-size: 20px;
+          font-weight: bold;
+          padding: 16px;
+        }
+      }
+
+      div.intro.dark {
+        background-color: #242526;
+        border-radius: 8px;
+        box-shadow: 2px 2px 2px #151617;
+        height: 508px;
+        // max-height
+        width: 100%;
+      }
+
+      div.photos.dark {
+        background-color: #242526;
+        border-radius: 8px;
+        box-shadow: 2px 2px 2px #151617;
+        height: 402px;
+        // max-height
+        margin: 18px 0 0 0;
+        width: 100%;
+      }
+
+      div.friends.dark {
+        background-color: #242526;
+        border-radius: 8px;
+        box-shadow: 2px 2px 2px #151617;
+        height: 544px;
+        // max-height
+        margin: 18px 0 0 0;
+        width: 100%;
+      }
+
+      div.life-events.dark {
+        background-color: #242526;
+        border-radius: 8px;
+        box-shadow: 2px 2px 2px #151617;
+        height: 316px;
+        // max-height
+        margin: 18px 0 0 0;
+        width: 100%;
+      }
+
+
     }
 
     div.main-right {

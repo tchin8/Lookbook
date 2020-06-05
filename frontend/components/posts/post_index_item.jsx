@@ -10,7 +10,7 @@ class PostIndexItem extends React.Component {
 
   postedTimeAgo(datetime) {
     if (this.props.post.created_at === undefined) {
-      debugger;
+      // debugger;
       return "Just now";
     }
 
