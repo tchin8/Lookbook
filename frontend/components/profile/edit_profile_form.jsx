@@ -123,11 +123,9 @@ class EditProfileForm extends React.Component {
                   </div>
                 </div>
               </div>
-
-
             </div>
 
-
+            <button className="edit-profile">Edit Your Info</button>
           </form>
         </section>
       </section>

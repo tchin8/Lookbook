@@ -3,7 +3,7 @@ section.edit-profile-modal.dark {
   border-radius: 10px;
   color: #e4e6ea;
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
-  min-height: 1400px;
+  min-height: 1420px;
   // change later
   // height: 100%;
   width: 700px;
@@ -178,22 +178,26 @@ section.edit-profile-modal.dark {
             height: 107px;
             width: 107px;
           }
-  
-          // div.pic-1-9 {
-          //   border-top-left-radius: 10px;
-          // }
-          // div.pic-3-9 {
-          //   border-top-right-radius: 10px;
-          // }
-          // div.pic-7-9 {
-          //   border-bottom-left-radius: 10px;
-          // }
-          // div.pic-9-9 {
-          //   border-bottom-right-radius: 10px;
-          // }
         }
       }
     }
 
+
+    button.edit-profile {
+      background-color: #3a3b3c;
+      border-radius: 6px;
+      border: none;
+      color: #2f86f9;
+      font-size: 16px;
+      height: 40px;
+      width: 670px;
+      position: relative;
+      top: 350px;
+    }
+  }
+
+  button.edit-profile:hover {
+    background-color: #4e4f50!important;
+    cursor: pointer;
   }
 }
