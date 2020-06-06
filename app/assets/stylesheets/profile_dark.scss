@@ -285,7 +285,14 @@ section.p-header {
             padding: 10px 16px 10px 16px;
 
             .fa-pencil-alt {
+              // display: inline-block;
+              // font-size: 14px;
               padding: 0 8px 0 0;
+            }
+
+            .fa-facebook-edit {
+              font-size: 14px;
+              // position: relative;
             }
           }
         }
@@ -620,6 +627,10 @@ section.wall-post-container.dark {
       margin: 9px 0 9px 0;
       text-align: left;
       width: 420px;
+
+      span {
+        padding: 0 0 0 8px;
+      }
     }
 
     button.wall-post.dark:hover {
@@ -717,6 +728,10 @@ ul.wall-posts {
           span.pname {
             color: #dadce0;
             font-size: 15px;
+          }
+
+          span.pname:hover {
+            text-decoration: underline;
           }
           
           div.post-time {

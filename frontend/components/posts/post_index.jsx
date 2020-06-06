@@ -1,5 +1,5 @@
 import React from 'react';
-import PostIndexItem from './post_index_item';
+import PostIndexItemContainer from './post_index_item_container';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class PostIndex extends React.Component {
@@ -29,7 +29,7 @@ class PostIndex extends React.Component {
       <ul className="wall-posts">
 
         {posts.map(post => (
-          <PostIndexItem 
+          <PostIndexItemContainer 
             key={post.id}
             post={post} 
             fetchPost={fetchPost}

@@ -93,10 +93,10 @@ Post.create!(
   body: "Third post"
 )
 
-#2000.times do 
- # Post.create!(
-#    author_id: rand(1..101),
-#    user_id: rand(1..101),
-##    body: Faker::Quote.famous_last_words
-#  )
-#end 
+2000.times do 
+  Post.create!(
+    author_id: rand(1..101),
+    user_id: rand(1..101),
+    body: Faker::Quote.famous_last_words
+  )
+end 

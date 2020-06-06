@@ -1,14 +1,14 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  Link
+} from 'react-router-dom';
 
 class PostIndexItem extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = this.props.post;
-    // this.state = {
-    //   author_id: 
-    // }
 
     this.postedTimeAgo = this.postedTimeAgo.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
@@ -104,7 +104,7 @@ class PostIndexItem extends React.Component {
   }
 
   render() {
-    const { post, deletePost, updatePost, openModal, currentUser } = this.props;
+    const { post, deletePost, updatePost, openModal, currentUser, users } = this.props;
     const defaultpfp = window.defaultpfp;
     const me = window.me;
 
@@ -128,16 +128,20 @@ class PostIndexItem extends React.Component {
       return null;
     }
 
+    const author = users[post.author_id]
+
+    // debugger;
+
     return (
       <li className="each-post dark">
         <div className="top-container dark">
-
           <div className="user-info">
-
             <img src={posterPic} alt="" className="thumbnail" />
-
             <div>
-              <span className="pname">{currentUser.fname} {currentUser.lname}</span>
+              <Link to={`/users/${author.id}`}
+                style={{ textDecoration: 'none' }}>
+              <span className="pname">{author.fname} {author.lname}</span>
+              </Link>
 
               <div className="post-time">
                 <span className="time">{this.postedTimeAgo(post.created_at)} ·</span>

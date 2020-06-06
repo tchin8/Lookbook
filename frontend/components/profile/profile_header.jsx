@@ -8,6 +8,11 @@ class ProfileHeader extends React.Component {
     this.state = this.props.user;
   }
 
+  componentDidUpdate(){
+    // $('.bio').removeClass("show");
+    // $('.bio').addClass("hidden");
+  }
+
   handleClick(e) {
     e.preventDefault();
     $('.bio').toggleClass("show hidden");
@@ -24,6 +29,7 @@ class ProfileHeader extends React.Component {
   // }
 
   update(field) {
+    // $('.bio').toggleClass("show hidden");
     return e => (
       this.setState({ [field]: e.currentTarget.value })
     )
@@ -53,15 +59,43 @@ class ProfileHeader extends React.Component {
     }
 
     // debugger;
-
-
-    let button;
+    let bioButton, cameraButton, editCvButton, archive, editProBtn;
     if (currentUser.id === user.id) {
-      button = (user.bio !== undefined) ? 
-        <button className="edit"
-          onClick={this.handleClick}>Edit</button> : 
-        <button className="add-bio"
+      if (user.bio !== undefined) {
+        bioButton = <button className="edit"
+          onClick={this.handleClick}>Edit</button> 
+      } else {
+        bioButton = <button className="add-bio"
           onClick={this.handleClick}>Add Bio</button>
+      }
+
+      cameraButton = <div className="cam-circle dark">
+        <FontAwesomeIcon icon="camera"
+          className="fa-camera dark" />
+      </div>
+
+      editCvButton = <button className="dark">
+        <FontAwesomeIcon icon="camera"
+          className="fa-camera dark" />
+            Edit Cover Photo
+          </button>
+        
+      archive = <span>Archive</span>
+
+      editProBtn = <button>
+        <FontAwesomeIcon icon="pencil-alt"
+          className="fa-pencil-alt dark" />Edit Profile
+          </button>
+    } else {
+      archive = <span>Check-Ins</span>
+
+      editProBtn = <button>
+        <FontAwesomeIcon icon={['fab', 'facebook-messenger']}
+          className="fa-facebook-edit dark" />
+          <span>
+          Message
+          </span>
+          </button>
     }
 
     return (
@@ -71,17 +105,11 @@ class ProfileHeader extends React.Component {
 
           <div className="pfp dark">
             <img src={pic} alt="" className="pfp" />
-            <div className="cam-circle dark">
-              <FontAwesomeIcon icon="camera"
-                className="fa-camera dark" />
-            </div>
+
+            {cameraButton}
           </div>
 
-          <button className="dark">
-            <FontAwesomeIcon icon="camera"
-              className="fa-camera dark" />
-            Edit Cover Photo
-          </button>
+          {editCvButton}
         </div>
 
         <div className="under-cover">
@@ -93,7 +121,7 @@ class ProfileHeader extends React.Component {
             <span className="bio dark show">
               {user.bio}
 
-              {button}
+              {bioButton}
             </span>
 
             <form className="bio dark hidden">
@@ -135,7 +163,8 @@ class ProfileHeader extends React.Component {
               </div>
 
               <div>
-                <span>Archive</span>
+                {archive}
+                {/* <span>Archive</span> */}
               </div>
 
               <div>
@@ -151,12 +180,7 @@ class ProfileHeader extends React.Component {
 
             <div className="right-nav dark">
               <div>
-                <button>
-                  <FontAwesomeIcon icon="pencil-alt"
-                    className="fa-pencil-alt dark" />
-
-                    Edit Profile
-                </button>
+                {editProBtn}
               </div>
 
               <div>

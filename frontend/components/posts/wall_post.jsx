@@ -8,21 +8,36 @@ class WallPost extends React.Component {
     const defaultpfp = window.defaultpfp;
     const me = window.me;
 
-    let pic;
-    if (user.id === 1) {
+    let pic, postBtn;
+    if (currentUser.id === 1) {
       pic = me;
     } else {
       pic = defaultpfp;
     }
+
+    if (currentUser === user) {
+      postBtn = <button className="wall-post dark"
+        onClick={() => openModal('Create Post')}>
+        <span>What's on your mind?</span>
+        </button> 
+    } else {
+      postBtn = <button className="wall-post dark"
+        onClick={() => openModal('Create Post')}>
+          <span>{`Write something to ${user.fname}...`}</span>
+          </button> 
+    }
+
+
+    console.log(currentUser);
 
     return (
       <section className="wall-post-container dark">
         <div className="top dark">
           {/* change to user's img */}
           <img src={pic} alt="" className="thumbnail" />
-
-          <button className="wall-post dark"
-            onClick={() => openModal('Create Post')}>What's on your mind?</button> 
+          {postBtn}
+          {/* <button className="wall-post dark"
+            onClick={() => openModal('Create Post')}>What's on your mind?</button>  */}
         </div>
 
         <div className="bottom dark">
