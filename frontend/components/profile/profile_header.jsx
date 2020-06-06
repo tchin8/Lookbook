@@ -43,7 +43,7 @@ class ProfileHeader extends React.Component {
 
   render() {
     // debugger;
-    const { user, updateUser, currentUser } = this.props;
+    const { user, updateUser, currentUser, openModal } = this.props;
 
     const defaultpfp = window.defaultpfp;
     const me = window.me;
@@ -84,7 +84,8 @@ class ProfileHeader extends React.Component {
 
       editProBtn = <button>
         <FontAwesomeIcon icon="pencil-alt"
-          className="fa-pencil-alt dark" />Edit Profile
+          className="fa-pencil-alt dark" 
+          />Edit Profile
           </button>
     } else {
       archive = <span>Check-Ins</span>
@@ -164,7 +165,6 @@ class ProfileHeader extends React.Component {
 
               <div>
                 {archive}
-                {/* <span>Archive</span> */}
               </div>
 
               <div>
@@ -179,7 +179,7 @@ class ProfileHeader extends React.Component {
 
 
             <div className="right-nav dark">
-              <div>
+              <div onClick={() => openModal('Edit Profile')}>
                 {editProBtn}
               </div>
 
