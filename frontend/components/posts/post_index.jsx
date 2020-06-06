@@ -11,9 +11,9 @@ class PostIndex extends React.Component {
   //   this.props.fetchPosts();
   // }
 
-  componentDidMount() {
-    this.props.fetchPosts();
-  }
+  // componentDidMount() {
+  //   this.props.fetchUserPosts(this.props.match.params.userId);
+  // }
 
   render() {
     const { posts, deletePost, updatePost, fetchPost, openModal, currentUser } = this.props;

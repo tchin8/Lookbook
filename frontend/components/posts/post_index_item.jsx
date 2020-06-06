@@ -6,10 +6,14 @@ class PostIndexItem extends React.Component {
     super(props);
 
     this.state = this.props.post;
+    // this.state = {
+    //   author_id: 
+    // }
 
     this.postedTimeAgo = this.postedTimeAgo.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
     this.handleDeletePost = this.handleDeletePost.bind(this);
+    this.handleEditModal = this.handleEditModal.bind(this);
   }
 
   // DONT NEED THIS DONT UNCOMMENT BACK
@@ -59,7 +63,7 @@ class PostIndexItem extends React.Component {
       amOrPm = "PM";
     }
     
-    debugger;
+    // debugger;
     const hour = then.getHours() % 12;
     const min = then.getMinutes() < 10 ? `0${then.getMinutes()}` : then.getMinutes();
     if (secs >= 86400 && secs < 172800) {
@@ -91,6 +95,14 @@ class PostIndexItem extends React.Component {
     $(`.show`).toggleClass('show hidden');
   }
 
+  handleEditModal(e) {
+    e.preventDefault();
+    debugger;
+    localStorage.setItem('editPost', JSON.stringify(this.state))
+    this.props.openModal('Edit Post');
+    $(`.show`).toggleClass('show hidden');
+  }
+
   render() {
     const { post, deletePost, updatePost, openModal, currentUser } = this.props;
     const defaultpfp = window.defaultpfp;
@@ -110,9 +122,9 @@ class PostIndexItem extends React.Component {
       commenterPic = defaultpfp;
     }
     
-    debugger;
+    // debugger;
     if (!post) {
-      debugger;
+      // debugger;
       return null;
     }
 
@@ -127,7 +139,7 @@ class PostIndexItem extends React.Component {
             <div>
               <span className="pname">{currentUser.fname} {currentUser.lname}</span>
 
-              <div>
+              <div className="post-time">
                 <span className="time">{this.postedTimeAgo(post.created_at)} ·</span>
                 <FontAwesomeIcon icon="user-friends"
                   className="fa-user-friends dark" />
@@ -158,7 +170,7 @@ class PostIndexItem extends React.Component {
                 <div className="pdd-divider"></div>
 
                 <div className="edit-post"
-                  onClick={() => openModal('edit post')}>
+                  onClick={this.handleEditModal}>
                   <FontAwesomeIcon icon={['far', 'edit']}
                     className="fa-edit dark" />
 

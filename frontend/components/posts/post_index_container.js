@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import PostIndex from './post_index';
-import { fetchPost, fetchPosts, deletePost, updatePost } from '../../actions/post_actions';
+import { fetchPost, fetchUserPosts, deletePost, updatePost } from '../../actions/post_actions';
 import { openModal } from '../../actions/modal_actions';
 
 const mSTP = state => ({
@@ -9,7 +9,7 @@ const mSTP = state => ({
 
 const mDTP = dispatch => ({
   fetchPost: postId => dispatch(fetchPost(postId)),
-  fetchPosts: () => dispatch(fetchPosts()),
+  fetchUserPosts: userId => dispatch(fetchUserPosts(userId)),
   deletePost: postId => dispatch(deletePost(postId)),
   updatePost: post => dispatch(updatePost(post)),
   openModal: modal => dispatch(openModal(modal)),

@@ -10,6 +10,12 @@ export const fetchUser = userId => (
   })
 );
 
+export const fetchUserPosts = userId => (
+  $.ajax({
+    url: `/api/users/${userId}/posts`
+  })
+);
+
 export const updateUser = user => (
   $.ajax({
     url: `/api/users/${user.id}`,

@@ -46,13 +46,13 @@ class NavBar extends React.Component {
     $(`section.plus-drop`).addClass('hidden');
   }
 
-  handleProfile(e) {
-    if (this.props.match.params.userId === this.props.currentUser.id) {
-      e.currentTarget.classList.add('blue');
-    } else {
-      e.currentTarget.classList.remove('blue');
-    }
-  }
+  // handleProfile(e) {
+  //   if (this.props.match.params.userId === this.props.currentUser.id) {
+  //     e.currentTarget.classList.add('blue');
+  //   } else {
+  //     e.currentTarget.classList.remove('blue');
+  //   }
+  // }
 
   render () {
     const fblogo = window.fblogo;
@@ -131,7 +131,8 @@ class NavBar extends React.Component {
               <Link to={`/users/${currentUser.id}`} 
                 style={{ textDecoration: 'none' }}>
               <div className="profile"
-                onClick={this.handleProfile}>
+                // onClick={this.handleProfile}
+                >
                 {/* change to user's image_url */}
                 <img src={pic} alt="" className="pfp" />
 

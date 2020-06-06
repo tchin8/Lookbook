@@ -36,23 +36,24 @@ class ProfileHeader extends React.Component {
   // }
 
   render() {
+    // debugger;
+    const { user, updateUser, currentUser } = this.props;
+
     const defaultpfp = window.defaultpfp;
     const me = window.me;
     const myCv = window.cv;
 
     let pic;
     let cv;
-    if (currentUser.id === 1) {
+    if (user.id === 1) {
       pic = me;
       cv = myCv;
     } else {
       pic = defaultpfp;
     }
 
+    // debugger;
 
-
-
-    const { user, updateUser } = this.props;
 
     let button;
     if (currentUser.id === user.id) {

@@ -4,6 +4,14 @@ import ProfileHeader from './profile_header';
 import ProfileMain from './profile_main';
 
 class Profile extends React.Component {
+  componentDidUpdate() {
+    // this.props.fetchUsers();
+    this.props.fetchUserPosts(this.props.match.params.userId);
+  }
+  componentDidMount() {
+    this.props.fetchUsers();
+    // this.props.fetchUserPosts(this.props.match.params.userId);
+  }
 
   render() {
     const { user, currentUser, updateUser, logout } = this.props;
@@ -14,7 +22,8 @@ class Profile extends React.Component {
         <ProfileHeader currentUser={currentUser} 
           user={user}
           updateUser={updateUser} />
-        <ProfileMain currentUser={currentUser} user={user}/>
+        <ProfileMain currentUser={currentUser} 
+          user={user}/>
       </div>
     )
   }

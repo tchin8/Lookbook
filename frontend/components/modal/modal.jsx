@@ -11,12 +11,12 @@ function Modal({ currentUser, user, modal, closeModal }) {
   }
   let component;
   switch (modal) {
-    case 'create post':
+    case 'Create Post':
       component = <CreatePostFormContainer 
         currentUser={currentUser}
         user={user}/>;
       break;
-    case 'edit post':
+    case 'Edit Post':
       component = <EditPostFormContainer />;
       break;
     // case 'nav down dropdown':
@@ -25,6 +25,7 @@ function Modal({ currentUser, user, modal, closeModal }) {
     default:
       return null;
   }
+  
   return (
     <div className="modal-background" onClick={closeModal}>
       <div className="modal-child" onClick={e => e.stopPropagation()}>

@@ -22,7 +22,7 @@ class WallPost extends React.Component {
           <img src={pic} alt="" className="thumbnail" />
 
           <button className="wall-post dark"
-            onClick={() => openModal('create post')}>What's on your mind?</button> 
+            onClick={() => openModal('Create Post')}>What's on your mind?</button> 
         </div>
 
         <div className="bottom dark">

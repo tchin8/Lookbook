@@ -1,2 +1,3 @@
 json.extract! @user, :id, :fname, :lname, :email, :birthday, :gender, :bio, :current_city, :workplace, :school, :hometown, :relationship_status
-# will these error out of nil?
+# json.photoUrl url_for(@user.pfp)
+

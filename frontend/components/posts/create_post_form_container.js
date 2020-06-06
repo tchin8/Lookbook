@@ -5,11 +5,12 @@ import { createPost } from '../../actions/post_actions';
 import PostForm from './post_form';
 
 const mSTP = (state, ownProps) => ({
+  // currentUser: state.entities.users[state.session.id], 
   // currentUser: Object.values(state.session)[0],
   // currentUser: state.entities.users[state.session.id],
   // wall: ownProps.match.params.userId,
-  formType: 'create post'
-  // formType: 'Create Post'
+  // formType: 'create post'
+  formType: 'Create Post'
 });
 
 const mDTP = dispatch => ({

@@ -5,11 +5,15 @@ class PostForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      author_id: this.props.currentUser.id,
-      user_id: this.props.user.id,
-      body: ''
-    };
+    if (this.props.formType === 'Edit Post') {
+      this.state = this.props.post;
+    } else {
+      this.state = {
+        author_id: this.props.currentUser.id,
+        user_id: this.props.user.id,
+        body: ''
+      };
+    }
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -21,19 +25,30 @@ class PostForm extends React.Component {
   }
 
   handleSubmit(e) {
+    // debugger;
     e.preventDefault();
     this.props.closeModal();
     this.props.action(this.state);
-    // other stuff here
+    localStorage.removeItem('editPost');
   }
 
   render() {
-    const thumbnail = window.fblogo;
-    const { currentUser, user, action, closeModal } = this.props;
+    const { currentUser, user, action, closeModal, formType } = this.props;
+    const defaultpfp = window.defaultpfp;
+    const me = window.me;
+
+    let thumbnail;
+    if (currentUser.id === 1) {
+      thumbnail = me;
+    } else {
+      thumbnail = defaultpfp;
+    }
+
+    // debugger;
     return (
     <div className="create-post-form-container">
       <div className="header">
-        <span className="create">Create Post</span>
+        <span className="create">{formType}</span>
         <button className="close-form"
           onClick={closeModal}>
           <div className="x-circle dark"
@@ -47,7 +62,7 @@ class PostForm extends React.Component {
 
       <div className="me">
         {/* currentUser.image?? */}
-        <img src={fblogo} alt="" className="thumbnail" />
+        <img src={thumbnail} alt="" className="thumbnail" />
 
         <div>
           <span className="pname">{currentUser.fname} {currentUser.lname}</span>

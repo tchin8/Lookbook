@@ -4,7 +4,7 @@ class Api::UsersController < ApplicationController
   #before_action :ensure_logged_in, only: [:index, :show, :update]
 
   def index 
-    @user = User.all
+    @users = User.all
     render :index
   end 
 
@@ -35,9 +35,15 @@ class Api::UsersController < ApplicationController
     #end 
   end 
 
+  def posts 
+    @user = User.find(params[:id])
+    @posts = @user.posts
+    render :posts
+  end 
+
   private
 
   def user_params
-    params.require(:user).permit(:fname, :lname, :email, :password, :birthday, :gender, :bio, :current_city, :workplace, :school, :hometown, :relationship_status)
+    params.require(:user).permit(:fname, :lname, :email, :password, :birthday, :gender, :bio, :current_city, :workplace, :school, :hometown, :relationship_status, :pfp)
   end
 end
