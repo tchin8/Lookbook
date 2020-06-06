@@ -8,7 +8,7 @@ section.edit-profile-modal.dark {
   // height: 100%;
   width: 700px;
   position: relative;
-  top: 130px;
+  top: 140px;
   margin: 50vh auto 8vh auto;
 
   div.header {
@@ -83,10 +83,11 @@ section.edit-profile-modal.dark {
 
     div.cv-pic {
       height: 238px;
+
       div.cv {
         display: flex;
         justify-content: center;
-        margin: 18px 0 0 0;
+        margin: 26px 0 0 0;
         // height: 198px;
         img.cv {
           height: 186px;
@@ -148,7 +149,6 @@ section.edit-profile-modal.dark {
               margin: 0 14px 0 0;
             }
           }
-
         }
       }
     }
@@ -182,7 +182,6 @@ section.edit-profile-modal.dark {
       }
     }
 
-
     button.edit-profile {
       background-color: #3a3b3c;
       border-radius: 6px;
@@ -193,6 +192,7 @@ section.edit-profile-modal.dark {
       width: 670px;
       position: relative;
       top: 350px;
+      left: -2px;
     }
   }
 

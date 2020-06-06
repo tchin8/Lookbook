@@ -51,6 +51,11 @@ class ProfileHeader extends React.Component {
 
     let pic;
     let cv;
+
+    // if (!user || !this.state) {
+    //   return null;
+    // }
+
     if (user.id === 1) {
       pic = me;
       cv = myCv;
@@ -82,21 +87,29 @@ class ProfileHeader extends React.Component {
         
       archive = <span>Archive</span>
 
-      editProBtn = <button>
-        <FontAwesomeIcon icon="pencil-alt"
-          className="fa-pencil-alt dark" 
-          />Edit Profile
+      editProBtn = (
+        <div onClick={() => openModal('Edit Profile')}>
+          <button className="edit-profile">
+            <FontAwesomeIcon icon="pencil-alt"
+              className="fa-pencil-alt dark" 
+              />Edit Profile
           </button>
+        </div>
+      )
     } else {
       archive = <span>Check-Ins</span>
 
-      editProBtn = <button>
-        <FontAwesomeIcon icon={['fab', 'facebook-messenger']}
-          className="fa-facebook-edit dark" />
-          <span>
-          Message
-          </span>
+      editProBtn = (
+        <div>
+          <button className="msg-user">
+            <FontAwesomeIcon icon={['fab', 'facebook-messenger']}
+              className="fa-facebook-edit dark" />
+              <span>
+              Message
+              </span>
           </button>
+        </div>
+      )
     }
 
     return (
@@ -179,9 +192,7 @@ class ProfileHeader extends React.Component {
 
 
             <div className="right-nav dark">
-              <div onClick={() => openModal('Edit Profile')}>
-                {editProBtn}
-              </div>
+              {editProBtn}
 
               <div>
                 <button>

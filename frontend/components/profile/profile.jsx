@@ -25,7 +25,8 @@ class Profile extends React.Component {
           openModal={openModal} />
           
         <ProfileMain currentUser={currentUser} 
-          user={user}/>
+          user={user}
+          openModal={openModal} />
       </div>
     )
   }

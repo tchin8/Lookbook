@@ -6,45 +6,57 @@ import PostIndexContainer from '../posts/post_index_container';
 
 class ProfileMain extends React.Component {
   render() {
-    const { currentUser, user } = this.props;
+    const { currentUser, user, openModal } = this.props;
 
-    let organizeSection;
+    let organizeSection, btn1, btn2;
     if (user === currentUser) {
-      organizeSection = <div className="settings">
-        <div className="settings-top">
-          <span className="posts">Posts</span>
+      organizeSection = (
+        <div className="settings">
+          <div className="settings-top">
+            <span className="posts">Posts</span>
 
-          <div className="icons">
-            <div className="sliders-h-container dark">
-              <FontAwesomeIcon icon="sliders-h"
-                className="fa-sliders-h dark" />
-              <span>Filters</span>
+            <div className="icons">
+              <div className="sliders-h-container dark">
+                <FontAwesomeIcon icon="sliders-h"
+                  className="fa-sliders-h dark" />
+                <span>Filters</span>
+              </div>
+
+              <div className="cog-container dark">
+                <FontAwesomeIcon icon="cog"
+                  className="fa-cog dark" />
+                <span>Manage Posts</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="settings-bottom">
+            <div className="list dark"
+            // focused={true}
+            >
+              <FontAwesomeIcon icon="list"
+                className="fa-list dark" />
+              <span>List View</span>
             </div>
 
-            <div className="cog-container dark">
-              <FontAwesomeIcon icon="cog"
-                className="fa-cog dark" />
-              <span>Manage Posts</span>
+            <div className="grid dark">
+              <FontAwesomeIcon icon="th-large"
+                className="fa-th-large dark" />
+              <span>Grid View</span>
             </div>
           </div>
         </div>
+      );
 
-        <div className="settings-bottom">
-          <div className="list dark"
-          // focused={true}
-          >
-            <FontAwesomeIcon icon="list"
-              className="fa-list dark" />
-            <span>List View</span>
-          </div>
+      btn1 = (
+        <button className="edit-details"
+          onClick={() => openModal('Edit Profile')}>Edit Details</button>
+      )
 
-          <div className="grid dark">
-            <FontAwesomeIcon icon="th-large"
-              className="fa-th-large dark" />
-            <span>Grid View</span>
-          </div>
-        </div>
-      </div>
+      btn2 = (
+        <button className="edit-featured"
+          onClick={() => openModal('Edit Profile')}>Edit Featured</button>
+      )
     }
 
     return (
@@ -53,7 +65,9 @@ class ProfileMain extends React.Component {
           <div className="main-left">
             <div className="intro dark">
               <span>Intro</span>
-              <button className="edit-details">Edit Details</button>
+              {/* <button className="edit-details"
+                onClick={() => openModal('Edit Profile')}>Edit Details</button> */}
+                {btn1}
 
               <div className="featured-pics">
                 <div className="featured-row-1-3">
@@ -73,7 +87,9 @@ class ProfileMain extends React.Component {
                 </div>
               </div>
 
-              <button className="edit-featured">Edit Featured</button>
+              {/* <button className="edit-featured"
+                onClick={() => openModal('Edit Profile')}>Edit Featured</button> */}
+                {btn2}
             </div>
 
             <div className="photos dark">
