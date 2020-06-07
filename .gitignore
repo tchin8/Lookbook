@@ -29,3 +29,5 @@
 node_modules/
 bundle.js*
 /public/assets
+
+notes.md
