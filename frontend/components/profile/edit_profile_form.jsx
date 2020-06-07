@@ -6,18 +6,77 @@ class EditProfileForm extends React.Component {
     super(props);
     this.state = this.props.currentUser;
 
+    this.state.prevState = {
+      id: currentUser.id,
+      bio: currentUser.bio,
+      birthday: currentUser.birthday,
+      current_city: currentUser.currentCity,
+      email: currentUser.email,
+      fname: currentUser.fname,
+      gender: currentUser.gender,
+      hometown: currentUser.hometown,
+      lname: currentUser.lname,
+      relationship_status: currentUser.relationshipStatus,
+      school: currentUser.school,
+      workplace: currentUser.workplace,
+    }
+
 
     this.handleSubmitBio = this.handleSubmitBio.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.toggleEditIntro = this.toggleEditIntro.bind(this);
+    this.handleSaveIntro = this.handleSaveIntro.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
+    this.handleCancelIntro = this.handleCancelIntro.bind(this);
   
     this.state.count = 101 - this.state.bio.length;
   }
 
-  componentDidMount() {
-    // let bio = this.state.bio;
-    if (this.state.bio !== localStorage.getItem('bio') && localStorage.getItem('bio') !== undefined) {
-      return this.setState({ "bio": localStorage.getItem('bio') });
-    }
+  // componentDidMount() {
+  //   // let bio = this.state.bio;
+  //   // if (this.state.bio !== localStorage.getItem('bio') && localStorage.getItem('bio') !== undefined) {
+  //   //   return this.setState({ "bio": localStorage.getItem('bio') });
+  //   // }
+  //   localStorage.clear();
+  // }
+
+  handleCancel(e) {
+    // debugger;
+    e.preventDefault();
+    this.setState({
+      bio: this.state.prevState.bio,
+    });
+    // debugger;
+    $('.edit-bio').toggleClass("show hidden");
+  }
+
+  handleCancelIntro(e) {
+    debugger;
+    e.preventDefault();
+    this.setState({
+      current_city: this.state.prevState.current_city,
+      // current_city: this.state.prevState.current_city,
+      workplace: this.state.prevState.workplace,
+      school: this.state.prevState.school,
+      hometown: this.state.prevState.hometown,
+      relationship_status: this.state.prevState.relationship_status,
+    });
+    debugger;
+    $('.intro').toggleClass("show hidden");
+    $('.edit-intro').toggleClass("show hidden");
+  }
+
+  toggleEditIntro(e) {
+    e.preventDefault();
+    $('.intro').toggleClass("show hidden");
+    $('.edit-intro').toggleClass("show hidden");
+  }
+
+  handleSaveIntro(e) {
+    e.preventDefault();
+    $('.intro').toggleClass("show hidden");
+    $('.edit-intro').toggleClass("show hidden");
+    this.props.updateUser(this.state); 
   }
 
   handleClick(e) {
@@ -28,19 +87,20 @@ class EditProfileForm extends React.Component {
   update(field) {
     // $('.bio').toggleClass("show hidden");
     return e => (
-      this.setState({ [field]: e.currentTarget.value })
+      this.setState({ [field]: e.target.value })
     )
   }
 
   handleSubmitBio(e) {
     e.preventDefault();
     $('.edit-bio').toggleClass("show hidden");
-    localStorage.setItem('bio', this.state.bio)
+    // localStorage.setItem('bio', this.state.bio)
     this.props.updateUser(this.state); 
     // this.forceUpdate();
   }
 
   handleSubmit(e) {
+    debugger;
     e.preventDefault();
     this.props.updateUser(this.state); 
     this.props.closeModal();
@@ -86,7 +146,7 @@ class EditProfileForm extends React.Component {
         <section className="main">
           <div className="pro-pic">
             <span>Profile Picture
-              <label for="pfp" className="edit-pfp">Edit
+              <label htmlFor="pfp" className="edit-pfp">Edit
                 <input type="file" id="pfp"
                  className="hidden"/>
               </label>
@@ -98,7 +158,7 @@ class EditProfileForm extends React.Component {
 
           <div className="cv-pic">
             <span>Cover Photo
-              <label for="cv" className="edit-cv">Edit
+              <label htmlFor="cv" className="edit-cv">Edit
                 <input type="file" id="cv"
                   className="hidden" />
               </label>
@@ -135,14 +195,14 @@ class EditProfileForm extends React.Component {
                     </span>
                     <button 
                       className="cxl-bio"
-                      onClick={this.handleClick}>
+                      onClick={this.handleCancel}>
                         Cancel
                     </button>
 
                     <button 
                       className="save-bio"
                       onClick={this.handleSubmitBio}
-                      disabled={!this.state.bio}>
+                      disabled={this.state.bio === this.state.prevState.bio}>
                         Save
                     </button>
                   </div>
@@ -152,7 +212,24 @@ class EditProfileForm extends React.Component {
 
             <div  className="customize-intro">
               <span>Customize Your Intro</span>
-              <button className="edit-intro">Edit</button>
+              <button className="intro show"
+                onClick={this.toggleEditIntro}>Edit</button>
+
+              {/* <button className="edit-intro hidden"
+                onClick={this.handleSaveIntro}>Save</button> */}
+              
+              <button
+                className="edit-intro cxl hidden"
+                onClick={this.handleCancelIntro}>
+                Cancel
+              </button>
+
+              <button
+                className="edit-intro save hidden"
+                onClick={this.handleSaveIntro}>
+                  Save
+              </button>
+
               <div className="intro-list">
                 <div className="current-city">
                   <span>
@@ -162,7 +239,12 @@ class EditProfileForm extends React.Component {
                       Current City
                   </span>
 
-                  <span>{this.state.current_city}</span>
+                  <span className="intro show">{this.state.current_city}</span>
+
+                  <input type="text" 
+                    className="edit-intro hidden"
+                    value={this.state.current_city}
+                    onChange={this.update('current_city')}/>
                 </div>
 
                 <div className="workplace">
@@ -173,7 +255,11 @@ class EditProfileForm extends React.Component {
                       Workplace
                   </span>
 
-                  <span>{this.state.workplace}</span>
+                  <span className="intro show">{this.state.workplace}</span>
+                  <input type="text"
+                    className="edit-intro hidden"
+                    value={this.state.workplace}
+                    onChange={this.update('workplace')} />
                 </div>
 
                 <div className="school">
@@ -184,7 +270,11 @@ class EditProfileForm extends React.Component {
                       School
                   </span>
 
-                  <span>{this.state.school}</span>
+                  <span className="intro show">{this.state.school}</span>
+                  <input type="text"
+                    className="edit-intro hidden"
+                    value={this.state.school}
+                    onChange={this.update('school')} />
                 </div>
 
                 <div className="hometown">
@@ -195,7 +285,11 @@ class EditProfileForm extends React.Component {
                       Hometown
                   </span>
 
-                  <span>{this.state.hometown}</span>
+                  <span className="intro show">{this.state.hometown}</span>
+                  <input type="text"
+                    className="edit-intro hidden"
+                    value={this.state.hometown}
+                    onChange={this.update('hometown')} />
                 </div>
 
                 <div className="relationship-status">
@@ -206,7 +300,11 @@ class EditProfileForm extends React.Component {
                       Relationship Status
                   </span>
 
-                  <span>{this.state.relationship_status}</span>
+                  <span className="intro show">{this.state.relationship_status}</span>
+                  <input type="text"
+                    className="edit-intro hidden"
+                    value={this.state.relationship_status}
+                    onChange={this.update('relationship_status')} />
                 </div>
               </div>
 

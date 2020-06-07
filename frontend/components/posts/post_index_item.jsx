@@ -42,15 +42,16 @@ class PostIndexItem extends React.Component {
       "December"
     ]
     const now = new Date();
-    const then = (new Date(datetime) - 10800);
-
+    let t = new Date(datetime);
+    const then = (t - 10800);
     const secs = ((now.getTime() - then) / 1000);
+    
 
     if (secs < 120) {
       return "Just now";
     } else if (secs < 3600) {
       return parseInt(secs / 60) + " mins";
-    } else if (secs <= 86400) {
+    } else if (secs <= 86400 && now.getDate() === t.getDate()) {
       if (secs >= 3600 && secs < 7200 ) {
         return "1 hr";
       } else {
@@ -58,21 +59,23 @@ class PostIndexItem extends React.Component {
       }
     } 
 
+    // let t = new Date(datetime);
     let amOrPm = "AM"; 
-    if (now.getHours() > 12) {
+    if (t.getHours() > 12) {
       amOrPm = "PM";
     }
     
     // debugger;
-    let t = new Date(datetime)
-    const hour = t.getHours() % 12;
+    const hour = t.getHours() % 12 === 0 ? 12 : t.getHours() % 12;
     const min = t.getMinutes() < 10 ? `0${t.getMinutes()}` : t.getMinutes();
-    if (secs >= 86400 && secs < 172800) {
+    if (secs <= 86400) {
       return `Yesterday at ${hour}:${min} ${amOrPm}`
     }
-    
-    month = months[t.getMonth()];
-    day = t.getDate();
+
+    // debugger;
+
+    let month = months[t.getMonth()];
+    let day = t.getDate();
     return `${month} ${day} at ${hour}:${min} ${amOrPm}`;
 
     // const hour = then.getHours() % 12;

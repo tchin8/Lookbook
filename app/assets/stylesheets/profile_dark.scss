@@ -1061,3 +1061,10 @@ div.post-dropdown {
     top: -20px;
   }
 }
+
+button:disabled {
+ background-color: #505151!important;
+}
+button:disabled:hover {
+ cursor: not-allowed!important;
+}

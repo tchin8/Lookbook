@@ -75,8 +75,8 @@ section.edit-profile-modal.dark {
         color: #2e89ff;
         font-size: 16px;
         font-weight: normal;
-        position: absolute;
-        // margin: 0 0 0 482px;
+        // posit
+        margin: 0 0 0 482px;
         padding: 10px;
       }
       
@@ -244,6 +244,13 @@ section.edit-profile-modal.dark {
             background-color: #4894ff;
             cursor: pointer;
           }
+
+          button.save-bio:disabled {
+            background-color: #505151!important;
+          }
+          button.save-bio:disabled:hover {
+            cursor: not-allowed;
+          }
         }
       }
     }
@@ -252,7 +259,7 @@ section.edit-profile-modal.dark {
       height: 338px;
       margin: 18px 0 0 0;
 
-      button.edit-intro {
+      button.intro {
         background-color: #242526;
         border-radius: 6px;
         border: none;
@@ -264,6 +271,41 @@ section.edit-profile-modal.dark {
         width: 48px;
       }
 
+
+      button.edit-intro.cxl {
+        background-color: #3a3b3c;
+        border: none;
+        border-radius: 6px;
+        color: #e4e6ea;
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+        font-size: 15px;
+        height: 38px;
+        margin: 0 0 0 330px;
+        width: 74px;
+      }
+
+      button.edit-intro.cxl:hover {
+        background-color: #4e4f50!important;
+        cursor: pointer;
+      }
+
+      button.edit-intro.save {
+        background-color: #2d88ff;
+        border: none;
+        border-radius: 6px;
+        color: #e4e6ea;
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+        font-size: 15px;
+        height: 38px;
+        margin: 0 0 0 4px;
+        width: 58px;
+      }
+
+      button.edit-intro.save:hover {
+        background-color: #4894ff!important;
+        cursor: pointer;
+      }
+
       div.intro-list {
 
         div.current-city, div.workplace, div.school, div.hometown, div.relationship-status {
@@ -272,9 +314,23 @@ section.edit-profile-modal.dark {
           margin: 22px 0 0 0;
           font-size: 15px;
 
-          span:last-child {
+          span.intro {
             color: #ffffff;
             margin: 0 10px 0 0;
+          }
+
+          input.edit-intro {
+            background-color: #3a3b3c;
+            border: 1px solid #3a3b3c;
+            border-radius: 6px;
+            color: #ffffff;
+            font-size: 16px;
+            padding: 0 0 0 10px;
+            height: 28px;
+            width: 300px;
+            margin: 0 0 -50px 0;
+            position: relative;
+            top: -4px;
           }
 
           span:first-child {

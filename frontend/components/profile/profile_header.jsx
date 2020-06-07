@@ -23,6 +23,21 @@ class ProfileHeader extends React.Component {
       workplace: user.workplace,
     }
 
+    this.state.prevState = {
+      id: user.id,
+      bio: user.bio,
+      birthday: user.birthday,
+      current_city: user.current_city,
+      email: user.email,
+      fname: user.fname,
+      gender: user.gender,
+      hometown: user.hometown,
+      lname: user.lname,
+      relationship_status: user.relationship_status,
+      school: user.school,
+      workplace: user.workplace,
+    }
+
     $('.bio-span').addClass("show");
     $('.bio-span').removeClass("hidden");
     $('.bio-form').addClass("hidden");
@@ -31,8 +46,13 @@ class ProfileHeader extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.update = this.update.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
 
-    this.state.count = 101 - this.state.bio.length;
+    if (this.state.bio === null) {
+      this.state.count = 101;
+    } else {
+      this.state.count = 101 - this.state.bio.length;
+    }
 
     // console.log(this.state.count);
   }
@@ -45,6 +65,14 @@ class ProfileHeader extends React.Component {
   //   // $('.bio').addClass("hidden");
   // }
 
+  disabled() {
+    if (this.state.bio === this.state.prevState.bio) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   handleClick(e) {
     e.preventDefault();
     $('.bio-span').toggleClass("show hidden");
@@ -52,14 +80,14 @@ class ProfileHeader extends React.Component {
   }
 
   handleCancel(e) {
+    // debugger;
     e.preventDefault();
+    this.setState({
+        bio: this.state.prevState.bio,
+    });
+    // debugger;
     $('.bio-span').toggleClass("show hidden");
     $('.bio-form').toggleClass("show hidden");
-    return e => {
-      return this.setState({
-        bio: this.props.user.bio,
-      });
-    }
   }
 
   // count() {
@@ -88,9 +116,11 @@ class ProfileHeader extends React.Component {
     $('.bio-span').removeClass("hidden");
     $('.bio-form').addClass("hidden");
     $('.bio-form').removeClass("show");
-    localStorage.setItem('bio', this.state.bio)
+    // localStorage.setItem('bio', this.state.bio)
     // debugger;
     this.props.updateUser(this.state);
+    // this.props.fetchUsers();
+
     // console.log(this.state);
     // debugger;
     // this.forceUpdate();
@@ -107,7 +137,7 @@ class ProfileHeader extends React.Component {
     let pic;
     let cv;
 
-    // if (!user || !this.state) {
+    // if (!user) {
     //   return null;
     // }
 
@@ -201,7 +231,7 @@ class ProfileHeader extends React.Component {
 
             <form className="bio-form dark hidden">
               <textarea className="text-bio dark"
-                value={this.state.bio}
+                value={this.state.bio ? this.state.bio : ""}
                 placeholder="Describe who you are"
                 onChange={this.update('bio')}
                 />
@@ -215,7 +245,7 @@ class ProfileHeader extends React.Component {
                   onClick={this.handleCancel}>Cancel</button>
                 <button className="save-bio"
                   onClick={this.handleSubmit}
-                  disabled={!this.state.bio}>Save</button>
+                  disabled={this.state.bio === this.state.prevState.bio}>Save</button>
               </div>
             </form>
 
