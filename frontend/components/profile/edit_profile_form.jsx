@@ -4,7 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 class EditProfileForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.currentUser;
+    
+    const { currentUser } = this.props;
+
+    this.state = currentUser;
 
     this.state.prevState = {
       id: currentUser.id,
