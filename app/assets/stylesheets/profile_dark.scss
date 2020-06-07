@@ -873,19 +873,94 @@ ul.wall-posts {
     }
 
     div.post-comment.dark {
-      height: 50px;
+      min-height: 50px;
+
+      ul.comments-index.dark {
+
+        li.each-com-container.dark {
+          display: flex;
+          margin: auto;
+          min-height: 74px;
+          width: 470px;
+  
+          img.c-thumb {
+            height: 32px;
+            // width: 32px;
+            border-radius: 100%;
+            margin: 10px 8px 0 0;
+            position: relative;
+            top: 2px;
+          }
+  
+          div.each-com {
+            background-color: #3a3b3c;
+            border-radius: 20px;
+            color: #e4e6ea;
+            height: 50px;
+            // change to min later
+            margin: 8px 0 0 0;
+            min-width: 100px;
+            position: relative;
+            
+            span.commenter {
+              color: #e4e6ea;
+              font-size: 13px;
+              display: block;
+              margin: 6px 12px 0 12px;
+            }
+
+            span.commenter:hover {
+              text-decoration: underline;
+              cursor: pointer;
+            }
+
+            p.actual-com {
+              display: block;
+              font-size: 14px;
+              margin: 2px 12px 0 12px;
+            }
+
+            div.like-reply {
+              color: #b1b3b9;
+              font-size: 10px;
+              position: relative;
+              bottom: -10px;
+              left: 12px;
+  
+              span.like-reply {
+                font-weight: bold;
+              }
+              span.like-reply:hover {
+                text-decoration: underline;
+                cursor: pointer;
+              }
+  
+              span {
+                color: #b1b3b9;
+                font-size: 12px;
+                padding: 0 2px;
+              }
+            }
+          }
+
+        }
+      }
+
       
       div.comment {
         display: flex;
         margin: auto;
-        position: relative;
-        top: 8px;
+        padding: 6px 0;
+        // position: relative;
+        // top: 6px;
         width: 470px;
 
         img.thumbnail {
           height: 32px;
           border-radius: 100%;
-          margin: 0 6px 0 0;
+          margin: 0 8px 0 0;
+          position: relative;
+          top: 2px;
         }
 
         form.comment.dark {
@@ -895,24 +970,26 @@ ul.wall-posts {
             background-color: #3a3b3c;
             border: none;
             border-radius: 50px;
+            color: #e4e6ea;
+            font-size: 15px;
             padding: 0 0 0 14px;
-            height: 32px;
+            min-height: 36px;
             width: 420px;
           }
 
           input.comment::placeholder {
             color: #a6a8ae;
-            font-size: 14px;
+            font-size: 15px;
           }
 
           div.icons {
             position: absolute;
-            top: 8px;
-            left: 326px;
+            top: 10px;
+            left: 314px;
 
             .fa-smile.dark, .fa-image.dark, .fa-film.dark, .fa-github-alt.dark {
               color: #8a8d90;
-              margin: 0 4px;
+              margin: 0 6px;
             }
           }
         }

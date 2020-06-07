@@ -8,7 +8,13 @@ Rails.application.routes.draw do
         get 'posts'
       end 
     end 
+
     resource :session, only: [:create, :destroy]
-    resources :posts, only: [:index, :create, :show, :update, :destroy]
+
+    resources :posts, only: [:index, :create, :show, :update, :destroy] do 
+      resources :comments, only: [:index, :create]
+    end 
+
+    resources :comments, only: [:update, :destroy]
   end
 end

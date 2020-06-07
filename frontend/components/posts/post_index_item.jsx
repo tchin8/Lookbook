@@ -122,16 +122,17 @@ class PostIndexItem extends React.Component {
     const defaultpfp = window.defaultpfp;
     const me = window.me;
 
-    let posterPic;
+    // console.log(post.comments);
+
+    let posterPic, commenterPic, comments, commentIndex, eachCommentThumbnail, commentAuthor;
     if (post.author_id === 1) {
       posterPic = me;
     } else {
       posterPic = defaultpfp;
     }
 
-    let commenterPic;
     if (currentUser.id === 1) {
-      commenterPic= me;
+      commenterPic = me;
     } else {
       commenterPic = defaultpfp;
     }
@@ -144,6 +145,45 @@ class PostIndexItem extends React.Component {
 
     const author = users[post.author_id]
 
+
+    if (post.comments !== undefined) {
+      comments = Object.values(post.comments);
+      // console.log(comments);
+    
+      commentIndex = comments.map(c => {
+        if (c.user_id === 1) {
+          eachCommentThumbnail = me;
+        } else {
+          eachCommentThumbnail = defaultpfp;
+        }
+
+        commentAuthor = users[c.user_id]
+
+        return (
+          <li className="each-com-container dark">
+            <img src={eachCommentThumbnail} 
+              alt="" 
+              className="c-thumb" />
+            <div className="each-com">
+              <Link to={`/users/${author.id}`}
+                style={{ textDecoration: 'none' }}>
+                <span className="commenter">{commentAuthor.fname} {commentAuthor.lname}</span>
+              </Link>
+              <p className="actual-com">{c.body}</p>
+              <div className="like-reply">
+                <span className="like-reply">Like</span>
+                <span>·</span>
+                <span className="like-reply">Reply</span>
+                {/* <span>·</span> */}
+                {/* <span>CREATED AT</span> */}
+              </div>
+            </div>
+          </li>
+        );
+      })
+    }
+
+    
     // debugger;
 
     return (
@@ -282,7 +322,12 @@ class PostIndexItem extends React.Component {
         </div>
 
         <div className="post-comment dark">
+          <ul className="comments-index dark">
+            {commentIndex}
+          </ul>
+
           <div className="comment">
+
             <img src={commenterPic} alt="" className="thumbnail" />
 
             <form className="comment dark">

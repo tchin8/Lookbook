@@ -22,4 +22,8 @@ class Post < ApplicationRecord
 
   has_one_attached :photo
 
+  has_many :comments,
+    class_name: :Comment,
+    foreign_key: :post_id
+
 end
