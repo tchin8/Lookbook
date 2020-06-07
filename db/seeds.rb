@@ -11,16 +11,27 @@ require 'faker'
 User.destroy_all
 Post.destroy_all
 
-User.create!(
+user1 = User.create!(
     fname: 'Tiffany',
     lname: 'Chin',
     email: 'ctiff@lookbook.com',
-    birthday: '2000-1-8',
+    birthday: '1995-1-28',
     gender: 'Female',
     password: 'password',
     bio: "good vibes only",
     current_city: "New York City, NY",
     school: "App Academy"
+  )
+
+user2 = User.create!(
+    fname: 'Lexus',
+    lname: 'Chin',
+    email: 'clexus@lookbook.com',
+    birthday: '2016-1-8',
+    gender: 'Female',
+    password: 'password',
+    bio: "meooowwww",
+    current_city: "New York City, NY",
   )
 
 def random_bday() 

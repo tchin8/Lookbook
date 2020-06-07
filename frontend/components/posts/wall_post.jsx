@@ -91,25 +91,7 @@ class WallPost extends React.Component {
         </div>
 
         {icons}
-        {/* <div className="bottom dark">
-          <div className="live-vid-div dark">
-            <FontAwesomeIcon icon="video"
-              className="fa-video dark" />
-            <span>Live Video</span>
-          </div>
 
-          <div className="photo-vid-div dark">
-            <FontAwesomeIcon icon="images"
-              className="fa-images dark" />
-            <span>Photo/Video</span>
-          </div>
-
-          <div className="feeling-div dark">
-            <FontAwesomeIcon icon={['fab', 'font-awesome-flag']}
-              className="fa-font-awesome-flag dark" />
-            <span>Life Event</span>
-          </div>
-        </div> */}
       </section>
     )
   }

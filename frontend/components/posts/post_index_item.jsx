@@ -64,15 +64,26 @@ class PostIndexItem extends React.Component {
     }
     
     // debugger;
-    const hour = then.getHours() % 12;
-    const min = then.getMinutes() < 10 ? `0${then.getMinutes()}` : then.getMinutes();
+    let t = new Date(datetime)
+    const hour = t.getHours() % 12;
+    const min = t.getMinutes() < 10 ? `0${t.getMinutes()}` : t.getMinutes();
     if (secs >= 86400 && secs < 172800) {
       return `Yesterday at ${hour}:${min} ${amOrPm}`
     }
     
-    month = months[then.getMonth()];
-    day = then.getDate();
+    month = months[t.getMonth()];
+    day = t.getDate();
     return `${month} ${day} at ${hour}:${min} ${amOrPm}`;
+
+    // const hour = then.getHours() % 12;
+    // const min = then.getMinutes() < 10 ? `0${then.getMinutes()}` : then.getMinutes();
+    // if (secs >= 86400 && secs < 172800) {
+    //   return `Yesterday at ${hour}:${min} ${amOrPm}`
+    // }
+    
+    // month = months[then.getMonth()];
+    // day = then.getDate();
+    // return `${month} ${day} at ${hour}:${min} ${amOrPm}`;
   }
 
   handleFocus(e) {

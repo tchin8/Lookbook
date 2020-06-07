@@ -8,6 +8,7 @@ class Profile extends React.Component {
     // this.props.fetchUsers();
     this.props.fetchUserPosts(this.props.match.params.userId);
   }
+
   componentDidMount() {
     this.props.fetchUsers();
     // this.props.fetchUserPosts(this.props.match.params.userId);

@@ -3,13 +3,14 @@ section.edit-profile-modal.dark {
   border-radius: 10px;
   color: #e4e6ea;
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
-  min-height: 1420px;
+  min-height: 1434px;
   // change later
-  // height: 100%;
+  // height: 1500px;
   width: 700px;
   position: relative;
   top: 140px;
   margin: 50vh auto 8vh auto;
+  // overflow: auto;
 
   div.header {
     border: 1px solid #2f3031;
@@ -61,11 +62,23 @@ section.edit-profile-modal.dark {
     font-size: 20px;
     font-weight: bold;
     padding: 20px 18px;
+    // min-height: 1330px;
+    // height: 100%;
     // font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
     div.pro-pic {
       // display: block;
       height: 238px;
       width: 100%;
+
+      label.edit-pfp {
+        border-radius: 6px;;
+        color: #2e89ff;
+        font-size: 16px;
+        font-weight: normal;
+        position: absolute;
+        // margin: 0 0 0 482px;
+        padding: 10px;
+      }
       
       div.pfp {
         display: flex;
@@ -84,6 +97,15 @@ section.edit-profile-modal.dark {
     div.cv-pic {
       height: 238px;
 
+      label.edit-cv {
+        border-radius: 6px;;
+        color: #2e89ff;
+        font-size: 16px;
+        font-weight: normal;
+        margin: 0 0 0 498px;
+        padding: 10px;
+      }
+
       div.cv {
         display: flex;
         justify-content: center;
@@ -97,11 +119,24 @@ section.edit-profile-modal.dark {
       }
     }
 
-    div.bio {
+    div.bio-part {
       min-height: 38px;
+      // padding: 18px 0 0 0;
       margin: 18px 0 0 0;
 
-      div.bio {
+      button.edit-bio {
+        background-color: #242526;
+        border-radius: 6px;
+        border: none;
+        color: #2e89ff;
+        font-size: 16px;
+        font-weight: normal;
+        margin: 0 0 0 585px;
+        height: 38px;
+        width: 48px;
+      }
+
+      div.bio-part {
         display: flex;
         justify-content: center;
         margin: 18px 0 0 0;
@@ -112,19 +147,137 @@ section.edit-profile-modal.dark {
           font-weight: normal;
         }
       }
+
+      form.edit-bio.dark {
+        position: relative;
+        bottom: 16px;
+
+        span.bio-chars {
+          color: #a4a6ab;
+          display: block;
+          font-size: 14px;
+          padding: 0 0 4px 0;
+          position: relative;
+          left: 144px;
+          // text-align: right;
+        }
+
+        textarea.text-bio.dark {
+          background-color: #3a3b3c;
+          border: 1px solid #3e4042;
+          border-radius: 6px;
+          color: 	#e4e6ea;
+          font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+          font-size: 16px;
+          height: 62px;
+          padding: 10px 0 0 0;
+          width: 300px;
+          resize: none;
+          text-align: center;
+        }
+
+        textarea.text-bio:hover {
+          background-color: #4e4f50;
+        }
+
+        textarea.text-bio::placeholder {
+          color: #8b8d91;
+          font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+          font-size: 16px;
+          text-align: center;
+        }
+
+        textarea.text-bio:focus {
+          border: 1px solid #2e89ff;
+        }
+
+        div {
+          // display: flex;
+          // justify-content: flex-end;
+          margin: 6px 0 0 0;
+          position: relative;
+          left: 166px;
+
+          span.audience {
+            color: #e4e6ea;
+            font-size: 15px;
+            position: absolute;
+            left: -162px;
+            top: 8px;
+
+            .fa-globe-americas {
+              color: #ffffff;
+              font-size: 20px;
+              padding: 0 4px 0 0;
+            }
+          }
+          
+          button.cxl-bio {
+            background-color: #3a3b3c;
+            border: none;
+            border-radius: 6px;
+            color: #e4e6ea;
+            font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+            font-size: 15px;
+            height: 38px;
+            width: 74px;
+          }
+
+          button.cxl-bio:hover {
+            background-color: #4e4f50;
+            cursor: pointer;
+          }
+
+          button.save-bio {
+            background-color: #2d88ff;
+            border: none;
+            border-radius: 6px;
+            color: #e4e6ea;
+            font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+            font-size: 15px;
+            height: 38px;
+            margin: 0 0 0 4px;
+            width: 58px;
+          }
+
+          button.save-bio:hover {
+            background-color: #4894ff;
+            cursor: pointer;
+          }
+        }
+      }
     }
 
     div.customize-intro {
       height: 338px;
       margin: 18px 0 0 0;
 
+      button.edit-intro {
+        background-color: #242526;
+        border-radius: 6px;
+        border: none;
+        color: #2e89ff;
+        font-size: 16px;
+        font-weight: normal;
+        margin: 0 0 0 418px;
+        height: 38px;
+        width: 48px;
+      }
+
       div.intro-list {
 
         div.current-city, div.workplace, div.school, div.hometown, div.relationship-status {
+          display: flex;
+          justify-content: space-between;
           margin: 22px 0 0 0;
           font-size: 15px;
 
-          span {
+          span:last-child {
+            color: #ffffff;
+            margin: 0 10px 0 0;
+          }
+
+          span:first-child {
             color: #e4e6ea;
             font-weight: normal;
             position: relative;
@@ -154,8 +307,10 @@ section.edit-profile-modal.dark {
     }
 
     div.featured {
+      // display: block;
       margin: 36px 0 0 0;
-      // height: 500px;
+      height: 500px;
+      border: 1px solid #242526;
 
       span {
         display: block;
@@ -173,6 +328,7 @@ section.edit-profile-modal.dark {
           justify-content: space-between;
   
           div.pic-1-9, div.pic-2-9, div.pic-3-9, div.pic-4-9, div.pic-5-9, div.pic-6-9, div.pic-7-9, div.pic-8-9, div.pic-9-9 {
+            display: inline-block;
             background-color: #18191a;
             border-radius: 10px;
             height: 107px;
@@ -182,22 +338,33 @@ section.edit-profile-modal.dark {
       }
     }
 
-    button.edit-profile {
-      background-color: #3a3b3c;
-      border-radius: 6px;
-      border: none;
-      color: #2f86f9;
-      font-size: 16px;
-      height: 40px;
-      width: 670px;
-      position: relative;
-      top: 350px;
-      left: -2px;
-    }
+    // div.btn {
+    //   position: relative;
+    //   height: 56px;
+
+      button.edit-prof {
+        background-color: #3a3b3c;
+        border-radius: 6px;
+        border: none;
+        color: #2f86f9;
+        font-size: 16px;
+        height: 40px;
+        width: 670px;
+        position: relative;
+        top: 350px;
+        left: -2px;
+        // margin: 100px 0 16px 0;
+      }
+    // }
   }
 
   button.edit-profile:hover {
     background-color: #4e4f50!important;
     cursor: pointer;
   }
+}
+
+label.edit-pfp:hover, button.edit-bio:hover, label.edit-cv:hover, button.edit-intro:hover {
+  background-color: #3a3b3c!important;
+  cursor: pointer;
 }

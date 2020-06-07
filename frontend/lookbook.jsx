@@ -10,7 +10,7 @@ import { faExclamationCircle, faBell, faHome, faSortDown, faTv, faPlay,
   faCalendarPlus, faShoppingBag, faCommentAlt, faExclamation, faCog, 
   faQuestionCircle, faMoon, faArrowCircleLeft, faSignOutAlt, faGlobe, faCamera, 
   faPencilAlt, faEye, faSearch, faEllipsisH, faTimes, faUserTag, faMapMarkerAlt, 
-  faUserFriends, faSlidersH, faList, faThLarge, faFilm, faBriefcase, faGraduationCap, faHeartbeat} from '@fortawesome/free-solid-svg-icons';
+  faUserFriends, faSlidersH, faList, faThLarge, faFilm, faBriefcase, faGraduationCap, faHeartbeat, faGlobeAmericas} from '@fortawesome/free-solid-svg-icons';
 import { faNewspaper, faShareSquare, faThumbsUp, faComment, faBookmark, faEdit as farEdit, faUserCircle, faTrashAlt, faBellSlash, faCalendarAlt, faTimesCircle, faSmile, faImage} from '@fortawesome/free-regular-svg-icons';
 
 library.add(fab, faExclamationCircle, faBell, faHome, faSortDown, faTv, faPlay, 
@@ -18,7 +18,7 @@ library.add(fab, faExclamationCircle, faBell, faHome, faSortDown, faTv, faPlay,
   faCalendarPlus, faShoppingBag, faCommentAlt, faExclamation, faCog, 
   faQuestionCircle, faMoon, faArrowCircleLeft, faSignOutAlt, faGlobe, 
   faNewspaper, faShareSquare, faCamera, faPencilAlt, faEye, faSearch, 
-  faEllipsisH, faTimes, faUserTag, faMapMarkerAlt, faUserFriends, faSlidersH, faList, faThLarge, faThumbsUp, faComment, faBookmark, farEdit, faUserCircle, faTrashAlt, faBellSlash, faCalendarAlt, faTimesCircle, faSmile, faImage, faFilm, faBriefcase, faGraduationCap, faHeartbeat);
+  faEllipsisH, faTimes, faUserTag, faMapMarkerAlt, faUserFriends, faSlidersH, faList, faThLarge, faThumbsUp, faComment, faBookmark, farEdit, faUserCircle, faTrashAlt, faBellSlash, faCalendarAlt, faTimesCircle, faSmile, faImage, faFilm, faBriefcase, faGraduationCap, faHeartbeat, faGlobeAmericas);
 
 
 document.addEventListener("DOMContentLoaded", () => {

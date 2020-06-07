@@ -12,6 +12,7 @@ section.p-header {
     // border-bottom: 1px solid white;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    // border: none;
     display: flex;
     justify-content: center;
     height: 350px;
@@ -23,6 +24,7 @@ section.p-header {
     img.cover-pic {
       border-bottom-left-radius: 10px;
       border-bottom-right-radius: 10px;
+      // border: #18191a;
       width: 100%;
       height: 100%;
     }
@@ -113,7 +115,7 @@ section.p-header {
         // padding: 10px 0 0 0;
       }
 
-      span.bio.dark {
+      span.bio-span.dark {
         color: #b1b3b9;
         font-size: 16px;
         // font-weight: lighter;
@@ -154,9 +156,19 @@ section.p-header {
         }
       }
 
-      form.bio.dark {
+      form.bio-form.dark {
         position: relative;
         bottom: 16px;
+
+        span.bio-chars {
+          color: #a4a6ab;
+          display: block;
+          font-size: 14px;
+          padding: 0 0 4px 0;
+          position: relative;
+          left: 74px;
+          // text-align: right;
+        }
 
         textarea.text-bio.dark {
           background-color: #3a3b3c;
@@ -188,11 +200,23 @@ section.p-header {
         }
 
         div {
-          // display: flex;
-          // justify-content: flex-end;
           margin: 6px 0 0 0;
           position: relative;
           left: 80px;
+
+          span.audience {
+            color: #e4e6ea;
+            font-size: 15px;
+            position: absolute;
+            left: 208px;
+            top: 8px;
+
+            .fa-globe-americas {
+              color: #ffffff;
+              font-size: 20px;
+              padding: 0 4px 0 0;
+            }
+          }
           
           button.cxl-bio {
             background-color: #3a3b3c;

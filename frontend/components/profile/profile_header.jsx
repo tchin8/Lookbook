@@ -5,17 +5,61 @@ class ProfileHeader extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = this.props.user;
+    const { user } = this.props;
+
+    // this.state = this.props.user;
+    this.state = {
+      id: user.id,
+      bio: user.bio,
+      birthday: user.birthday,
+      current_city: user.current_city,
+      email: user.email,
+      fname: user.fname,
+      gender: user.gender,
+      hometown: user.hometown,
+      lname: user.lname,
+      relationship_status: user.relationship_status,
+      school: user.school,
+      workplace: user.workplace,
+    }
+
+    $('.bio-span').addClass("show");
+    $('.bio-span').removeClass("hidden");
+    $('.bio-form').addClass("hidden");
+    $('.bio-form').removeClass("show");
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.update = this.update.bind(this);
+
+    this.state.count = 101 - this.state.bio.length;
+
+    // console.log(this.state.count);
   }
 
-  componentDidUpdate(){
-    // $('.bio').removeClass("show");
-    // $('.bio').addClass("hidden");
-  }
+  // componentDidUpdate(){
+  //   if (this.state.bio !== localStorage.getItem('bio') && localStorage.getItem('bio') !== undefined) {
+  //     this.setState({ "bio": localStorage.getItem('bio') });
+  //   }
+  //   // $('.bio').removeClass("show");
+  //   // $('.bio').addClass("hidden");
+  // }
 
   handleClick(e) {
     e.preventDefault();
-    $('.bio').toggleClass("show hidden");
+    $('.bio-span').toggleClass("show hidden");
+    $('.bio-form').toggleClass("show hidden");
+  }
+
+  handleCancel(e) {
+    e.preventDefault();
+    $('.bio-span').toggleClass("show hidden");
+    $('.bio-form').toggleClass("show hidden");
+    return e => {
+      return this.setState({
+        bio: this.props.user.bio,
+      });
+    }
   }
 
   // count() {
@@ -30,16 +74,27 @@ class ProfileHeader extends React.Component {
 
   update(field) {
     // $('.bio').toggleClass("show hidden");
-    return e => (
-      this.setState({ [field]: e.currentTarget.value })
-    )
+    return e => {
+      return this.setState({ 
+        [field]: e.target.value, 
+        count: (101 - e.target.value.length)
+      });
+    }
   }
 
-  // handleSubmit(e) {
-  //   e.preventDefault();
-  //   this.props.updateUser(this.state);
-  //   $('.bio').toggleClass("show hidden");
-  // }
+  handleSubmit(e) {
+    e.preventDefault();
+    $('.bio-span').addClass("show");
+    $('.bio-span').removeClass("hidden");
+    $('.bio-form').addClass("hidden");
+    $('.bio-form').removeClass("show");
+    localStorage.setItem('bio', this.state.bio)
+    // debugger;
+    this.props.updateUser(this.state);
+    // console.log(this.state);
+    // debugger;
+    // this.forceUpdate();
+  }
 
   render() {
     // debugger;
@@ -64,9 +119,9 @@ class ProfileHeader extends React.Component {
     }
 
     // debugger;
-    let bioButton, cameraButton, editCvButton, archive, editProBtn;
+    let bioButton, cameraButton, editCvButton, archive, editProBtn, bio;
     if (currentUser.id === user.id) {
-      if (user.bio !== undefined) {
+      if (user.bio !== undefined && user.bio !== null) {
         bioButton = <button className="edit"
           onClick={this.handleClick}>Edit</button> 
       } else {
@@ -74,10 +129,14 @@ class ProfileHeader extends React.Component {
           onClick={this.handleClick}>Add Bio</button>
       }
 
-      cameraButton = <div className="cam-circle dark">
-        <FontAwesomeIcon icon="camera"
-          className="fa-camera dark" />
-      </div>
+      bio = this.state.bio;
+
+      cameraButton = (
+        <div className="cam-circle dark">
+          <FontAwesomeIcon icon="camera"
+            className="fa-camera dark" />
+        </div>
+      )
 
       editCvButton = <button className="dark">
         <FontAwesomeIcon icon="camera"
@@ -97,7 +156,9 @@ class ProfileHeader extends React.Component {
         </div>
       )
     } else {
-      archive = <span>Check-Ins</span>
+      bio = user.bio;
+
+      archive = (<span>Check-Ins</span>)
 
       editProBtn = (
         <div>
@@ -132,24 +193,28 @@ class ProfileHeader extends React.Component {
               {user.fname} {user.lname}
             </span>
 
-            <span className="bio dark show">
-              {user.bio}
+            <span className="bio-span dark show">
+              {bio}
 
               {bioButton}
             </span>
 
-            <form className="bio dark hidden">
+            <form className="bio-form dark hidden">
               <textarea className="text-bio dark"
                 value={this.state.bio}
                 placeholder="Describe who you are"
                 onChange={this.update('bio')}
                 />
-              {/* <span>{101 - this.bio.length} characters remaining</span> */}
+              <span className="bio-chars">{this.state.count} characters remaining</span>
               <div>
+                <span className="audience">
+                  <FontAwesomeIcon icon="globe-americas"
+                    className="fa-globe-americas dark" /> Public
+                </span>
                 <button className="cxl-bio" 
-                  onClick={this.handleClick}>Cancel</button>
+                  onClick={this.handleCancel}>Cancel</button>
                 <button className="save-bio"
-                  onClick={() => updateUser(this.state)}
+                  onClick={this.handleSubmit}
                   disabled={!this.state.bio}>Save</button>
               </div>
             </form>
