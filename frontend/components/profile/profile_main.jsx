@@ -5,6 +5,10 @@ import WallPostContainer from '../posts/wall_post_container';
 import PostIndexContainer from '../posts/post_index_container';
 
 class ProfileMain extends React.Component {
+  // componentDidUpdate() {
+
+  // }
+
   render() {
     const { currentUser, user, openModal, createComment } = this.props;
 

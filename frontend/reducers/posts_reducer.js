@@ -11,6 +11,7 @@ import merge from 'lodash/merge';
 
 
 function postsReducer(state = {}, action) {
+  // debugger;
   Object.freeze(state);
   let newState = Object.assign({}, state);
 
@@ -22,7 +23,9 @@ function postsReducer(state = {}, action) {
       return newState;
 
     case RECEIVE_COMMENT: 
-      newState[action.comment.post_id]["comments"][action.comment.id] = {};
+    // debugger;
+      newState[action.comment.post_id]["comments"] = newState[action.comment.post_id]["comments"] || {};
+      // newState[action.comment.post_id]["comments"][action.comment.id] = newState[action.comment.post_id]["comments"][action.comment.id] || {};
       newState[action.comment.post_id]["comments"][action.comment.id] =  action.comment;
       return newState;
     case REMOVE_POST:

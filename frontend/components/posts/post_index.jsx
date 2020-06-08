@@ -5,6 +5,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 class PostIndex extends React.Component {
   constructor(props) {
     super(props);
+
+    // this.state = props.posts;
+
+    this.rerender = this.rerender.bind(this);
   }
 
   // componentDidUpdate() {
@@ -14,6 +18,22 @@ class PostIndex extends React.Component {
   // componentDidMount() {
   //   this.props.fetchUserPosts(this.props.match.params.userId);
   // }
+
+  // static getDerivedStateFromProps(props, state) {
+  //   if (props.posts !== state.posts) {
+  //     return {
+  //       posts: props.posts,
+  //     };
+  //   }
+  //   return null;
+  // }
+
+  rerender() {
+    debugger;
+    // this.props.fetchUserPosts(this.props.match.params.userId);
+
+    this.forceUpdate();
+  }
 
   render() {
     const { posts, deletePost, updatePost, fetchPost, openModal, currentUser } = this.props;
@@ -36,7 +56,8 @@ class PostIndex extends React.Component {
             deletePost={deletePost} 
             openModal={openModal}
             currentUser={currentUser}
-            key={post.id}/>
+            key={post.id}
+            rerender={this.rerender}/>
         ))}
       </ul>
     )

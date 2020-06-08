@@ -13,7 +13,7 @@ class PostIndexItem extends React.Component {
 
     this.state = this.props.post || props.post;
 
-    this.state.rerender = true;
+    // this.state.rerender = true;
 
     this.postedTimeAgo = this.postedTimeAgo.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
@@ -22,8 +22,19 @@ class PostIndexItem extends React.Component {
     this.rerender = this.rerender.bind(this);
   }
 
+  static getDerivedStateFromProps(props, state) {
+    if (props.post !== state.post) {
+      return {
+        post: props.post,
+      };
+    }
+    return null;
+  }
+
   rerender() {
+    debugger;
     this.forceUpdate();
+    this.props.rerender();
   }
 
   // DONT NEED THIS DONT UNCOMMENT BACK
@@ -31,7 +42,8 @@ class PostIndexItem extends React.Component {
   //   this.props.fetchPost(this.state.id);
   // }
   // componentDidUpdate() {
-  //   this.props.fetchComments(this.props.post.id);
+  //   debugger;
+  //   this.props.fetchPost(this.props.post.id);
   // }
 
   // componentDidMount() {
@@ -168,7 +180,7 @@ class PostIndexItem extends React.Component {
   }
 
   render() {
-    // debugger;
+    debugger;
     const { post, deletePost, updatePost, openModal, currentUser, users, createComment } = this.props;
     const defaultpfp = window.defaultpfp;
     const me = window.me;
@@ -186,13 +198,13 @@ class PostIndexItem extends React.Component {
       commenterPic = defaultpfp;
     }
     
-    // debugger;
+    debugger;
     if (!post) {
       return null;
     }
 
     const author = users[post.author_id] || users[Object.values(post)[0].user_id];
-    // debugger;
+    debugger;
 
     if (post.comments !== undefined) {
       comments = Object.values(post.comments);
@@ -205,7 +217,7 @@ class PostIndexItem extends React.Component {
         }
 
         commentAuthor = users[c.user_id]
-        // debugger;
+        debugger;
 
         return (
           <li className="each-com-container dark"
@@ -232,7 +244,7 @@ class PostIndexItem extends React.Component {
       })
     }
 
-    // debugger;
+    debugger;
 
     return (
       <li className="each-post dark">

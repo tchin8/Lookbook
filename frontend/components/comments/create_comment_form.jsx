@@ -5,9 +5,11 @@ class CreateCommentForm extends React.Component {
   constructor(props) {
     super(props);
 
+    const { currentUser, post } = this.props;
+
     this.state = {
-      user_id: this.props.currentUser.id,
-      post_id: this.props.post.id,
+      user_id: currentUser.id,
+      post_id: post.id,
       body: "",
     };
 
@@ -27,11 +29,14 @@ class CreateCommentForm extends React.Component {
   }
 
   handleSubmit(e) {
+    debugger;
     e.preventDefault();
     this.props.createComment(this.state);
     this.props.rerender();
+    debugger;
     // this.rerender();
     // this.props.fetchUserPosts();
+    // debugger;
   }
 
   render() {
