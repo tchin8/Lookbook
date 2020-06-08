@@ -29,7 +29,7 @@ class PostIndex extends React.Component {
   // }
 
   rerender() {
-    debugger;
+    // debugger;
     // this.props.fetchUserPosts(this.props.match.params.userId);
 
     this.forceUpdate();

@@ -108,15 +108,8 @@ Post.create!(
 1000.times do 
   Post.create!(
     author_id: rand(3..102),
-    user_id: rand(3..102),
+    user_id: rand(1..102),
     body: Faker::Quote.famous_last_words
   )
 end 
 
-2000.times do 
-  Comment.create!(
-    user_id: rand(3..102),
-    post_id: rand(3..102),
-    body: Faker::Quote.famous_last_words
-  )
-end 

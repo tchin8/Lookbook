@@ -32,7 +32,7 @@ class PostIndexItem extends React.Component {
   }
 
   rerender() {
-    debugger;
+    // debugger;
     this.forceUpdate();
     this.props.rerender();
   }
@@ -180,7 +180,7 @@ class PostIndexItem extends React.Component {
   }
 
   render() {
-    debugger;
+    // debugger;
     const { post, deletePost, updatePost, openModal, currentUser, users, createComment } = this.props;
     const defaultpfp = window.defaultpfp;
     const me = window.me;
@@ -198,13 +198,13 @@ class PostIndexItem extends React.Component {
       commenterPic = defaultpfp;
     }
     
-    debugger;
+    // debugger;
     if (!post) {
       return null;
     }
 
     const author = users[post.author_id] || users[Object.values(post)[0].user_id];
-    debugger;
+    // debugger;
 
     if (post.comments !== undefined) {
       comments = Object.values(post.comments);
@@ -217,7 +217,7 @@ class PostIndexItem extends React.Component {
         }
 
         commentAuthor = users[c.user_id]
-        debugger;
+        // debugger;
 
         return (
           <li className="each-com-container dark"
@@ -244,7 +244,7 @@ class PostIndexItem extends React.Component {
       })
     }
 
-    debugger;
+    // debugger;
 
     return (
       <li className="each-post dark">

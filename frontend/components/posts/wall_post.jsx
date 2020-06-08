@@ -79,7 +79,7 @@ class WallPost extends React.Component {
     }
 
 
-    console.log(currentUser);
+    (currentUser);
 
     return (
       <section className="wall-post-container dark">

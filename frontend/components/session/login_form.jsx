@@ -23,7 +23,7 @@ class LoginForm extends React.Component {
   handleSubmit(e) {
     // debugger;
     e.preventDefault();
-    console.log(this.state);
+    // console.log(this.state);
     this.props.login(this.state);
     // <Redirect to="/" />
   }

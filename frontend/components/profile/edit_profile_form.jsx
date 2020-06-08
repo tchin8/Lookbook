@@ -103,7 +103,7 @@ class EditProfileForm extends React.Component {
   }
 
   handleSubmit(e) {
-    debugger;
+    // debugger;
     e.preventDefault();
     this.props.updateUser(this.state); 
     this.props.closeModal();

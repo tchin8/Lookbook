@@ -32,7 +32,7 @@ class NavBar extends React.Component {
   }
 
   handleBlur(e) {
-    console.log('on blue');
+    // console.log('on blue');
     let classN = '';
     // e.currentTarget.focus();
     if (e.currentTarget.classList.contains('down-arrow-circle')) {
@@ -40,7 +40,7 @@ class NavBar extends React.Component {
     } else if (e.currentTarget.classList.contains('plus-circle')) {
       classN += 'plus-drop';
     }
-    console.log(classN);
+    // console.log(classN);
 
     $(`section.down-down`).addClass('hidden');
     $(`section.plus-drop`).addClass('hidden');

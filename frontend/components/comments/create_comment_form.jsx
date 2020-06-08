@@ -29,11 +29,11 @@ class CreateCommentForm extends React.Component {
   }
 
   handleSubmit(e) {
-    debugger;
+    // debugger;
     e.preventDefault();
     this.props.createComment(this.state);
     this.props.rerender();
-    debugger;
+    // debugger;
     // this.rerender();
     // this.props.fetchUserPosts();
     // debugger;
