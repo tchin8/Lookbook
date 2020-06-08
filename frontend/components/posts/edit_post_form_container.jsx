@@ -17,7 +17,7 @@ class EditPostForm extends React.Component {
 
   render() {
     const { action, formType, post, currentUser, closeModal} = this.props;
-    debugger;
+    // debugger;
 
     if (!post) return null;
     return (
@@ -32,7 +32,7 @@ class EditPostForm extends React.Component {
 }
 
 const mSTP = (state, ownProps) => {
-  debugger;
+  // debugger;
   return {
     currentUser: state.entities.users[state.session.id], 
     // post: state.posts[ownProps.match.params.postId],

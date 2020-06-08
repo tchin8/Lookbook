@@ -942,7 +942,6 @@ ul.wall-posts {
               }
             }
           }
-
         }
       }
 
@@ -950,7 +949,7 @@ ul.wall-posts {
       div.comment {
         display: flex;
         margin: auto;
-        padding: 6px 0;
+        padding: 8px 0;
         // position: relative;
         // top: 6px;
         width: 470px;
@@ -965,16 +964,20 @@ ul.wall-posts {
 
         form.comment.dark {
           position: relative;
+          
 
           input.comment {
             background-color: #3a3b3c;
             border: none;
             border-radius: 50px;
             color: #e4e6ea;
+            font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
             font-size: 15px;
+            min-height: 16px;
             padding: 0 0 0 14px;
-            min-height: 36px;
+            // resize: vertical;
             width: 420px;
+            overflow: auto;
           }
 
           input.comment::placeholder {

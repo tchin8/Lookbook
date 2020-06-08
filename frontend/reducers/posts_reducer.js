@@ -3,6 +3,10 @@ import {
   RECEIVE_POST,
   REMOVE_POST,
 } from '../actions/post_actions';
+
+import {
+  RECEIVE_COMMENT,
+} from '../actions/comment_actions';
 import merge from 'lodash/merge';
 
 
@@ -14,12 +18,14 @@ function postsReducer(state = {}, action) {
     case RECEIVE_ALL_POSTS:
       return Object.assign({}, action.posts);
     case RECEIVE_POST:
-      let newState = Object.assign({}, state);
       newState[action.post.id] = action.post;
       return newState;
-      // return Object.assign({}, state, { [action.post.id]: action.post });
+
+    case RECEIVE_COMMENT: 
+      newState[action.comment.post_id]["comments"][action.comment.id] = {};
+      newState[action.comment.post_id]["comments"][action.comment.id] =  action.comment;
+      return newState;
     case REMOVE_POST:
-      // debugger;
       delete newState[action.postId];
       return newState;
     default:

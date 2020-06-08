@@ -30,13 +30,13 @@ class PostIndex extends React.Component {
 
         {posts.map(post => (
           <PostIndexItemContainer 
-            key={post.id}
             post={post} 
             fetchPost={fetchPost}
             updatePost={updatePost}
             deletePost={deletePost} 
             openModal={openModal}
-            currentUser={currentUser}/>
+            currentUser={currentUser}
+            key={post.id}/>
         ))}
       </ul>
     )

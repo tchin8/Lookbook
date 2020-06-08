@@ -6,7 +6,7 @@ import PostIndexContainer from '../posts/post_index_container';
 
 class ProfileMain extends React.Component {
   render() {
-    const { currentUser, user, openModal } = this.props;
+    const { currentUser, user, openModal, createComment } = this.props;
 
     let organizeSection, btn1, btn2;
     if (user === currentUser) {
@@ -87,8 +87,6 @@ class ProfileMain extends React.Component {
                 </div>
               </div>
 
-              {/* <button className="edit-featured"
-                onClick={() => openModal('Edit Profile')}>Edit Featured</button> */}
                 {btn2}
             </div>
 
@@ -129,7 +127,8 @@ class ProfileMain extends React.Component {
 
             {organizeSection}
 
-            <PostIndexContainer currentUser={currentUser}/>
+            <PostIndexContainer 
+              currentUser={currentUser}/>
           </div>
         </div>
       </section>

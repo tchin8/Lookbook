@@ -5,6 +5,8 @@ import { logout } from '../../actions/session_actions';
 import { updateUser, fetchUsers } from '../../actions/users_actions';
 import { fetchUserPosts } from '../../actions/post_actions';
 import { openModal } from '../../actions/modal_actions';
+import { fetchComments } from '../../actions/comment_actions';
+
 
 const mSTP = (state, ownProps) => ({
   currentUser: state.entities.users[state.session.id], 
@@ -16,7 +18,8 @@ const mDTP = dispatch => ({
   fetchUsers: () => dispatch(fetchUsers()),
   logout: user => dispatch(logout(user)),
   updateUser: user => dispatch(updateUser(user)),
-  openModal: modal => dispatch(openModal(modal))
+  openModal: modal => dispatch(openModal(modal)),
+  fetchComments: postId => dispatch(fetchComments(postId)),
 });
 
 export default connect(mSTP, mDTP)(Profile);

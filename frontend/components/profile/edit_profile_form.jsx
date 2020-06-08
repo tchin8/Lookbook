@@ -54,7 +54,7 @@ class EditProfileForm extends React.Component {
   }
 
   handleCancelIntro(e) {
-    debugger;
+    // debugger;
     e.preventDefault();
     this.setState({
       current_city: this.state.prevState.current_city,
@@ -64,7 +64,7 @@ class EditProfileForm extends React.Component {
       hometown: this.state.prevState.hometown,
       relationship_status: this.state.prevState.relationship_status,
     });
-    debugger;
+    // debugger;
     $('.intro').toggleClass("show hidden");
     $('.edit-intro').toggleClass("show hidden");
   }

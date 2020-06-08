@@ -4,21 +4,38 @@ import {
   Link
 } from 'react-router-dom';
 
+import CreateCommentForm from '../comments/create_comment_form';
+
 class PostIndexItem extends React.Component {
   constructor(props) {
     super(props);
+    // debugger;
 
-    this.state = this.props.post;
+    this.state = this.props.post || props.post;
+
+    this.state.rerender = true;
 
     this.postedTimeAgo = this.postedTimeAgo.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
     this.handleDeletePost = this.handleDeletePost.bind(this);
     this.handleEditModal = this.handleEditModal.bind(this);
+    this.rerender = this.rerender.bind(this);
+  }
+
+  rerender() {
+    this.forceUpdate();
   }
 
   // DONT NEED THIS DONT UNCOMMENT BACK
   // componentDidMount() {
   //   this.props.fetchPost(this.state.id);
+  // }
+  // componentDidUpdate() {
+  //   this.props.fetchComments(this.props.post.id);
+  // }
+
+  // componentDidMount() {
+  //   this.props.fetchComments(this.props.post.id);
   // }
 
   postedTimeAgo(datetime) {
@@ -89,6 +106,32 @@ class PostIndexItem extends React.Component {
     // return `${month} ${day} at ${hour}:${min} ${amOrPm}`;
   }
 
+  commentedTimeAgo(datetime) {
+    if (this.props.post.created_at === undefined) {
+      // debugger;
+      return "1m";
+    }
+
+    const now = new Date();
+    let t = new Date(datetime);
+    const then = (t - 10800);
+    const secs = ((now.getTime() - then) / 1000);
+
+    if (secs < 60) {
+      return "1m"
+    } else if (secs < 3600) {
+      return parseInt(secs / 60) + "m";
+    } else if (secs < 86400) {
+      return parseInt(secs / 2600) + "h";
+    } else if (secs < 604800) {
+      return parseInt(secs / 86400) + "d";
+    } else if (secs < 31449600) {
+      return parseInt(secs / 604800) + "w";
+    } else {
+      return parseInt(secs / 31449600) + "y";
+    }
+  }
+
   handleFocus(e) {
     // debugger;
     let classN;
@@ -111,18 +154,24 @@ class PostIndexItem extends React.Component {
 
   handleEditModal(e) {
     e.preventDefault();
-    debugger;
+    // debugger;
     localStorage.setItem('editPost', JSON.stringify(this.state))
     this.props.openModal('Edit Post');
     $(`.show`).toggleClass('show hidden');
   }
 
+  update(field) {
+    // debugger;
+    return e => (
+      this.setState({ [field]: e.target.value})
+    )
+  }
+
   render() {
-    const { post, deletePost, updatePost, openModal, currentUser, users } = this.props;
+    // debugger;
+    const { post, deletePost, updatePost, openModal, currentUser, users, createComment } = this.props;
     const defaultpfp = window.defaultpfp;
     const me = window.me;
-
-    // console.log(post.comments);
 
     let posterPic, commenterPic, comments, commentIndex, eachCommentThumbnail, commentAuthor;
     if (post.author_id === 1) {
@@ -139,16 +188,14 @@ class PostIndexItem extends React.Component {
     
     // debugger;
     if (!post) {
-      // debugger;
       return null;
     }
 
-    const author = users[post.author_id]
-
+    const author = users[post.author_id] || users[Object.values(post)[0].user_id];
+    // debugger;
 
     if (post.comments !== undefined) {
       comments = Object.values(post.comments);
-      // console.log(comments);
     
       commentIndex = comments.map(c => {
         if (c.user_id === 1) {
@@ -158,14 +205,16 @@ class PostIndexItem extends React.Component {
         }
 
         commentAuthor = users[c.user_id]
+        // debugger;
 
         return (
-          <li className="each-com-container dark">
+          <li className="each-com-container dark"
+            key={c.id}>
             <img src={eachCommentThumbnail} 
               alt="" 
               className="c-thumb" />
             <div className="each-com">
-              <Link to={`/users/${author.id}`}
+              <Link to={`/users/${users[c.user_id]}`}
                 style={{ textDecoration: 'none' }}>
                 <span className="commenter">{commentAuthor.fname} {commentAuthor.lname}</span>
               </Link>
@@ -174,8 +223,8 @@ class PostIndexItem extends React.Component {
                 <span className="like-reply">Like</span>
                 <span>·</span>
                 <span className="like-reply">Reply</span>
-                {/* <span>·</span> */}
-                {/* <span>CREATED AT</span> */}
+                <span>·</span>
+                <span>{this.commentedTimeAgo(c.created_at)}</span>
               </div>
             </div>
           </li>
@@ -183,7 +232,6 @@ class PostIndexItem extends React.Component {
       })
     }
 
-    
     // debugger;
 
     return (
@@ -210,7 +258,6 @@ class PostIndexItem extends React.Component {
               </div>
             </div>
 
-            {/* MOVE BACK TO INDEXITEM LATER */}
             <div className="post-dropdown dark hidden" 
               id={`dd-${post.id}`} >
               <div className="pdd-1-3 dark">
@@ -330,26 +377,11 @@ class PostIndexItem extends React.Component {
 
             <img src={commenterPic} alt="" className="thumbnail" />
 
-            <form className="comment dark">
-              <input className="comment"
-                type="text"
-                placeholder="Write a comment..."/>
-              
-              <div className="icons">
-                <FontAwesomeIcon icon={['far', 'smile']}
-                  className="fa-smile dark" />
-                <FontAwesomeIcon icon={['far', 'image']}
-                  className="fa-image dark" />
-                {/* <FontAwesomeIcon icon={['fab', 'searchengin']}
-                  className="fa-searchengin dark" /> */}
-                <FontAwesomeIcon icon="film"
-                  className="fa-film dark" />
-                <FontAwesomeIcon icon={['fab', 'github-alt']}
-                  className="fa-github-alt dark" />
-              </div>
-
-              {/* needs an onSubmit later on for commenting */}
-            </form>
+            <CreateCommentForm 
+              currentUser={currentUser}
+              createComment={createComment}
+              post={post}
+              rerender={this.rerender}/>
           </div>
         </div>
       </li>
