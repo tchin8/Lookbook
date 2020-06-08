@@ -11,6 +11,7 @@ class ProfileMain extends React.Component {
 
   render() {
     const { currentUser, user, openModal, createComment } = this.props;
+    
 
     let organizeSection, btn1, btn2;
     if (user === currentUser) {

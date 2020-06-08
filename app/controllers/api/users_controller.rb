@@ -15,6 +15,10 @@ class Api::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    # profile_pic = open('https://lookbook-aa-dev.s3.amazonaws.com/default_pfp.png')
+    # cover_photo = open('https://lookbook-aa-dev.s3.amazonaws.com/default_cv.png')
+    # @user.pfp.attach(io: profile_pic, filename: 'default_pfp.png')
+    # @user.cover_photo.attach(io: cover_photo, filename: 'default_cv.png')
 
     if @user.save
       login(@user)
@@ -44,6 +48,6 @@ class Api::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:fname, :lname, :email, :password, :birthday, :gender, :bio, :current_city, :workplace, :school, :hometown, :relationship_status, :pfp)
+    params.require(:user).permit(:fname, :lname, :email, :password, :birthday, :gender, :bio, :current_city, :workplace, :school, :hometown, :relationship_status, :pfp, :cover_photo, photos: [])
   end
 end

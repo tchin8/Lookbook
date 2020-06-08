@@ -8,10 +8,15 @@ import { openModal } from '../../actions/modal_actions';
 import { fetchComments } from '../../actions/comment_actions';
 
 
-const mSTP = (state, ownProps) => ({
-  currentUser: state.entities.users[state.session.id], 
-  user: state.entities.users[ownProps.match.params.userId]
-});
+const mSTP = (state, ownProps) => {
+  // debugger;
+  return {
+    pfpUrl: state.entities.users[state.session.id].pfpUrl,
+    coverPhotoUrl: state.entities.users[state.session.id].coverPhotoUrl,
+    currentUser: state.entities.users[state.session.id], 
+    user: state.entities.users[ownProps.match.params.userId]
+  }
+};
 
 const mDTP = dispatch => ({
   fetchUserPosts: userId => dispatch(fetchUserPosts(userId)),

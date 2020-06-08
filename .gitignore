@@ -31,3 +31,4 @@ bundle.js*
 /public/assets
 
 notes.md
+/db/seeds.rb

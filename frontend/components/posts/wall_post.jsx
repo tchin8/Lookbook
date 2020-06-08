@@ -19,6 +19,10 @@ class WallPost extends React.Component {
     //   return null;
     // }
 
+    if (currentUser.pfpUrl === undefined) {
+      return null;
+    }
+
     if (currentUser === user) {
       postBtn = <button className="wall-post dark"
         onClick={() => openModal('Create Post')}>
@@ -85,7 +89,7 @@ class WallPost extends React.Component {
       <section className="wall-post-container dark">
         <div className="top dark">
           {/* change to user's img */}
-          <img src={pic} alt="" className="thumbnail" />
+          <img src={currentUser.pfpUrl} alt="" className="thumbnail" />
           {postBtn}
 
         </div>

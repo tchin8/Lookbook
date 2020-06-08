@@ -67,6 +67,10 @@ class NavBar extends React.Component {
       pic = defaultpfp;
     }
 
+    if (currentUser.pfpUrl === undefined) {
+      return null;
+    }
+    
     return (
       <section className="whole-nav">
         <section className="navbar-dark">
@@ -134,7 +138,7 @@ class NavBar extends React.Component {
                 // onClick={this.handleProfile}
                 >
                 {/* change to user's image_url */}
-                <img src={pic} alt="" className="pfp" />
+                <img src={currentUser.pfpUrl} alt="" className="pfp" />
 
                 <span>{currentUser.fname}</span>
               </div>

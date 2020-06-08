@@ -38,6 +38,10 @@ class User < ApplicationRecord
 
   has_one_attached :pfp
 
+  has_one_attached :cover_photo
+
+  has_many_attached :user_photos
+
   has_many :comments,
     class_name: :Comment,
     foreign_key: :user_id

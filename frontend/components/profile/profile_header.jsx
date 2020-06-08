@@ -8,6 +8,7 @@ class ProfileHeader extends React.Component {
     const { user } = this.props;
 
     // this.state = this.props.user;
+    // debugger;
     this.state = {
       id: user.id,
       bio: user.bio,
@@ -21,6 +22,8 @@ class ProfileHeader extends React.Component {
       relationship_status: user.relationship_status,
       school: user.school,
       workplace: user.workplace,
+      pfpUrl: user.pfpUrl,
+      coverPhotoUrl: user.coverPhotoUrl
     }
 
     this.state.prevState = {
@@ -36,6 +39,8 @@ class ProfileHeader extends React.Component {
       relationship_status: user.relationship_status,
       school: user.school,
       workplace: user.workplace,
+      pfpUrl: user.pfpUrl,
+      coverPhotoUrl: user.coverPhotoUrl
     }
 
     $('.bio-span').addClass("show");
@@ -47,6 +52,11 @@ class ProfileHeader extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.update = this.update.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
+    this.handleFileClick = this.handleFileClick.bind(this);
+    this.handleUploadPfp = this.handleUploadPfp.bind(this);
+    this.handleFileClickCoverPhoto = this.handleFileClickCoverPhoto.bind(this);
+    this.handleUploadCoverPhoto = this.handleUploadCoverPhoto.bind(this);
+    // this.handleFile = this.handleFile.bind(this);
 
     if (this.state.bio === null) {
       this.state.count = 101;
@@ -126,6 +136,86 @@ class ProfileHeader extends React.Component {
     // this.forceUpdate();
   }
 
+  handleFileClick() {
+    $(".upload-pfp").click();
+    debugger;
+  }
+
+  // handleFile(e) {
+  //   // this.setState({ pfpUrl: e.currentTarget.files[0] });
+  //   // this.handleUploadPfp(e);
+  //   // debugger;
+  // }
+
+  handleUploadPfp(e) {
+    // e.preventDefault();
+    this.setState({ pfpUrl: e.currentTarget.files[0]});
+
+    const formData = new FormData();
+    debugger;
+    // if (this.state.photoFile) {
+      formData.append('user[id]', this.state.id);
+      formData.append('user[bio]', this.state.bio);
+      formData.append('user[birthday]', this.state.birthday);
+      formData.append('user[current_city]', this.state.current_city);
+      formData.append('user[email]', this.state.email);
+      formData.append('user[fname]', this.state.fname);
+      formData.append('user[gender]', this.state.gender);
+      formData.append('user[hometown]', this.state.hometown);
+      formData.append('user[lname]', this.state.lname);
+      formData.append('user[relationship_status]', this.state.relationship_status);
+      formData.append('user[school]', this.state.school);
+      formData.append('user[workplace]', this.state.workplace);
+      formData.append('user[pfp]', e.currentTarget.files[0]);
+      // formData.append('user[pfpUrl]', this.state.pfpUrl);
+      // formData.append('user[cover_photo]', this.state.coverPhotoUrl);
+    // }
+
+    debugger;
+    $.ajax({
+      url: `/api/users/${this.state.id}`,
+      method: 'patch',
+      data: formData,
+      contentType: false,
+      processData: false
+    });
+  }
+
+  handleFileClickCoverPhoto() {
+    $(".upload-cv").click();
+    debugger;
+  }
+
+  handleUploadCoverPhoto(e) {
+    // e.preventDefault();
+    this.setState({ pfpUrl: e.currentTarget.files[0]});
+
+    const formData = new FormData();
+    debugger;
+    formData.append('user[id]', this.state.id);
+    formData.append('user[bio]', this.state.bio);
+    formData.append('user[birthday]', this.state.birthday);
+    formData.append('user[current_city]', this.state.current_city);
+    formData.append('user[email]', this.state.email);
+    formData.append('user[fname]', this.state.fname);
+    formData.append('user[gender]', this.state.gender);
+    formData.append('user[hometown]', this.state.hometown);
+    formData.append('user[lname]', this.state.lname);
+    formData.append('user[relationship_status]', this.state.relationship_status);
+    formData.append('user[school]', this.state.school);
+    formData.append('user[workplace]', this.state.workplace);
+    formData.append('user[cover_photo]', e.currentTarget.files[0]);
+
+    debugger;
+    $.ajax({
+      url: `/api/users/${this.state.id}`,
+      method: 'patch',
+      data: formData,
+      contentType: false,
+      processData: false
+    });
+  }
+
   render() {
     // debugger;
     const { user, updateUser, currentUser, openModal } = this.props;
@@ -162,15 +252,30 @@ class ProfileHeader extends React.Component {
       bio = this.state.bio;
 
       cameraButton = (
-        <div className="cam-circle dark">
+        <div className="cam-circle dark"
+          onClick={this.handleFileClick}
+          >
           <FontAwesomeIcon icon="camera"
             className="fa-camera dark" />
+            <input className="upload-pfp"
+              type="file"
+              id="file"
+              // onChange={this.handleFile}
+              onChange={this.handleUploadPfp}
+              />
         </div>
       )
 
-      editCvButton = <button className="dark">
+      editCvButton = <button className="dark"
+        onClick={this.handleFileClickCoverPhoto}>
         <FontAwesomeIcon icon="camera"
           className="fa-camera dark" />
+            <input className="upload-cv"
+              type="file"
+              id="file"
+              // onChange={this.handleFile}
+              onChange={this.handleUploadCoverPhoto}
+            />
             Edit Cover Photo
           </button>
         
@@ -203,13 +308,17 @@ class ProfileHeader extends React.Component {
       )
     }
 
+    if (currentUser.pfpUrl === undefined) {
+      return null;
+    }
+
     return (
       <section className="p-header">
         <div className="cover-pic">
-          <img src={cv} alt="" className="cover-pic" />
+          <img src={user.coverPhotoUrl} alt="" className="cover-pic" />
 
           <div className="pfp dark">
-            <img src={pic} alt="" className="pfp" />
+            <img src={user.pfpUrl} alt="" className="pfp" />
 
             {cameraButton}
           </div>

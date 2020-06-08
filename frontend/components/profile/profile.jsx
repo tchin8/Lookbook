@@ -26,7 +26,8 @@ class Profile extends React.Component {
     if (!user) {
       return null;
     }
-    
+    // debugger;
+
     return (
       <div>
         <NavBar currentUser={currentUser} logout={logout} />

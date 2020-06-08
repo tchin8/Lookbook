@@ -1,17 +1,15 @@
-// import { connect } from 'react-redux';
-// import CommentIndexItem from './comment_index_item';
-// import PostIndex from './post_index';
+import { connect } from 'react-redux';
+import CommentIndex from './comment_index';
+import { fetchPost } from '../../actions/post_actions';
+import { fetchComments } from '../../actions/comment_actions';
 
-// const mSTP = state => ({
-//   post: Object.values(state.posts).reverse(),
-// });
+const mSTP = state => ({
+  newComment: state.comments,
+});
 
-// const mDTP = dispatch => ({
-//   fetchPost: postId => dispatch(fetchPost(postId)),
-//   fetchUserPosts: userId => dispatch(fetchUserPosts(userId)),
-//   deletePost: postId => dispatch(deletePost(postId)),
-//   updatePost: post => dispatch(updatePost(post)),
-//   openModal: modal => dispatch(openModal(modal)),
-// });
+const mDTP = dispatch => ({
+  fetchPost: postId => dispatch(fetchPost(postId)),
+  fetchComments: postId => dispatch(fetchComments(postId)),
+});
 
-// export default connect(mSTP, mDTP)(PostIndex);
+export default connect(mSTP, mDTP)(CommentIndex);

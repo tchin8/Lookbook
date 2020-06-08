@@ -5,6 +5,7 @@ import {
 } from 'react-router-dom';
 
 import CreateCommentForm from '../comments/create_comment_form';
+import CommentIndexContainer from '../comments/comment_index_container';
 
 class PostIndexItem extends React.Component {
   constructor(props) {
@@ -22,19 +23,30 @@ class PostIndexItem extends React.Component {
     this.rerender = this.rerender.bind(this);
   }
 
-  static getDerivedStateFromProps(props, state) {
-    if (props.post !== state.post) {
-      return {
-        post: props.post,
-      };
-    }
-    return null;
-  }
+  // static getDerivedStateFromProps(props, state) {
+  //   if (props.post !== state.post) {
+  //     return {
+  //       post: props.post,
+  //     };
+  //   }
+  //   return null;
+  // }
+
+  // componentDidUpdate() {
+  //   // debugger;
+  //   // this.props.fetchComments(this.state.post.id);
+  //   this.props.fetchUserPosts(this.props.match.params.userId);
+  // }
+
+  // componentDidMount() {
+  //   // debugger;
+  //   this.props.fetchComments(this.state.post.id);
+  // }
 
   rerender() {
     // debugger;
     this.forceUpdate();
-    this.props.rerender();
+    // this.props.rerender();
   }
 
   // DONT NEED THIS DONT UNCOMMENT BACK
@@ -42,7 +54,7 @@ class PostIndexItem extends React.Component {
   //   this.props.fetchPost(this.state.id);
   // }
   // componentDidUpdate() {
-  //   debugger;
+  //   // debugger;
   //   this.props.fetchPost(this.props.post.id);
   // }
 
@@ -118,31 +130,6 @@ class PostIndexItem extends React.Component {
     // return `${month} ${day} at ${hour}:${min} ${amOrPm}`;
   }
 
-  commentedTimeAgo(datetime) {
-    if (this.props.post.created_at === undefined) {
-      // debugger;
-      return "1m";
-    }
-
-    const now = new Date();
-    let t = new Date(datetime);
-    const then = (t - 10800);
-    const secs = ((now.getTime() - then) / 1000);
-
-    if (secs < 60) {
-      return "1m"
-    } else if (secs < 3600) {
-      return parseInt(secs / 60) + "m";
-    } else if (secs < 86400) {
-      return parseInt(secs / 2600) + "h";
-    } else if (secs < 604800) {
-      return parseInt(secs / 86400) + "d";
-    } else if (secs < 31449600) {
-      return parseInt(secs / 604800) + "w";
-    } else {
-      return parseInt(secs / 31449600) + "y";
-    }
-  }
 
   handleFocus(e) {
     // debugger;
@@ -181,22 +168,22 @@ class PostIndexItem extends React.Component {
 
   render() {
     // debugger;
-    const { post, deletePost, updatePost, openModal, currentUser, users, createComment } = this.props;
+    const { post, deletePost, updatePost, openModal, currentUser, users, createComment, fetchPost } = this.props;
     const defaultpfp = window.defaultpfp;
     const me = window.me;
 
-    let posterPic, commenterPic, comments, commentIndex, eachCommentThumbnail, commentAuthor;
-    if (post.author_id === 1) {
-      posterPic = me;
-    } else {
-      posterPic = defaultpfp;
-    }
+    // let posterPic, commenterPic, comments, commentIndex, commentAuthor;
+    // if (post.author_id === 1) {
+    //   posterPic = me;
+    // } else {
+    //   posterPic = defaultpfp;
+    // }
 
-    if (currentUser.id === 1) {
-      commenterPic = me;
-    } else {
-      commenterPic = defaultpfp;
-    }
+    // if (currentUser.id === 1) {
+    //   commenterPic = me;
+    // } else {
+    //   commenterPic = defaultpfp;
+    // }
     
     // debugger;
     if (!post) {
@@ -204,53 +191,19 @@ class PostIndexItem extends React.Component {
     }
 
     const author = users[post.author_id] || users[Object.values(post)[0].user_id];
-    // debugger;
 
-    if (post.comments !== undefined) {
-      comments = Object.values(post.comments);
-    
-      commentIndex = comments.map(c => {
-        if (c.user_id === 1) {
-          eachCommentThumbnail = me;
-        } else {
-          eachCommentThumbnail = defaultpfp;
-        }
-
-        commentAuthor = users[c.user_id]
-        // debugger;
-
-        return (
-          <li className="each-com-container dark"
-            key={c.id}>
-            <img src={eachCommentThumbnail} 
-              alt="" 
-              className="c-thumb" />
-            <div className="each-com">
-              <Link to={`/users/${users[c.user_id]}`}
-                style={{ textDecoration: 'none' }}>
-                <span className="commenter">{commentAuthor.fname} {commentAuthor.lname}</span>
-              </Link>
-              <p className="actual-com">{c.body}</p>
-              <div className="like-reply">
-                <span className="like-reply">Like</span>
-                <span>·</span>
-                <span className="like-reply">Reply</span>
-                <span>·</span>
-                <span>{this.commentedTimeAgo(c.created_at)}</span>
-              </div>
-            </div>
-          </li>
-        );
-      })
+    if (currentUser.pfpUrl === undefined) {
+      return null;
     }
-
-    // debugger;
 
     return (
       <li className="each-post dark">
         <div className="top-container dark">
           <div className="user-info">
-            <img src={posterPic} alt="" className="thumbnail" />
+            <Link to={`/users/${author.id}`}
+              style={{ textDecoration: 'none' }}>
+            <img src={author.pfpUrl} alt="" className="thumbnail" />
+            </Link>
             <div>
               <Link to={`/users/${author.id}`}
                 style={{ textDecoration: 'none' }}>
@@ -381,19 +334,21 @@ class PostIndexItem extends React.Component {
         </div>
 
         <div className="post-comment dark">
-          <ul className="comments-index dark">
-            {commentIndex}
-          </ul>
+
+          <CommentIndexContainer post={post}
+            users={users}
+            fetchPost={fetchPost}/>
 
           <div className="comment">
 
-            <img src={commenterPic} alt="" className="thumbnail" />
+            <img src={currentUser.pfpUrl} alt="" className="thumbnail" />
 
             <CreateCommentForm 
               currentUser={currentUser}
               createComment={createComment}
               post={post}
-              rerender={this.rerender}/>
+              rerender={this.rerender}
+              fetchPost={fetchPost}/>
           </div>
         </div>
       </li>

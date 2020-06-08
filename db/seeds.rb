@@ -1,4 +1,5 @@
 require 'faker' 
+require 'open-uri'
 
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
@@ -72,7 +73,7 @@ def random_relation()
 end 
 
 100.times do 
-  User.create!(
+  User.create(
     fname: Faker::Name.first_name,
     lname: Faker::Name.last_name,
     email: Faker::Internet.email,
@@ -84,6 +85,14 @@ end
     workplace: [Faker::Job.title, nil].sample,
     relationship_status: random_relation()
   )
+end 
+
+User.all.each do |user|
+
+  profile_pic = open('https://lookbook-aa-seeds.s3.amazonaws.com/default_pfp.png')
+  cover_photo = open('https://lookbook-aa-seeds.s3.amazonaws.com/default_cv.png')
+  user.pfp.attach(io: profile_pic, filename: 'default_pfp.png')
+  user.cover_photo.attach(io: cover_photo, filename: 'default_cv.png')
 end 
 
 
