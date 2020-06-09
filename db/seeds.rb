@@ -72,7 +72,7 @@ def random_relation()
   ].sample
 end 
 
-100.times do 
+20.times do 
   User.create(
     fname: Faker::Name.first_name,
     lname: Faker::Name.last_name,
@@ -114,10 +114,10 @@ Post.create!(
   body: "Third post"
 )
 
-1000.times do 
+100.times do 
   Post.create!(
-    author_id: rand(3..102),
-    user_id: rand(1..102),
+    author_id: rand(3..22),
+    user_id: rand(1..22),
     body: Faker::Quote.famous_last_words
   )
 end 

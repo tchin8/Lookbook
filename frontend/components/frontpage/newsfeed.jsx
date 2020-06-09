@@ -1,10 +1,11 @@
 import React from 'react';
 import NavBar from '../navbar/navbar';
-import NewsfeedMain from './newsfeed_main';
+import NewsfeedMainContainer from './newsfeed_main_container';
 
 class Newsfeed extends React.Component {
   componentDidMount() {
     this.props.fetchUsers();
+    this.props.fetchPosts();
   }
 
   render() {
@@ -12,8 +13,11 @@ class Newsfeed extends React.Component {
     
     return (
       <div>
-        <NavBar currentUser={currentUser} logout={logout}/>
-        <NewsfeedMain logout={logout}/>
+        <NavBar currentUser={currentUser} 
+          logout={logout}/>
+        <NewsfeedMainContainer logout={logout}
+          currentUser={currentUser}
+          />
       </div>
     )
   }

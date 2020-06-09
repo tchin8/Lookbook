@@ -1,4 +1,404 @@
 section.newsfeed-main {
   background-color: #18191a;
-  height: 800px;
+  min-height: 1000px;
+  // margin: auto;
+  padding: 60px 0 0 0;
+
+  section.col-2-3 {
+    color: #e4e6ea;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    margin: auto;
+    // border: 1px solid red;
+    height: 100%;
+    width: 680px;
+
+    section.newsfeed-post-container.dark {
+      background-color: #242526;
+      border-radius: 8px;
+      box-shadow: 2px 2px 2px #151617;
+      // display: flex;
+      // flex-direction: column;
+      // justify-content: center;
+      margin: 22px 0 0 0;
+      height: 120px;
+      width: 100%;
+
+      div.top.dark {
+        border-bottom: 1px solid #38393a;
+        // border: 1px solid red;
+        display: flex;
+        justify-content: space-between;
+        height: 50%;
+        margin: auto;
+        width: 650px;
+        position: relative;
+
+        img.thumbnail {
+          border-radius: 100%;
+          height: 40px;
+          width: 40px;
+          margin: 9px 0 9px 0;
+          object-fit: cover;
+        }
+
+        button.newsfeed-post.dark {
+          background-color: #3a3b3c;
+          border: none;
+          border-radius: 50px;
+          color: #afb1b7;
+          cursor: pointer;
+          font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+          font-size: 18px;
+          font-weight: 300;
+          height: 40px;
+          margin: 9px 0 9px 0;
+          text-align: left;
+          width: 600px;
+
+          span {
+            padding: 0 0 0 8px;
+          }
+        }
+
+        button.newsfeed-post.dark:hover {
+          background-color: #4e4f50;
+        }
+      }
+
+      div.bottom.dark {
+        // border: 1px solid red;
+        height: 50%;
+        display: flex;
+        height: 50%;
+        margin: 10px 0 0 15px;
+        width: 650px;
+        position: relative;
+
+        div:hover {
+          background-color: #3a3b3c;
+        }
+        
+        div {
+          border-radius: 8px;
+          color: #b1b3b9;
+          cursor: pointer;
+          font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+          font-size: 15px;
+          // font-weight: 300;
+          height: 36px;
+          position: relative;
+          width: 216px;
+          display: flex;
+          justify-content: center;
+
+          // background-color: #3a3b3c;
+
+          .fa-video {
+            color: #f12848;
+            font-size: 20px;
+          }
+
+          .fa-images {
+            color: #44bd62;
+            font-size: 20px;
+          }
+
+          .fa-laugh {
+            color: #f8ba28;
+            font-size: 20px;
+          }
+
+          .fa-video, .fa-images, .fa-laugh, .fa-user-tag, span, .fa-laugh {
+            position: relative;
+            top: 8px;
+          }
+
+          .fa-user-tag {
+            color:	#1a76f2;
+            font-size: 18px;
+            // bottom: 10px;
+          }
+
+          .fa-laugh {
+            color: #f8ba27;
+            font-size: 20px;
+          }
+
+          span {
+            margin: 0 0 0 6px;
+          }
+        }
+      }
+    }
+
+    ul.newsfeed-posts {
+      margin: 18px 0 0 0;
+
+      li.each-post.dark {
+        background-color: #242526;
+        border-radius: 8px;
+        box-shadow: 2px 2px 2px #151617;
+        margin: 18px 0 0 0;
+        min-height: 196px;
+        width: 100%;
+
+        div.top-container.dark {
+          border-bottom: 1px solid #38393a;
+          margin: auto;
+          min-height: 100px;
+          width: 650px;
+          position: relative;
+
+          div.user-info {
+            display: flex;
+            height: 40px;
+            position: relative;
+            top: 14px;
+
+            img.thumbnail {
+              border-radius: 100%;
+              height: 40px;
+              width: 40px;
+              margin: 0 10px 0 0;
+              object-fit: cover;
+            }
+      
+            div {
+              span.pname {
+                color: #dadce0;
+                font-size: 15px;
+              }
+
+              span.pname:hover {
+                text-decoration: underline;
+              }
+              
+              div.post-time {
+                color: #a7abaf;
+                
+                span.time {
+                  font-size: 13px;
+                }
+      
+                .fa-user-friends.dark {
+                  font-size: 11px;
+                  margin: 0 0 0 4px;
+                }
+              }
+            }
+
+            div.ellipsis-container.dark {
+              height: 34px;
+              width: 34px;
+              border-radius: 100%;
+              position: relative;
+              left: 564px;
+              top: -34px;
+
+              .fa-ellipsis-h {
+                position: absolute;
+                top: 9px;
+                left: 9px;
+              }
+            }
+
+            div.ellipsis-container.dark:hover {
+              background-color: #3a3b3c;
+              cursor: pointer;
+            }
+          }
+
+          div.body {
+            color: #e1e3e7;
+            font-size: 24px;
+            min-height: 40px;
+            position: relative;
+
+            p {
+              margin: 26px 0 16px 0;
+              overflow-wrap: break-word;
+              height: 100%;
+            }
+          }
+        }
+
+        div.post-interaction.dark {
+          border-bottom: 1px solid #38393a;
+          color: #aeb0b6;
+          display: flex;
+          margin: auto;
+          height: 40px;
+          width: 650px;
+          position: relative;
+
+          div.like.dark:hover, div.comment.dark:hover, div.share.dark:hover {
+            background-color: #3a3b3c;
+            cursor: pointer;
+          }
+          
+          div.like.dark, div.comment.dark, div.share.dark {
+            border-radius: 4px;
+            font-size: 18px;
+            margin: 4px 0 0 0;
+            height: 32px;
+            width: 216px;
+            position: relative;
+
+            .fa-thumbs-up.dark, .fa-comment.dark, .fa-share-square.dark {
+              padding: 0 6px 0 0;
+            }
+
+            span {
+              font-size: 15px;
+              position: relative;
+              top: 4px;
+            }
+
+            span.like {
+              left: 50px;
+            }
+
+            span.comment {
+              left: 30px;
+            }
+
+            span.share {
+              left: 44px;
+            }
+          }
+        }
+
+        div.post-comment.dark {
+          min-height: 50px;
+
+          ul.comments-index.dark {
+
+            li.each-com-container.dark {
+              display: flex;
+              margin: auto;
+              min-height: 74px;
+              width: 650px;
+      
+              img.c-thumb {
+                height: 32px;
+                width: 32px;
+                border-radius: 100%;
+                margin: 10px 8px 0 0;
+                position: relative;
+                top: 2px;
+                object-fit: cover;
+              }
+      
+              div.each-com {
+                background-color: #3a3b3c;
+                border-radius: 20px;
+                color: #e4e6ea;
+                height: 50px;
+                // change to min later
+                margin: 8px 0 0 0;
+                min-width: 100px;
+                position: relative;
+                
+                span.commenter {
+                  color: #e4e6ea;
+                  font-size: 13px;
+                  display: block;
+                  margin: 6px 12px 0 12px;
+                }
+
+                span.commenter:hover {
+                  text-decoration: underline;
+                  cursor: pointer;
+                }
+
+                p.actual-com {
+                  display: block;
+                  font-size: 14px;
+                  margin: 2px 12px 0 12px;
+                }
+
+                div.like-reply {
+                  color: #b1b3b9;
+                  font-size: 10px;
+                  position: relative;
+                  bottom: -10px;
+                  left: 12px;
+      
+                  span.like-reply {
+                    font-weight: bold;
+                  }
+
+                  span.like-reply:hover {
+                    text-decoration: underline;
+                    cursor: pointer;
+                  }
+      
+                  span {
+                    color: #b1b3b9;
+                    font-size: 12px;
+                    padding: 0 2px;
+                  }
+                }
+              }
+            }
+          }
+
+          
+          div.comment {
+            display: flex;
+            margin: auto;
+            padding: 8px 0;
+            // position: relative;
+            // top: 6px;
+            width: 650px;
+
+            img.thumbnail {
+              height: 32px;
+              width: 32px;
+              border-radius: 100%;
+              margin: 0 8px 0 0;
+              position: relative;
+              top: 2px;
+              object-fit: cover;
+            }
+
+            form.comment.dark {
+              position: relative;
+              
+
+              input.comment {
+                background-color: #3a3b3c;
+                border: none;
+                border-radius: 50px;
+                color: #e4e6ea;
+                font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+                font-size: 15px;
+                min-height: 16px;
+                padding: 0 0 0 14px;
+                // resize: vertical;
+                width: 608px;
+                overflow: auto;
+              }
+
+              input.comment::placeholder {
+                color: #a6a8ae;
+                font-size: 15px;
+              }
+
+              div.icons {
+                position: absolute;
+                top: 10px;
+                left: 502px;
+
+                .fa-smile.dark, .fa-image.dark, .fa-film.dark, .fa-github-alt.dark {
+                  color: #8a8d90;
+                  margin: 0 6px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
