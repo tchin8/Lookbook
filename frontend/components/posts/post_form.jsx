@@ -34,15 +34,15 @@ class PostForm extends React.Component {
 
   render() {
     const { currentUser, user, action, closeModal, formType } = this.props;
-    const defaultpfp = window.defaultpfp;
-    const me = window.me;
+    // const defaultpfp = window.defaultpfp;
+    // const me = window.me;
 
-    let thumbnail;
-    if (currentUser.id === 1) {
-      thumbnail = me;
-    } else {
-      thumbnail = defaultpfp;
-    }
+    // let thumbnail;
+    // if (currentUser.id === 1) {
+    //   thumbnail = me;
+    // } else {
+    //   thumbnail = defaultpfp;
+    // }
 
     // debugger;
     return (
@@ -62,7 +62,7 @@ class PostForm extends React.Component {
 
       <div className="me">
         {/* currentUser.image?? */}
-        <img src={thumbnail} alt="" className="thumbnail" />
+        <img src={currentUser.pfpUrl} alt="" className="thumbnail" />
 
         <div>
           <span className="pname">{currentUser.fname} {currentUser.lname}</span>
