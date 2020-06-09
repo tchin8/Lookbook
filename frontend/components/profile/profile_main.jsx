@@ -1,5 +1,8 @@
 import React, { Profiler } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  Link
+} from 'react-router-dom';
 
 import WallPostContainer from '../posts/wall_post_container';
 import PostIndexContainer from '../posts/post_index_container';
@@ -99,6 +102,8 @@ class ProfileMain extends React.Component {
         const friend = users[id];
 
         return (
+          <Link to={`/users/${id}`}
+            style={{ textDecoration: 'none' }}>
           <div className={`friend-${i}-9`}
             key={id}>
             <img src={friend.pfpUrl}
@@ -106,6 +111,7 @@ class ProfileMain extends React.Component {
               className="pfp" />
             <span className="friend-name">{friend.fname} {friend.lname}</span>
           </div>
+          </Link>
         )
         }
       )
