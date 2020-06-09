@@ -1,5 +1,8 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  Link
+} from 'react-router-dom';
 import NewsfeedPostIndex from './newsfeed_post_index';
 
 class NewsfeedMain extends React.Component {
@@ -11,10 +14,25 @@ class NewsfeedMain extends React.Component {
       <section className="newsfeed-main dark">
         <section className="col-1-3 dark">
           <ul className="personal-links">
+            <Link to={`/users/${currentUser.id}`}
+              style={{ textDecoration: 'none' }}>
             <li className="profile">
               <img src={currentUser.pfpUrl} alt=""
                 className="thumbnail" />
               <span>{currentUser.fname} {currentUser.lname}</span>
+            </li>
+            </Link>
+
+            <li className="git">
+              <FontAwesomeIcon icon={['fab', 'github']}
+                className="fa-github dark" />
+              <span>Github</span>
+            </li>
+
+            <li className="linkedin">
+              <FontAwesomeIcon icon={['fab', 'linkedin-in']}
+                className="fa-linkedin dark" />
+              <span>LinkedIn</span>
             </li>
           </ul>
         </section>
