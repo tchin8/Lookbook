@@ -10,61 +10,17 @@ import CommentIndexContainer from '../comments/comment_index_container';
 class PostIndexItem extends React.Component {
   constructor(props) {
     super(props);
-    // debugger;
 
     this.state = this.props.post || props.post;
-
-    // this.state.rerender = true;
 
     this.postedTimeAgo = this.postedTimeAgo.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
     this.handleDeletePost = this.handleDeletePost.bind(this);
     this.handleEditModal = this.handleEditModal.bind(this);
-    this.rerender = this.rerender.bind(this);
   }
-
-  // static getDerivedStateFromProps(props, state) {
-  //   if (props.post !== state.post) {
-  //     return {
-  //       post: props.post,
-  //     };
-  //   }
-  //   return null;
-  // }
-
-  // componentDidUpdate() {
-  //   // debugger;
-  //   // this.props.fetchComments(this.state.post.id);
-  //   this.props.fetchUserPosts(this.props.match.params.userId);
-  // }
-
-  // componentDidMount() {
-  //   // debugger;
-  //   this.props.fetchComments(this.state.post.id);
-  // }
-
-  rerender() {
-    // debugger;
-    this.forceUpdate();
-    // this.props.rerender();
-  }
-
-  // DONT NEED THIS DONT UNCOMMENT BACK
-  // componentDidMount() {
-  //   this.props.fetchPost(this.state.id);
-  // }
-  // componentDidUpdate() {
-  //   // debugger;
-  //   this.props.fetchPost(this.props.post.id);
-  // }
-
-  // componentDidMount() {
-  //   this.props.fetchComments(this.props.post.id);
-  // }
-
+  
   postedTimeAgo(datetime) {
     if (this.props.post.created_at === undefined) {
-      // debugger;
       return "Just now";
     }
 
@@ -118,16 +74,6 @@ class PostIndexItem extends React.Component {
     let month = months[t.getMonth()];
     let day = t.getDate();
     return `${month} ${day} at ${hour}:${min} ${amOrPm}`;
-
-    // const hour = then.getHours() % 12;
-    // const min = then.getMinutes() < 10 ? `0${then.getMinutes()}` : then.getMinutes();
-    // if (secs >= 86400 && secs < 172800) {
-    //   return `Yesterday at ${hour}:${min} ${amOrPm}`
-    // }
-    
-    // month = months[then.getMonth()];
-    // day = then.getDate();
-    // return `${month} ${day} at ${hour}:${min} ${amOrPm}`;
   }
 
 
@@ -138,9 +84,6 @@ class PostIndexItem extends React.Component {
       classN = 'post-dropdown';
     } 
 
-    // debugger;
-
-    // $(`div.${classN}`).toggleClass('hidden');
     $(`#dd-${this.state.id}`).toggleClass('show hidden');
     // shouldn't toggle, will need to add class hidden if clicking outside 
   }
@@ -167,34 +110,63 @@ class PostIndexItem extends React.Component {
   }
 
   render() {
-    // debugger;
     const { post, deletePost, updatePost, openModal, currentUser, users, createComment, fetchPost } = this.props;
     const defaultpfp = window.defaultpfp;
     const me = window.me;
-
-    // let posterPic, commenterPic, comments, commentIndex, commentAuthor;
-    // if (post.author_id === 1) {
-    //   posterPic = me;
-    // } else {
-    //   posterPic = defaultpfp;
-    // }
-
-    // if (currentUser.id === 1) {
-    //   commenterPic = me;
-    // } else {
-    //   commenterPic = defaultpfp;
-    // }
     
     // debugger;
     if (!post) {
       return null;
     }
-
-    const author = users[post.author_id] || users[Object.values(post)[0].user_id];
-
+    
+    const author = users[post.author_id] || users[Object.values(post)[0].author_id];
+    const wall = users[post.user_id] || users[Object.values(post)[0].user_id];
+    
     if (currentUser.pfpUrl === undefined) {
       return null;
     }
+
+    let posterPostee;
+    if (window.location.href.includes("/users")) {
+      // debugger;
+      posterPostee = (
+        <Link to={`/users/${author.id}`}
+          style={{ textDecoration: 'none' }}>
+          <span className="pname">{author.fname} {author.lname}</span>
+        </Link>
+      )
+    } else {
+      // debugger;
+      let postee;
+      if (author.id !== wall.id) {
+        postee = (
+          <>
+          <FontAwesomeIcon icon="caret-right"
+            className="fa-caret-right dark" />
+
+          <Link to={`/users/${wall.id}`}
+            style={{ textDecoration: 'none' }}>
+            <span className="pname">{wall.fname} {wall.lname}</span>
+          </Link>
+          </>
+        )
+      } else {
+        postee = null;
+      }
+
+      posterPostee = (
+        <span>
+          <Link to={`/users/${author.id}`}
+            style={{ textDecoration: 'none' }}>
+            <span className="pname">{author.fname} {author.lname}</span>
+          </Link>
+
+          {postee}
+
+        </span>
+      )
+    }
+
 
     return (
       <li className="each-post dark">
@@ -205,10 +177,8 @@ class PostIndexItem extends React.Component {
             <img src={author.pfpUrl} alt="" className="thumbnail" />
             </Link>
             <div>
-              <Link to={`/users/${author.id}`}
-                style={{ textDecoration: 'none' }}>
-              <span className="pname">{author.fname} {author.lname}</span>
-              </Link>
+
+              {posterPostee}
 
               <div className="post-time">
                 <span className="time">{this.postedTimeAgo(post.created_at)} ·</span>
@@ -341,13 +311,13 @@ class PostIndexItem extends React.Component {
 
           <div className="comment">
 
-            <img src={currentUser.pfpUrl} alt="" className="thumbnail" />
+            <img src={currentUser.pfpUrl} 
+              alt="" className="thumbnail" />
 
             <CreateCommentForm 
               currentUser={currentUser}
               createComment={createComment}
               post={post}
-              rerender={this.rerender}
               fetchPost={fetchPost}/>
           </div>
         </div>

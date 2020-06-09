@@ -112,17 +112,6 @@ class EditProfileForm extends React.Component {
   render() {
     // debugger;
     const { closeModal, currentUser, updateUser } = this.props;
-    const me = window.me;
-    const cv = window.cv;
-    const defaultpfp = window.defaultpfp;
-
-    let pfp, cover, editBioBtn;
-    if (currentUser.id === 1) {
-      pfp = me;
-      cover = cv;
-    } else {
-      pfp = defaultpfp;
-    }
 
     if (currentUser.bio !== undefined ) {
       editBioBtn = <button className="edit-bio"
@@ -131,6 +120,8 @@ class EditProfileForm extends React.Component {
       editBioBtn = <button className="edit-bio"
         onClick={this.handleClick}>Add</button>
     }
+
+    debugger;
 
     return (
       <section className="edit-profile-modal dark">
@@ -155,7 +146,7 @@ class EditProfileForm extends React.Component {
               </label>
             </span>
             <div className="pfp">
-              <img src={pfp} alt="" className="pfp"/>
+              <img src={currentUser.pfpUrl} alt="" className="pfp"/>
             </div>
           </div>
 
@@ -167,7 +158,7 @@ class EditProfileForm extends React.Component {
               </label>
             </span>
             <div className="cv">
-              <img src={cover} alt="" className="cv" />
+              <img src={currentUser.coverPhotoUrl} alt="" className="cv" />
             </div>
           </div>
 

@@ -17,6 +17,7 @@ import  ModalContainer from './modal/modal_container';
 const App = () => (
   <div>
     <Route path="/users/:userId" component={ModalContainer} />
+    <Route exact path="/" component={ModalContainer} />
     {/* <ModalContainer /> */}
     <ProtectedRoute exact path="/" component={NewsfeedContainer} /> 
     <ProtectedRoute path="/users/:userId" component={ProfileContainer} /> 

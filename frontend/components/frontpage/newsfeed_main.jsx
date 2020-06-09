@@ -5,14 +5,15 @@ import NewsfeedPostIndex from './newsfeed_post_index';
 class NewsfeedMain extends React.Component {
 
   render() {
-    const { currentUser, openModal, posts } = this.props;
+    const { currentUser, openModal, posts, deletePost, updatePost, users, fetchUsers } = this.props;
 
     return (
       <section className="newsfeed-main">
         <section className="col-2-3">
           <section className="newsfeed-post-container dark">
             <div className="top dark">
-              <img src={currentUser.pfpUrl} alt="" className="thumbnail" />
+              <img src={currentUser.pfpUrl} alt="" 
+                className="thumbnail" />
               <button className="newsfeed-post dark"
                 onClick={() => openModal('Create Post')}>
                 <span>{`What's on your mind, ${currentUser.fname}?`}</span>
@@ -42,8 +43,14 @@ class NewsfeedMain extends React.Component {
 
           </section>
 
-          <NewsfeedPostIndex posts={posts}
-            currentUser={currentUser}/>
+          <NewsfeedPostIndex 
+            fetchUsers={fetchUsers}
+            users={users}
+            posts={posts}
+            currentUser={currentUser}
+            deletePost={deletePost}
+            updatePost={updatePost}
+            openModal={openModal}/>
           
         </section>
       </section>

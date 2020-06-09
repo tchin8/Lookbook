@@ -8,11 +8,19 @@ class PostForm extends React.Component {
     if (this.props.formType === 'Edit Post') {
       this.state = this.props.post;
     } else {
-      this.state = {
-        author_id: this.props.currentUser.id,
-        user_id: this.props.user.id,
-        body: ''
-      };
+      if (props.user === undefined) {
+        this.state = {
+          author_id: props.currentUser.id,
+          user_id: props.currentUser.id,
+          body: ''
+        };
+      } else {
+        this.state = {
+          author_id: props.currentUser.id,
+          user_id: props.user.id ,
+          body: ''
+        };
+      }
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,7 +33,6 @@ class PostForm extends React.Component {
   }
 
   handleSubmit(e) {
-    // debugger;
     e.preventDefault();
     this.props.closeModal();
     this.props.action(this.state);
@@ -34,17 +41,7 @@ class PostForm extends React.Component {
 
   render() {
     const { currentUser, user, action, closeModal, formType } = this.props;
-    // const defaultpfp = window.defaultpfp;
-    // const me = window.me;
 
-    // let thumbnail;
-    // if (currentUser.id === 1) {
-    //   thumbnail = me;
-    // } else {
-    //   thumbnail = defaultpfp;
-    // }
-
-    // debugger;
     return (
     <div className="create-post-form-container">
       <div className="header">
@@ -55,17 +52,18 @@ class PostForm extends React.Component {
             onFocus={this.handleFocus}>
               <FontAwesomeIcon icon="times" 
                 className="fa-times dark"/>
-            {/* <span className="x">+</span> */}
           </div>
         </button>
       </div>
 
       <div className="me">
-        {/* currentUser.image?? */}
-        <img src={currentUser.pfpUrl} alt="" className="thumbnail" />
+        <img src={currentUser.pfpUrl} alt="" 
+          className="thumbnail" />
 
         <div>
-          <span className="pname">{currentUser.fname} {currentUser.lname}</span>
+          <span className="pname">
+            {currentUser.fname} {currentUser.lname}
+          </span>
 
           <div>
             <FontAwesomeIcon icon="user-friends"

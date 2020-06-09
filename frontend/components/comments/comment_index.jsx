@@ -7,18 +7,7 @@ class CommentIndex extends React.Component {
     super(props);
   }
 
-  // componentDidUpdate() {
-  //   // this.props.fetchComments(this.props.post.id);
-  //   this.props.fetchPost(this.props.post.id);
-  // }
-
-  // componentDidMount() {
-  //   // debugger;
-  //   this.props.fetchComments(this.props.post.id);
-  // }
-
   render() {
-    // debugger;
     const { post, users, fetchComments } = this.props;
     let comments;
     if (post.comments !== undefined) {

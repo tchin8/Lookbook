@@ -7,46 +7,36 @@ class NewsfeedPostIndex extends React.Component {
     super(props);
 
     // this.state = props.posts;
-
-    // this.rerender = this.rerender.bind(this);
   }
 
-  // componentDidUpdate() {
-  //   this.props.fetchPosts();
-  // }
-
-  // componentDidMount() {
-  //   this.props.fetchUserPosts(this.props.match.params.userId);
-  // }
-
-  // static getDerivedStateFromProps(props, state) {
-  //   if (props.posts !== state.posts) {
-  //     return {
-  //       posts: props.posts,
-  //     };
-  //   }
-  //   return null;
-  // }
-
-  rerender() {
-    // debugger;
-    // this.props.fetchUserPosts(this.props.match.params.userId);
-
-    this.forceUpdate();
+  componentDidMount() {
+    this.props.fetchUsers();
   }
 
   render() {
-    const { posts, deletePost, updatePost, fetchPost, openModal, currentUser } = this.props;
+    const { posts, deletePost, updatePost, fetchPost, openModal, currentUser, users } = this.props;
 
-    let postIds = posts.map(post => (post.id));
-    // console.log(postIds);
-    const sorted = postIds.sort(function (a, b) { return a - b });
-    // console.log(sorted);
+    if (currentUser.friends === undefined) {
+      return null;
+    }
+
+    let friendPosts = [];
+    posts.forEach(post => {
+      if (currentUser.friends.includes[post.author_id] || 
+        currentUser.friends.includes[post.user_id] || 
+        currentUser.id === post.author_id || 
+        currentUser.id === post.user_id) {
+        if (!friendPosts.includes(post)) {
+          friendPosts.push(post);
+        }
+      }
+    });
+
 
     return (
       <ul className="newsfeed-posts">
 
-        {posts.map(post => (
+        {friendPosts.map(post => (
           <PostIndexItemContainer
             post={post}
             fetchPost={fetchPost}
@@ -55,7 +45,7 @@ class NewsfeedPostIndex extends React.Component {
             openModal={openModal}
             currentUser={currentUser}
             key={post.id}
-            rerender={this.rerender} />
+            />
         ))}
       </ul>
     )

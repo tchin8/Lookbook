@@ -13,10 +13,13 @@ class Newsfeed extends React.Component {
     
     return (
       <div>
-        <NavBar currentUser={currentUser} 
+        <NavBar 
+          currentUser={currentUser} 
           logout={logout}/>
-        <NewsfeedMainContainer logout={logout}
+        <NewsfeedMainContainer 
+          logout={logout}
           currentUser={currentUser}
+          fetchUsers={fetchUsers}
           />
       </div>
     )

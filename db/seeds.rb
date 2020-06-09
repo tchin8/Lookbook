@@ -72,7 +72,7 @@ def random_relation()
   ].sample
 end 
 
-20.times do 
+10.times do 
   User.create(
     fname: Faker::Name.first_name,
     lname: Faker::Name.last_name,
@@ -88,7 +88,6 @@ end
 end 
 
 User.all.each do |user|
-
   profile_pic = open('https://lookbook-aa-seeds.s3.amazonaws.com/default_pfp.png')
   cover_photo = open('https://lookbook-aa-seeds.s3.amazonaws.com/default_cv.png')
   user.pfp.attach(io: profile_pic, filename: 'default_pfp.png')
@@ -97,27 +96,22 @@ end
 
 
 Post.create!(
-  author_id: 1, 
+  author_id: 2, 
   user_id: 1, 
-  body: "First post ever!"
+  body: "Hi mom!"
 )
 
 Post.create!(
   author_id: 1, 
-  user_id: 1, 
-  body: "Second post"
+  user_id: 2, 
+  body: "You're too young to be using lookbook!"
 )
 
-Post.create!(
-  author_id: 1, 
-  user_id: 1, 
-  body: "Third post"
-)
 
-50.times do 
+20.times do 
   Post.create!(
-    author_id: rand(3..22),
-    user_id: rand(1..22),
+    author_id: rand(3..12),
+    user_id: rand(3..12),
     body: Faker::Quote.famous_last_words
   )
 end 

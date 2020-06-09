@@ -5,10 +5,8 @@ class ProfileHeader extends React.Component {
   constructor(props) {
     super(props);
 
-    const { user } = this.props;
+    const { user } = props;
 
-    // this.state = this.props.user;
-    // debugger;
     this.state = {
       id: user.id,
       bio: user.bio,
@@ -63,9 +61,13 @@ class ProfileHeader extends React.Component {
     } else {
       this.state.count = 101 - this.state.bio.length;
     }
-
-    // console.log(this.state.count);
   }
+
+  // componentDidMount() {
+  //   if (this.props.user.friends === undefined) {
+  //     this.props.fetchUsers();
+  //   }
+  // }
 
   // componentDidUpdate(){
   //   if (this.state.bio !== localStorage.getItem('bio') && localStorage.getItem('bio') !== undefined) {
@@ -90,12 +92,11 @@ class ProfileHeader extends React.Component {
   }
 
   handleCancel(e) {
-    // debugger;
     e.preventDefault();
     this.setState({
         bio: this.state.prevState.bio,
     });
-    // debugger;
+
     $('.bio-span').toggleClass("show hidden");
     $('.bio-form').toggleClass("show hidden");
   }
@@ -126,33 +127,21 @@ class ProfileHeader extends React.Component {
     $('.bio-span').removeClass("hidden");
     $('.bio-form').addClass("hidden");
     $('.bio-form').removeClass("show");
-    // localStorage.setItem('bio', this.state.bio)
-    // debugger;
-    this.props.updateUser(this.state);
-    // this.props.fetchUsers();
 
-    // console.log(this.state);
-    // debugger;
-    // this.forceUpdate();
+    this.props.updateUser(this.state);
+
   }
 
   handleFileClick() {
     $(".upload-pfp").click();
-    debugger;
-  }
 
-  // handleFile(e) {
-  //   // this.setState({ pfpUrl: e.currentTarget.files[0] });
-  //   // this.handleUploadPfp(e);
-  //   // debugger;
-  // }
+  }
 
   handleUploadPfp(e) {
     // e.preventDefault();
     this.setState({ pfpUrl: e.currentTarget.files[0]});
 
     const formData = new FormData();
-    debugger;
     // if (this.state.photoFile) {
       formData.append('user[id]', this.state.id);
       formData.append('user[bio]', this.state.bio);
@@ -171,7 +160,6 @@ class ProfileHeader extends React.Component {
       // formData.append('user[cover_photo]', this.state.coverPhotoUrl);
     // }
 
-    debugger;
     $.ajax({
       url: `/api/users/${this.state.id}`,
       method: 'patch',
@@ -183,15 +171,13 @@ class ProfileHeader extends React.Component {
 
   handleFileClickCoverPhoto() {
     $(".upload-cv").click();
-    debugger;
   }
 
   handleUploadCoverPhoto(e) {
-    // e.preventDefault();
     this.setState({ pfpUrl: e.currentTarget.files[0]});
 
     const formData = new FormData();
-    debugger;
+
     formData.append('user[id]', this.state.id);
     formData.append('user[bio]', this.state.bio);
     formData.append('user[birthday]', this.state.birthday);
@@ -206,7 +192,6 @@ class ProfileHeader extends React.Component {
     formData.append('user[workplace]', this.state.workplace);
     formData.append('user[cover_photo]', e.currentTarget.files[0]);
 
-    debugger;
     $.ajax({
       url: `/api/users/${this.state.id}`,
       method: 'patch',
@@ -217,28 +202,8 @@ class ProfileHeader extends React.Component {
   }
 
   render() {
-    // debugger;
     const { user, updateUser, currentUser, openModal } = this.props;
 
-    const defaultpfp = window.defaultpfp;
-    const me = window.me;
-    const myCv = window.cv;
-
-    let pic;
-    let cv;
-
-    // if (!user) {
-    //   return null;
-    // }
-
-    if (user.id === 1) {
-      pic = me;
-      cv = myCv;
-    } else {
-      pic = defaultpfp;
-    }
-
-    // debugger;
     let bioButton, cameraButton, editCvButton, archive, editProBtn, bio;
     if (currentUser.id === user.id) {
       if (user.bio !== undefined && user.bio !== null) {
@@ -260,7 +225,6 @@ class ProfileHeader extends React.Component {
             <input className="upload-pfp"
               type="file"
               id="file"
-              // onChange={this.handleFile}
               onChange={this.handleUploadPfp}
               />
         </div>
@@ -273,7 +237,6 @@ class ProfileHeader extends React.Component {
             <input className="upload-cv"
               type="file"
               id="file"
-              // onChange={this.handleFile}
               onChange={this.handleUploadCoverPhoto}
             />
             Edit Cover Photo
@@ -310,6 +273,19 @@ class ProfileHeader extends React.Component {
 
     if (currentUser.pfpUrl === undefined) {
       return null;
+    }
+
+    let friends;
+    if (user.friends !== undefined) {
+
+      // friends = user.friends.length;
+      friends = (
+        <div>Friends
+          <span className="num-friends">{user.friends.length}</span>
+        </div>
+      )
+    } else {
+      friends = <div>Friends</div>
     }
 
     return (
@@ -369,13 +345,9 @@ class ProfileHeader extends React.Component {
               <div>
                 <span>About</span>
               </div>
+              
+              {friends}
 
-              <div>
-                <span>Friends</span>
-              </div>
-              {/* <span>Friends
-                <span>{user.friends.length}</span>
-              </span> */}
               <div>
                 <span>Photos</span>
               </div>

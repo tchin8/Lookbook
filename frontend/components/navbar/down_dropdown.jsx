@@ -5,9 +5,26 @@ import {
 } from 'react-router-dom';
 
 class DownDropdown extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      darkMode: true,
+    }
+
+    // this.toggleLightDarkMode = this.toggleLightDarkMode.bind(this);
+  }
+
   // toggleLightDarkMode(e) {
   //   e.preventDefault();
-  //   $('.dark').toggleClass("dark light");
+
+  //   if (this.state.darkMode) {
+  //     $('.dark').toggleClass("dark light");
+  //     this.setState({ darkMode: false });
+  //   } else {
+  //     $('.light').toggleClass("dark light");
+  //     this.setState({ darkMode: true });
+  //   }
   // }
 
   render () {
@@ -15,7 +32,6 @@ class DownDropdown extends React.Component {
 
     return (
       <section className="down-drop dark hidden">
-        {/* <Link to={`/users/${user.id}`}> */}
         <div>
           <div>
             <img src={currentUser.pfpUrl} alt="" className="fb-pfp" />
@@ -26,7 +42,6 @@ class DownDropdown extends React.Component {
             <span className="see-profile">See your profile</span>
           </div>
         </div>
-        {/* </Link> */}
 
         <div className="line"></div>
 
@@ -36,10 +51,6 @@ class DownDropdown extends React.Component {
               className="fa-comment-alt dark" />
             <FontAwesomeIcon icon="exclamation"
               className="fa-exclamation dark" />
-
-            {/* <i class="fas fa-comment-alt">
-              <i class="fas fa-exclamation dark"></i>
-            </i> */}
           </div>
 
           <div className="text t2">
@@ -54,7 +65,6 @@ class DownDropdown extends React.Component {
           <div className="icon-circle dark">
             <FontAwesomeIcon icon="cog"
               className="fa-cog dark" />
-            {/* <i className="fas fa-cog"></i> */}
           </div>
 
           <div className="text t2">
@@ -64,7 +74,6 @@ class DownDropdown extends React.Component {
 
         <div>
           <div className="icon-circle dark">
-            {/* <i class="fas fa-question-circle"></i> */}
       
             <FontAwesomeIcon icon="question-circle"
               className="fa-question-circle" />
@@ -79,7 +88,6 @@ class DownDropdown extends React.Component {
           <div className="icon-circle dark">
             <FontAwesomeIcon icon="moon"
               className="fa-moon dark" />
-            {/* <i class="fas fa-moon"></i> */}
           </div>
 
           <div className="text t2"
@@ -92,7 +100,6 @@ class DownDropdown extends React.Component {
           <div className="icon-circle dark">
             <FontAwesomeIcon icon="arrow-circle-left"
               className="fa-arrow-circle-left dark" />
-            {/* <i class="fas fa-arrow-circle-left"></i> */}
           </div>
 
           <div className="text t2">
@@ -108,7 +115,6 @@ class DownDropdown extends React.Component {
           <div className="icon-circle dark">
             <FontAwesomeIcon icon="sign-out-alt"
               className="fa-sign-out-alt dark" />
-            {/* <i class="fas fa-sign-out-alt"></i> */}
           </div>
 
           <div className="text">
@@ -118,7 +124,7 @@ class DownDropdown extends React.Component {
 
         <div id="copyright">
           <span>
-                Privacy · Terms · Advertising · Ad Choices · Cookies · More · tiffBook © 2020
+            Privacy · Terms · Advertising · Ad Choices · Cookies · More · tiffBook © 2020
           </span>
         </div>
       </section>

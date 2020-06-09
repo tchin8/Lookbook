@@ -39,7 +39,8 @@ class Frontpage extends React.Component {
 
               <div className="fp-icons">
                 <li>
-                  <FontAwesomeIcon icon={['far', 'newspaper']} className="fa-newspaper" />
+                  <FontAwesomeIcon icon={['far', 'newspaper']} 
+                    className="fa-newspaper" />
                   <div className="fp-left-text">
                     <span className="bold">See photos and updates
                       <span>from friends in News Feed.</span>
@@ -48,7 +49,8 @@ class Frontpage extends React.Component {
                 </li>
 
                 <li>
-                  <FontAwesomeIcon icon={['far', 'share-square']} className="fa-share-square" />
+                  <FontAwesomeIcon icon={['far', 'share-square']} 
+                    className="fa-share-square" />
                   <div className="fp-left-text">
                     <span className="bold">Share what's new
                       <span>in your life on your Timeline.</span>
