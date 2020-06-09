@@ -121,7 +121,7 @@ class EditProfileForm extends React.Component {
         onClick={this.handleClick}>Add</button>
     }
 
-    debugger;
+    // debugger;
 
     return (
       <section className="edit-profile-modal dark">

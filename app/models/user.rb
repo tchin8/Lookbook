@@ -54,10 +54,6 @@ class User < ApplicationRecord
     class_name: :FriendRequest,
     foreign_key: :requester_id
 
-  #def friends 
-  #  fb_friends = []
-  #
-  #end 
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)

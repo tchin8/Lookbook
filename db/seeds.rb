@@ -12,6 +12,7 @@ require 'open-uri'
 User.destroy_all
 Post.destroy_all
 Comment.destroy_all
+FriendRequest.destroy_all
 
 user1 = User.create!(
     fname: 'Tiffany',
