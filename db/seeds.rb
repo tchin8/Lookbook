@@ -114,7 +114,7 @@ Post.create!(
   body: "Third post"
 )
 
-100.times do 
+50.times do 
   Post.create!(
     author_id: rand(3..22),
     user_id: rand(1..22),
@@ -122,3 +122,8 @@ Post.create!(
   )
 end 
 
+FriendRequest.create!(
+  requester_id: 1,
+  requestee_id: 2,
+  status: true
+)

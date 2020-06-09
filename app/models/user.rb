@@ -45,6 +45,19 @@ class User < ApplicationRecord
   has_many :comments,
     class_name: :Comment,
     foreign_key: :user_id
+  
+  has_many :received_friend_requests,
+    class_name: :User,
+    foreign_key: :requestee_id
+  
+  has_many :sent_friend_requests,
+    class_name: :User,
+    foreign_key: :requester_id
+
+  #def friends 
+  #  fb_friends = []
+  #
+  #end 
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
