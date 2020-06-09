@@ -11,6 +11,7 @@ import { fetchComments } from '../../actions/comment_actions';
 const mSTP = (state, ownProps) => {
   // debugger;
   return {
+    users: state.entities.users,
     pfpUrl: state.entities.users[state.session.id].pfpUrl,
     coverPhotoUrl: state.entities.users[state.session.id].coverPhotoUrl,
     currentUser: state.entities.users[state.session.id], 

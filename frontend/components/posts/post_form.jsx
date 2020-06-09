@@ -8,11 +8,20 @@ class PostForm extends React.Component {
     if (this.props.formType === 'Edit Post') {
       this.state = this.props.post;
     } else {
-      this.state = {
-        author_id: this.props.currentUser.id,
-        user_id: this.props.user.id,
-        body: ''
-      };
+      // debugger;
+      if (props.user === undefined) {
+        this.state = {
+          author_id: props.currentUser.id,
+          user_id: props.currentUser.id,
+          body: ''
+        };
+      } else {
+        this.state = {
+          author_id: props.currentUser.id,
+          user_id: props.user.id ,
+          body: ''
+        };
+      }
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);

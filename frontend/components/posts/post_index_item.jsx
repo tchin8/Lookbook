@@ -21,6 +21,7 @@ class PostIndexItem extends React.Component {
     this.handleDeletePost = this.handleDeletePost.bind(this);
     this.handleEditModal = this.handleEditModal.bind(this);
     this.rerender = this.rerender.bind(this);
+    // debugger;
   }
 
   // static getDerivedStateFromProps(props, state) {
@@ -184,17 +185,61 @@ class PostIndexItem extends React.Component {
     // } else {
     //   commenterPic = defaultpfp;
     // }
+
     
     // debugger;
     if (!post) {
       return null;
     }
-
-    const author = users[post.author_id] || users[Object.values(post)[0].user_id];
-
+    
+    const author = users[post.author_id] || users[Object.values(post)[0].author_id];
+    const wall = users[post.user_id] || users[Object.values(post)[0].user_id];
+    
     if (currentUser.pfpUrl === undefined) {
       return null;
     }
+
+    let posterPostee;
+    if (window.location.href.includes("/users")) {
+      // debugger;
+      posterPostee = (
+        <Link to={`/users/${author.id}`}
+          style={{ textDecoration: 'none' }}>
+          <span className="pname">{author.fname} {author.lname}</span>
+        </Link>
+      )
+    } else {
+      // debugger;
+      let postee;
+      if (author.id !== wall.id) {
+        postee = (
+          <>
+          <FontAwesomeIcon icon="caret-right"
+            className="fa-caret-right dark" />
+
+          <Link to={`/users/${wall.id}`}
+            style={{ textDecoration: 'none' }}>
+            <span className="pname">{wall.fname} {wall.lname}</span>
+          </Link>
+          </>
+        )
+      } else {
+        postee = null;
+      }
+
+      posterPostee = (
+        <span>
+          <Link to={`/users/${author.id}`}
+            style={{ textDecoration: 'none' }}>
+            <span className="pname">{author.fname} {author.lname}</span>
+          </Link>
+
+          {postee}
+          
+        </span>
+      )
+    }
+
 
     return (
       <li className="each-post dark">
@@ -205,10 +250,11 @@ class PostIndexItem extends React.Component {
             <img src={author.pfpUrl} alt="" className="thumbnail" />
             </Link>
             <div>
-              <Link to={`/users/${author.id}`}
+              {/* <Link to={`/users/${author.id}`}
                 style={{ textDecoration: 'none' }}>
               <span className="pname">{author.fname} {author.lname}</span>
-              </Link>
+              </Link> */}
+              {posterPostee}
 
               <div className="post-time">
                 <span className="time">{this.postedTimeAgo(post.created_at)} ·</span>

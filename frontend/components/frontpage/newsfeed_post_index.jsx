@@ -42,6 +42,7 @@ class NewsfeedPostIndex extends React.Component {
     // console.log(postIds);
     const sorted = postIds.sort(function (a, b) { return a - b });
     // console.log(sorted);
+    // debugger;
 
     return (
       <ul className="newsfeed-posts">

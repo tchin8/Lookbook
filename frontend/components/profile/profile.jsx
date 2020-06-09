@@ -21,7 +21,7 @@ class Profile extends React.Component {
   render() {
     // debugger;
 
-    const { user, currentUser, updateUser, logout, openModal, fetchUsers, fetchUserPosts } = this.props;
+    const { user, currentUser, updateUser, logout, openModal, fetchUsers, fetchUserPosts, users } = this.props;
 
     if (!user) {
       return null;
@@ -41,7 +41,8 @@ class Profile extends React.Component {
         <ProfileMain currentUser={currentUser} 
           user={user}
           openModal={openModal} 
-          fetchUserPosts={fetchUserPosts}/>
+          fetchUserPosts={fetchUserPosts}
+          users={users}/>
       </div>
     )
   }

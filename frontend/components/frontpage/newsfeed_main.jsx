@@ -5,7 +5,7 @@ import NewsfeedPostIndex from './newsfeed_post_index';
 class NewsfeedMain extends React.Component {
 
   render() {
-    const { currentUser, openModal, posts } = this.props;
+    const { currentUser, openModal, posts, deletePost, updatePost} = this.props;
 
     return (
       <section className="newsfeed-main">
@@ -43,7 +43,10 @@ class NewsfeedMain extends React.Component {
           </section>
 
           <NewsfeedPostIndex posts={posts}
-            currentUser={currentUser}/>
+            currentUser={currentUser}
+            deletePost={deletePost}
+            updatePost={updatePost}
+            openModal={openModal}/>
           
         </section>
       </section>
