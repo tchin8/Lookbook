@@ -16,41 +16,26 @@ class CreateCommentForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  // componentDidUpdate() {
-  //   this.props.fetchPost(this.state.post_id);
-  // }
-
-  // rerender() {
-  //   this.props.rerender();
-  // }
 
   update(field) {
-    // debugger;
-    // this.props.rerender();
     return e => (
       this.setState({ [field]: e.target.value })
     )
   }
 
   handleSubmit(e) {
-    // debugger;
     e.preventDefault();
     this.props.createComment(this.state);
     this.setState({
       body: ""
     });
-    // this.props.rerender();
-    // debugger;
-    // this.rerender();
-    // this.props.fetchUserPosts();
-    // debugger;
+
   }
 
   render() {
     return (
       <form className="comment dark"
         onSubmit={this.handleSubmit}>
-        {/* <div></div> */}
         <input className="comment"
           type="text"
           placeholder="Write a comment..."

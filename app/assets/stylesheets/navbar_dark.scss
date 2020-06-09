@@ -1,4 +1,4 @@
-section.whole-nav {
+section.whole-nav.dark {
   background-color:	#242526;
   border-bottom: 1px solid #393a3b;
   // box-shadow: 0 3px 2px #212222;
@@ -9,7 +9,7 @@ section.whole-nav {
   z-index: 1;
 }
 
-section.navbar-dark {
+section.navbar.dark {
   display: flex;
   justify-content: space-between;
 
@@ -102,7 +102,7 @@ section.right-navbar {
   position: relative;
 }
 
-.msg-circle.dark:hover, .bell-circle.dark:hover, .down-arrow-circle.dark:hover, .plus-circle.dark:hover, div.profile:hover {
+.msg-circle.dark:hover, .bell-circle.dark:hover, .down-arrow-circle.dark:hover, .plus-circle.dark:hover, div.profile.dark:hover {
   background-color: #4e4f50;
   cursor: pointer;
 }

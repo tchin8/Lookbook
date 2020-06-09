@@ -8,13 +8,8 @@ class CommentIndexItem extends React.Component {
     super(props);
   }
 
-  // componentDidUpdate() {
-  //   this.props.fetchComments(this.props.post.id);
-  // }
-
   commentedTimeAgo(datetime) {
     if (this.props.post.created_at === undefined) {
-      // debugger;
       return "1m";
     }
 
@@ -42,18 +37,6 @@ class CommentIndexItem extends React.Component {
     const defaultpfp = window.defaultpfp;
     const me = window.me;
     const { comment, users } = this.props;
-    // debugger;
-
-    // if (comment === undefined) {
-    //   return null;
-    // }
-
-    // let eachCommentThumbnail;
-    // if (comment.user_id === 1) {
-    //   eachCommentThumbnail = me;
-    // } else {
-    //   eachCommentThumbnail = defaultpfp;
-    // }
 
     let commenter = users[comment.user_id]
 
@@ -68,7 +51,9 @@ class CommentIndexItem extends React.Component {
         <div className="each-com">
           <Link to={`/users/${comment.user_id}`}
             style={{ textDecoration: 'none' }}>
-            <span className="commenter">{users[comment.user_id].fname} {users[comment.user_id].lname}</span>
+            <span className="commenter">
+              {users[comment.user_id].fname} {users[comment.user_id].lname}
+            </span>
           </Link>
           <p className="actual-com">{comment.body}</p>
           <div className="like-reply">

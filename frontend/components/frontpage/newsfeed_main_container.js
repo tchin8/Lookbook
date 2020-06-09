@@ -8,6 +8,7 @@ import { fetchComments } from '../../actions/comment_actions';
 import NewsfeedMain from './newsfeed_main';
 
 const mSTP = state => ({
+  users: state.entities.users,
   posts: Object.values(state.posts).reverse(),
 });
 

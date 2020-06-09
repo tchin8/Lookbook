@@ -7,24 +7,13 @@ import {
 import DownDropdown from './down_dropdown';
 
 class NavBar extends React.Component {
-
-
-  // handleClick(e) {
-  //   //redirect to profile component
-  //   // no need, already added link
-  // }
-
-
   handleFocus(e) {
-    // console.log('on click/focus');
     let classN = '';
-    // e.currentTarget.focus();
     if (e.currentTarget.classList.contains('down-arrow-circle')) {
       classN += 'down-drop';
     } else if (e.currentTarget.classList.contains('plus-circle')) {
       classN += 'plus-drop';
     }
-    // console.log(classN);
 
     $(`section.${classN}`).toggleClass('hidden');
     e.currentTarget.classList.toggle('blue');
@@ -32,15 +21,12 @@ class NavBar extends React.Component {
   }
 
   handleBlur(e) {
-    // console.log('on blue');
     let classN = '';
-    // e.currentTarget.focus();
     if (e.currentTarget.classList.contains('down-arrow-circle')) {
       classN += 'down-drop';
     } else if (e.currentTarget.classList.contains('plus-circle')) {
       classN += 'plus-drop';
     }
-    // console.log(classN);
 
     $(`section.down-down`).addClass('hidden');
     $(`section.plus-drop`).addClass('hidden');
@@ -72,8 +58,8 @@ class NavBar extends React.Component {
     }
     
     return (
-      <section className="whole-nav">
-        <section className="navbar-dark">
+      <section className="whole-nav dark">
+        <section className="navbar dark">
           <section className="left-navbar">
             <Link to="/">
             <img src={fblogo} alt="" className="fb-logo" />
@@ -134,10 +120,9 @@ class NavBar extends React.Component {
             <div className="right-navbar">
               <Link to={`/users/${currentUser.id}`} 
                 style={{ textDecoration: 'none' }}>
-              <div className="profile"
+              <div className="profile dark"
                 // onClick={this.handleProfile}
                 >
-                {/* change to user's image_url */}
                 <img src={currentUser.pfpUrl} alt="" className="pfp" />
 
                 <span>{currentUser.fname}</span>
