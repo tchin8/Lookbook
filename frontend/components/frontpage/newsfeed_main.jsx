@@ -8,8 +8,18 @@ class NewsfeedMain extends React.Component {
     const { currentUser, openModal, posts, deletePost, updatePost, users, fetchUsers } = this.props;
 
     return (
-      <section className="newsfeed-main">
-        <section className="col-2-3">
+      <section className="newsfeed-main dark">
+        <section className="col-1-3 dark">
+          <ul className="personal-links">
+            <li className="profile">
+              <img src={currentUser.pfpUrl} alt=""
+                className="thumbnail" />
+              <span>{currentUser.fname} {currentUser.lname}</span>
+            </li>
+          </ul>
+        </section>
+
+        <section className="col-2-3 dark">
           <section className="newsfeed-post-container dark">
             <div className="top dark">
               <img src={currentUser.pfpUrl} alt="" 
