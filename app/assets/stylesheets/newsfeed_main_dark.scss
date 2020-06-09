@@ -7,22 +7,50 @@ section.newsfeed-main.dark {
   padding: 60px 0 0 0;
 
   section.col-1-3.dark {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
     width: 312px;
     
     ul.personal-links {
       color: #e3e5e9;
-      margin: 0 0 0 8px;
+      margin: 22px 0 0 8px;
 
-      li.profile {
+      li:hover {
         background-color: #303031;
-        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      li.profile, li.git, li.linkedin {
+        background-color: #303031;
+        border-radius: 8px;
+        color: #e3e5e9;
         width: 304px;
         height: 50px;
+        position: relative;
+
+        .fa-github.dark {
+          font-size: 30px;
+          margin: 10px;
+        }
+
+        .fa-linkedin.dark {
+          color: #0477b5;
+          font-size: 26px;
+          margin: 12px 14px;
+        }
+
 
         img.thumbnail {
-          height: 34px;
-          width: 34px;
           border-radius: 100%;
+          height: 34px;
+          margin: 8px;
+          width: 34px;
+        }
+
+        span {
+          font-size: 15px;
+          position: absolute;
+          top: 16px;
+          left: 54px;
         }
 
       }
