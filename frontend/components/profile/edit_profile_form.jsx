@@ -113,6 +113,7 @@ class EditProfileForm extends React.Component {
     // debugger;
     const { closeModal, currentUser, updateUser } = this.props;
 
+    let editBioBtn;
     if (currentUser.bio !== undefined ) {
       editBioBtn = <button className="edit-bio"
         onClick={this.handleClick}>Edit</button>
