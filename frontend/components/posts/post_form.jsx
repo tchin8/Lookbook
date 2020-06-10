@@ -59,13 +59,13 @@ class PostForm extends React.Component {
   }
 
   handleUploadPicClick() {
-    debugger;
+    // debugger;
     $(".post-pic").click();
   }
 
 
   handlePreview(e) {
-    debugger;
+    // debugger;
     const file = e.currentTarget.files[0];
     const reader = new FileReader();
     reader.onloadend = () => {
@@ -76,7 +76,7 @@ class PostForm extends React.Component {
     };
 
     if (file) {
-      debugger;
+      // debugger;
       reader.readAsDataURL(file);
     } 
   }
@@ -86,7 +86,7 @@ class PostForm extends React.Component {
 
     let preview;
     if (this.state.postPhotoUrl) {
-      debugger;
+      // debugger;
       preview = (
         <img src={this.state.postPhotoUrl} alt=""
           className="preview"/>
