@@ -22,5 +22,9 @@
         end 
       end 
     end 
+
+    if post.post_photo.attached? 
+      json.postPhoto url_for(post.post_photo)
+    end 
   end
 end

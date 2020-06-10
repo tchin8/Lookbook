@@ -324,6 +324,18 @@ section.newsfeed-main.dark {
               height: 100%;
             }
           }
+
+          div.post-photo-div {
+            // width: 400px;
+            // height: 400px;
+
+            img.newsfeed-photo {
+              margin: 0 0 -4px -15px;
+              object-fit: cover;
+              width: 680px;
+            // height: 400px;
+            }
+          }
         }
 
         div.post-interaction.dark {

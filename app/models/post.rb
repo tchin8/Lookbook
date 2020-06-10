@@ -20,7 +20,7 @@ class Post < ApplicationRecord
     class_name: :User,
     foreign_key: :user_id
 
-  has_many_attached :post_photos
+  has_one_attached :post_photo
 
   has_many :comments,
     class_name: :Comment,

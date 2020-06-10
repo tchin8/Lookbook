@@ -35,9 +35,9 @@ class ProfileMain extends React.Component {
   }
 
   render() {
-    const { currentUser, user, users, openModal, createComment } = this.props;
+    const { currentUser, user, users, openModal, createComment, posts } = this.props;
     
-    let organizeSection, btn1, btn2, friends, allFriends;
+    let organizeSection, btn1, btn2, friends, allFriends, allPhotos, photos;
     // debugger;
     if (user === currentUser) {
       organizeSection = (
@@ -103,9 +103,9 @@ class ProfileMain extends React.Component {
 
         return (
           <Link to={`/users/${id}`}
-            style={{ textDecoration: 'none' }}>
-          <div className={`friend-${i}-9`}
+            style={{ textDecoration: 'none' }}
             key={id} >
+          <div className={`friend-${i}-9`}>
             <img src={friend.pfpUrl}
               alt=""
               className="pfp" />
@@ -132,30 +132,44 @@ class ProfileMain extends React.Component {
       friends = (
         <div className="friends dark">
           <span>Friends</span>
-
-          {/* <div className="friends">
-            <div className="friends-row-1-3">
-              <div className="friend-1-9"></div>
-              <div className="friend-2-9"></div>
-              <div className="friend-3-9"></div>
-            </div>
-
-            <div className="friends-row-2-3">
-              <div className="friend-4-9"></div>
-              <div className="friend-5-9"></div>
-              <div className="friend-6-9"></div>
-            </div>
-            <div className="friends-row-3-3">
-              <div className="friend-7-9"></div>
-              <div className="friend-8-9"></div>
-              <div className="friend-9-9"></div>
-            </div>
-          </div> */}
         </div>
       )
     }
+    
+    let k = 0;
+    allPhotos = posts.reverse().slice(0, 9).map(post => {
+      // debugger;
+      if (post.postPhoto !== undefined) {
+        k += 1;
+        return (
+          <div key={post.id}>
+            <img src={post.postPhoto}
+              alt=""
+              className={`photos-pic pic-${k}-9`} />
+          </div>
+        )
+      }
+    })
 
-    const black = window.black;
+    if (k > 3 && k < 7) {
+      $('.pic-4-9').addClass('bottom-row');
+      $('.pic-6-9').addClass('bottom-row');
+    } else {
+      $('.pic-4-9').removeClass('bottom-row');
+      $('.pic-6-9').removeClass('bottom-row');
+    }
+
+
+    photos = (
+      <div className="photos dark">
+        <span>Photos</span>
+
+        <div className="photos">
+          {allPhotos}
+        </div>
+      </div>
+    )
+
 
     return (
       <section className="profile-main">
@@ -190,28 +204,7 @@ class ProfileMain extends React.Component {
 
             </div> */}
 
-            <div className="photos dark">
-              <span>Photos</span>
-
-              <div className="photos">
-                <div className="photos-row-1-3">
-                  <div className="pic-1-9"></div>
-                  <div className="pic-2-9"></div>
-                  <div className="pic-3-9"></div>
-                </div>
-
-                <div className="photos-row-2-3">
-                  <div className="pic-4-9"></div>
-                  <div className="pic-5-9"></div>
-                  <div className="pic-6-9"></div>
-                </div>
-                <div className="photos-row-3-3">
-                  <div className="pic-7-9"></div>
-                  <div className="pic-8-9"></div>
-                  <div className="pic-9-9"></div>
-                </div>
-              </div>
-            </div>
+            {photos}
 
             {friends}
             {/* KEEEP THIS TOOOOOOOO */}

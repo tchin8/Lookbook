@@ -20,6 +20,7 @@ class Newsfeed extends React.Component {
           logout={logout}
           currentUser={currentUser}
           fetchUsers={fetchUsers}
+          fetchPosts={fetchPosts}
           />
       </div>
     )

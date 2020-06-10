@@ -17,12 +17,12 @@
     end 
 
     json.receivedFriendRequests do 
-    #  (user.received_friend_requests.reject { |rfr| rfr.status }).each do |fr|
-    #    json.set! fr.requester_id do 
-    #      json.extract! fr, :id, :requester_id, :requestee_id, :status
-    #    end 
-    #  end 
-      json.array! ((user.received_friend_requests.reject { |rfr| rfr.status}).map {|rfr| rfr.requester_id})
+      (user.received_friend_requests.reject { |rfr| rfr.status }).each do |fr|
+        json.set! fr.requester_id do 
+          json.extract! fr, :id, :requester_id, :requestee_id, :status
+        end 
+      end 
+      #json.array! ((user.received_friend_requests.reject { |rfr| rfr.#status}).map {|rfr| rfr.requester_id})
     end 
 
     json.sentFriendRequests do 

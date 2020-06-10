@@ -1,0 +1,118 @@
+section.search-friends {
+  background-color: #18191a;
+  min-height: 1000px;
+  width: 100%;
+  section.search-sidebar {
+    background-color: #242526;
+    border-right: 1px solid #393a3b;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    height: 100%;
+    width: 360px;
+    position: fixed;
+    top: 60px;
+    
+    div.top {
+      height: 84px;
+      margin: 0 14px;
+      // width: 100%;
+  
+      span {
+        color: #ffffff;
+        display: block;
+        font-size: 24px;
+        font-weight: bold;
+        padding: 20px 0 0 0;
+      }
+    }
+
+    div.search-div {
+      border-top: 1px solid #393a3b;
+      margin: 0 0 0 14px;
+      width: 330px;
+    }
+
+    div.bottom {
+      margin: 22px 0 0 14px;
+
+      span.filters {
+        color: #ffffff;
+        display: block;
+        font-size: 18px;
+        padding: 0 0 10px 0;
+      }
+
+      ul {
+        margin: 0 0 0 -6px;
+        li {
+          background-color:	#252f3c;
+          border-radius: 6px;
+          height: 52px;
+          width: 344px;
+          position: relative;
+
+          div.id-circle {
+            border-radius: 100%;
+            background-color: #1a76f2;
+            height: 36px;
+            width: 36px;
+            position: relative;
+            top: 8px;
+            left: 8px;
+
+            .fa-id-card {
+              color: white;
+              font-size: 18px;
+              position: absolute;
+              top: 10px;
+              left: 9px;
+            }
+          }
+
+          span {
+            color: white;
+            display: block;
+            position: relative;
+            bottom: 18px;
+            left: 60px;
+          } 
+        }
+      }
+    }
+  }
+  
+}
+
+section.search-main {
+  // width: 100%;
+  height: 100%;
+  // margin: auto;
+  padding: 0 0 0 360px;
+  // margin: 60px 0 0 0 360px; 
+  position: relative;
+  top: 94px;
+  // left: 60px;
+  
+  section.search-results {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    background-color: #242526;
+    border: outset 1px solid #393a3b;
+    border-radius: 6px;
+    box-shadow: -2px 2px 4px #151516;
+    min-height: 130px;
+    margin: auto;
+    // margin: 0 0 0 360px;
+    // margin: 60px 0 0 0 360px; 
+    width: 680px;
+
+    span {
+      color: white;
+      display: block;
+      font-size: 18px;
+      padding: 20px 18px;
+    }
+  }
+}
+
+// html {
+//   height: 100%;
+// }

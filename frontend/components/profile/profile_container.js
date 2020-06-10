@@ -12,6 +12,7 @@ import { createFriendRequest, deleteFriendRequest } from '../../actions/friend_r
 const mSTP = (state, ownProps) => {
   // debugger;
   return {
+    posts: Object.values(state.posts),
     users: state.entities.users,
     pfpUrl: state.entities.users[state.session.id].pfpUrl,
     coverPhotoUrl: state.entities.users[state.session.id].coverPhotoUrl,

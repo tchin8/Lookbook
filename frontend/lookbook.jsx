@@ -11,7 +11,7 @@ import { faExclamationCircle, faBell, faHome, faSortDown, faTv, faPlay,
   faQuestionCircle, faMoon, faArrowCircleLeft, faSignOutAlt, faGlobe, faCamera, 
   faPencilAlt, faEye, faSearch, faEllipsisH, faTimes, faUserTag, faMapMarkerAlt, 
   faUserFriends, faSlidersH, faList, faThLarge, faFilm, faBriefcase, 
-  faGraduationCap, faHeartbeat, faGlobeAmericas, faCaretRight, faUserPlus, faUserCheck, faPhoneAlt, faUserTimes
+  faGraduationCap, faHeartbeat, faGlobeAmericas, faCaretRight, faUserPlus, faUserCheck, faPhoneAlt, faUserTimes, faIdCard,
 } from '@fortawesome/free-solid-svg-icons';
 import { faNewspaper, faShareSquare, faThumbsUp, faComment, faBookmark, 
   faEdit as farEdit, faUserCircle, faTrashAlt, faBellSlash, faCalendarAlt, 
@@ -27,7 +27,7 @@ library.add(fab, faExclamationCircle, faBell, faHome, faSortDown, faTv, faPlay,
   faList, faThLarge, faThumbsUp, faComment, faBookmark, farEdit, faUserCircle, 
   faTrashAlt, faBellSlash, faCalendarAlt, faTimesCircle, faSmile, faImage, 
   faFilm, faBriefcase, faGraduationCap, faHeartbeat, faGlobeAmericas, 
-  faCaretRight, faUserPlus, faUserCheck, faPhoneAlt, faUserTimes);
+  faCaretRight, faUserPlus, faUserCheck, faPhoneAlt, faUserTimes, faIdCard);
 
 
 document.addEventListener("DOMContentLoaded", () => {

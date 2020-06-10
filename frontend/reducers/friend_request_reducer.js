@@ -9,7 +9,7 @@ function friendRequestReducer(state = {}, action) {
 
   switch (action.type) {
     case RECEIVE_REQUEST:
-      newState[request] = action.request;
+      newState[action.request] = action.request;
       return newState;
 
     case REMOVE_REQUEST:

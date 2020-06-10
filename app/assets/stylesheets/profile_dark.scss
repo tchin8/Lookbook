@@ -377,8 +377,8 @@ section.p-header {
 section.profile-main {
   background-color: #18191a;
   border-top: 1px solid #171819;
-  height: 100%;
-  // min-height: 900px;
+  // height: 100%;
+  min-height: 500px;
 
   div.pm-div {
     // border: 1px solid white;
@@ -488,7 +488,8 @@ section.profile-main {
         background-color: #242526;
         border-radius: 8px;
         box-shadow: 2px 2px 2px #151617;
-        height: 402px;
+        // min-height: 200px;
+        min-height: 40px;
         // NEED THIS, DO NOT REMOVE
         // margin: 18px 0 0 0;
         width: 100%;
@@ -497,33 +498,43 @@ section.profile-main {
         // top: 60px;
 
         div.photos {
-          height: 328px;
-          width: 328px;
+          // height: 328px;
+          // width: 328px;
+          // margin: 0 0 16px 16px;
+          display: grid;
+          grid-template-columns: 106px 106px 106px;
+          grid-gap: 0 4px;
+          // grid-gap: 20px 10px;
+          height: 100%;
           margin: 0 0 16px 16px;
+          padding: 0 0 18px 0;
+          width: 328px;
 
-          div.photos-row-1-3, div.photos-row-2-3, div.photos-row-3-3 {
-            display: flex;
-            margin: 0 0 3px 0;
-            justify-content: space-between;
+          img.photos-pic {
+            background-color: #18191a;
+            height: 106px;
+            width: 106px;
+            object-fit: cover;
+          }
 
-            div.pic-1-9, div.pic-2-9, div.pic-3-9, div.pic-4-9, div.pic-5-9, div.pic-6-9, div.pic-7-9, div.pic-8-9, div.pic-9-9 {
-              background-color: #18191a;
-              height: 107px;
-              width: 107px;
-            }
+          img.photos-pic.pic-1-9 {
+            border-top-left-radius: 10px;
+          }
+          img.photos-pic.pic-3-9 {
+            border-top-right-radius: 10px;
+          }
+          img.photos-pic.pic-7-9 {
+            border-bottom-left-radius: 10px;
+          }
+          img.photos-pic.pic-9-9 {
+            border-bottom-right-radius: 10px;
+          }
 
-            div.pic-1-9 {
-              border-top-left-radius: 10px;
-            }
-            div.pic-3-9 {
-              border-top-right-radius: 10px;
-            }
-            div.pic-7-9 {
-              border-bottom-left-radius: 10px;
-            }
-            div.pic-9-9 {
-              border-bottom-right-radius: 10px;
-            }
+          img.pic-4-9.bottom-row {
+            border-bottom-left-radius: 10px;
+          }
+          img.pic-6-9.bottom-row {
+            border-bottom-right-radius: 10px;
           }
         }
       }
@@ -533,7 +544,8 @@ section.profile-main {
         border-radius: 8px;
         box-shadow: 2px 2px 2px #151617;
         // height: 544px;
-        min-height: 240px;
+        // min-height: 240px;
+        min-height: 40px;
         // max-height
         margin: 18px 0 0 0;
         width: 100%;
@@ -945,6 +957,18 @@ ul.wall-posts {
           margin: 26px 0 16px 0;
           overflow-wrap: break-word;
           height: 100%;
+        }
+      }
+
+      div.post-photo-div {
+        // width: 400px;
+        // height: 400px;
+
+        img.post-photo {
+          margin: 0 0 -4px -15px;
+          object-fit: cover;
+          width: 500px;
+        // height: 400px;
         }
       }
     }

@@ -15,27 +15,50 @@ Comment.destroy_all
 FriendRequest.destroy_all
 
 user1 = User.create!(
-    fname: 'Tiffany',
-    lname: 'Chin',
-    email: 'ctiff@lookbook.com',
-    birthday: '1995-1-28',
-    gender: 'Female',
-    password: 'password',
-    bio: "good vibes only",
-    current_city: "New York City, NY",
-    school: "App Academy"
-  )
+  fname: 'Tiffany',
+  lname: 'Chin',
+  email: 'ctiff@lookbook.com',
+  birthday: '1995-1-1',
+  gender: 'Female',
+  password: 'password',
+  bio: "good vibes only",
+  current_city: "New York City, NY",
+  school: "App Academy"
+)
 
 user2 = User.create!(
-    fname: 'Lexus',
-    lname: 'Chin',
-    email: 'clexus@lookbook.com',
-    birthday: '2016-1-8',
-    gender: 'Female',
-    password: 'password',
-    bio: "meooowwww",
-    current_city: "New York City, NY",
-  )
+  fname: 'Lexus',
+  lname: 'Chin',
+  email: 'clexus@lookbook.com',
+  birthday: '2016-1-2',
+  gender: 'Female',
+  password: 'password',
+  bio: "meooowwww",
+  current_city: "Bronx, NY",
+  relationship_status: "Single"
+)
+
+user3 = User.create!(
+  fname: 'Rey',
+  lname: 'Man',
+  email: 'mrey@lookbook.com',
+  birthday: '1995-1-3',
+  gender: 'Male',
+  password: 'password',
+  bio: "Hey there!",
+  current_city: "Brooklyn, NY",
+  relationship_status: "In a relationship"
+)
+
+user4 = User.create!(
+  fname: 'Jesse',
+  lname: 'Lin',
+  email: 'ljesse@lookbook.com',
+  birthday: '1997-1-4',
+  gender: 'Male',
+  password: 'password',
+  current_city: "Queens, NY",
+)
 
 def random_bday() 
   year = rand(1970..2005)
@@ -73,7 +96,7 @@ def random_relation()
   ].sample
 end 
 
-10.times do 
+5.times do 
   User.create(
     fname: Faker::Name.first_name,
     lname: Faker::Name.last_name,
@@ -95,7 +118,6 @@ User.all.each do |user|
   user.cover_photo.attach(io: cover_photo, filename: 'default_cv.png')
 end 
 
-
 Post.create!(
   author_id: 2, 
   user_id: 1, 
@@ -108,11 +130,16 @@ Post.create!(
   body: "You're too young to be using lookbook!"
 )
 
+Post.create!(
+  author_id: 3, 
+  user_id: 1, 
+  body: "Hi :)"
+)
 
-20.times do 
+10.times do 
   Post.create!(
-    author_id: rand(3..12),
-    user_id: rand(3..12),
+    author_id: rand(3..9),
+    user_id: rand(3..9),
     body: Faker::Quote.famous_last_words
   )
 end 
@@ -120,5 +147,23 @@ end
 FriendRequest.create!(
   requester_id: 1,
   requestee_id: 2,
+  status: true
+)
+
+FriendRequest.create!(
+  requester_id: 1,
+  requestee_id: 3,
+  status: true
+)
+
+FriendRequest.create!(
+  requester_id: 1,
+  requestee_id: 4,
+  status: true
+)
+
+FriendRequest.create!(
+  requester_id: 2,
+  requestee_id: 3,
   status: true
 )

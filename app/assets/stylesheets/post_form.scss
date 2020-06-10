@@ -113,6 +113,7 @@ div.create-post-form-container {
 
   form.create-post-form {
     position: relative;
+    height: 100%;
     // margin: auto; 
 
     textarea {
@@ -123,9 +124,18 @@ div.create-post-form-container {
       font-size: 24px;
       font-weight: 200px;
       min-height: 226px;
+      // min-height: 100px;
       margin: 10px 18px 0 16px;
       width: 466px;
       resize: none;
+    }
+
+    img.preview {
+      border: 1px solid #3c3d40;
+      border-radius: 6px;
+      height: 100%;
+      margin: 24px 16px;
+      width: 466px;
     }
   }
 
@@ -202,17 +212,22 @@ div.create-post-form-container {
   }
 }
 
-button.create-post {
-  background-color:	#2d88ff;
-  border: none;
-  border-radius: 6px;
-  display: block;
-  color: white;
-  height: 35px;
-  margin: auto;
-  position: relative;
-  top: 16px;
-  width: 468px;
+div.btn-div {
+  height: 55px;
+
+  button.create-post {
+    background-color:	#2d88ff;
+    border: none;
+    border-radius: 6px;
+    display: block;
+    color: white;
+    height: 35px;
+    // margin: auto;
+    margin: 16px;
+    // position: relative;
+    // top: 16px;
+    width: 468px;
+  }
 }
 
 button:disabled {

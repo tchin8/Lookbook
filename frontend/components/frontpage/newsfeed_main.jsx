@@ -6,21 +6,23 @@ import {
 import NewsfeedPostIndex from './newsfeed_post_index';
 
 class NewsfeedMain extends React.Component {
+  // componentDidMount() {
+  //   this.props.fetchPosts();
+  // }  
 
   render() {
     const { currentUser, openModal, posts, deletePost, updatePost, users, fetchUsers } = this.props;
     
-    // debugger;
     let contacts;
     if (currentUser.friends !== undefined) {
       contacts = currentUser.friends.map(id => {
         const friend = users[id];
-        // debugger;
-
+  
         return (
           <Link to={`/users/${id}`}
-            style={{ textDecoration: 'none' }}>
-            <li key={id} className="contact-friend">
+            style={{ textDecoration: 'none' }}
+            key={id} >
+            <li className="contact-friend">
               <img src={friend.pfpUrl}
                 alt=""
                 className="thumbnail" />

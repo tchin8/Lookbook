@@ -167,6 +167,19 @@ class PostIndexItem extends React.Component {
       )
     }
 
+    let postPhoto;
+    if (window.location.href.includes("/users")) {
+      // debugger;
+      postPhoto = (
+        <img src={post.postPhoto} alt=""
+          className="post-photo" />
+      )
+    } else {
+      postPhoto = (
+        <img src={post.postPhoto} alt=""
+          className="newsfeed-photo" />
+      )
+    }
 
     return (
       <li className="each-post dark">
@@ -229,7 +242,6 @@ class PostIndexItem extends React.Component {
                   </div>
                 </div>
 
-
                 <div className="delete-post"
                   onClick={this.handleDeletePost}>
                   <FontAwesomeIcon icon={['far', 'trash-alt']}
@@ -275,6 +287,10 @@ class PostIndexItem extends React.Component {
 
           <div className="body">
             <p>{post.body}</p>
+          </div>
+
+          <div className="post-photo-div">
+            {postPhoto}
           </div>
         </div>
 

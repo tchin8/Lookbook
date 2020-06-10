@@ -42,12 +42,13 @@ class ProfileHeader extends React.Component {
     }
 
     if (currentUser !== user) {
-      this.state.friendRequest = {
+      this.friendRequest = {
         requester_id: currentUser.id,
         requestee_id: user.id,
         status: false,
       }
     }
+
 
 
     $('.bio-span').addClass("show");
@@ -196,8 +197,13 @@ class ProfileHeader extends React.Component {
 
   render() {
     const { user, updateUser, currentUser, openModal, createFriendRequest, deleteFriendRequest } = this.props;
-
+    // debugger;
     let bioButton, cameraButton, editCvButton, archive, rightNavBtns, bio, friendBtn;
+
+    // if (user.receivedFriendRequests === undefined) {
+    //   return null;
+    // }
+
     if (currentUser.id === user.id) {
       if (user.bio !== undefined && user.bio !== null) {
         bioButton = <button className="edit"
@@ -312,44 +318,47 @@ class ProfileHeader extends React.Component {
           </div>
         </div>
       )
-    } else if (user.receivedFriendRequests.includes(currentUser.id)) {
-      archive = (<span>Check-Ins</span>)
-
-      rightNavBtns = (
-        <div className="right-nav dark">
-          <div>
-            <button className="cxl-friend"
-              onClick={() => deleteFriendRequest(this.state.friendRequest.id)}>
-              <FontAwesomeIcon icon="user-times"
-                className="fa-user-times dark" />
-              <span>
-                Cancel Request
-                </span>
-            </button>
+    } else if (user.receivedFriendRequests) {
+      if (Object.keys(user.receivedFriendRequests).includes(`${currentUser.id}`)) {
+        archive = (<span>Check-Ins</span>)
+  
+        rightNavBtns = (
+          <div className="right-nav dark">
+            <div>
+              <button className="cxl-friend"
+                onClick={() => deleteFriendRequest(user.receivedFriendRequests[currentUser.id].id)}>
+                <FontAwesomeIcon icon="user-times"
+                  className="fa-user-times dark" />
+                <span>
+                  Cancel Request
+                  </span>
+              </button>
+            </div>
+  
+            <div>
+              <button>
+                <FontAwesomeIcon icon="search"
+                  className="fa-search dark" />
+              </button>
+            </div>
+  
+            <div>
+              <button>
+                <FontAwesomeIcon icon="ellipsis-h"
+                  className="fa-ellipsis-h dark" />
+              </button>
+            </div>
           </div>
-
-          <div>
-            <button>
-              <FontAwesomeIcon icon="search"
-                className="fa-search dark" />
-            </button>
-          </div>
-
-          <div>
-            <button>
-              <FontAwesomeIcon icon="ellipsis-h"
-                className="fa-ellipsis-h dark" />
-            </button>
-          </div>
-        </div>
-      )
+        )
+      }
     } else {
       archive = (<span>Check-Ins</span>)
       rightNavBtns = (
 
         <div className="right-nav dark">
           <div>
-            <button className="add-friend">
+            <button className="add-friend"
+              onClick={() => createFriendRequest(this.friendRequest)}>
               <FontAwesomeIcon icon="user-plus"
                 className="fa-user-plus dark" />
               <span>

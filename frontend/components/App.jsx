@@ -13,12 +13,15 @@ import NewsfeedContainer from './frontpage/newsfeed_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import ProfileContainer from './profile/profile_container';
 import ModalContainer from './modal/modal_container';
+import SearchFriendsContainer from './search/search_friends_container';
+// import SearchFriends from './search/search_friends';
 
 const App = () => (
   <div>
     <Route path="/users/:userId" component={ModalContainer} />
     <Route exact path="/" component={ModalContainer} />
-    {/* <ModalContainer /> */}
+    {/* <ProtectedRoute path="/search" component={SearchFriends} /> */}
+    <ProtectedRoute path="/search" component={SearchFriendsContainer} />
     <ProtectedRoute exact path="/" component={NewsfeedContainer} /> 
     <ProtectedRoute path="/users/:userId" component={ProfileContainer} /> 
     {/* <ProtectedRoute exact path="/users/:userId" component={ProfileContainer} />  */}

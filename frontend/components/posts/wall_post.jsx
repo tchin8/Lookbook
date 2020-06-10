@@ -2,18 +2,26 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class WallPost extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.handleUploadPic = this.handleUploadPic.bind(this);
+    this.handleUploadPicClick = this.handleUploadPicClick.bind(this);
+  }
+
+  handleUploadPicClick() {
+    $(".post-pic").click();
+  }
+
+  handleUploadPic(e) {
+    localStorage.setItem("post-pic", e.currentTarget.files[0]);
+    this.props.openModal('Create Post');
+  }
 
   render() {
     const { currentUser, user, openModal, closeModal } = this.props;
-    const defaultpfp = window.defaultpfp;
-    const me = window.me;
 
-    let pic, postBtn, icons;
-    if (currentUser.id === 1) {
-      pic = me;
-    } else {
-      pic = defaultpfp;
-    }
+    let postBtn, icons;
 
     // if (!user) {
     //   return null;
@@ -37,11 +45,17 @@ class WallPost extends React.Component {
             <span>Live Video</span>
           </div>
 
-          <div className="photo-vid-div dark">
+          <div className="photo-vid-div dark"
+            // onClick={this.handleUploadPicClick}
+            >
             <FontAwesomeIcon icon="images"
               className="fa-images dark" />
             <span>Photo/Video</span>
           </div>
+          {/* <input type="file"
+            className="post-pic"
+            id="file"
+            onChange={this.handleUploadPic}/> */}
 
           <div className="feeling-div dark">
             <FontAwesomeIcon icon={['fab', 'font-awesome-flag']}
@@ -81,7 +95,6 @@ class WallPost extends React.Component {
         </div>
       )
     }
-
 
     (currentUser);
 
