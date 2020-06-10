@@ -72,19 +72,21 @@ class ProfileHeader extends React.Component {
     }
   }
 
-  // componentDidMount() {
-  //   if (this.props.user.friends === undefined) {
-  //     this.props.fetchUsers();
-  //   }
-  // }
+  componentDidMount() {
+    // if (this.props.user.friends === undefined) {
+    //   this.props.fetchUsers();
+    // }
+    window.scrollTo(0, 0);
+  }
 
-  // componentDidUpdate(){
-  //   if (this.state.bio !== localStorage.getItem('bio') && localStorage.getItem('bio') !== undefined) {
-  //     this.setState({ "bio": localStorage.getItem('bio') });
-  //   }
-  //   // $('.bio').removeClass("show");
-  //   // $('.bio').addClass("hidden");
-  // }
+  componentDidUpdate(){
+    window.scrollTo(0, 0);
+    // if (this.state.bio !== localStorage.getItem('bio') && localStorage.getItem('bio') !== undefined) {
+    //   this.setState({ "bio": localStorage.getItem('bio') });
+    // }
+    // $('.bio').removeClass("show");
+    // $('.bio').addClass("hidden");
+  }
 
   disabled() {
     if (this.state.bio === this.state.prevState.bio) {
