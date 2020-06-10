@@ -5,7 +5,7 @@ class ProfileHeader extends React.Component {
   constructor(props) {
     super(props);
 
-    const { user } = props;
+    const { user, currentUser } = props;
 
     this.state = {
       id: user.id,
@@ -40,6 +40,15 @@ class ProfileHeader extends React.Component {
       pfpUrl: user.pfpUrl,
       coverPhotoUrl: user.coverPhotoUrl
     }
+
+    if (currentUser !== user) {
+      this.state.friendRequest = {
+        requester_id: currentUser.id,
+        requestee_id: user.id,
+        status: false,
+      }
+    }
+
 
     $('.bio-span').addClass("show");
     $('.bio-span').removeClass("hidden");
@@ -101,18 +110,7 @@ class ProfileHeader extends React.Component {
     $('.bio-form').toggleClass("show hidden");
   }
 
-  // count() {
-  //   let chars = this.state.bio.length
-  //   if (chars > 0) {
-  //     const rem = 101 - chars;
-  //     return `${rem} characters remaining`;
-  //   }
-
-  //   return '101 characters remaining'
-  // }
-
   update(field) {
-    // $('.bio').toggleClass("show hidden");
     return e => {
       return this.setState({ 
         [field]: e.target.value, 
@@ -129,36 +127,29 @@ class ProfileHeader extends React.Component {
     $('.bio-form').removeClass("show");
 
     this.props.updateUser(this.state);
-
   }
 
   handleFileClick() {
     $(".upload-pfp").click();
-
   }
 
   handleUploadPfp(e) {
-    // e.preventDefault();
     this.setState({ pfpUrl: e.currentTarget.files[0]});
 
     const formData = new FormData();
-    // if (this.state.photoFile) {
-      formData.append('user[id]', this.state.id);
-      formData.append('user[bio]', this.state.bio);
-      formData.append('user[birthday]', this.state.birthday);
-      formData.append('user[current_city]', this.state.current_city);
-      formData.append('user[email]', this.state.email);
-      formData.append('user[fname]', this.state.fname);
-      formData.append('user[gender]', this.state.gender);
-      formData.append('user[hometown]', this.state.hometown);
-      formData.append('user[lname]', this.state.lname);
-      formData.append('user[relationship_status]', this.state.relationship_status);
-      formData.append('user[school]', this.state.school);
-      formData.append('user[workplace]', this.state.workplace);
-      formData.append('user[pfp]', e.currentTarget.files[0]);
-      // formData.append('user[pfpUrl]', this.state.pfpUrl);
-      // formData.append('user[cover_photo]', this.state.coverPhotoUrl);
-    // }
+    formData.append('user[id]', this.state.id);
+    formData.append('user[bio]', this.state.bio);
+    formData.append('user[birthday]', this.state.birthday);
+    formData.append('user[current_city]', this.state.current_city);
+    formData.append('user[email]', this.state.email);
+    formData.append('user[fname]', this.state.fname);
+    formData.append('user[gender]', this.state.gender);
+    formData.append('user[hometown]', this.state.hometown);
+    formData.append('user[lname]', this.state.lname);
+    formData.append('user[relationship_status]', this.state.relationship_status);
+    formData.append('user[school]', this.state.school);
+    formData.append('user[workplace]', this.state.workplace);
+    formData.append('user[pfp]', e.currentTarget.files[0]);
 
     $.ajax({
       url: `/api/users/${this.state.id}`,
@@ -202,9 +193,9 @@ class ProfileHeader extends React.Component {
   }
 
   render() {
-    const { user, updateUser, currentUser, openModal } = this.props;
+    const { user, updateUser, currentUser, openModal, createFriendRequest, deleteFriendRequest } = this.props;
 
-    let bioButton, cameraButton, editCvButton, archive, editProBtn, bio;
+    let bioButton, cameraButton, editCvButton, archive, rightNavBtns, bio, friendBtn;
     if (currentUser.id === user.id) {
       if (user.bio !== undefined && user.bio !== null) {
         bioButton = <button className="edit"
@@ -244,29 +235,140 @@ class ProfileHeader extends React.Component {
         
       archive = <span>Archive</span>
 
-      editProBtn = (
-        <div onClick={() => openModal('Edit Profile')}>
-          <button className="edit-profile">
-            <FontAwesomeIcon icon="pencil-alt"
-              className="fa-pencil-alt dark" 
-              />Edit Profile
-          </button>
+      rightNavBtns = (
+
+        <div className="right-nav dark">
+          <div onClick={() => openModal('Edit Profile')}>
+            <button className="edit-profile">
+              <FontAwesomeIcon icon="pencil-alt"
+                className="fa-pencil-alt dark" 
+                />Edit Profile
+            </button>
+          </div>
+
+          <div>
+            <button>
+              <FontAwesomeIcon icon="eye"
+                className="fa-eye dark" />
+            </button>
+          </div>
+
+          <div>
+            <button>
+              <FontAwesomeIcon icon="search"
+                className="fa-search dark" />
+            </button>
+          </div>
+
+          <div>
+            <button>
+              <FontAwesomeIcon icon="ellipsis-h"
+                className="fa-ellipsis-h dark" />
+            </button>
+          </div>
         </div>
+
+
       )
-    } else {
+    } else if (currentUser.friends.includes(user.id)) {
       bio = user.bio;
 
       archive = (<span>Check-Ins</span>)
 
-      editProBtn = (
-        <div>
-          <button className="msg-user">
-            <FontAwesomeIcon icon={['fab', 'facebook-messenger']}
-              className="fa-facebook-edit dark" />
+      rightNavBtns = (
+
+        <div className="right-nav dark">
+          <div>
+            <button className="msg-user">
+              <FontAwesomeIcon icon={['fab', 'facebook-messenger']}
+                className="fa-facebook-edit dark" />
+                <span>
+                Message
+                </span>
+            </button>
+          </div>
+          
+          <div>
+            <button>
+              <FontAwesomeIcon icon="phone-alt"
+                className="fa-eye dark" />
+            </button>
+          </div>
+
+          <div>
+            <button>
+              <FontAwesomeIcon icon="user-check"
+                className="fa-user-check dark" />
+            </button>
+          </div>
+
+          <div>
+            <button>
+              <FontAwesomeIcon icon="ellipsis-h"
+                className="fa-ellipsis-h dark" />
+            </button>
+          </div>
+        </div>
+      )
+    } else if (user.receivedFriendRequests.includes(currentUser.id)) {
+      archive = (<span>Check-Ins</span>)
+
+      rightNavBtns = (
+        <div className="right-nav dark">
+          <div>
+            <button className="cxl-friend"
+              onClick={() => deleteFriendRequest(this.state.friendRequest.id)}>
+              <FontAwesomeIcon icon="user-times"
+                className="fa-user-times dark" />
               <span>
-              Message
+                Cancel Request
+                </span>
+            </button>
+          </div>
+
+          <div>
+            <button>
+              <FontAwesomeIcon icon="search"
+                className="fa-search dark" />
+            </button>
+          </div>
+
+          <div>
+            <button>
+              <FontAwesomeIcon icon="ellipsis-h"
+                className="fa-ellipsis-h dark" />
+            </button>
+          </div>
+        </div>
+      )
+    } else {
+      archive = (<span>Check-Ins</span>)
+      rightNavBtns = (
+
+        <div className="right-nav dark">
+          <div>
+            <button className="add-friend">
+              <FontAwesomeIcon icon="user-plus"
+                className="fa-user-plus dark" />
+              <span>
+                Add Friend
               </span>
-          </button>
+            </button>
+          </div>
+
+          <div>
+            <button>
+              <FontAwesomeIcon icon="search"
+                className="fa-search dark" />
+            </button>
+          </div>
+
+          <div>
+            <button>
+              <FontAwesomeIcon icon="ellipsis-h"
+                className="fa-ellipsis-h dark" />
+            </button>
+          </div>
         </div>
       )
     }
@@ -365,32 +467,8 @@ class ProfileHeader extends React.Component {
               </div>
             </div>
 
+            {rightNavBtns}
 
-
-            <div className="right-nav dark">
-              {editProBtn}
-
-              <div>
-                <button>
-                  <FontAwesomeIcon icon="eye"
-                    className="fa-eye dark" />
-                </button>
-              </div>
-
-              <div>
-                <button>
-                  <FontAwesomeIcon icon="search"
-                    className="fa-search dark" />
-                </button>
-              </div>
-
-              <div>
-                <button>
-                  <FontAwesomeIcon icon="ellipsis-h"
-                    className="fa-ellipsis-h dark" />
-                </button>
-              </div>
-            </div>
           </div>
         </div>
       </section>

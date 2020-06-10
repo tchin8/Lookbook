@@ -105,11 +105,12 @@ class ProfileMain extends React.Component {
           <Link to={`/users/${id}`}
             style={{ textDecoration: 'none' }}>
           <div className={`friend-${i}-9`}
-            key={id}>
+            key={id} >
             <img src={friend.pfpUrl}
               alt=""
               className="pfp" />
-            <span className="friend-name">{friend.fname} {friend.lname}</span>
+            <span className="friend-name">{friend.fname} {friend.lname}
+            </span>
           </div>
           </Link>
         )
@@ -132,7 +133,7 @@ class ProfileMain extends React.Component {
         <div className="friends dark">
           <span>Friends</span>
 
-          <div className="friends">
+          {/* <div className="friends">
             <div className="friends-row-1-3">
               <div className="friend-1-9"></div>
               <div className="friend-2-9"></div>
@@ -149,7 +150,7 @@ class ProfileMain extends React.Component {
               <div className="friend-8-9"></div>
               <div className="friend-9-9"></div>
             </div>
-          </div>
+          </div> */}
         </div>
       )
     }

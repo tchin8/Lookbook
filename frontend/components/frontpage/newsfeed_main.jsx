@@ -9,6 +9,27 @@ class NewsfeedMain extends React.Component {
 
   render() {
     const { currentUser, openModal, posts, deletePost, updatePost, users, fetchUsers } = this.props;
+    
+    debugger;
+    let contacts;
+    if (currentUser.friends !== undefined) {
+      contacts = currentUser.friends.map(id => {
+        const friend = users[id];
+        debugger;
+
+        return (
+          <Link to={`/users/${id}`}
+            style={{ textDecoration: 'none' }}>
+            <li key={id} className="contact-friend">
+              <img src={friend.pfpUrl}
+                alt=""
+                className="thumbnail" />
+              <span className="friend-name">{friend.fname} {friend.lname}</span>
+            </li>
+          </Link>
+        )
+      })
+    }
 
     return (
       <section className="newsfeed-main dark">
@@ -79,7 +100,17 @@ class NewsfeedMain extends React.Component {
             deletePost={deletePost}
             updatePost={updatePost}
             openModal={openModal}/>
-          
+        </section>
+
+        <section className="col-3-3 dark">
+          <div>
+            <span className="contacts">Contacts</span>
+          </div>
+
+          <ul className="contacts">
+            {contacts}
+          </ul>
+
         </section>
       </section>
     )

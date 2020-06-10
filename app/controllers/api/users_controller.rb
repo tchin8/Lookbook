@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class Api::UsersController < ApplicationController
   skip_before_action :verify_authenticity_token
   
@@ -15,10 +17,11 @@ class Api::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    # profile_pic = open('https://lookbook-aa-dev.s3.amazonaws.com/default_pfp.png')
-    # cover_photo = open('https://lookbook-aa-dev.s3.amazonaws.com/default_cv.png')
-    # @user.pfp.attach(io: profile_pic, filename: 'default_pfp.png')
-    # @user.cover_photo.attach(io: cover_photo, filename: 'default_cv.png')
+
+    profile_pic = open('https://lookbook-aa-seeds.s3.amazonaws.com/default_pfp.png')
+    cover_photo = open('https://lookbook-aa-seeds.s3.amazonaws.com/default_cv.png')
+    @user.pfp.attach(io: profile_pic, filename: 'default_pfp.png')
+    @user.cover_photo.attach(io: cover_photo, filename: 'default_cv.png')
 
     if @user.save
       login(@user)

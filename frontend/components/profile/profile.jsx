@@ -21,7 +21,7 @@ class Profile extends React.Component {
   render() {
     // debugger;
 
-    const { user, currentUser, updateUser, logout, openModal, fetchUsers, fetchUserPosts, users } = this.props;
+    const { user, currentUser, updateUser, logout, openModal, fetchUsers, fetchUserPosts, users, createFriendRequest, deleteFriendRequest } = this.props;
 
     if (!user) {
       return null;
@@ -36,7 +36,9 @@ class Profile extends React.Component {
           user={user}
           updateUser={updateUser} 
           openModal={openModal} 
-          fetchUsers={fetchUsers}/>
+          fetchUsers={fetchUsers}
+          createFriendRequest={createFriendRequest}
+          deleteFriendRequest={deleteFriendRequest}/>
           
         <ProfileMain currentUser={currentUser} 
           user={user}

@@ -6,6 +6,7 @@ import errorsReducer from './errors_reducer';
 import postsReducer from './posts_reducer';
 import uiReducer from './ui_reducer';
 import commentsReducer from './comments_reducer';
+import friendRequestReducer from './friend_request_reducer';
 
 const rootReducer = combineReducers({
   entities: entitiesReducer,
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   posts: postsReducer,
   ui: uiReducer,
   comments: commentsReducer,
+  friendRequests: friendRequestReducer,
 });
 
 export default rootReducer;
