@@ -10,12 +10,12 @@ class NewsfeedMain extends React.Component {
   render() {
     const { currentUser, openModal, posts, deletePost, updatePost, users, fetchUsers } = this.props;
     
-    debugger;
+    // debugger;
     let contacts;
     if (currentUser.friends !== undefined) {
       contacts = currentUser.friends.map(id => {
         const friend = users[id];
-        debugger;
+        // debugger;
 
         return (
           <Link to={`/users/${id}`}
