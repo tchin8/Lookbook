@@ -10,15 +10,24 @@ import { faExclamationCircle, faBell, faHome, faSortDown, faTv, faPlay,
   faCalendarPlus, faShoppingBag, faCommentAlt, faExclamation, faCog, 
   faQuestionCircle, faMoon, faArrowCircleLeft, faSignOutAlt, faGlobe, faCamera, 
   faPencilAlt, faEye, faSearch, faEllipsisH, faTimes, faUserTag, faMapMarkerAlt, 
-  faUserFriends, faSlidersH, faList, faThLarge, faFilm, faBriefcase, faGraduationCap, faHeartbeat, faGlobeAmericas, faCaretRight} from '@fortawesome/free-solid-svg-icons';
-import { faNewspaper, faShareSquare, faThumbsUp, faComment, faBookmark, faEdit as farEdit, faUserCircle, faTrashAlt, faBellSlash, faCalendarAlt, faTimesCircle, faSmile, faImage} from '@fortawesome/free-regular-svg-icons';
+  faUserFriends, faSlidersH, faList, faThLarge, faFilm, faBriefcase, 
+  faGraduationCap, faHeartbeat, faGlobeAmericas, faCaretRight, faUserPlus, faUserCheck, faPhoneAlt, faUserTimes
+} from '@fortawesome/free-solid-svg-icons';
+import { faNewspaper, faShareSquare, faThumbsUp, faComment, faBookmark, 
+  faEdit as farEdit, faUserCircle, faTrashAlt, faBellSlash, faCalendarAlt, 
+  faTimesCircle, faSmile, faImage
+} from '@fortawesome/free-regular-svg-icons';
 
 library.add(fab, faExclamationCircle, faBell, faHome, faSortDown, faTv, faPlay, 
   faStoreAlt, faUsers, faVideo, faImages, faLaugh, faEdit, faBookOpen, faAward, 
   faCalendarPlus, faShoppingBag, faCommentAlt, faExclamation, faCog, 
   faQuestionCircle, faMoon, faArrowCircleLeft, faSignOutAlt, faGlobe, 
   faNewspaper, faShareSquare, faCamera, faPencilAlt, faEye, faSearch, 
-  faEllipsisH, faTimes, faUserTag, faMapMarkerAlt, faUserFriends, faSlidersH, faList, faThLarge, faThumbsUp, faComment, faBookmark, farEdit, faUserCircle, faTrashAlt, faBellSlash, faCalendarAlt, faTimesCircle, faSmile, faImage, faFilm, faBriefcase, faGraduationCap, faHeartbeat, faGlobeAmericas, faCaretRight);
+  faEllipsisH, faTimes, faUserTag, faMapMarkerAlt, faUserFriends, faSlidersH, 
+  faList, faThLarge, faThumbsUp, faComment, faBookmark, farEdit, faUserCircle, 
+  faTrashAlt, faBellSlash, faCalendarAlt, faTimesCircle, faSmile, faImage, 
+  faFilm, faBriefcase, faGraduationCap, faHeartbeat, faGlobeAmericas, 
+  faCaretRight, faUserPlus, faUserCheck, faPhoneAlt, faUserTimes);
 
 
 document.addEventListener("DOMContentLoaded", () => {

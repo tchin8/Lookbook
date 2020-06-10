@@ -6,6 +6,58 @@ section.newsfeed-main.dark {
   // margin: auto;
   padding: 60px 0 0 0;
 
+  section.col-3-3.dark {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    width: 312px;
+    
+    div {
+      // background-color: #303031;
+      border-radius: 8px;
+      margin: 8px 8px 0 0;
+      width: 304px;
+      height: 50px;
+      
+      span.contacts {
+        color: #b0b3b8;
+        display: block;
+        font-size: 18px;
+        // font-weight: bold;
+        padding: 18px 0 0 8px;
+      }
+    }
+
+    ul.contacts {
+      margin: 0 8px 0 0;
+
+      li.contact-friend {
+        // background-color: #303031;
+        border-radius: 8px;
+        color: #e3e5e9;
+        width: 304px;
+        height: 50px;
+        position: relative;
+
+        img.thumbnail {
+          border-radius: 100%;
+          height: 36px;
+          margin: 8px;
+          width: 36px;
+        }
+
+        span.friend-name {
+          position: absolute;
+          top: 16px;
+          left: 54px;
+        }
+      }
+
+      li.contact-friend:hover {
+        background-color: #303031;
+        cursor: pointer;
+      }
+    }
+  }
+
   section.col-1-3.dark {
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
     width: 312px;
@@ -20,7 +72,7 @@ section.newsfeed-main.dark {
       }
 
       li.profile, li.git, li.linkedin {
-        background-color: #303031;
+        // background-color: #303031;
         border-radius: 8px;
         color: #e3e5e9;
         width: 304px;
@@ -52,7 +104,6 @@ section.newsfeed-main.dark {
           top: 16px;
           left: 54px;
         }
-
       }
     }
   }
@@ -429,7 +480,9 @@ section.newsfeed-main.dark {
                 min-height: 16px;
                 padding: 0 0 0 14px;
                 // resize: vertical;
-                width: 608px;
+                // width: 608px;
+                //why this break?
+                width: 598px;
                 overflow: auto;
               }
 
@@ -441,7 +494,7 @@ section.newsfeed-main.dark {
               div.icons {
                 position: absolute;
                 top: 10px;
-                left: 502px;
+                left: 492px;
 
                 .fa-smile.dark, .fa-image.dark, .fa-film.dark, .fa-github-alt.dark {
                   color: #8a8d90;
@@ -454,6 +507,8 @@ section.newsfeed-main.dark {
       }
     }
   }
+
+    
 }
 
 .fa-caret-right {

@@ -6,6 +6,7 @@ import { updateUser, fetchUsers } from '../../actions/users_actions';
 import { fetchUserPosts } from '../../actions/post_actions';
 import { openModal } from '../../actions/modal_actions';
 import { fetchComments } from '../../actions/comment_actions';
+import { createFriendRequest, deleteFriendRequest } from '../../actions/friend_request_actions';
 
 
 const mSTP = (state, ownProps) => {
@@ -26,6 +27,8 @@ const mDTP = dispatch => ({
   updateUser: user => dispatch(updateUser(user)),
   openModal: modal => dispatch(openModal(modal)),
   fetchComments: postId => dispatch(fetchComments(postId)),
+  createFriendRequest: request => dispatch(createFriendRequest(request)),
+  deleteFriendRequest: requestId => dispatch(deleteFriendRequest(requestId)),
 });
 
 export default connect(mSTP, mDTP)(Profile);

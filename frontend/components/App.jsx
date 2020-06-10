@@ -12,7 +12,7 @@ import NewsfeedContainer from './frontpage/newsfeed_container';
 // import ProfileContainer from './frontpage/profile_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import ProfileContainer from './profile/profile_container';
-import  ModalContainer from './modal/modal_container';
+import ModalContainer from './modal/modal_container';
 
 const App = () => (
   <div>
