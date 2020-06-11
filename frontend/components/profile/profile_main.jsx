@@ -17,7 +17,6 @@ class ProfileMain extends React.Component {
 
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
-    // this.props.fetchUserPosts(this.state.user.id);
   }
 
   componentWillUnmount() {
@@ -32,18 +31,12 @@ class ProfileMain extends React.Component {
     } else if (window.pageYOffset <= 547){
       stick.classList.remove("sticky");
     }
-    // if (window.pageYOffset > sticky) {
-    //   stick.classList.add("sticky");
-    // } else if (window.pageYOffset <= sticky){
-    //   stick.classList.remove("sticky");
-    // }
   }
 
   render() {
     const { currentUser, user, users, openModal, createComment, posts, postsState } = this.props;
     
     let organizeSection, btn1, btn2, friends, allFriends, allPhotos, photos;
-    // debugger;
     if (user === currentUser) {
       organizeSection = (
         <div className="settings">
@@ -143,7 +136,6 @@ class ProfileMain extends React.Component {
     
     let k = 0;
     allPhotos = posts.reverse().slice(0, 9).map(post => {
-      // debugger;
       if (post.postPhoto !== undefined) {
         k += 1;
         return (
