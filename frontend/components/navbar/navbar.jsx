@@ -47,14 +47,17 @@ class NavBar extends React.Component {
 
   handleBlur(e) {
     let classN = '';
-    if (e.currentTarget.classList.contains('down-arrow-circle')) {
-      classN += 'down-drop';
-    } else if (e.currentTarget.classList.contains('plus-circle')) {
-      classN += 'plus-drop';
-    }
 
-    $(`section.down-down`).addClass('hidden');
-    $(`section.plus-drop`).addClass('hidden');
+    if (e.relatedTarget !== e.target && !e.currentTarget.contains(e.relatedTarget)) {
+      if (e.currentTarget.classList.contains('down-arrow-circle')) {
+        classN += 'down-drop';
+      } else if (e.currentTarget.classList.contains('plus-circle')) {
+        classN += 'plus-drop';
+      }
+  
+      $(`section.${classN}`).addClass('hidden');
+      e.currentTarget.classList.toggle('blue');
+    }
   }
 
   // handleProfile(e) {
@@ -209,14 +212,15 @@ class NavBar extends React.Component {
             </div>
 
             <div className="right-navbar" >
-              <div className="down-arrow-circle dark"
+              <button className="down-arrow-circle dark"
                 onClick={this.handleFocus}
                 onBlur={this.handleBlur}>
                 <FontAwesomeIcon icon="sort-down" 
                   className="fa-sort-down dark" />
-              </div>
+
+                <DownDropdown currentUser={currentUser} logout={this.props.logout} />
+              </button>
               
-              <DownDropdown currentUser={currentUser} logout={this.props.logout} />
             </div>
           </section>
         </section>

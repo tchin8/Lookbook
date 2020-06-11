@@ -1,15 +1,12 @@
-section.p-header.dark {
-  background-color: #242526;
-  border-bottom: 1px solid #1a1b1c;
+section.p-header.light {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e2e5;
+  box-shadow: 0 2px 2px #e0e2e5;
   padding: 60px 0 0 0;
   height: 100%;
   // 530px?
 
   div.cover-pic.dark {
-    background-color: #18191a;
-    // border-left: 1px solid white;
-    // border-right: 1px solid white;
-    // border-bottom: 1px solid white;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     // border: none;
@@ -24,18 +21,17 @@ section.p-header.dark {
     img.cover-pic {
       border-bottom-left-radius: 10px;
       border-bottom-right-radius: 10px;
-      // border: #18191a;
       width: 100%;
       height: 100%;
     }
 
-    div.pfp.dark {
+    div.pfp.light {
       position: absolute;
       top: 190px;
       z-index: 0;
 
       img {
-        border: 4px solid #242526;
+        border: 4px solid #ffffff;
         border-radius: 100%;
         height: 170px;
         width: 170px;
@@ -46,8 +42,8 @@ section.p-header.dark {
         // margin: auto auto auto auto;
       }
 
-      div.cam-circle.dark {
-        background-color:	#4e4f50;
+      div.cam-circle.light {
+        background-color:	#e4e6ea;
         border-radius: 100%;
         cursor: pointer;
         height: 36px;
@@ -57,8 +53,8 @@ section.p-header.dark {
         width: 36px;
         opacity: .4;
 
-        .fa-camera.dark {
-          color: #ffffff;
+        .fa-camera.light {
+          color: #1d1f23;
           font-size: 20px;
           position: absolute;
           top: 8px;
@@ -71,11 +67,11 @@ section.p-header.dark {
       }
     }
 
-    button.dark {
-      background-color: #4e4f50;
+    button.light {
+      background-color: #e4e6ea;
       border: none;
       border-radius: 6px;
-      color: white;
+      color: #1d1f23;
       font-size: 15px;
       height: 36px;
       width: 166px;
@@ -84,21 +80,19 @@ section.p-header.dark {
       bottom: 16px;
       opacity: .4;
 
-      .fa-camera.dark {
+      .fa-camera.light {
         font-size: 18px;
         padding: 0 8px 0 0;
       }
     }
 
-    button.dark:hover {
+    button.light:hover {
       cursor: pointer;
       opacity: .6;
     }
   }
 
   div.under-cover {
-    // remove later
-    // border: 1px solid red;
     font-family: Arial, Helvetica, sans-serif;
     margin: auto;
     width: 878px;
@@ -110,17 +104,15 @@ section.p-header.dark {
       text-align: center;
       width: 100%;
 
-      span.name.dark {
-        color: white;
+      span.name.light {
+        color: #050505;
         display: block;
         font-size: 34px;
-        // padding: 10px 0 0 0;
       }
 
-      span.bio-span.dark {
-        color: #b1b3b9;
+      span.bio-span.light {
+        color: #65676b;
         font-size: 16px;
-        // font-weight: lighter;
         position: relative;
         top: -16px;
 
@@ -158,12 +150,12 @@ section.p-header.dark {
         }
       }
 
-      form.bio-form.dark {
+      form.bio-form.light {
         position: relative;
         bottom: 16px;
 
         span.bio-chars {
-          color: #a4a6ab;
+          color: #6e7074;
           display: block;
           font-size: 14px;
           padding: 0 0 4px 0;
@@ -172,11 +164,11 @@ section.p-header.dark {
           // text-align: right;
         }
 
-        textarea.text-bio.dark {
-          background-color: #3a3b3c;
-          border: 1px solid #3e4042;
+        textarea.text-bio.light {
+          background-color: #f0f2f5;
+          border: 1px solid #ced0d4;
           border-radius: 6px;
-          color: 	#e4e6ea;
+          color: 	#050505;
           font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
           font-size: 16px;
           height: 62px;
@@ -187,11 +179,11 @@ section.p-header.dark {
         }
 
         textarea.text-bio:hover {
-          background-color: #4e4f50;
+          background-color: #e4e6e9;
         }
 
         textarea.text-bio::placeholder {
-          color: #8b8d91;
+          color: #8c8e92;
           font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
           font-size: 16px;
           text-align: center;
@@ -207,24 +199,24 @@ section.p-header.dark {
           left: 80px;
 
           span.audience {
-            color: #e4e6ea;
+            color: #0d0d0d;
             font-size: 15px;
             position: absolute;
             left: 208px;
             top: 8px;
 
             .fa-globe-americas {
-              color: #ffffff;
+              color: #1d1f23;
               font-size: 20px;
               padding: 0 4px 0 0;
             }
           }
           
           button.cxl-bio {
-            background-color: #3a3b3c;
+            background-color: #e4e6ea;
             border: none;
             border-radius: 6px;
-            color: #e4e6ea;
+            color: #050505;
             font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
             font-size: 15px;
             height: 38px;
@@ -232,7 +224,7 @@ section.p-header.dark {
           }
 
           button.cxl-bio:hover {
-            background-color: #4e4f50;
+            background-color: #d8dade;
             cursor: pointer;
           }
 
@@ -240,7 +232,7 @@ section.p-header.dark {
             background-color: #2d88ff;
             border: none;
             border-radius: 6px;
-            color: #e4e6ea;
+            color: white;
             font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
             font-size: 15px;
             height: 38px;
@@ -256,8 +248,8 @@ section.p-header.dark {
       }
     }
 
-    div.under-bottom.dark {
-      border-top:  1px solid #3d3f41;
+    div.under-bottom.light {
+      border-top:  1px solid #ccced2;
       display: flex;
       justify-content: space-between;
       height: 60px;
@@ -267,9 +259,8 @@ section.p-header.dark {
         display: flex;
 
         div {
-          color: #b1b3b9;
+          color: #64676b;
           cursor: pointer;
-          // background-color: #3a3b3c;
           border-radius: 6px;
           font-size: 16px;
           margin: 4px 0 4px 0;
@@ -287,8 +278,8 @@ section.p-header.dark {
           span.more {
             position: relative;
 
-            .pi-sort-down.dark {
-              color: #b1b3b9;
+            .pi-sort-down.light {
+              color: #5e6771;
               font-size: 16px;
               position: absolute;
               top: -8px;
@@ -298,7 +289,7 @@ section.p-header.dark {
         }
 
         div:hover {
-          background-color: #3a3b3c;
+          background-color: #f2f2f2;
         }
 
         div:last-child {
@@ -306,17 +297,17 @@ section.p-header.dark {
         }
       }
 
-      div.right-nav.dark {
+      div.right-nav.light {
         display: flex;
         
         div {
           margin: 12px 8px 12px 0;
 
           button {
-            background-color: #3a3b3c;
+            background-color: #e4e6ea;
             border: none;
             border-radius:  6px;
-            color: 	#ffffff;
+            color: 	#050505;
             padding: 10px 16px 10px 16px;
 
             .fa-pencil-alt {
@@ -360,7 +351,7 @@ section.p-header.dark {
         div:hover {
           button {
             cursor: pointer;
-            background-color: #4e4f50;
+            background-color: #d8dade;
           }
         }
       }
@@ -374,16 +365,13 @@ section.p-header.dark {
 }
 
 
-section.profile-main.dark {
-  background-color: #18191a;
-  border-top: 1px solid #171819;
-  // height: 100%;
+section.profile-main.light {
+  background-color: #f0f2f5;
   min-height: 500px;
 
-  div.pm-div.dark {
+  div.pm-div.light {
     // border: 1px solid white;
     display: grid;
-    // justify-content: space-between;
     height: 100%;
     margin: auto;
     padding: 15px 0 0 0;
@@ -415,9 +403,10 @@ section.profile-main.dark {
       //   top: 2000px;
       // }
 
-      div.intro.dark, div.photos.dark, div.life-events.dark, div.friends.dark {
+      div.intro.light, div.photos.light, div.life-events.light, div.friends.light {
+        border: 1px solid #edeff2;
         span {
-          color: #e4e6ea;
+          color: #050505;
           display: block;
           font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
           font-size: 20px;
@@ -426,31 +415,31 @@ section.profile-main.dark {
         }
       }
 
-      div.intro.dark {
-        background-color: #242526;
+      div.intro.light {
+        background-color: #ffffff;
         border-radius: 8px;
-        box-shadow: 2px 2px 2px #151617;
+        box-shadow: 2px 2px 2px #cecfd2;
         // height: 508px;
         min-height: 402px;
         // max-height
         margin: auto;
         width: 100%;
 
-        button.edit-details, button.edit-featured {
-          background-color: #3a3b3c;
-          border: none;
-          border-radius: 6px;
-          color:	#d2d4d8;
-          font-size: 16px;
-          height: 36px;
-          margin: 0 0 16px 16px;
-          width: 328px;
-        }
+        // button.edit-details, button.edit-featured {
+        //   background-color: #3a3b3c;
+        //   border: none;
+        //   border-radius: 6px;
+        //   color:	#d2d4d8;
+        //   font-size: 16px;
+        //   height: 36px;
+        //   margin: 0 0 16px 16px;
+        //   width: 328px;
+        // }
 
-        button.edit-details:hover, button.edit-featured:hover {
-          background-color: #4e4f50;
-          cursor: pointer;
-        }
+        // button.edit-details:hover, button.edit-featured:hover {
+        //   background-color: #4e4f50;
+        //   cursor: pointer;
+        // }
 
         div.featured-pics {
           height: 328px;
@@ -484,18 +473,15 @@ section.profile-main.dark {
         }
       }
 
-      div.photos.dark {
-        background-color: #242526;
+      div.photos.light {
+        background-color: #ffffff;
         border-radius: 8px;
-        box-shadow: 2px 2px 2px #151617;
+        box-shadow: 2px 2px 2px #cecfd2;
         // min-height: 200px;
         min-height: 40px;
         // NEED THIS, DO NOT REMOVE
         // margin: 18px 0 0 0;
         width: 100%;
-        // position: -webkit-sticky; /* Safari */
-        // position: sticky;
-        // top: 60px;
 
         div.photos {
           // height: 328px;
@@ -511,7 +497,7 @@ section.profile-main.dark {
           width: 328px;
 
           img.photos-pic {
-            background-color: #18191a;
+            // background-color: #18191a;
             height: 106px;
             width: 106px;
             object-fit: cover;
@@ -539,10 +525,10 @@ section.profile-main.dark {
         }
       }
 
-      div.friends.dark {
-        background-color: #242526;
+      div.friends.light {
+        background-color: #ffffff;
         border-radius: 8px;
-        box-shadow: 2px 2px 2px #151617;
+        box-shadow: 2px 2px 2px #cecfd2;
         // height: 544px;
         // min-height: 240px;
         min-height: 40px;
@@ -554,7 +540,7 @@ section.profile-main.dark {
         // top: 480px;
 
         span.num-friends {
-          color: #b1b3b9;
+          color: #65676b;
           font-size: 18px;
           font-weight: normal;
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -590,26 +576,19 @@ section.profile-main.dark {
             word-wrap: break-word;
           }
 
-          // div.friends-row-1-3, div.friends-row-2-3, div.friends-row-3-3 {
-          //   display: flex;
-          //   padding: 0 0 3px 0;
-          //   justify-content: space-between;
+          div.friend-1-9, div.friend-2-9, div.friend-3-9, div.friend-4-9, div.friend-5-9, div.friend-6-9, div.friend-7-9, div.friend-8-9, div.friend-9-9 {
+            border-radius: 10px;
+            height: 120px;
+            width: 102px;
+          }
 
-            div.friend-1-9, div.friend-2-9, div.friend-3-9, div.friend-4-9, div.friend-5-9, div.friend-6-9, div.friend-7-9, div.friend-8-9, div.friend-9-9 {
-              // background-color: #18191a;
-              border-radius: 10px;
-              height: 120px;
-              width: 102px;
-            }
-
-          // }
         }
       }
 
-      div.life-events.dark {
-        background-color: #242526;
+      div.life-events.light {
+        background-color: #ffffff;
         border-radius: 8px;
-        box-shadow: 2px 2px 2px #151617;
+        box-shadow: 2px 2px 2px #cecfd2;
         height: 316px;
         // max-height
         margin: 18px 0 0 0;
@@ -620,7 +599,7 @@ section.profile-main.dark {
     }
 
     div.main-right {
-      color: #e4e6ea;
+      color: #0c0c0c;
       font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
       grid-column: 1;
       grid-row: 1;
@@ -631,15 +610,15 @@ section.profile-main.dark {
       width: 500px;
 
       div.settings {
-        background-color: #242526;
+        background-color: #ffffff;
         border-radius: 8px;
-        box-shadow: 2px 2px 2px #151617;
+        box-shadow: 2px 2px 2px #cecfd2;
         height: 96px;
         margin: 18px 0 0 0;
         width: 100%;
 
         div.settings-top {
-          border-bottom: 1px solid #3c3e40;
+          border-bottom: 1px solid #d2d4d8;
           display: flex;
           height: 54px;
           // margin: 6px 0 0 0;
@@ -657,8 +636,8 @@ section.profile-main.dark {
             display: flex;
             margin: 10px 0 0 0;
 
-            div.sliders-h-container.dark {
-              background-color: #3a3b3c;
+            div.sliders-h-container.light {
+              background-color: #e4e6ea;
               border-radius: 6px;
               height: 36px;
               width: 90px;
@@ -675,8 +654,8 @@ section.profile-main.dark {
               }
             }
   
-            div.cog-container.dark {
-              background-color: #3a3b3c;
+            div.cog-container.light {
+              background-color: #e4e6ea;
               border-radius: 6px;
               height: 36px;
               margin: 0 14px 0 8px;
@@ -694,8 +673,8 @@ section.profile-main.dark {
               }
             }
   
-            div.sliders-h-container.dark:hover, div.cog-container.dark:hover {
-              background-color: #4e4f50;
+            div.sliders-h-container.light:hover, div.cog-container.light:hover {
+              background-color: #d8dade;
               cursor: pointer;
             }
           }
@@ -719,30 +698,32 @@ section.profile-main.dark {
               margin: 6px 0 0 4px;
             }
 
-            .fa-list.dark, .fa-th-large.dark {
+            .fa-list.light, .fa-th-large.light {
               margin: 0 0 0 70px;
             }
           }
 
           // KEEP FOR NOW!!!
-          // div.list.dark:focus, div.grid.dark:focus {
+          // div.list.light:focus, div.grid.light:focus {
           //   border-bottom: 3px solid #2e89ff;
           //   border-radius: 0;
           //   color: #2e89ff;
           // }
           // KEEP!!
           
-          div.grid.dark, div.list.dark {
-            color: #a7abaf;
+          div.grid.light, div.list.light {
+            color: #65676b;
+            position: relative;
+            bottom: -2px;
           }
           
-          div.list.dark {
+          div.list.light {
             border-bottom: 3px solid #2e89ff;
             border-radius: 0;
             color: #2e89ff;
           }
 
-          div.grid.dark:hover {
+          div.grid.light:hover {
             background-color: #3a3b3c;
           }
         }
@@ -752,18 +733,18 @@ section.profile-main.dark {
 }
 
 // wall post section
-section.wall-post-container.dark {
-  background-color: #242526;
+section.wall-post-container.light {
+  background-color: #ffffff;
   border-radius: 8px;
-  box-shadow: 2px 2px 2px #151617;
+  box-shadow: 2px 2px 2px #cecfd2;
   // display: flex;
   // flex-direction: column;
   // justify-content: center;
   height: 120px;
   width: 100%;
 
-  div.top.dark {
-    border-bottom: 1px solid #38393a;
+  div.top.light {
+    border-bottom: 1px solid #d2d4d8;
     // border: 1px solid red;
     display: flex;
     justify-content: space-between;
@@ -780,11 +761,11 @@ section.wall-post-container.dark {
       object-fit: cover;
     }
 
-    button.wall-post.dark {
-      background-color: #3a3b3c;
+    button.wall-post.light {
+      background-color: #f0f2f5;
       border: none;
       border-radius: 50px;
-      color: #afb1b7;
+      color: #65676b;
       cursor: pointer;
       font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
       font-size: 18px;
@@ -799,12 +780,12 @@ section.wall-post-container.dark {
       }
     }
 
-    button.wall-post.dark:hover {
-      background-color: #4e4f50;
+    button.wall-post.light:hover {
+      background-color: #e4e6e9;
     }
   }
 
-  div.bottom.dark {
+  div.bottom.light {
     // border: 1px solid red;
     height: 50%;
     display: flex;
@@ -814,12 +795,12 @@ section.wall-post-container.dark {
     position: relative;
 
     div:hover {
-      background-color: #3a3b3c;
+      background-color: #f2f2f2;
     }
     
     div {
       border-radius: 8px;
-      color: #b1b3b9;
+      color: #65676b;
       cursor: pointer;
       font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
       font-size: 15px;
@@ -874,16 +855,16 @@ section.wall-post-container.dark {
 ul.wall-posts {
   margin: 18px 0 0 0;
 
-  li.each-post.dark {
-    background-color: #242526;
+  li.each-post.light {
+    background-color: #ffffff;
     border-radius: 8px;
-    box-shadow: 2px 2px 2px #151617;
+    box-shadow: 2px 2px 2px #cecfd2;
     margin: 18px 0 0 0;
     min-height: 196px;
     width: 100%;
 
-    div.top-container.dark {
-      border-bottom: 1px solid #38393a;
+    div.top-container.light {
+      border-bottom: 1px solid #ced0d4;
       margin: auto;
       min-height: 100px;
       width: 470px;
@@ -905,7 +886,7 @@ ul.wall-posts {
   
         div {
           span.pname {
-            color: #dadce0;
+            color: #050505;
             font-size: 15px;
           }
 
@@ -914,22 +895,22 @@ ul.wall-posts {
           }
           
           div.post-time {
-            color: #a7abaf;
+            color: #717477;
             
             span.time {
               font-size: 13px;
             }
   
-            .fa-user-friends.dark {
+            .fa-user-friends.light {
               font-size: 11px;
               margin: 0 0 0 4px;
             }
           }
         }
 
-        button.ellipsis-container.dark {
+        button.ellipsis-container.light {
           border: none;
-          background-color: #242526;
+          background-color: #ffffff;
           height: 34px;
           width: 34px;
           border-radius: 100%;
@@ -938,7 +919,7 @@ ul.wall-posts {
           top: -34px;
 
           .fa-ellipsis-h {
-            color: #9fa3a6;
+            color: #5a626b;
             font-size: 18px;
             position: absolute;
             top: 8px;
@@ -946,14 +927,14 @@ ul.wall-posts {
           }
         }
 
-        button.ellipsis-container.dark:hover {
-          background-color: #3a3b3c;
+        button.ellipsis-container.light:hover {
+          background-color: #f2f2f2;
           cursor: pointer;
         }
       }
 
       div.body {
-        color: #e1e3e7;
+        color: #050505;
         font-size: 24px;
         min-height: 40px;
         position: relative;
@@ -980,21 +961,21 @@ ul.wall-posts {
       }
     }
 
-    div.post-interaction.dark {
-      border-bottom: 1px solid #38393a;
-      color: #aeb0b6;
+    div.post-interaction.light {
+      border-bottom: 1px solid #ced0d4;
+      color: #ced0d4;
       display: flex;
       margin: auto;
       height: 40px;
       width: 470px;
       position: relative;
 
-      div.like.dark:hover, div.comment.dark:hover, div.share.dark:hover {
-        background-color: #3a3b3c;
+      div.like.light:hover, div.comment.light:hover, div.share.light:hover {
+        background-color: #f2f2f2;
         cursor: pointer;
       }
       
-      div.like.dark, div.comment.dark, div.share.dark {
+      div.like.light, div.comment.light, div.share.light {
         border-radius: 4px;
         font-size: 18px;
         margin: 4px 0 0 0;
@@ -1002,11 +983,13 @@ ul.wall-posts {
         width: 156px;
         position: relative;
 
-        .fa-thumbs-up.dark, .fa-comment.dark, .fa-share-square.dark {
+        .fa-thumbs-up.light, .fa-comment.light, .fa-share-square.light {
+          color: #5f6771;
           padding: 0 6px 0 0;
         }
 
         span {
+          color: #5f6771;
           font-size: 15px;
           position: relative;
           top: 4px;
@@ -1027,12 +1010,12 @@ ul.wall-posts {
 
     }
 
-    div.post-comment.dark {
+    div.post-comment.light {
       min-height: 50px;
 
-      ul.comments-index.dark {
+      ul.comments-index.light {
 
-        li.each-com-container.dark {
+        li.each-com-container.light {
           display: flex;
           margin: auto;
           min-height: 74px;
@@ -1049,9 +1032,9 @@ ul.wall-posts {
           }
   
           div.each-com {
-            background-color: #3a3b3c;
+            background-color: #f0f2f5;
             border-radius: 20px;
-            color: #e4e6ea;
+            color: #090909;
             height: 50px;
             // height: 100%;
             // change to min later
@@ -1060,7 +1043,7 @@ ul.wall-posts {
             position: relative;
             
             span.commenter {
-              color: #e4e6ea;
+              color: #202020;
               font-size: 13px;
               display: block;
               margin: 6px 12px 0 12px;
@@ -1080,7 +1063,7 @@ ul.wall-posts {
 
             div.like-reply {
               display: block;
-              color: #b1b3b9;
+              color: #65676b;
               font-size: 10px;
               position: relative;
               bottom: -12px;
@@ -1095,7 +1078,7 @@ ul.wall-posts {
               }
   
               span {
-                color: #b1b3b9;
+                color: #727377;
                 font-size: 12px;
                 padding: 0 2px;
               }
@@ -1123,15 +1106,15 @@ ul.wall-posts {
           object-fit: cover;
         }
 
-        form.comment.dark {
+        form.comment.light {
           position: relative;
           
 
           input.comment {
-            background-color: #3a3b3c;
+            background-color: #f0f2f5;
             border: none;
             border-radius: 50px;
-            color: #e4e6ea;
+            color: #060606;
             font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
             font-size: 15px;
             min-height: 16px;
@@ -1142,7 +1125,7 @@ ul.wall-posts {
           }
 
           input.comment::placeholder {
-            color: #a6a8ae;
+            color: #65676b;
             font-size: 15px;
           }
 
@@ -1151,8 +1134,8 @@ ul.wall-posts {
             top: 8px;
             left: 314px;
 
-            .fa-smile.dark, .fa-image.dark, .fa-film.dark, .fa-github-alt.dark {
-              color: #8a8d90;
+            .fa-smile.light, .fa-image.light, .fa-film.light, .fa-github-alt.light {
+              color: #626973;
               margin: 0 6px;
             }
           }
@@ -1164,11 +1147,11 @@ ul.wall-posts {
 
 
 // POST-DROPDOWN
-div.post-dropdown.dark {
-  background-color: #242526;
-  border: 1px solid #2f3031;
+div.post-dropdown.light {
+  background-color: #ffffff;
+  border: 1px solid #dfdfdf;
   border-radius: 6px;
-  box-shadow: -2px 2px 4px #151516;
+  box-shadow: -2px 2px 4px #e0e2e5;
   height: 332px;
   width: 344px;
   position: absolute;
@@ -1177,7 +1160,7 @@ div.post-dropdown.dark {
   top: 40px;
   // margin: auto;
 
-  div.pdd-1-3.dark {
+  div.pdd-1-3.light {
     height: 62px;
     width: 100px;
     // margin: auto;
@@ -1194,38 +1177,38 @@ div.post-dropdown.dark {
     div {
       display: flex;
 
-      .fa-bookmark.dark, .fa-edit.dark, .fa-user-circle.dark, .fa-trash-alt.dark, .fa-bell-slash.dark, .fa-calendar-alt.dark, .fa-times-circle.dark {
-        color:	#a7abaf;
+      .fa-bookmark.light, .fa-edit.light, .fa-user-circle.light, .fa-trash-alt.light, .fa-bell-slash.light, .fa-calendar-alt.light, .fa-times-circle.light {
+        color:	#606973;
         font-size: 20px;
         margin: 8px 0 0 10px;
         position: relative;
       }
 
-      .fa-bookmark.dark {
+      .fa-bookmark.light {
         margin: 8px 0 0 11px;
       }
 
-      .fa-bell-slash.dark, .fa-edit.dark {
+      .fa-bell-slash.light, .fa-edit.light {
         font-size: 18px;
       }
 
-      .fa-trash-alt.dark {
+      .fa-trash-alt.light {
         left: 1px;
       }
 
-      .fa-calendar-alt.dark {
+      .fa-calendar-alt.light {
         left: 2px;
       }
       
       div.pdd-text {
-        color: #e4e6ea;
+        color: #070707;
         display: flex;
         flex-direction: column;
         font-size: 14px;
         margin: 4px 0 0 16px;
 
         span.pdd-t2 {
-          color: 	#abadb2;
+          color: 	#64676b;
           font-size: 12px;
           margin: 4px 0 0 0;
           // padding: 0 0 0 14px;
@@ -1234,14 +1217,14 @@ div.post-dropdown.dark {
       }
 
       div.pdd-text2 {
-        color: #e4e6ea;
+        color: #070707;
         display: flex;
         flex-direction: column;
         font-size: 14px;
         margin: 4px 0 0 12px;
 
         span.pdd-t2 {
-          color: 	#abadb2;
+          color: 	#64676b;
           font-size: 12px;
           margin: 4px 0 0 0;
           // padding: 0 0 0 14px;
@@ -1280,37 +1263,43 @@ div.post-dropdown.dark {
     }
 
     div.save-post:hover, div.edit-post:hover, div.edit-audience:hover, div.delete-post:hover, div.turn-off-nots:hover, div.change-date:hover, div.hide-timeline:hover {
-      background-color: #3a3b3c;
+      background-color: #f2f2f2;
       cursor: pointer;
     }
   }
 
   div.pdd-divider {
-    border-top: 1px solid #3e4042;
+    border-top: 1px solid #d7d8dc;
     margin: 6px 0 6px 15px;
     width: 314px;
   }
 
-  div.pdd-1-3.dark:before, div.pdd-1-3.dark:after {
+  div.pdd-1-3.light:before, div.pdd-1-3.light:after {
     content: "";
     position: absolute;
     width: 0px;
     height: 0px;
-    border: 10px solid #2f3031;
+    border: 10px solid #ffffff;
     // border-color: transparent transparent #2f3031;
-    border-color: transparent transparent #242526;
+    border-color: transparent transparent #ffffff;
     right: 4px;
     top: -20px;
   }
 
-  div.pdd-1-3.dark:before {
+  div.pdd-1-3.light:before {
     margin-top: -2px;
-    border-color: transparent transparent #2f3031;
+    border-color: transparent transparent #dfdfdf;
   }
 }
 
+button.save-bio:disabled {
+ background-color: #e4e6ea!important;
+ color: #bcc0c4!important;
+}
+
 button:disabled {
- background-color: #505151!important;
+//  background-color: #e4e6ea!important;
+ color: #bcc0c4!important;
 }
 button:disabled:hover {
  cursor: not-allowed!important;

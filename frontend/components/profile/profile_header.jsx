@@ -405,8 +405,8 @@ class ProfileHeader extends React.Component {
     }
 
     return (
-      <section className="p-header">
-        <div className="cover-pic">
+      <section className="p-header dark">
+        <div className="cover-pic dark">
           <img src={user.coverPhotoUrl} alt="" className="cover-pic" />
 
           <div className="pfp dark">

@@ -57,7 +57,7 @@ section.right-navbar {
   margin: 0 16px 0 0;
   
   div.right-navbar {
-    div.down-arrow-circle.blue, div.plus-circle.blue, div.msg-circle.blue, div.bell-circle.blue {
+    button.down-arrow-circle.blue, div.plus-circle.blue, div.msg-circle.blue, div.bell-circle.blue {
       .fa-sort-down, .plus, .fa-dacebook-messenger, .fa-bell {
         color: #0088ff;
       }
@@ -70,7 +70,8 @@ section.right-navbar {
       }
     }
 
-    div.profile, div.plus-circle, div.msg-circle, div.bell-circle, div.down-arrow-circle {
+    div.profile, div.plus-circle, div.msg-circle, div.bell-circle, button.down-arrow-circle {
+      border: none;
       margin: 10px 0 10px 0;
     }
 
@@ -97,7 +98,7 @@ section.right-navbar {
   }
 }
 
-.msg-circle.dark, .bell-circle.dark, .down-arrow-circle.dark, .plus-circle.dark {
+.msg-circle.dark, .bell-circle.dark, button.down-arrow-circle.dark, .plus-circle.dark {
   width: 42px;
   height: 42px;
   background-color: #3a3b3c;
@@ -105,7 +106,7 @@ section.right-navbar {
   position: relative;
 }
 
-.msg-circle.dark:hover, .bell-circle.dark:hover, .down-arrow-circle.dark:hover, .plus-circle.dark:hover, div.profile.dark:hover {
+.msg-circle.dark:hover, .bell-circle.dark:hover, button.down-arrow-circle.dark:hover, .plus-circle.dark:hover, div.profile.dark:hover {
   background-color: #4e4f50;
   cursor: pointer;
 }
@@ -130,6 +131,8 @@ section.right-navbar {
   font-size: 24px;
   padding: 6px 0 0 13px;
   position: absolute;
+  bottom: 13px;
+  right: 13px;
 }
 
 .plus.dark {

@@ -169,8 +169,8 @@ class ProfileMain extends React.Component {
 
 
     return (
-      <section className="profile-main">
-        <div className="pm-div">
+      <section className="profile-main dark">
+        <div className="pm-div dark">
           <div className="main-left">
 
             {/* KEEEEEPPPP THIS!!! */}

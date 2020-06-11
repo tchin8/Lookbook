@@ -108,7 +108,7 @@ class PostForm extends React.Component {
     }
 
     return (
-    <div className="create-post-form-container">
+    <div className="create-post-form-container dark">
       <div className="header">
         <span className="create">{formType}</span>
         <button className="close-form" 
@@ -188,7 +188,7 @@ class PostForm extends React.Component {
         </div>
         <div className="btn-div">
         <button onClick={this.handleSubmit}
-        className="create-post" 
+        className="create-post dark" 
         disabled={!this.state.body}>Post</button>
         </div>
       </form>

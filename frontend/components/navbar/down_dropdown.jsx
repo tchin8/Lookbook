@@ -32,16 +32,19 @@ class DownDropdown extends React.Component {
 
     return (
       <section className="down-drop dark hidden">
-        <div>
+          <Link to={`/users/${currentUser.id}`}
+            style={{ textDecoration: 'none' }}>
+        <div className="profile-link">
           <div>
             <img src={currentUser.pfpUrl} alt="" className="fb-pfp" />
           </div>
 
-          <div className="text">
+          <div className="text profile-link">
             <span className="name">{`${currentUser.fname} ${currentUser.lname}`}</span>
             <span className="see-profile">See your profile</span>
           </div>
         </div>
+          </Link>
 
         <div className="line"></div>
 

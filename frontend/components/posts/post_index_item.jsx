@@ -102,6 +102,12 @@ class PostIndexItem extends React.Component {
     $(`.show`).toggleClass('show hidden');
   }
 
+  handleBlur(e) {
+    if (e.relatedTarget !== e.target && !e.currentTarget.contains(e.relatedTarget)) {
+      $(`div.post-dropdown`).addClass('hidden');
+    }
+  }
+
   update(field) {
     // debugger;
     return e => (
@@ -204,90 +210,93 @@ class PostIndexItem extends React.Component {
                   className="fa-user-friends dark" />
               </div>
 
-              <div className="ellipsis-container dark"
-                onClick={this.handleFocus}>
+              <button className="ellipsis-container dark"
+                onClick={this.handleFocus}
+                onBlur={this.handleBlur}
+                >
                 <FontAwesomeIcon icon="ellipsis-h"
                   className="fa-ellipsis-h dark" />
-              </div>
+                  
+                <div className="post-dropdown dark hidden" 
+                  id={`dd-${post.id}`} >
+                  <div className="pdd-1-3 dark">
+
+                    <div className="save-post">
+                      <FontAwesomeIcon icon={['far', 'bookmark']}
+                        className="fa-bookmark dark" />
+
+                      <div className="pdd-text">
+                        <span>Save post</span>
+                        <span className="pdd-t2">Add this to your save items</span>
+                      </div>
+                    </div>
+
+                    <div className="pdd-divider"></div>
+
+                    <div className="edit-post"
+                      onClick={this.handleEditModal}>
+                      <FontAwesomeIcon icon={['far', 'edit']}
+                        className="fa-edit dark" />
+
+                      <div className="pdd-text">
+                        <span>Edit post</span>
+                      </div>
+                    </div>
+
+
+                    <div className="edit-audience">
+                      <FontAwesomeIcon icon={['far', 'user-circle']}
+                        className="fa-user-circle dark" />
+
+                      <div className="pdd-text">
+                        <span>Edit audience</span>
+                      </div>
+                    </div>
+
+                    <div className="delete-post"
+                      onClick={this.handleDeletePost}>
+                      <FontAwesomeIcon icon={['far', 'trash-alt']}
+                        className="fa-trash-alt dark" />
+
+                      <div className="pdd-text">
+                        <span>Delete post</span>
+                      </div>
+                    </div>
+
+                    <div className="turn-off-nots">
+                      <FontAwesomeIcon icon={['far', 'bell-slash']}
+                        className="fa-bell-slash dark" />
+
+                      <div className="pdd-text">
+                        <span>Turn off notifications for this post</span>
+                      </div>
+                    </div>
+
+                    <div className="change-date">
+                      <FontAwesomeIcon icon={['far', 'calendar-alt']}
+                        className="fa-calendar-alt dark" />
+
+                      <div className="pdd-text">
+                        <span>Change date</span>
+                      </div>
+                    </div>
+
+                    <div className="pdd-divider"></div>
+
+                    <div className="hide-timeline">
+                      <FontAwesomeIcon icon={['far', 'times-circle']}
+                        className="fa-times-circle dark" />
+
+                      <div className="pdd-text2">
+                        <span>Hide from timeline</span>
+                        <span className="pdd-t2">This post may still appear in other places.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </button>
             </div>
 
-            <div className="post-dropdown dark hidden" 
-              id={`dd-${post.id}`} >
-              <div className="pdd-1-3 dark">
-
-                <div className="save-post">
-                  <FontAwesomeIcon icon={['far', 'bookmark']}
-                    className="fa-bookmark dark" />
-
-                  <div className="pdd-text">
-                    <span>Save post</span>
-                    <span className="pdd-t2">Add this to your save items</span>
-                  </div>
-                </div>
-
-                <div className="pdd-divider"></div>
-
-                <div className="edit-post"
-                  onClick={this.handleEditModal}>
-                  <FontAwesomeIcon icon={['far', 'edit']}
-                    className="fa-edit dark" />
-
-                  <div className="pdd-text">
-                    <span>Edit post</span>
-                  </div>
-                </div>
-
-
-                <div className="edit-audience">
-                  <FontAwesomeIcon icon={['far', 'user-circle']}
-                    className="fa-user-circle dark" />
-
-                  <div className="pdd-text">
-                    <span>Edit audience</span>
-                  </div>
-                </div>
-
-                <div className="delete-post"
-                  onClick={this.handleDeletePost}>
-                  <FontAwesomeIcon icon={['far', 'trash-alt']}
-                    className="fa-trash-alt dark" />
-
-                  <div className="pdd-text">
-                    <span>Delete post</span>
-                  </div>
-                </div>
-
-                <div className="turn-off-nots">
-                  <FontAwesomeIcon icon={['far', 'bell-slash']}
-                    className="fa-bell-slash dark" />
-
-                  <div className="pdd-text">
-                    <span>Turn off notifications for this post</span>
-                  </div>
-                </div>
-
-                <div className="change-date">
-                  <FontAwesomeIcon icon={['far', 'calendar-alt']}
-                    className="fa-calendar-alt dark" />
-
-                  <div className="pdd-text">
-                    <span>Change date</span>
-                  </div>
-                </div>
-
-                <div className="pdd-divider"></div>
-
-                <div className="hide-timeline">
-                  <FontAwesomeIcon icon={['far', 'times-circle']}
-                    className="fa-times-circle dark" />
-
-                  <div className="pdd-text2">
-                    <span>Hide from timeline</span>
-                    <span className="pdd-t2">This post may still appear in other places.</span>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
 
           <div className="body">

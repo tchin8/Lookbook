@@ -1,5 +1,5 @@
-section.newsfeed-main.dark {
-  background-color: #18191a;
+section.newsfeed-main.light {
+  background-color: #f0f2f5;
   display: flex;
   justify-content: space-between;
   min-height: 1000px;
@@ -7,7 +7,7 @@ section.newsfeed-main.dark {
   padding: 60px 0 0 0;
   position: relative;
 
-  section.col-3-3.dark {
+  section.col-3-3.light {
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
     width: 312px;
     position: sticky;
@@ -15,14 +15,13 @@ section.newsfeed-main.dark {
     height: 100%;
     
     div {
-      // background-color: #303031;
       border-radius: 8px;
       margin: 8px 8px 0 0;
       width: 304px;
       height: 50px;
       
       span.contacts {
-        color: #b0b3b8;
+        color: #65676b;
         display: block;
         font-size: 18px;
         // font-weight: bold;
@@ -36,7 +35,7 @@ section.newsfeed-main.dark {
       li.contact-friend {
         // background-color: #303031;
         border-radius: 8px;
-        color: #e3e5e9;
+        color: #2f2f30;
         width: 304px;
         height: 50px;
         position: relative;
@@ -56,13 +55,13 @@ section.newsfeed-main.dark {
       }
 
       li.contact-friend:hover {
-        background-color: #303031;
+        background-color: #e4e6e9;
         cursor: pointer;
       }
     }
   }
 
-  section.col-1-3.dark {
+  section.col-1-3.light {
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
     position: sticky;
     height: 100%;
@@ -71,28 +70,28 @@ section.newsfeed-main.dark {
     // left: 0;
     
     ul.personal-links {
-      color: #e3e5e9;
+      color: #050505;
       margin: 22px 0 0 8px;
 
       li:hover {
-        background-color: #303031;
+        background-color: #e4e6e9;
         cursor: pointer;
       }
 
       li.profile, li.git, li.linkedin {
         // background-color: #303031;
         border-radius: 8px;
-        color: #e3e5e9;
+        color: #050505;
         width: 304px;
         height: 50px;
         position: relative;
 
-        .fa-github.dark {
+        .fa-github.light {
           font-size: 30px;
           margin: 10px;
         }
 
-        .fa-linkedin.dark {
+        .fa-linkedin.light {
           color: #0477b5;
           font-size: 26px;
           margin: 12px 14px;
@@ -116,27 +115,22 @@ section.newsfeed-main.dark {
     }
   }
 
-  section.col-2-3.dark {
+  section.col-2-3.light {
     color: #e4e6ea;
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
-    // margin: auto;
-    // border: 1px solid red;
     height: 100%;
     width: 680px;
 
-    section.newsfeed-post-container.dark {
-      background-color: #242526;
+    section.newsfeed-post-container.light {
+      background-color: #ffffff;
       border-radius: 8px;
-      box-shadow: 2px 2px 2px #151617;
-      // display: flex;
-      // flex-direction: column;
-      // justify-content: center;
+      box-shadow: 2px 2px 2px #cecfd2;
       margin: 22px 0 0 0;
       height: 120px;
       width: 100%;
 
-      div.top.dark {
-        border-bottom: 1px solid #38393a;
+      div.top.light {
+        border-bottom: 1px solid #e4e6ea;
         // border: 1px solid red;
         display: flex;
         justify-content: space-between;
@@ -153,11 +147,11 @@ section.newsfeed-main.dark {
           object-fit: cover;
         }
 
-        button.newsfeed-post.dark {
-          background-color: #3a3b3c;
+        button.newsfeed-post.light {
+          background-color: #f0f2f5;
           border: none;
           border-radius: 50px;
-          color: #afb1b7;
+          color: #65676b;
           cursor: pointer;
           font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
           font-size: 18px;
@@ -172,12 +166,12 @@ section.newsfeed-main.dark {
           }
         }
 
-        button.newsfeed-post.dark:hover {
-          background-color: #4e4f50;
+        button.newsfeed-post.light:hover {
+          background-color: #e4e6e9;
         }
       }
 
-      div.bottom.dark {
+      div.bottom.light {
         // border: 1px solid red;
         height: 50%;
         display: flex;
@@ -187,12 +181,12 @@ section.newsfeed-main.dark {
         position: relative;
 
         div:hover {
-          background-color: #3a3b3c;
+          background-color: #f2f2f2;
         }
         
         div {
           border-radius: 8px;
-          color: #b1b3b9;
+          color: #606266;
           cursor: pointer;
           font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
           font-size: 15px;
@@ -246,16 +240,16 @@ section.newsfeed-main.dark {
     ul.newsfeed-posts {
       margin: 18px 0 0 0;
 
-      li.each-post.dark {
-        background-color: #242526;
+      li.each-post.light {
+        background-color: #ffffff;
         border-radius: 8px;
-        box-shadow: 2px 2px 2px #151617;
+        box-shadow: 2px 2px 2px #cecfd2;
         margin: 18px 0 0 0;
         min-height: 196px;
         width: 100%;
 
-        div.top-container.dark {
-          border-bottom: 1px solid #38393a;
+        div.top-container.light {
+          border-bottom: 1px solid #ced0d4;
           margin: auto;
           min-height: 100px;
           width: 650px;
@@ -277,7 +271,7 @@ section.newsfeed-main.dark {
       
             div {
               span.pname {
-                color: #dadce0;
+                color: #050505;
                 font-size: 15px;
               }
 
@@ -286,20 +280,21 @@ section.newsfeed-main.dark {
               }
               
               div.post-time {
-                color: #a7abaf;
+                color: #717477;
                 
                 span.time {
                   font-size: 13px;
                 }
       
-                .fa-user-friends.dark {
+                .fa-user-friends.light {
                   font-size: 11px;
                   margin: 0 0 0 4px;
                 }
               }
             }
 
-            button.ellipsis-container.dark {
+            button.ellipsis-container.light {
+              background-color: #ffffff;
               border: none;
               height: 34px;
               width: 34px;
@@ -309,22 +304,22 @@ section.newsfeed-main.dark {
               top: -34px;
 
               .fa-ellipsis-h {
-                 color: #9fa3a6;
-                 font-size: 18px;
-                 position: absolute;
-                 top: 8px;
-                 left: 8px;
+                color: #5a626b;
+                font-size: 18px;
+                position: absolute;
+                top: 8px;
+                left: 8px;
               }
             }
 
-            button.ellipsis-container.dark:hover {
-              background-color: #3a3b3c;
+            button.ellipsis-container.light:hover {
+              background-color: #f2f2f2;
               cursor: pointer;
             }
           }
 
           div.body {
-            color: #e1e3e7;
+            color: #050505;
             font-size: 24px;
             min-height: 40px;
             position: relative;
@@ -350,21 +345,21 @@ section.newsfeed-main.dark {
           }
         }
 
-        div.post-interaction.dark {
-          border-bottom: 1px solid #38393a;
-          color: #aeb0b6;
+        div.post-interaction.light {
+          border-bottom: 1px solid #ced0d4;
+          color: #ced0d4;
           display: flex;
           margin: auto;
           height: 40px;
           width: 650px;
           position: relative;
 
-          div.like.dark:hover, div.comment.dark:hover, div.share.dark:hover {
-            background-color: #3a3b3c;
+          div.like.light:hover, div.comment.light:hover, div.share.light:hover {
+            background-color: #f2f2f2;
             cursor: pointer;
           }
           
-          div.like.dark, div.comment.dark, div.share.dark {
+          div.like.light, div.comment.light, div.share.light {
             border-radius: 4px;
             font-size: 18px;
             margin: 4px 0 0 0;
@@ -372,11 +367,13 @@ section.newsfeed-main.dark {
             width: 216px;
             position: relative;
 
-            .fa-thumbs-up.dark, .fa-comment.dark, .fa-share-square.dark {
+            .fa-thumbs-up.light, .fa-comment.light, .fa-share-square.light {
+              color: #5f6771;
               padding: 0 6px 0 0;
             }
 
             span {
+              color: #5f6771;
               font-size: 15px;
               position: relative;
               top: 4px;
@@ -396,12 +393,12 @@ section.newsfeed-main.dark {
           }
         }
 
-        div.post-comment.dark {
+        div.post-comment.light {
           min-height: 50px;
 
-          ul.comments-index.dark {
+          ul.comments-index.light {
 
-            li.each-com-container.dark {
+            li.each-com-container.light {
               display: flex;
               margin: auto;
               min-height: 74px;
@@ -418,9 +415,9 @@ section.newsfeed-main.dark {
               }
       
               div.each-com {
-                background-color: #3a3b3c;
+                background-color: #f0f2f5;
                 border-radius: 20px;
-                color: #e4e6ea;
+                color: #090909;
                 height: 50px;
                 // change to min later
                 margin: 8px 0 0 0;
@@ -428,10 +425,10 @@ section.newsfeed-main.dark {
                 position: relative;
                 
                 span.commenter {
-                  color: #e4e6ea;
+                  color: #202020;
                   font-size: 13px;
-                  display: block;
                   font-weight: bold;
+                  display: block;
                   margin: 6px 12px 0 12px;
                 }
 
@@ -447,7 +444,7 @@ section.newsfeed-main.dark {
                 }
 
                 div.like-reply {
-                  color: #b1b3b9;
+                  color: #65676b;
                   font-size: 10px;
                   position: relative;
                   bottom: -10px;
@@ -463,7 +460,7 @@ section.newsfeed-main.dark {
                   }
       
                   span {
-                    color: #b1b3b9;
+                    color: #727377;
                     font-size: 12px;
                     padding: 0 2px;
                   }
@@ -491,15 +488,15 @@ section.newsfeed-main.dark {
               object-fit: cover;
             }
 
-            form.comment.dark {
+            form.comment.light {
               position: relative;
               
 
               input.comment {
-                background-color: #3a3b3c;
+                background-color: #f0f2f5;
                 border: none;
                 border-radius: 50px;
-                color: #e4e6ea;
+                color: #060606;
                 font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
                 font-size: 15px;
                 min-height: 16px;
@@ -512,7 +509,7 @@ section.newsfeed-main.dark {
               }
 
               input.comment::placeholder {
-                color: #a6a8ae;
+                color: #65676b;
                 font-size: 15px;
               }
 
@@ -521,8 +518,8 @@ section.newsfeed-main.dark {
                 top: 10px;
                 left: 492px;
 
-                .fa-smile.dark, .fa-image.dark, .fa-film.dark, .fa-github-alt.dark {
-                  color: #8a8d90;
+                .fa-smile.light, .fa-image.light, .fa-film.light, .fa-github-alt.light {
+                  color: #626973;
                   margin: 0 6px;
                 }
               }

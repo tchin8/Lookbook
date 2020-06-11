@@ -1,9 +1,9 @@
-.down-drop.dark {
-  background-color:	#242526;
-  border: 1px solid #2f3031;
+.down-drop.light {
+  background-color:	#ffffff;
+  border: 1px solid #f3f3f3;
   border-radius: 6px;
-  box-shadow: -4px 6px 4px #151516;
-  color: #e4e6ea;
+  box-shadow: -2px 2px 4px #cecfd2;
+  color: #050505;
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
   height: 470px;
   margin: auto;
@@ -14,7 +14,7 @@
   width: 340px;
   z-index: 999;
 
-  .down-drop.dark > span {
+  .down-drop.light > span {
     display: block;
     font-size: 24px;
     font-weight: bold;
@@ -28,7 +28,7 @@
   padding: 6px 0 6px 8px;
 
   div.text {
-    color: #e4e6ea;
+    color: #050505;
     display: flex;
     flex-direction: column;
 
@@ -62,11 +62,11 @@ div.profile-link {
 }
 
 .down-drop > div:hover, div.profile-link:hover {
-  background-color: #3a3b3c;
+  background-color: #f2f2f2;
   cursor: pointer;
 
-  div.icon-circle.dark {
-    background-color:	#4e4f50;
+  div.icon-circle.light {
+    background-color:	#e4e6ea;
   }
 }
 
@@ -76,7 +76,7 @@ span.name {
 }
 
 span.see-profile {
-  color: #929497;
+  color: #686a6e;
   font-size: 15px;
   font-weight: 300;
   line-height: 0;
@@ -91,13 +91,13 @@ span.see-profile {
 }
 
 div.t2 > span:last-child {
-  color: #929497;
+  color: #676a6d;
   font-size: 12px;
   // padding: 0;
 }
 
 div.t2 > span:first-child {
-  color: #dadce0;
+  color: #232323;
   font-size: 15px;
   padding-bottom: 4px;
 }
@@ -111,7 +111,7 @@ div.feedback {
 }
 
 div.line {
-  border-top: 1px solid	#3e4042;
+  border-top: 1px solid	#ced0d4;
   margin: auto;
   padding: 0;
   width: 326px;
@@ -121,15 +121,15 @@ span.centered {
   line-height: 2.5;
 }
 
-.icon-circle.dark {
-  background-color:	#3a3b3c;
+.icon-circle.light {
+  background-color:	#e4e6ea;
   border-radius: 50%;
   height: 38px;
   width: 38px;
   position: relative;
 
-  .fa-comment-alt.dark, .fa-cog.dark, .fa-question-circle, .fa-moon.dark, .fa-arrow-circle-left.dark, .fa-sign-out-alt.dark {
-    color: #a7abaf;
+  .fa-comment-alt.light, .fa-cog.light, .fa-question-circle, .fa-moon.light, .fa-arrow-circle-left.light, .fa-sign-out-alt.light {
+    color: #5e6771;
     position: absolute;
   }
 }
@@ -140,8 +140,8 @@ span.centered {
   left: 9px;
 }
 
-.fa-exclamation.dark {
-  color: #47494a;
+.fa-exclamation.light {
+  color: #e4e6ea;
   font-size: 12px;
   position: absolute;
   top: 13px;
@@ -162,6 +162,6 @@ span.centered {
 }
 
 #copyright:hover {
-  background-color: #242526;
+  background-color: #676a6d;
   text-decoration: underline;
 }

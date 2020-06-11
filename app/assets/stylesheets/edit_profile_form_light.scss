@@ -1,7 +1,7 @@
-section.edit-profile-modal.dark {
-  background-color: #242526;
+section.edit-profile-modal.light {
+  background-color: #ffffff;
   border-radius: 10px;
-  color: #e4e6ea;
+  color: #050505;
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
   // min-height: 1434px;
   // change back to ^ later
@@ -14,7 +14,7 @@ section.edit-profile-modal.dark {
   // overflow: auto;
 
   div.header {
-    border: 1px solid #2f3031;
+    border: 1px solid #e5e5e5;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     height: 60px;
@@ -32,14 +32,14 @@ section.edit-profile-modal.dark {
     }
 
     button.close-form {
-      background-color: #242526;
+      background-color: #ffffff;
       border: none;
       position: absolute;
       left: 640px;
       bottom: 10px;
 
-      div.x-circle.dark {
-        background-color: #3a3b3c;
+      div.x-circle.light {
+        background-color: #e4e6ea;
         border: none;
         border-radius: 100%;
         height: 40px;
@@ -47,19 +47,24 @@ section.edit-profile-modal.dark {
         position: relative;
         // left: 200px;
 
-        .fa-times.dark {
-          color: 	#a7abaf;
+        .fa-times.light {
+          color: 	#606872;
           font-size: 20px;
           position: relative;
           top: 10px;
           // left: 1px;
         }
       }
+
+      div.x-circle.light:hover {
+        background-color: #d8dade;
+        cursor: pointer;
+      }
     }
   }
 
   section.main {
-    color: #e4e6ea;
+    color: #050505;
     font-size: 20px;
     font-weight: bold;
     padding: 20px 18px;
@@ -126,7 +131,7 @@ section.edit-profile-modal.dark {
       margin: 18px 0 0 0;
 
       button.edit-bio {
-        background-color: #242526;
+        background-color: #ffffff;
         border-radius: 6px;
         border: none;
         color: #2e89ff;
@@ -143,18 +148,18 @@ section.edit-profile-modal.dark {
         margin: 18px 0 0 0;
 
         span {
-          color: #b1b3b9;
+          color: #66686c;
           font-size: 16px;
           font-weight: normal;
         }
       }
 
-      form.edit-bio.dark {
+      form.edit-bio.light {
         position: relative;
         bottom: 16px;
 
         span.bio-chars {
-          color: #a4a6ab;
+          color: #6e7074;
           display: block;
           font-size: 14px;
           padding: 0 0 4px 0;
@@ -163,11 +168,11 @@ section.edit-profile-modal.dark {
           // text-align: right;
         }
 
-        textarea.text-bio.dark {
-          background-color: #3a3b3c;
-          border: 1px solid #3e4042;
+        textarea.text-bio.light {
+          background-color: #f0f2f5;
+          border: 1px solid #ced0d4;
           border-radius: 6px;
-          color: 	#e4e6ea;
+          color: 	#050505;
           font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
           font-size: 16px;
           height: 62px;
@@ -178,11 +183,11 @@ section.edit-profile-modal.dark {
         }
 
         textarea.text-bio:hover {
-          background-color: #4e4f50;
+          background-color: #e4e6e9;
         }
 
         textarea.text-bio::placeholder {
-          color: #8b8d91;
+          color: #8c8e92;
           font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
           font-size: 16px;
           text-align: center;
@@ -200,24 +205,24 @@ section.edit-profile-modal.dark {
           left: 166px;
 
           span.audience {
-            color: #e4e6ea;
+            color: #0d0d0d;
             font-size: 15px;
             position: absolute;
             left: -162px;
             top: 8px;
 
             .fa-globe-americas {
-              color: #ffffff;
+              color: #1d1f23;
               font-size: 20px;
               padding: 0 4px 0 0;
             }
           }
           
           button.cxl-bio {
-            background-color: #3a3b3c;
+            background-color: #e4e6ea;
             border: none;
             border-radius: 6px;
-            color: #e4e6ea;
+            color: #050505;
             font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
             font-size: 15px;
             height: 38px;
@@ -225,7 +230,7 @@ section.edit-profile-modal.dark {
           }
 
           button.cxl-bio:hover {
-            background-color: #4e4f50;
+            background-color: #d8dade;
             cursor: pointer;
           }
 
@@ -233,7 +238,7 @@ section.edit-profile-modal.dark {
             background-color: #2d88ff;
             border: none;
             border-radius: 6px;
-            color: #e4e6ea;
+            color: white;
             font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
             font-size: 15px;
             height: 38px;
@@ -247,7 +252,7 @@ section.edit-profile-modal.dark {
           }
 
           button.save-bio:disabled {
-            background-color: #505151!important;
+            background-color: #e4e6ea!important;
           }
           button.save-bio:disabled:hover {
             cursor: not-allowed;
@@ -261,7 +266,7 @@ section.edit-profile-modal.dark {
       margin: 18px 0 0 0;
 
       button.intro {
-        background-color: #242526;
+        background-color: #ffffff;
         border-radius: 6px;
         border: none;
         color: #2e89ff;
@@ -277,7 +282,7 @@ section.edit-profile-modal.dark {
         background-color: #3a3b3c;
         border: none;
         border-radius: 6px;
-        color: #e4e6ea;
+        color: #050505;
         font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
         font-size: 15px;
         height: 38px;
@@ -294,7 +299,7 @@ section.edit-profile-modal.dark {
         background-color: #2d88ff;
         border: none;
         border-radius: 6px;
-        color: #e4e6ea;
+        color: #050505;
         font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
         font-size: 15px;
         height: 38px;
@@ -316,7 +321,7 @@ section.edit-profile-modal.dark {
           font-size: 15px;
 
           span.intro {
-            color: #ffffff;
+            color: black;
             margin: 0 10px 0 0;
           }
 
@@ -335,27 +340,27 @@ section.edit-profile-modal.dark {
           }
 
           span:first-child {
-            color: #e4e6ea;
+            color: #050505;
             font-weight: normal;
             position: relative;
 
-            .fa-home.dark, .fa-briefcase.dark, .fa-graduation-cap.dark, .fa-heartbeat.dark, .fa-map-marker-alt.dark  {
+            .fa-home.light, .fa-briefcase.light, .fa-graduation-cap.light, .fa-heartbeat.light, .fa-map-marker-alt.light  {
               color: #8b939e;
               font-size: 20px;
               margin: 0 10px 0 0;
               position: relative;
             }
 
-            .fa-map-marker-alt.dark {
+            .fa-map-marker-alt.light {
               font-size: 22px;
               left: 2px;
               margin: 0 18px 0 0;
             }
-            .fa-home.dark, .fa-briefcase.dark {
+            .fa-home.light, .fa-briefcase.light {
               left: 2px;
               margin: 0 14px 0 0;
             }
-            .fa-heartbeat.dark {
+            .fa-heartbeat.light {
               margin: 0 14px 0 0;
             }
           }
@@ -367,7 +372,7 @@ section.edit-profile-modal.dark {
       // display: block;
       margin: 36px 0 0 0;
       height: 500px;
-      border: 1px solid #242526;
+      border: 1px solid #ffffff;
 
       span {
         display: block;
@@ -396,10 +401,10 @@ section.edit-profile-modal.dark {
     }
 
     button.edit-prof {
-      background-color: #3a3b3c;
+      background-color: #e7f3ff;
       border-radius: 6px;
       border: none;
-      color: #2f86f9;
+      color: #277ef3;
       font-size: 16px;
       height: 40px;
       width: 670px;
@@ -413,12 +418,12 @@ section.edit-profile-modal.dark {
   }
 
   button.edit-prof:hover {
-    background-color: #4e4f50!important;
+    background-color: #dbe7f2!important;
     cursor: pointer;
   }
 }
 
 label.edit-pfp:hover, button.edit-bio:hover, label.edit-cv:hover, button.edit-intro:hover {
-  background-color: #3a3b3c!important;
+  background-color: #f2f2f2!important;
   cursor: pointer;
 }
