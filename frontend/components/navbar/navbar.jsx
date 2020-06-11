@@ -72,7 +72,6 @@ class NavBar extends React.Component {
   }
 
   handleSubmit(e) {
-    debugger;
     e.preventDefault();
     this.props.history.push('/search');
     // return e => (
@@ -84,7 +83,6 @@ class NavBar extends React.Component {
     const fblogo = window.fblogo;
 
     const { currentUser } = this.props;
-    debugger;
     if (this.state && this.state.filter) {
       const search = this.state.filter.toLowerCase();
       let searchUsers = [];

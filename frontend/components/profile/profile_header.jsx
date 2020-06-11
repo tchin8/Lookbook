@@ -79,7 +79,9 @@ class ProfileHeader extends React.Component {
   }
 
   componentDidUpdate(prevProps){
-    window.scrollTo(0, 0);
+    if (prevProps.user !== this.props.user) {
+      window.scrollTo(0, 0);
+    }
 
     // KEEP FOR NOW
     if (this.props.user !== undefined && prevProps.user !== undefined) {
