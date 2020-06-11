@@ -567,6 +567,7 @@ section.profile-main {
           display: grid;
           grid-template-columns: 102px 102px 102px;
           grid-gap: 2px 10px;
+          padding: 0 0 20px 0;
           // grid-gap: 20px 10px;
           height: 100%;
           margin: 0 0 16px 16px;
@@ -597,7 +598,7 @@ section.profile-main {
             div.friend-1-9, div.friend-2-9, div.friend-3-9, div.friend-4-9, div.friend-5-9, div.friend-6-9, div.friend-7-9, div.friend-8-9, div.friend-9-9 {
               // background-color: #18191a;
               border-radius: 10px;
-              height: 150px;
+              height: 120px;
               width: 102px;
             }
 

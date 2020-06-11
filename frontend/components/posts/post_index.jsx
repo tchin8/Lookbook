@@ -6,34 +6,13 @@ class PostIndex extends React.Component {
   constructor(props) {
     super(props);
 
-    // this.state = props.posts;
-
-    this.rerender = this.rerender.bind(this);
+    this.state = props.postsState;
   }
-
-  // componentDidUpdate() {
-  //   this.props.fetchPosts();
-  // }
 
   // componentDidMount() {
   //   this.props.fetchUserPosts(this.props.match.params.userId);
   // }
 
-  // static getDerivedStateFromProps(props, state) {
-  //   if (props.posts !== state.posts) {
-  //     return {
-  //       posts: props.posts,
-  //     };
-  //   }
-  //   return null;
-  // }
-
-  rerender() {
-    // debugger;
-    // this.props.fetchUserPosts(this.props.match.params.userId);
-
-    this.forceUpdate();
-  }
 
   render() {
     const { posts, deletePost, updatePost, fetchPost, openModal, currentUser } = this.props;

@@ -49,8 +49,6 @@ class ProfileHeader extends React.Component {
       }
     }
 
-
-
     $('.bio-span').addClass("show");
     $('.bio-span').removeClass("hidden");
     $('.bio-form').addClass("hidden");
@@ -80,13 +78,18 @@ class ProfileHeader extends React.Component {
     window.scrollTo(0, 0);
   }
 
-  componentDidUpdate(){
+  componentDidUpdate(prevProps){
     window.scrollTo(0, 0);
-    // if (this.state.bio !== localStorage.getItem('bio') && localStorage.getItem('bio') !== undefined) {
-    //   this.setState({ "bio": localStorage.getItem('bio') });
-    // }
-    // $('.bio').removeClass("show");
-    // $('.bio').addClass("hidden");
+
+    // KEEP FOR NOW
+    if (this.props.user !== undefined && prevProps.user !== undefined) {
+      debugger;
+      if (this.props.user.pfpUrl !== prevProps.user.pfpUrl || this.props.user.coverPhotoUrl !== prevProps.user.coverPhotoUrl) {
+        debugger;
+        this.props.fetchUser(this.props.user.id);
+      }
+    }
+
   }
 
   disabled() {

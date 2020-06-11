@@ -8,11 +8,16 @@ import WallPostContainer from '../posts/wall_post_container';
 import PostIndexContainer from '../posts/post_index_container';
 
 class ProfileMain extends React.Component {
-  // componentDidUpdate() {
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: props.user,
+    }
+  }
 
-  // }
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
+    // this.props.fetchUserPosts(this.state.user.id);
   }
 
   componentWillUnmount() {
@@ -35,7 +40,7 @@ class ProfileMain extends React.Component {
   }
 
   render() {
-    const { currentUser, user, users, openModal, createComment, posts } = this.props;
+    const { currentUser, user, users, openModal, createComment, posts, postsState } = this.props;
     
     let organizeSection, btn1, btn2, friends, allFriends, allPhotos, photos;
     // debugger;
@@ -222,7 +227,8 @@ class ProfileMain extends React.Component {
             {organizeSection}
 
             <PostIndexContainer 
-              currentUser={currentUser}/>
+              currentUser={currentUser}
+              posts={postsState}/>
           </div>
         </div>
       </section>

@@ -5,6 +5,7 @@ import { openModal } from '../../actions/modal_actions';
 
 const mSTP = state => ({
   posts: Object.values(state.posts).reverse(),
+  postsState: state.posts,
 });
 
 const mDTP = dispatch => ({

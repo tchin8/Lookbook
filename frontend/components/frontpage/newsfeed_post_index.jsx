@@ -22,14 +22,11 @@ class NewsfeedPostIndex extends React.Component {
 
     let friendPosts = [];
     posts.forEach(post => {
-      debugger;
       if (currentUser.friends.includes(post.author_id) || 
         currentUser.friends.includes(post.user_id) || 
         currentUser.id === post.author_id || 
         currentUser.id === post.user_id) {
-          debugger;
         if (!friendPosts.includes(post)) {
-          debugger;
           friendPosts.push(post);
         }
       }

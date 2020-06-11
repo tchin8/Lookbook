@@ -4,23 +4,23 @@ import ProfileHeader from './profile_header';
 import ProfileMain from './profile_main';
 
 class Profile extends React.Component {
-  // componentDidUpdate() {
-  //   // this.props.fetchUsers();
-  //   this.props.fetchUserPosts(this.props.match.params.userId);
-  //   // debugger;
-  //   // this.handleSubmit = this.handleSubmit.bind(this);
-  // }
+  componentDidUpdate(prevProps) {
+    if (this.props.user !== undefined && prevProps.user !== undefined) {
+      if (this.props.user.id !== prevProps.user.id) {
+        this.props.fetchUserPosts(this.props.match.params.userId);
+      }
+    }
+  }
 
   componentDidMount() {
-    // debugger;
     this.props.fetchUsers();
+    // this.props.fetchPosts();
     // window.scrollTo(0, 0);
     this.props.fetchUserPosts(this.props.match.params.userId);
   }
 
-
   render() {
-    const { user, currentUser, updateUser, logout, openModal, fetchUsers, fetchUserPosts, users, createFriendRequest, deleteFriendRequest, posts } = this.props;
+    const { user, currentUser, updateUser, logout, openModal, fetchUsers, fetchUserPosts, users, createFriendRequest, deleteFriendRequest, posts, postsState, fetchUser } = this.props;
 
     if (!user) {
       return null;
@@ -36,14 +36,16 @@ class Profile extends React.Component {
           openModal={openModal} 
           fetchUsers={fetchUsers}
           createFriendRequest={createFriendRequest}
-          deleteFriendRequest={deleteFriendRequest}/>
+          deleteFriendRequest={deleteFriendRequest}
+          fetchUser={fetchUser}/>
           
         <ProfileMain currentUser={currentUser} 
           user={user}
           openModal={openModal} 
           fetchUserPosts={fetchUserPosts}
           users={users}
-          posts={posts}/>
+          posts={posts}
+          postsState={postsState}/>
       </div>
     )
   }

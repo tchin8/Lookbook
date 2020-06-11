@@ -4,7 +4,7 @@ import NewsfeedMainContainer from './newsfeed_main_container';
 
 class Newsfeed extends React.Component {
   componentDidMount() {
-    this.props.fetchUsers();
+    // this.props.fetchUsers();
     this.props.fetchPosts();
   }
 
