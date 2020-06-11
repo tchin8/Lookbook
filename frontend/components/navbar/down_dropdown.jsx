@@ -12,20 +12,20 @@ class DownDropdown extends React.Component {
       darkMode: true,
     }
 
-    // this.toggleLightDarkMode = this.toggleLightDarkMode.bind(this);
+    this.toggleLightDarkMode = this.toggleLightDarkMode.bind(this);
   }
 
-  // toggleLightDarkMode(e) {
-  //   e.preventDefault();
+  toggleLightDarkMode(e) {
+    e.preventDefault();
 
-  //   if (this.state.darkMode) {
-  //     $('.dark').toggleClass("dark light");
-  //     this.setState({ darkMode: false });
-  //   } else {
-  //     $('.light').toggleClass("dark light");
-  //     this.setState({ darkMode: true });
-  //   }
-  // }
+    if (this.state.darkMode) {
+      $('.dark').toggleClass("dark light");
+      this.setState({ darkMode: false });
+    } else {
+      $('.light').toggleClass("dark light");
+      this.setState({ darkMode: true });
+    }
+  }
 
   render () {
     const { currentUser, logout } = this.props;
@@ -34,21 +34,21 @@ class DownDropdown extends React.Component {
       <section className="down-drop dark hidden">
           <Link to={`/users/${currentUser.id}`}
             style={{ textDecoration: 'none' }}>
-        <div className="profile-link">
+        <div className="profile-link dark">
           <div>
             <img src={currentUser.pfpUrl} alt="" className="fb-pfp" />
           </div>
 
-          <div className="text profile-link">
+          <div className="text profile-link dark">
             <span className="name">{`${currentUser.fname} ${currentUser.lname}`}</span>
             <span className="see-profile">See your profile</span>
           </div>
         </div>
           </Link>
 
-        <div className="line"></div>
+        <div className="line dark"></div>
 
-        <div className="feedback">
+        <div className="feedback dark">
           <div className="icon-circle dark">
             <FontAwesomeIcon icon="comment-alt"
               className="fa-comment-alt dark" />
@@ -62,7 +62,7 @@ class DownDropdown extends React.Component {
           </div>
         </div>
 
-        <div className="line"></div>
+        <div className="line dark"></div>
 
         <div className="cog">
           <div className="icon-circle dark">
@@ -99,7 +99,7 @@ class DownDropdown extends React.Component {
           </div>
         </div>
 
-        <div>
+        <div className="switch-classic">
           <div className="icon-circle dark">
             <FontAwesomeIcon icon="arrow-circle-left"
               className="fa-arrow-circle-left dark" />
@@ -114,7 +114,7 @@ class DownDropdown extends React.Component {
           </div>
         </div>
 
-        <div onClick={logout}>
+        <div onClick={logout} className="logout">
           <div className="icon-circle dark">
             <FontAwesomeIcon icon="sign-out-alt"
               className="fa-sign-out-alt dark" />

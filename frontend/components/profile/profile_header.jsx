@@ -442,9 +442,9 @@ class ProfileHeader extends React.Component {
                   <FontAwesomeIcon icon="globe-americas"
                     className="fa-globe-americas dark" /> Public
                 </span>
-                <button className="cxl-bio" 
+                <button className="cxl-bio dark" 
                   onClick={this.handleCancel}>Cancel</button>
-                <button className="save-bio"
+                <button className="save-bio dark"
                   onClick={this.handleSubmit}
                   disabled={this.state.bio === this.state.prevState.bio}>Save</button>
               </div>

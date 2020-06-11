@@ -300,6 +300,7 @@ section.newsfeed-main.dark {
             }
 
             button.ellipsis-container.dark {
+              background-color: #242526;
               border: none;
               height: 34px;
               width: 34px;
@@ -373,7 +374,7 @@ section.newsfeed-main.dark {
             position: relative;
 
             .fa-thumbs-up.dark, .fa-comment.dark, .fa-share-square.dark {
-              padding: 0 6px 0 0;
+              padding: 0 6px 0 30px;
             }
 
             span {

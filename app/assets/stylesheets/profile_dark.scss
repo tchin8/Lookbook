@@ -231,12 +231,12 @@ section.p-header.dark {
             width: 74px;
           }
 
-          button.cxl-bio:hover {
+          button.cxl-bio.dark:hover {
             background-color: #4e4f50;
             cursor: pointer;
           }
 
-          button.save-bio {
+          button.save-bio.dark {
             background-color: #2d88ff;
             border: none;
             border-radius: 6px;
@@ -248,7 +248,7 @@ section.p-header.dark {
             width: 58px;
           }
 
-          button.save-bio:hover {
+          button.save-bio.dark:hover {
             background-color: #4894ff;
             cursor: pointer;
           }
@@ -998,9 +998,12 @@ ul.wall-posts {
         border-radius: 4px;
         font-size: 18px;
         margin: 4px 0 0 0;
+        // margin: auto;
         height: 32px;
         width: 156px;
-        position: relative;
+        // position: relative;
+        // display: flex;
+        // justify-content: center;
 
         .fa-thumbs-up.dark, .fa-comment.dark, .fa-share-square.dark {
           padding: 0 6px 0 0;
@@ -1309,7 +1312,7 @@ div.post-dropdown.dark {
   }
 }
 
-button:disabled {
+button.save-bio.dark:disabled {
  background-color: #505151!important;
 }
 button:disabled:hover {

@@ -20,9 +20,119 @@
     font-weight: bold;
     margin: 2px 0 10px 8px;
   }
+
+  div.profile-link.dark {
+    margin: 2px 0 8px 0;
+  }
+
+  div:hover, div.profile-link.dark:hover {
+    background-color: #3a3b3c;
+    cursor: pointer;
+
+    div.icon-circle.dark {
+      background-color:	#4e4f50;
+    }
+  }
+
+  span.name {
+    font-size: 18px;
+    line-height: 2.5;
+  }
+
+  span.see-profile {
+    color: #929497;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 0;
+  }
+
+  // change to dynamic -- pfp of currentUser
+  .fb-pfp {
+    height: 60px;
+    width: 60px;
+    border-radius: 50px;
+    object-fit: cover;
+  }
+
+  div.t2 > span:last-child {
+    color: #929497;
+    font-size: 12px;
+    // padding: 0;
+  }
+
+  div.t2 > span:first-child {
+    color: #dadce0;
+    font-size: 15px;
+    // padding-bottom: 4px;
+  }
+
+  div.cog {
+    margin-top: 10px;
+  }
+
+  div.feedback.dark {
+    margin: 8px 0 8px 0;
+  }
+
+  div.line.dark {
+    border-top: 1px solid	#3e4042;
+    margin: auto;
+    padding: 0;
+    width: 326px;
+  }
+
+  span.centered {
+    line-height: 2.5;
+  }
+
+  .icon-circle.dark {
+    background-color:	#3a3b3c;
+    border-radius: 50%;
+    height: 38px;
+    width: 38px;
+    position: relative;
+
+    .fa-comment-alt.dark, .fa-cog.dark, .fa-question-circle, .fa-moon.dark, .fa-arrow-circle-left.dark, .fa-sign-out-alt.dark {
+      color: #a7abaf;
+      position: absolute;
+    }
+  }
+
+  .fa-comment-alt {
+    font-size: 20px;
+    top: 11px;
+    left: 9px;
+  }
+
+  .fa-exclamation.dark {
+    color: #47494a;
+    font-size: 12px;
+    position: absolute;
+    top: 13px;
+    right: 17px;
+  }
+
+  .fa-cog, .fa-question-circle, .fa-moon, .fa-arrow-circle-left, .fa-sign-out-alt {
+    font-size: 22px;
+    top: 8px; 
+    left: 8px;
+  }
+
+  // FIX THIS
+  #copyright {
+    color: #929497;
+    font-size: 12px;
+    text-align: left;
+  }
+
+  #copyright:hover {
+    background-color: #242526;
+    text-decoration: underline;
+  }
 }
 
-.down-drop > div, div.profile-link  {
+
+.down-drop.dark > div, div.profile-link.dark {
   border-radius: 10px;
   display: flex;
   padding: 6px 0 6px 8px;
@@ -38,7 +148,7 @@
     }
   }
 
-  div.text.profile-link {
+  div.text.profile-link.dark {
     position: relative;
 
     span {
@@ -57,111 +167,6 @@
   }
 }
 
-div.profile-link {
-  margin: 2px 0 8px 0;
-}
-
-.down-drop > div:hover, div.profile-link:hover {
-  background-color: #3a3b3c;
-  cursor: pointer;
-
-  div.icon-circle.dark {
-    background-color:	#4e4f50;
-  }
-}
-
-span.name {
-  font-size: 18px;
-  line-height: 2.5;
-}
-
-span.see-profile {
-  color: #929497;
-  font-size: 15px;
-  font-weight: 300;
-  line-height: 0;
-}
-
-// change to dynamic -- pfp of currentUser
-.fb-pfp {
-  height: 60px;
-  width: 60px;
-  border-radius: 50px;
-  object-fit: cover;
-}
-
-div.t2 > span:last-child {
-  color: #929497;
-  font-size: 12px;
-  // padding: 0;
-}
-
-div.t2 > span:first-child {
-  color: #dadce0;
-  font-size: 15px;
-  padding-bottom: 4px;
-}
-
-div.cog {
-  margin-top: 10px;
-}
-
-div.feedback {
-  margin: 8px 0 8px 0;
-}
-
-div.line {
-  border-top: 1px solid	#3e4042;
-  margin: auto;
-  padding: 0;
-  width: 326px;
-}
-
-span.centered {
-  line-height: 2.5;
-}
-
-.icon-circle.dark {
-  background-color:	#3a3b3c;
-  border-radius: 50%;
-  height: 38px;
-  width: 38px;
-  position: relative;
-
-  .fa-comment-alt.dark, .fa-cog.dark, .fa-question-circle, .fa-moon.dark, .fa-arrow-circle-left.dark, .fa-sign-out-alt.dark {
-    color: #a7abaf;
-    position: absolute;
-  }
-}
-
-.fa-comment-alt {
-  font-size: 20px;
-  top: 11px;
-  left: 9px;
-}
-
-.fa-exclamation.dark {
-  color: #47494a;
-  font-size: 12px;
-  position: absolute;
-  top: 13px;
-  right: 17px;
-}
-
-.fa-cog, .fa-question-circle, .fa-moon, .fa-arrow-circle-left, .fa-sign-out-alt {
-  font-size: 22px;
-  top: 8px; 
-  left: 8px;
-}
-
-// FIX THIS
-#copyright {
-  color: #929497;
-  font-size: 12px;
-  text-align: left;
-}
-
-#copyright:hover {
-  background-color: #242526;
-  text-decoration: underline;
+.down-drop.dark > div.logout {
+  padding: 6px 0 8px 8px;
 }

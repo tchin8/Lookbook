@@ -228,7 +228,7 @@ section.p-header.light {
             cursor: pointer;
           }
 
-          button.save-bio {
+          button.save-bio.light {
             background-color: #2d88ff;
             border: none;
             border-radius: 6px;
@@ -240,7 +240,7 @@ section.p-header.light {
             width: 58px;
           }
 
-          button.save-bio:hover {
+          button.save-bio.light:hover {
             background-color: #4894ff;
             cursor: pointer;
           }
@@ -1292,7 +1292,7 @@ div.post-dropdown.light {
   }
 }
 
-button.save-bio:disabled {
+button.save-bio.light:disabled {
  background-color: #e4e6ea!important;
  color: #bcc0c4!important;
 }

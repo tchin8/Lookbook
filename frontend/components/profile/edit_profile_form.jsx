@@ -115,10 +115,10 @@ class EditProfileForm extends React.Component {
 
     let editBioBtn;
     if (currentUser.bio !== undefined ) {
-      editBioBtn = <button className="edit-bio"
+      editBioBtn = <button className="edit-bio dark"
         onClick={this.handleClick}>Edit</button>
     } else {
-      editBioBtn = <button className="edit-bio"
+      editBioBtn = <button className="edit-bio dark"
         onClick={this.handleClick}>Add</button>
     }
 
@@ -141,7 +141,7 @@ class EditProfileForm extends React.Component {
         <section className="main">
           <div className="pro-pic">
             <span>Profile Picture
-              <label htmlFor="pfp" className="edit-pfp">Edit
+              <label htmlFor="pfp" className="edit-pfp dark">Edit
                 <input type="file" id="pfp"
                  className="hidden"/>
               </label>
@@ -153,7 +153,7 @@ class EditProfileForm extends React.Component {
 
           <div className="cv-pic">
             <span>Cover Photo
-              <label htmlFor="cv" className="edit-cv">Edit
+              <label htmlFor="cv" className="edit-cv dark">Edit
                 <input type="file" id="cv"
                   className="hidden" />
               </label>
@@ -328,7 +328,7 @@ class EditProfileForm extends React.Component {
             </div>
 
             <button 
-              className="edit-prof"
+              className="edit-prof dark"
               onClick={this.handleSubmit}>
                 Edit Your Info
             </button>

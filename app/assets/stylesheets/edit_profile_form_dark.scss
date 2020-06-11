@@ -125,7 +125,7 @@ section.edit-profile-modal.dark {
       // padding: 18px 0 0 0;
       margin: 18px 0 0 0;
 
-      button.edit-bio {
+      button.edit-bio.dark {
         background-color: #242526;
         border-radius: 6px;
         border: none;
@@ -395,7 +395,7 @@ section.edit-profile-modal.dark {
       }
     }
 
-    button.edit-prof {
+    button.edit-prof.dark {
       background-color: #3a3b3c;
       border-radius: 6px;
       border: none;
@@ -412,13 +412,13 @@ section.edit-profile-modal.dark {
     }
   }
 
-  button.edit-prof:hover {
+  button.edit-prof.dark:hover {
     background-color: #4e4f50!important;
     cursor: pointer;
   }
 }
 
-label.edit-pfp:hover, button.edit-bio:hover, label.edit-cv:hover, button.edit-intro:hover {
+label.edit-pfp.dark:hover, button.edit-bio:hover, label.edit-cv.dark:hover, button.edit-intro:hover {
   background-color: #3a3b3c!important;
   cursor: pointer;
 }
