@@ -3,17 +3,32 @@ import NavBar from '../navbar/navbar';
 import NewsfeedMainContainer from './newsfeed_main_container';
 
 class Newsfeed extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      users: props.users,
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.users !== this.props.users) {
+      return this.setState({ users: this.props.users });
+    }
+  }
+
   componentDidMount() {
-    // this.props.fetchUsers();
+    this.props.fetchUsers();
     this.props.fetchPosts();
   }
 
   render() {
-    const { currentUser, logout, fetchUsers, fetchPosts } = this.props;
-    
+    const { currentUser, logout, fetchUsers, fetchPosts} = this.props;
+
     return (
       <div>
         <NavBar 
+          users={this.state.users}
           currentUser={currentUser} 
           logout={logout}/>
         <NewsfeedMainContainer 

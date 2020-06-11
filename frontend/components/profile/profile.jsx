@@ -28,7 +28,10 @@ class Profile extends React.Component {
     
     return (
       <div>
-        <NavBar currentUser={currentUser} logout={logout} />
+        <NavBar 
+          users={users}
+          currentUser={currentUser} 
+          logout={logout} />
 
         <ProfileHeader currentUser={currentUser} 
           user={user}

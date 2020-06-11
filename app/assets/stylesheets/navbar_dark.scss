@@ -40,11 +40,13 @@ section.navbar.dark {
   font-size: 14px;
   font-weight: 300;
   margin: 0 0 0 10px;
-  width: 280px;
+  padding: 0 0 0 16px;
+  width: 264px;
 }
 
 input.search.dark::placeholder {
-  padding: 0 0 0 10px;
+  position: relative;
+  left: -10px;
 }
 
 /* right-nav */

@@ -1,12 +1,37 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
+  Route,
+  Redirect,
+  Switch,
   Link
 } from 'react-router-dom';
+import { withRouter } from 'react-router-dom'; 
+
 
 import DownDropdown from './down_dropdown';
 
 class NavBar extends React.Component {
+  constructor(props) {
+    super(props);
+
+    if (props.users) {
+      this.state = {
+        filter: "",
+        users: Object.values(props.users),
+        redirect: false,
+      }
+    }
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.users !== this.props.users) {
+      return this.setState({ users: this.props.users });
+    }
+  }
+
   handleFocus(e) {
     let classN = '';
     if (e.currentTarget.classList.contains('down-arrow-circle')) {
@@ -40,22 +65,53 @@ class NavBar extends React.Component {
   //   }
   // }
 
+  update(field) {
+    return e => (
+      this.setState({ "filter": e.target.value })
+    );
+  }
+
+  handleSubmit(e) {
+    debugger;
+    e.preventDefault();
+    this.props.history.push('/search');
+    // return e => (
+    //   this.setState({ "redirect": true })
+    // );
+  }
+
   render () {
     const fblogo = window.fblogo;
-    const defaultpfp = window.defaultpfp;
-    const me = window.me;
-    const { currentUser } = this.props;
 
-    let pic;
-    if (currentUser.id === 1) {
-      pic = me;
-    } else {
-      pic = defaultpfp;
+    const { currentUser } = this.props;
+    debugger;
+    if (this.state && this.state.filter) {
+      const search = this.state.filter.toLowerCase();
+      let searchUsers = [];
+      const numUsers = Object.keys(this.state.users).length
+      const usersArr = Object.values(this.state.users)
+      for (let i = 0; i < numUsers; i++) {
+        const user = usersArr[i];
+        const keys = Object.keys(user);
+  
+        for (let i = 0; i < keys.length; i++) {
+          let key = keys[i];
+          if (key === 'fname' || key === 'lname') {
+            if (user[key].toLowerCase().includes(search)) {
+              searchUsers.push(user);
+            }
+          }
+        }
+      }
     }
 
     if (currentUser.pfpUrl === undefined) {
       return null;
     }
+
+    // if (this.state.redirect) {
+    //   return <Redirect to="/search" />
+    // }
     
     return (
       <section className="whole-nav dark">
@@ -65,7 +121,11 @@ class NavBar extends React.Component {
             <img src={fblogo} alt="" className="fb-logo" />
             </Link>
               <div>
-                <input type="text" className="search dark" placeholder="Search Lookbook" /> 
+                <form onSubmit={this.handleSubmit}>
+                  <input type="text" className="search dark" placeholder="Search Lookbook" 
+                  onChange={this.update('filter')}/> 
+                  <button className="hidden"></button>
+                </form>
               </div>
           </section>
 
@@ -169,4 +229,4 @@ class NavBar extends React.Component {
   )}
 };
 
-export default NavBar;
+export default withRouter(NavBar);

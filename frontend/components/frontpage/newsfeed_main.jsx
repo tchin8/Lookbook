@@ -7,12 +7,16 @@ import NewsfeedPostIndex from './newsfeed_post_index';
 
 class NewsfeedMain extends React.Component {
   // componentDidMount() {
-  //   this.props.fetchPosts();
+  //   // this.props.fetchUsers();
   // }  
 
   render() {
     const { currentUser, openModal, posts, deletePost, updatePost, users, fetchUsers } = this.props;
     
+    if (!users[1] || !users[2]) {
+      return null;
+    }
+
     let contacts;
     if (currentUser.friends !== undefined) {
       contacts = currentUser.friends.map(id => {
