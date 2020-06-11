@@ -34,8 +34,6 @@ class CommentIndexItem extends React.Component {
   }
 
   render() {
-    const defaultpfp = window.defaultpfp;
-    const me = window.me;
     const { comment, users } = this.props;
 
     let commenter = users[comment.user_id]

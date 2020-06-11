@@ -1,10 +1,21 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import NavBar from '../navbar/navbar';
+import {
+  Route,
+  Redirect,
+  Switch,
+  Link
+} from 'react-router-dom';
 
 class SearchFriends extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      friends: JSON.parse(localStorage.getItem('searchFriends')),
+      filter: localStorage.getItem('filter'),
+    }
   }
 
   componentDidMount() {
@@ -19,6 +30,64 @@ class SearchFriends extends React.Component {
     //   return null;
     // }
 
+    const { filter, friends } = this.state;
+
+    let searched = [];
+    let searchedFriends, icon;
+    if (friends.length === 0) {
+      searchedFriends = (
+        <section className="search-results">
+          <span>People</span>
+          <span>0 results</span>
+        </section>
+      )
+    } else {
+      for (let i = 0; i < friends.length; i++) {
+        let friend = friends[i];
+
+        if (currentUser.friends.includes(friend.id)) {
+          icon = (
+            <div className="add-friend-circle">
+              <FontAwesomeIcon icon={['fab', 'facebook-messenger']}
+                className="fa-facebook-messenger dark" />
+            </div>
+          )
+        } else if (currentUser.id === friend.id) {
+          icon = null;
+        } else {
+          icon = (
+            <div className="add-friend-circle">
+            <FontAwesomeIcon icon="user-plus"
+              className="fa-user-plus dark" />
+            </div>
+          )
+        }
+
+        let ele = (
+          <li className="search-friend" key={i}>
+            <Link to={`/users/${friend.id}`}
+              style={{ textDecoration: 'none' }}>
+            <img src={friend.pfpUrl} alt="" 
+              className="pfp" />
+            <span className="name">{friend.fname} {friend.lname}</span>
+            {icon}
+            </Link>
+
+          </li>
+        )
+        searched.push(ele);
+      }
+
+      searchedFriends = (
+        <section className="search-results">
+          <span>People</span>
+          <ul>
+            {searched}
+          </ul>
+        </section>
+      )
+    }
+
     return (
       <>
         <NavBar currentUser={currentUser}
@@ -28,7 +97,7 @@ class SearchFriends extends React.Component {
           <section className="search-sidebar">
             <div className="top">
               <span>Search Results for</span>
-              {/* <span>{this.state.filter}</span> */}
+              <span className="filter">{filter}</span>
             </div>
 
             <div className="search-div"></div>
@@ -57,14 +126,7 @@ class SearchFriends extends React.Component {
           </section>
 
           <section className="search-main">
-            <section className="search-results">
-              <span>People</span>
-              <ul>
-                <li>
-                  
-                </li>
-              </ul>
-            </section>
+            {searchedFriends}
           </section>
 
         </section>

@@ -84,14 +84,28 @@ class PostForm extends React.Component {
   render() {
     const { currentUser, user, action, closeModal, formType } = this.props;
 
-    let preview;
+    let preview, textarea;
     if (this.state.postPhotoUrl) {
-      // debugger;
+      textarea = (
+        <textarea value={this.state.body}
+          onChange={this.update('body')}
+          placeholder="What's on your mind?"
+          className="small">
+        </textarea>
+      )
       preview = (
         <img src={this.state.postPhotoUrl} alt=""
           className="preview"/>
       );
-    } 
+    } else {
+      textarea = (
+        <textarea value={this.state.body}
+          onChange={this.update('body')}
+          placeholder="What's on your mind?"
+          className="big">
+        </textarea>
+      )
+    }
 
     return (
     <div className="create-post-form-container">
@@ -128,12 +142,12 @@ class PostForm extends React.Component {
 
       <form
         className="create-post-form">
-        <textarea value={this.state.body}
-          onChange={this.update('body')} 
-          placeholder="What's on your mind?">
-        </textarea>
+          
+        <div className="pic-text-container">
+          {textarea}
 
-        {preview}
+          {preview}
+        </div>
         
         <div className="add-to-post">
           <div>

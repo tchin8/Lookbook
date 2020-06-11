@@ -74,18 +74,15 @@ class NavBar extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.history.push('/search');
-    // return e => (
-    //   this.setState({ "redirect": true })
-    // );
   }
 
   render () {
     const fblogo = window.fblogo;
 
     const { currentUser } = this.props;
+    let searchUsers = [];
     if (this.state && this.state.filter) {
       const search = this.state.filter.toLowerCase();
-      let searchUsers = [];
       const numUsers = Object.keys(this.state.users).length
       const usersArr = Object.values(this.state.users)
       for (let i = 0; i < numUsers; i++) {
@@ -101,15 +98,15 @@ class NavBar extends React.Component {
           }
         }
       }
+      localStorage.setItem('filter', this.state.filter);
     }
+
+    localStorage.setItem('searchFriends', JSON.stringify(searchUsers));
+    
 
     if (currentUser.pfpUrl === undefined) {
       return null;
     }
-
-    // if (this.state.redirect) {
-    //   return <Redirect to="/search" />
-    // }
     
     return (
       <section className="whole-nav dark">

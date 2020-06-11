@@ -6,9 +6,9 @@ import {
 import NewsfeedPostIndex from './newsfeed_post_index';
 
 class NewsfeedMain extends React.Component {
-  // componentDidMount() {
-  //   // this.props.fetchUsers();
-  // }  
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
 
   render() {
     const { currentUser, openModal, posts, deletePost, updatePost, users, fetchUsers } = this.props;

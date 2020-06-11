@@ -1049,6 +1049,7 @@ ul.wall-posts {
             border-radius: 20px;
             color: #e4e6ea;
             height: 50px;
+            // height: 100%;
             // change to min later
             margin: 8px 0 0 0;
             min-width: 100px;
@@ -1067,16 +1068,18 @@ ul.wall-posts {
             }
 
             p.actual-com {
+              line-height: 1;
               display: block;
               font-size: 14px;
               margin: 2px 12px 0 12px;
             }
 
             div.like-reply {
+              display: block;
               color: #b1b3b9;
               font-size: 10px;
               position: relative;
-              bottom: -10px;
+              bottom: -12px;
               left: 12px;
   
               span.like-reply {
@@ -1157,7 +1160,7 @@ ul.wall-posts {
 
 
 // POST-DROPDOWN
-div.post-dropdown {
+div.post-dropdown.dark {
   background-color: #242526;
   border: 1px solid #2f3031;
   border-radius: 6px;
@@ -1283,16 +1286,21 @@ div.post-dropdown {
     width: 314px;
   }
 
-  div.pdd-1-3.dark:before {
+  div.pdd-1-3.dark:before, div.pdd-1-3.dark:after {
     content: "";
     position: absolute;
     width: 0px;
     height: 0px;
     border: 10px solid #2f3031;
-    border-color: transparent transparent #2f3031;
-    // border-color: transparent transparent #242526;
+    // border-color: transparent transparent #2f3031;
+    border-color: transparent transparent #242526;
     right: 4px;
     top: -20px;
+  }
+
+  div.pdd-1-3.dark:before {
+    margin-top: -2px;
+    border-color: transparent transparent #2f3031;
   }
 }
 

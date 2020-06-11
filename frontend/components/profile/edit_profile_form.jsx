@@ -303,7 +303,8 @@ class EditProfileForm extends React.Component {
                 </div>
               </div>
 
-              <div className="featured">
+              {/* KEEP FOR NOW!!!! */}
+              {/* <div className="featured">
                 <span>Featured</span>
                 <div className="featured-pics">
                   <div className="featured-row-1-3">
@@ -322,17 +323,15 @@ class EditProfileForm extends React.Component {
                     <div className="pic-9-9"></div>
                   </div>
                 </div>
-              </div>
+              </div> */}
               
             </div>
 
-            {/* <div className="btn"> */}
-              <button 
-                className="edit-prof"
-                onClick={this.handleSubmit}>
-                  Edit Your Info
-              </button>
-            {/* </div> */}
+            <button 
+              className="edit-prof"
+              onClick={this.handleSubmit}>
+                Edit Your Info
+            </button>
           </section>
         </section>
       </section>

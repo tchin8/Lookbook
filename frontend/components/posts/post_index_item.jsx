@@ -168,17 +168,22 @@ class PostIndexItem extends React.Component {
     }
 
     let postPhoto;
-    if (window.location.href.includes("/users")) {
-      // debugger;
-      postPhoto = (
-        <img src={post.postPhoto} alt=""
-          className="post-photo" />
-      )
-    } else {
-      postPhoto = (
-        <img src={post.postPhoto} alt=""
-          className="newsfeed-photo" />
-      )
+    if (post.postPhoto) {
+      if (window.location.href.includes("/users")) {
+        postPhoto = (
+          <div className="post-photo-div">
+            <img src={post.postPhoto} alt=""
+              className="post-photo" />
+          </div>
+        )
+      } else {
+        postPhoto = (
+          <div className="post-photo-div">
+            <img src={post.postPhoto} alt=""
+              className="newsfeed-photo" />
+          </div>
+        )
+      }
     }
 
     return (
@@ -289,9 +294,8 @@ class PostIndexItem extends React.Component {
             <p>{post.body}</p>
           </div>
 
-          <div className="post-photo-div">
-            {postPhoto}
-          </div>
+          {postPhoto}
+
         </div>
 
         <div className="post-interaction dark">
