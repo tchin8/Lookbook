@@ -83,9 +83,7 @@ class ProfileHeader extends React.Component {
 
     // KEEP FOR NOW
     if (this.props.user !== undefined && prevProps.user !== undefined) {
-      debugger;
       if (this.props.user.pfpUrl !== prevProps.user.pfpUrl || this.props.user.coverPhotoUrl !== prevProps.user.coverPhotoUrl) {
-        debugger;
         this.props.fetchUser(this.props.user.id);
       }
     }
