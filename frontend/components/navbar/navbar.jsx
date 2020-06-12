@@ -148,14 +148,16 @@ class NavBar extends React.Component {
     
     if (window.location.href.includes(`/users/${currentUser.id}`)) {
       $(`.profile.dark`).addClass('blue');
+      $(`.profile.light`).addClass('blue');
     } else {
       $(`.profile.dark`).removeClass('blue');
+      $(`.profile.light`).removeClass('blue');
     }
 
-    if (!window.location.href.includes(`/users`) || !window.location.href.includes(`/search`)) {
-      $(`.house-div`).addClass('blue');
-    } else {
+    if (window.location.href.includes(`/users`) || window.location.href.includes(`/search`)) {
       $(`.house-div`).removeClass('blue');
+    } else {
+      $(`.house-div`).addClass('blue');
     }
 
     if (currentUser.pfpUrl === undefined) {

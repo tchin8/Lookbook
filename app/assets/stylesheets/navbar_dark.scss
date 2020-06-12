@@ -64,7 +64,7 @@ section.right-navbar {
       }
     }
 
-    div.profile.blue {
+    div.profile.dark.blue {
       background-color: #3a3b3c;
       span {
         color: #2e89ff;
@@ -170,13 +170,24 @@ div.profile.dark:hover {
   // padding: 12px 44px 12px 44px;
 }
 
-.house-div.blue {
-  
-}
-
 .tv-div.dark:hover, .users-div.dark:hover, .house-div.dark:hover, .game-div.dark:hover, .store-div.dark:hover {
   background-color: #3a3b3c;
   cursor: pointer;
+}
+
+.house-div.blue {
+  padding: 0 0 2px 0;
+  border-bottom: 3px solid #2d88ff;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+
+  .fa-house {
+    color: #2d88ff;
+  }
+}
+
+.house-div.blue:hover {
+  background-color: #242526;
 }
 
 .fa-tv.dark {

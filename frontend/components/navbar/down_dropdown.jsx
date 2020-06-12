@@ -99,6 +99,11 @@ class DownDropdown extends React.Component {
             onClick={this.toggleLightDarkMode}>
             <span className="centered">Dark Mode</span>
           </div>
+
+          <label class="switch dark">
+            <input type="checkbox dark" />
+              <span class="slider round dark"></span>
+          </label>
         </div>
 
         <div className="switch-classic">

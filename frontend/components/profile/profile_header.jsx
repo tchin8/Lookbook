@@ -454,7 +454,7 @@ class ProfileHeader extends React.Component {
 
           <div className="under-bottom dark">
             <div className="left-nav">
-              <div>
+              <div className="timeline">
                 <span>Timeline</span>
               </div>
 

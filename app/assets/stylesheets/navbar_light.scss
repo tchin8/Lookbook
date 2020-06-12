@@ -63,7 +63,8 @@ section.right-navbar {
     }
 
     div.profile.blue {
-      background-color: #3a3b3c;
+      background-color: #f2f2f2;
+
       span {
         color: #2e89ff;
       }
@@ -171,6 +172,21 @@ div.profile.light:hover {
 .tv-div.light:hover, .users-div.light:hover, .house-div.light:hover, .game-div.light:hover, .store-div.light:hover {
   background-color: #f2f2f2;
   cursor: pointer;
+}
+
+.house-div.blue {
+  padding: 0 0 2px 0;
+  border-bottom: 3px solid #2d88ff;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+
+  .fa-house {
+    color: #2d88ff;
+  }
+}
+
+.house-div.blue:hover {
+  background-color: #ffffff;
 }
 
 .fa-tv.light {

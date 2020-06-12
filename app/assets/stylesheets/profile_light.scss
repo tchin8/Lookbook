@@ -295,6 +295,28 @@ section.p-header.light {
         div:last-child {
           padding:  17px 32px 17px 16px;
         }
+
+        // CHANGE LATER ON!!!
+        div.timeline {
+          border-bottom: 3px solid #2d88ff;
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0;
+          padding: 17px 16px 17px 16px;
+          position: relative;
+          top: 4px;
+          // margin: 0 0 3px 0;
+          
+          span {
+            position: relative;
+            top: -4px;
+            color: #2d88ff;
+          }
+        }
+
+        div.timeline:hover {
+          background-color: #ffffff!important;
+        }
+        // CHANGE THIS LATER
       }
 
       div.right-nav.light {
