@@ -1,24 +1,5 @@
-# README
+# Lookbook
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Lookbook](https://lookbook-aa.herokuapp.com/), a Facebook clone, is a social media application that allows users to create their own personalized profile with which they can interact with other users, upload photos, and more.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[app/assets/images/lookbook_ss.png](https://lookbook-aa.herokuapp.com/)
