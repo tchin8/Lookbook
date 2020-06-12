@@ -11,15 +11,14 @@ import {
 class SearchFriends extends React.Component {
   constructor(props) {
     super(props);
-
+    
     this.state = {
       friends: JSON.parse(localStorage.getItem('searchFriends')),
       filter: localStorage.getItem('filter'),
-      requester_id: currentUser.id,
+      requester_id: props.currentUser.id,
       requestee_id: '',
       status: false,
     }
-
   }
 
   componentDidUpdate(prevProps) {
