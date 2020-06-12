@@ -135,7 +135,7 @@ class ProfileMain extends React.Component {
     }
     
     let k = 0;
-    allPhotos = posts.reverse().slice(0, 9).map(post => {
+    allPhotos = posts.reverse().map(post => {
       if (post.postPhoto !== undefined) {
         k += 1;
         return (
@@ -156,13 +156,14 @@ class ProfileMain extends React.Component {
       $('.pic-6-9').removeClass('bottom-row');
     }
 
+    allPhotos = allPhotos.filter(pic => pic !== undefined);
 
     photos = (
       <div className="photos dark">
         <span>Photos</span>
 
         <div className="photos">
-          {allPhotos}
+          {allPhotos.slice(0, 9)}
         </div>
       </div>
     )
