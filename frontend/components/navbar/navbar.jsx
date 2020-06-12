@@ -115,10 +115,10 @@ class NavBar extends React.Component {
       }
 
       localStorage.setItem('searchFriends', JSON.stringify(searchUsers));
-
     }
   }
 
+  
   render () {
     const fblogo = window.fblogo;
 
@@ -146,6 +146,17 @@ class NavBar extends React.Component {
 
     localStorage.setItem('searchFriends', JSON.stringify(searchUsers));
     
+    if (window.location.href.includes(`/users/${currentUser.id}`)) {
+      $(`.profile.dark`).addClass('blue');
+    } else {
+      $(`.profile.dark`).removeClass('blue');
+    }
+
+    if (!window.location.href.includes(`/users`) || !window.location.href.includes(`/search`)) {
+      $(`.house-div`).addClass('blue');
+    } else {
+      $(`.house-div`).removeClass('blue');
+    }
 
     if (currentUser.pfpUrl === undefined) {
       return null;
