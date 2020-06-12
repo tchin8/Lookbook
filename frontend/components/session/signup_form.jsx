@@ -17,14 +17,22 @@ class SignupForm extends React.Component {
       password: '',
       birthday: `${this.year}-${this.month}-${this.day}`,
       gender: '',
+      fnameCount: 0,
+      lnameCount: 0,
+      emailCount: 0,
+      pwCount: 0,
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
+    this.handleBlur = this.handleBlur.bind(this);
+    this.handleErrors = this.handleErrors.bind(this);
+    this.handleClickCount = this.handleClickCount.bind(this);
 
   }
 
   handleSubmit(e) {
-    // debugger; 
+
     e.preventDefault();
     
     this.props.signup( this.state );
@@ -53,6 +61,7 @@ class SignupForm extends React.Component {
     } else {
       e.currentTarget.classList.remove("blur");
       $(`.fa-exclamation-circle-${classN}`).addClass('hidden');
+
       $(`.${classN}-error-msg`).addClass('hidden');
     }
 
@@ -85,12 +94,15 @@ class SignupForm extends React.Component {
 
     // $(`.fa-exclamation-circle-${classN}`).addClass('hidden');
     if (classN !== 'mfc') {
-      $(`.${classN}-error-msg`).removeClass('hidden');
+      let field = `${classN}Count`;
+      if (this.state[field] === 1) {
+        // $(`.${classN}-error-msg`).addClass('hidden');
+        $(`.${classN}-error-msg`).removeClass('hidden');
+      }
     }
   }
 
   update(field) {
-    // debugger;
     return e => {
       return this.setState({ [field]: e.target.value });
     }
@@ -117,7 +129,6 @@ class SignupForm extends React.Component {
 
     for (let i = 0; i < errors.length; i++) {
       const error = errors[i];
-      // console.log(error);
 
       if (error.includes('Fname')) {
         classN = "fname";
@@ -131,7 +142,6 @@ class SignupForm extends React.Component {
         classN = "mfc";
       }
 
-      // console.log(classN);
       if (i === 0) {
         firstClassN = classN;
       }
@@ -145,6 +155,12 @@ class SignupForm extends React.Component {
 
       this.props.errors.shift();
     }
+  }
+
+  handleClickCount(field) {
+    return e => (
+      this.setState({ [field]: 1})
+    );
   }
 
   render() {
@@ -162,6 +178,7 @@ class SignupForm extends React.Component {
               placeholder="First name" 
               className="fname"
               value={this.state.fname} 
+              onClick={this.handleClickCount('fnameCount')}
               onBlur={this.handleBlur}
               onFocus={this.handleFocus}
               onChange={this.update('fname')}/>
@@ -178,6 +195,7 @@ class SignupForm extends React.Component {
               placeholder="Last name" 
               className="lname"
               value={this.state.lname}
+              onClick={this.handleClickCount('lnameCount')}
               onBlur={this.handleBlur}
               onFocus={this.handleFocus}
               onChange={this.update('lname')}/>
@@ -195,6 +213,7 @@ class SignupForm extends React.Component {
             placeholder="Mobile number or email"
             className="email" 
             value={this.state.email}
+            onClick={this.handleClickCount('emailCount')}
             onBlur={this.handleBlur}
             onFocus={this.handleFocus}
             onChange={this.update('email')}/>
@@ -211,6 +230,7 @@ class SignupForm extends React.Component {
             placeholder="New password" 
             className="pw"
             value={this.state.password}
+            onClick={this.handleClickCount('pwCount')}
             onBlur={this.handleBlur}
             onFocus={this.handleFocus}
             onChange={this.update('password')}/>

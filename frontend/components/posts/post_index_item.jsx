@@ -76,14 +76,12 @@ class PostIndexItem extends React.Component {
       amOrPm = "PM";
     }
     
-    // debugger;
     const hour = t.getHours() % 12 === 0 ? 12 : t.getHours() % 12;
     const min = t.getMinutes() < 10 ? `0${t.getMinutes()}` : t.getMinutes();
     if (secs <= 86400) {
       return `Yesterday at ${hour}:${min} ${amOrPm}`
     }
 
-    // debugger;
 
     let month = months[t.getMonth()];
     let day = t.getDate();
@@ -92,7 +90,6 @@ class PostIndexItem extends React.Component {
 
 
   handleFocus(e) {
-    // debugger;
     let classN;
     if (e.currentTarget.classList.contains('ellipsis-container')) {
       classN = 'post-dropdown';
@@ -110,7 +107,6 @@ class PostIndexItem extends React.Component {
 
   handleEditModal(e) {
     e.preventDefault();
-    // debugger;
     localStorage.setItem('editPost', JSON.stringify(this.state))
     this.props.openModal('Edit Post');
     $(`.show`).toggleClass('show hidden');
@@ -123,7 +119,6 @@ class PostIndexItem extends React.Component {
   }
 
   update(field) {
-    // debugger;
     return e => (
       this.setState({ [field]: e.target.value})
     )
@@ -134,7 +129,6 @@ class PostIndexItem extends React.Component {
     const defaultpfp = window.defaultpfp;
     const me = window.me;
     
-    // debugger;
     if (!post) {
       return null;
     }
@@ -148,7 +142,7 @@ class PostIndexItem extends React.Component {
 
     let posterPostee;
     if (window.location.href.includes("/users")) {
-      // debugger;
+
       posterPostee = (
         <Link to={`/users/${author.id}`}
           style={{ textDecoration: 'none' }}>
@@ -156,7 +150,7 @@ class PostIndexItem extends React.Component {
         </Link>
       )
     } else {
-      // debugger;
+
       let postee;
       if (author.id !== wall.id) {
         postee = (

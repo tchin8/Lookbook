@@ -14,18 +14,14 @@ class LoginForm extends React.Component {
   }
 
   update(field) {
-    // debugger;
     return e => (
       this.setState({ [field]: e.target.value })
     )
   }
 
   handleSubmit(e) {
-    // debugger;
     e.preventDefault();
-    // console.log(this.state);
     this.props.login(this.state);
-    // <Redirect to="/" />
   }
 
   handleFocus(e) {

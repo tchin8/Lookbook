@@ -29,11 +29,7 @@ class PostIndex extends React.Component {
     const { posts, deletePost, updatePost, fetchPost, openModal, currentUser } = this.props;
 
     let postIds = posts.map(post => (post.id));
-    // console.log(postIds);
-    const sorted = postIds.sort(function (a, b) { return a - b });
-    // console.log(sorted);
-    
-    
+    const sorted = postIds.sort(function (a, b) { return a - b }); 
     
     return (
       <ul className="wall-posts">

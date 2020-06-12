@@ -21,9 +21,7 @@ function Modal({ currentUser, user, modal, closeModal }) {
       component = <EditPostFormContainer />;
       break;
     case 'Edit Profile':
-      // debugger;
       component = <EditProfileFormContainer />;
-      // debugger;
       break;
 
     // case 'nav down dropdown':
@@ -33,7 +31,6 @@ function Modal({ currentUser, user, modal, closeModal }) {
       return null;
   }
 
-  // debugger;
   return (
     <div className="modal-background" onClick={closeModal}>
       <div className="modal-child" onClick={e => e.stopPropagation()}>

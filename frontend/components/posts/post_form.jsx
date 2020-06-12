@@ -26,7 +26,6 @@ class PostForm extends React.Component {
         };
       }
     }
-    // debugger;
     this.handleSubmit = this.handleSubmit.bind(this);
     // this.handleUploadPic = this.handleUploadPic.bind(this);
     this.handleUploadPicClick = this.handleUploadPicClick.bind(this);
@@ -59,13 +58,11 @@ class PostForm extends React.Component {
   }
 
   handleUploadPicClick() {
-    // debugger;
     $(".post-pic").click();
   }
 
 
   handlePreview(e) {
-    // debugger;
     const file = e.currentTarget.files[0];
     const reader = new FileReader();
     reader.onloadend = () => {
@@ -76,7 +73,6 @@ class PostForm extends React.Component {
     };
 
     if (file) {
-      // debugger;
       reader.readAsDataURL(file);
     } 
   }

@@ -200,7 +200,6 @@ class ProfileHeader extends React.Component {
 
   render() {
     const { user, updateUser, currentUser, openModal, createFriendRequest, deleteFriendRequest } = this.props;
-    // debugger;
     let bioButton, cameraButton, editCvButton, archive, rightNavBtns, bio, friendBtn;
 
     // if (user.receivedFriendRequests === undefined) {

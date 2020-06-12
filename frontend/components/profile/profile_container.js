@@ -10,7 +10,6 @@ import { createFriendRequest, deleteFriendRequest } from '../../actions/friend_r
 
 
 const mSTP = (state, ownProps) => {
-  // debugger;
   return {
     posts: Object.values(state.posts),
     postsState: state.posts,

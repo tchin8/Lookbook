@@ -44,17 +44,14 @@ class EditProfileForm extends React.Component {
   // }
 
   handleCancel(e) {
-    // debugger;
     e.preventDefault();
     this.setState({
       bio: this.state.prevState.bio,
     });
-    // debugger;
     $('.edit-bio').toggleClass("show hidden");
   }
 
   handleCancelIntro(e) {
-    // debugger;
     e.preventDefault();
     this.setState({
       current_city: this.state.prevState.current_city,
@@ -64,7 +61,6 @@ class EditProfileForm extends React.Component {
       hometown: this.state.prevState.hometown,
       relationship_status: this.state.prevState.relationship_status,
     });
-    // debugger;
     $('.intro').toggleClass("show hidden");
     $('.edit-intro').toggleClass("show hidden");
   }
@@ -103,7 +99,6 @@ class EditProfileForm extends React.Component {
   }
 
   handleSubmit(e) {
-    // debugger;
     e.preventDefault();
     this.props.updateUser(this.state); 
     this.props.closeModal();

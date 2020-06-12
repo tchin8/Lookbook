@@ -35,7 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let preloadedState = {};
   if (window.currentUser) {
-    // console.log(window.currentUser);
 
     preloadedState = {
       session: {
