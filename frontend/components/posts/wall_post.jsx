@@ -7,6 +7,12 @@ class WallPost extends React.Component {
 
     this.handleUploadPic = this.handleUploadPic.bind(this);
     this.handleUploadPicClick = this.handleUploadPicClick.bind(this);
+
+    if (localStorage.getItem('mode') === 'dark') {
+      $('.light').toggleClass("dark light");
+    } else if (localStorage.getItem('mode') === 'light') {
+      $('.dark').toggleClass("dark light");
+    }
   }
 
   handleUploadPicClick() {

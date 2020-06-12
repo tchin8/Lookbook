@@ -14,6 +14,12 @@ class CreateCommentForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+
+    if (localStorage.getItem('mode') === 'dark') {
+      $('.light').toggleClass("dark light");
+    } else if (localStorage.getItem('mode') === 'light') {
+      $('.dark').toggleClass("dark light");
+    }
   }
 
 

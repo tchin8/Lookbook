@@ -6,6 +6,20 @@ import {
 class CommentIndexItem extends React.Component {
   constructor(props) {
     super(props);
+
+    if (localStorage.getItem('mode') === 'dark') {
+      $('.light').toggleClass("dark light");
+    } else if (localStorage.getItem('mode') === 'light') {
+      $('.dark').toggleClass("dark light");
+    }
+  }
+
+  componentDidMount() {
+    if (localStorage.getItem('mode') === 'dark') {
+      $('.light').toggleClass("dark light");
+    } else if (localStorage.getItem('mode') === 'light') {
+      $('.dark').toggleClass("dark light");
+    }
   }
 
   commentedTimeAgo(datetime) {

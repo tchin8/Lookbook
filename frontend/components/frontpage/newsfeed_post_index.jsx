@@ -6,7 +6,12 @@ class NewsfeedPostIndex extends React.Component {
   constructor(props) {
     super(props);
 
-    // this.state = props.posts;
+
+    if (localStorage.getItem('mode') === 'dark') {
+      $('.light').toggleClass("dark light");
+    } else if (localStorage.getItem('mode') === 'light') {
+      $('.dark').toggleClass("dark light");
+    }
   }
 
   componentDidMount() {

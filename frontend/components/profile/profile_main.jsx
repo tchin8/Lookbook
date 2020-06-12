@@ -13,6 +13,12 @@ class ProfileMain extends React.Component {
     this.state = {
       user: props.user,
     }
+
+    if (localStorage.getItem('mode') === 'dark') {
+      $('.light').toggleClass("dark light");
+    } else if (localStorage.getItem('mode') === 'light') {
+      $('.dark').toggleClass("dark light");
+    }
   }
 
   componentDidMount() {
