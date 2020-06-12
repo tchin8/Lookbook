@@ -15,7 +15,19 @@ class SearchFriends extends React.Component {
     this.state = {
       friends: JSON.parse(localStorage.getItem('searchFriends')),
       filter: localStorage.getItem('filter'),
+      requester_id: currentUser.id,
+      requestee_id: '',
+      status: false,
     }
+
+  }
+
+  componentDidUpdate(prevProps) {
+    // if requestee_id updates, then send request
+  }
+
+  handleClick(e) {
+    // change icon to 
   }
 
   componentDidMount() {
@@ -54,11 +66,24 @@ class SearchFriends extends React.Component {
           )
         } else if (currentUser.id === friend.id) {
           icon = null;
+        } else if (currentUser.sentFriendRequests.includes(friend.id)) {
+          icon = (
+            <div className="add-friend-circle">
+            <FontAwesomeIcon icon="user-times"
+              className="fa-user-times dark" 
+              // onClick={this.handleClick}
+              />
+            </div>
+          )
         } else {
           icon = (
             <div className="add-friend-circle">
-            <FontAwesomeIcon icon="user-plus"
-              className="fa-user-plus dark" />
+              <FontAwesomeIcon icon="user-plus"
+                className="fa-user-plus dark"
+                onClick={this.handleClick} />
+              {/* <FontAwesomeIcon icon="user-plus"
+              className="fa-user-plus dark" 
+              onClick={this.handleClick}/> */}
             </div>
           )
         }
@@ -70,9 +95,9 @@ class SearchFriends extends React.Component {
             <img src={friend.pfpUrl} alt="" 
               className="pfp" />
             <span className="name">{friend.fname} {friend.lname}</span>
-            {icon}
             </Link>
 
+            {icon}
           </li>
         )
         searched.push(ele);

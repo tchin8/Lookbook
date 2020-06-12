@@ -24,11 +24,25 @@ class NavBar extends React.Component {
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
+
+    if (localStorage.getItem('mode') === 'dark') {
+      $('.light').toggleClass("dark light");
+    } else if (localStorage.getItem('mode') === 'light') {
+      $('.dark').toggleClass("dark light");
+    }
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.users !== this.props.users) {
       return this.setState({ users: this.props.users });
+    }
+  }
+
+  componentDidMount() {
+    if (localStorage.getItem('mode') === 'dark') {
+      $('.light').toggleClass("dark light");
+    } else if (localStorage.getItem('mode') === 'light') {
+      $('.dark').toggleClass("dark light");
     }
   }
 
@@ -76,7 +90,33 @@ class NavBar extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.history.push('/search');
+    if (!window.location.href.includes("/search")) {
+      this.props.history.push('/search');
+    } else {
+      let searchUsers = [];
+      if (this.state && this.state.filter && this.state.users) {
+        const search = this.state.filter.toLowerCase();
+        const numUsers = Object.keys(this.state.users).length;
+        const usersArr = Object.values(this.state.users);
+        for (let i = 0; i < numUsers; i++) {
+          const user = usersArr[i];
+          const keys = Object.keys(user);
+
+          for (let i = 0; i < keys.length; i++) {
+            let key = keys[i];
+            if (key === 'fname' || key === 'lname') {
+              if (user[key].toLowerCase().includes(search) && !searchUsers.includes(user)) {
+                searchUsers.push(user);
+              }
+            }
+          }
+        }
+        localStorage.setItem('filter', this.state.filter);
+      }
+
+      localStorage.setItem('searchFriends', JSON.stringify(searchUsers));
+
+    }
   }
 
   render () {
@@ -84,10 +124,10 @@ class NavBar extends React.Component {
 
     const { currentUser } = this.props;
     let searchUsers = [];
-    if (this.state && this.state.filter) {
+    if (this.state && this.state.filter && this.state.users) {
       const search = this.state.filter.toLowerCase();
-      const numUsers = Object.keys(this.state.users).length
-      const usersArr = Object.values(this.state.users)
+      const numUsers = Object.keys(this.state.users).length;
+      const usersArr = Object.values(this.state.users);
       for (let i = 0; i < numUsers; i++) {
         const user = usersArr[i];
         const keys = Object.keys(user);
@@ -95,7 +135,7 @@ class NavBar extends React.Component {
         for (let i = 0; i < keys.length; i++) {
           let key = keys[i];
           if (key === 'fname' || key === 'lname') {
-            if (user[key].toLowerCase().includes(search)) {
+            if (user[key].toLowerCase().includes(search) && !searchUsers.includes(user)) {
               searchUsers.push(user);
             }
           }

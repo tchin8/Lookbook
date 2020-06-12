@@ -17,6 +17,20 @@ class PostIndexItem extends React.Component {
     this.handleFocus = this.handleFocus.bind(this);
     this.handleDeletePost = this.handleDeletePost.bind(this);
     this.handleEditModal = this.handleEditModal.bind(this);
+
+    if (localStorage.getItem('mode') === 'dark') {
+      $('.light').toggleClass("dark light");
+    } else if (localStorage.getItem('mode') === 'light') {
+      $('.dark').toggleClass("dark light");
+    }
+  }
+
+  componentDidMount() {
+    if (localStorage.getItem('mode') === 'dark') {
+      $('.light').toggleClass("dark light");
+    } else if (localStorage.getItem('mode') === 'light') {
+      $('.dark').toggleClass("dark light");
+    }
   }
   
   postedTimeAgo(datetime) {

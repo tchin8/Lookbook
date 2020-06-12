@@ -6,8 +6,23 @@ import {
 import NewsfeedPostIndex from './newsfeed_post_index';
 
 class NewsfeedMain extends React.Component {
+  constructor(props) {
+    super(props);
+
+    if (localStorage.getItem('mode') === 'dark') {
+      $('.light').toggleClass("dark light");
+    } else if (localStorage.getItem('mode') === 'light') {
+      $('.dark').toggleClass("dark light");
+    }
+  }
+
   componentDidMount() {
     window.scrollTo(0, 0);
+    if (localStorage.getItem('mode') === 'dark') {
+      $('.light').toggleClass("dark light");
+    } else if (localStorage.getItem('mode') === 'light') {
+      $('.dark').toggleClass("dark light");
+    }
   }
 
   render() {
@@ -50,17 +65,21 @@ class NewsfeedMain extends React.Component {
             </li>
             </Link>
 
+            <a href="https://github.com/tchin8">
             <li className="git">
               <FontAwesomeIcon icon={['fab', 'github']}
                 className="fa-github dark" />
               <span>Github</span>
             </li>
+            </a>
 
+            <a href="https://www.linkedin.com/in/tiffany-chin-86a402199/">
             <li className="linkedin">
               <FontAwesomeIcon icon={['fab', 'linkedin-in']}
                 className="fa-linkedin dark" />
               <span>LinkedIn</span>
             </li>
+            </a>
           </ul>
         </section>
 

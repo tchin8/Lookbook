@@ -1053,7 +1053,7 @@ ul.wall-posts {
   
           div.each-com {
             background-color: #3a3b3c;
-            border-radius: 20px;
+            border-radius: 18px;
             color: #e4e6ea;
             height: 50px;
             // height: 100%;
@@ -1077,8 +1077,10 @@ ul.wall-posts {
             p.actual-com {
               line-height: 1;
               display: block;
-              font-size: 14px;
+              font-size: 15px;
+              font-weight: 300;
               margin: 2px 12px 0 12px;
+              
             }
 
             div.like-reply {

@@ -152,6 +152,7 @@ section.search-main {
 
         div.add-friend-circle:hover {
           background-color: #4e4f50;
+          cursor: pointer;
         }
 
         div.add-friend-circle {
@@ -165,6 +166,14 @@ section.search-main {
 
           .fa-user-plus.dark, .fa-facebook-messenger.dark {
             color: #ffffff;
+            font-size: 18px;
+            position: absolute;
+            top: 8px;
+            left: 8px;
+          }
+
+          .fa-user-times.dark {
+            color: #0088ff;
             font-size: 18px;
             position: absolute;
             top: 8px;

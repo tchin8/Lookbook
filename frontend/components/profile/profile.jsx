@@ -10,6 +10,13 @@ class Profile extends React.Component {
         this.props.fetchUserPosts(this.props.match.params.userId);
       }
     }
+
+    if (localStorage.getItem('mode') === 'dark') {
+      $('.light').toggleClass("dark light");
+    } else if (localStorage.getItem('mode') === 'light') {
+      $('.dark').toggleClass("dark light");
+    }
+
   }
 
   componentDidMount() {

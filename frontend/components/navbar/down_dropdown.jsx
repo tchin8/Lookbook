@@ -21,9 +21,11 @@ class DownDropdown extends React.Component {
     if (this.state.darkMode) {
       $('.dark').toggleClass("dark light");
       this.setState({ darkMode: false });
+      localStorage.setItem('mode', 'light');
     } else {
       $('.light').toggleClass("dark light");
       this.setState({ darkMode: true });
+      localStorage.setItem('mode', 'dark');
     }
   }
 

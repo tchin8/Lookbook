@@ -110,7 +110,6 @@ class EditProfileForm extends React.Component {
   }
 
   render() {
-    // debugger;
     const { closeModal, currentUser, updateUser } = this.props;
 
     let editBioBtn;
@@ -121,8 +120,6 @@ class EditProfileForm extends React.Component {
       editBioBtn = <button className="edit-bio dark"
         onClick={this.handleClick}>Add</button>
     }
-
-    // debugger;
 
     return (
       <section className="edit-profile-modal dark">

@@ -9,6 +9,13 @@ class Newsfeed extends React.Component {
     this.state = {
       users: props.users,
     }
+
+    if (localStorage.getItem('mode') === 'dark') {
+      $('.light').toggleClass("dark light");
+    } else if (localStorage.getItem('mode') === 'light') {
+      $('.dark').toggleClass("dark light");
+    }
+
   }
 
   componentDidUpdate(prevProps) {

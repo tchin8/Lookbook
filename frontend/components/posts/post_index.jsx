@@ -7,11 +7,22 @@ class PostIndex extends React.Component {
     super(props);
 
     this.state = props.postsState;
+
+    if (localStorage.getItem('mode') === 'dark') {
+      $('.light').toggleClass("dark light");
+    } else if (localStorage.getItem('mode') === 'light') {
+      $('.dark').toggleClass("dark light");
+    }
   }
 
-  // componentDidMount() {
-  //   this.props.fetchUserPosts(this.props.match.params.userId);
-  // }
+  componentDidMount() {
+    // this.props.fetchUserPosts(this.props.match.params.userId);
+    if (localStorage.getItem('mode') === 'dark') {
+      $('.light').toggleClass("dark light");
+    } else if (localStorage.getItem('mode') === 'light') {
+      $('.dark').toggleClass("dark light");
+    }
+  }
 
 
   render() {
