@@ -29,10 +29,6 @@ class WallPost extends React.Component {
 
     let postBtn, icons;
 
-    // if (!user) {
-    //   return null;
-    // }
-
     if (currentUser.pfpUrl === undefined) {
       return null;
     }
@@ -45,7 +41,8 @@ class WallPost extends React.Component {
       
       icons = (
         <div className="bottom dark">
-          <div className="live-vid-div dark">
+          <div className="live-vid-div dark"
+            onClick={() => openModal('Create Post')}>
             <FontAwesomeIcon icon="video"
               className="fa-video dark" />
             <span>Live Video</span>
@@ -53,6 +50,7 @@ class WallPost extends React.Component {
 
           <div className="photo-vid-div dark"
             // onClick={this.handleUploadPicClick}
+            onClick={() => openModal('Create Post')}
             >
             <FontAwesomeIcon icon="images"
               className="fa-images dark" />
@@ -63,7 +61,8 @@ class WallPost extends React.Component {
             id="file"
             onChange={this.handleUploadPic}/> */}
 
-          <div className="feeling-div dark">
+          <div className="feeling-div dark"
+            onClick={() => openModal('Create Post')}>
             <FontAwesomeIcon icon={['fab', 'font-awesome-flag']}
               className="fa-font-awesome-flag dark" />
             <span>Life Event</span>

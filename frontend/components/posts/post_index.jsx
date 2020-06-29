@@ -16,7 +16,6 @@ class PostIndex extends React.Component {
   }
 
   componentDidMount() {
-    // this.props.fetchUserPosts(this.props.match.params.userId);
     if (localStorage.getItem('mode') === 'dark') {
       $('.light').toggleClass("dark light");
     } else if (localStorage.getItem('mode') === 'light') {

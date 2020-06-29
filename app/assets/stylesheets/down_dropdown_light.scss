@@ -82,7 +82,6 @@ span.see-profile {
   line-height: 0;
 }
 
-// change to dynamic -- pfp of currentUser
 .fb-pfp {
   height: 60px;
   width: 60px;
@@ -93,7 +92,6 @@ span.see-profile {
 div.t2 > span:last-child {
   color: #676a6d;
   font-size: 12px;
-  // padding: 0;
 }
 
 div.t2 > span:first-child {
@@ -165,7 +163,6 @@ span.centered {
   background-color: #676a6d;
   text-decoration: underline;
 }
-
 
 // switch box for dark/light mode
 .switch.light {

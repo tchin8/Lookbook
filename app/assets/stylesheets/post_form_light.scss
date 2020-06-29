@@ -19,7 +19,6 @@ div.create-post-form-container.light {
       font-weight: bold;
       text-align: center;
       padding: 20px 0 0 0;
-      // margin: auto;
     }
 
     button.close-form {
@@ -42,7 +41,6 @@ div.create-post-form-container.light {
           font-size: 20px;
           position: relative;
           top: 10px;
-          // left: 1px;
         }
       }
     }
@@ -69,7 +67,6 @@ div.create-post-form-container.light {
     }
 
     div {
-      // height: 44px;
       margin: 0 0 0 10px;
 
       div {
@@ -114,7 +111,6 @@ div.create-post-form-container.light {
   form.create-post-form {
     position: relative;
     height: 100%;
-    // margin: auto; 
 
     textarea.big, textarea.small {
       border: none;
@@ -124,7 +120,6 @@ div.create-post-form-container.light {
       font-size: 24px;
       font-weight: 200px;
       min-height: 226px;
-      // min-height: 100px;
       margin: 10px 18px 0 16px;
       width: 466px;
       resize: none;
@@ -171,7 +166,6 @@ div.create-post-form-container.light {
       }
 
       div.hover-circle.light {
-        // background-color: #3a3b3c;
         border-radius: 100%;
         height: 36px;
         margin: 0 0 0 4px;
@@ -228,10 +222,7 @@ div.btn-div {
     display: block;
     color: white;
     height: 35px;
-    // margin: auto;
     margin: 16px;
-    // position: relative;
-    // top: 16px;
     width: 468px;
   }
 }

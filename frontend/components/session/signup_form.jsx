@@ -56,7 +56,6 @@ class SignupForm extends React.Component {
 
     if (e.currentTarget.value.length === 0) {
       e.currentTarget.classList.add("blur");
-      // e.target.classList.remove("hidden");
       $(`.fa-exclamation-circle-${classN}`).removeClass('hidden');
     } else {
       e.currentTarget.classList.remove("blur");
@@ -92,11 +91,9 @@ class SignupForm extends React.Component {
     $(`.pw-error-msg`).addClass('hidden');
     $(`.mfc-error-msg`).addClass('hidden');
 
-    // $(`.fa-exclamation-circle-${classN}`).addClass('hidden');
     if (classN !== 'mfc') {
       let field = `${classN}Count`;
       if (this.state[field] === 1) {
-        // $(`.${classN}-error-msg`).addClass('hidden');
         $(`.${classN}-error-msg`).removeClass('hidden');
       }
     }
@@ -122,7 +119,6 @@ class SignupForm extends React.Component {
   }
 
   handleErrors() {
-    // $(`.${firstClassN}-error-msg`).removeClass('hidden');
     const errors = Array.from(this.props.errors);
     let classN = "";
     let firstClassN ="";
@@ -426,7 +422,6 @@ class SignupForm extends React.Component {
             value="Female" 
             name="g"
             className="mfc"
-            // onBlur={this.handleBlur}
             onFocus={this.handleFocus}
             onClick={this.update('gender')}/>Female
 
@@ -440,7 +435,6 @@ class SignupForm extends React.Component {
             value="Male" 
             name="g"
             className="mfc"
-            // onBlur={this.handleBlur}
             onFocus={this.handleFocus}
             onClick={this.update('gender')}/>Male
         </label>
@@ -449,7 +443,6 @@ class SignupForm extends React.Component {
           <input type="radio" 
             name="g" 
             className="mfc"
-            // onBlur={this.handleBlur}
             onFocus={this.handleFocus}
             value="Custom" />Custom
           <FontAwesomeIcon icon='exclamation-circle' className="fa-exclamation-circle-mfc hidden" />

@@ -65,9 +65,7 @@ class ProfileMain extends React.Component {
           </div>
 
           <div className="settings-bottom">
-            <div className="list dark"
-            // focused={true}
-            >
+            <div className="list dark">
               <FontAwesomeIcon icon="list"
                 className="fa-list dark" />
               <span>List View</span>

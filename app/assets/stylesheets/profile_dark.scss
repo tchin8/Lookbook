@@ -3,28 +3,21 @@ section.p-header.dark {
   border-bottom: 1px solid #1a1b1c;
   padding: 60px 0 0 0;
   height: 100%;
-  // 530px?
 
   div.cover-pic.dark {
     background-color: #18191a;
-    // border-left: 1px solid white;
-    // border-right: 1px solid white;
-    // border-bottom: 1px solid white;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    // border: none;
     display: flex;
     justify-content: center;
     height: 350px;
     margin: auto;
     position: relative;
     width: 940px;
-    // z-index: 10;
 
     img.cover-pic {
       border-bottom-left-radius: 10px;
       border-bottom-right-radius: 10px;
-      // border: #18191a;
       width: 100%;
       height: 100%;
     }
@@ -40,10 +33,8 @@ section.p-header.dark {
         height: 170px;
         width: 170px;
         position: relative;
-        // top: 190px;
         z-index: 0;
         object-fit: cover;
-        // margin: auto auto auto auto;
       }
 
       div.cam-circle.dark {
@@ -97,8 +88,6 @@ section.p-header.dark {
   }
 
   div.under-cover {
-    // remove later
-    // border: 1px solid red;
     font-family: Arial, Helvetica, sans-serif;
     margin: auto;
     width: 878px;
@@ -114,13 +103,11 @@ section.p-header.dark {
         color: white;
         display: block;
         font-size: 34px;
-        // padding: 10px 0 0 0;
       }
 
       span.bio-span.dark {
         color: #b1b3b9;
         font-size: 16px;
-        // font-weight: lighter;
         position: relative;
         top: -16px;
 
@@ -149,7 +136,6 @@ section.p-header.dark {
           padding: 0;
           position: relative;
           width: 100px;
-          // top: 4px;
           left: 390px;
         }
 
@@ -169,7 +155,6 @@ section.p-header.dark {
           padding: 0 0 4px 0;
           position: relative;
           left: 74px;
-          // text-align: right;
         }
 
         textarea.text-bio.dark {
@@ -269,7 +254,6 @@ section.p-header.dark {
         div {
           color: #b1b3b9;
           cursor: pointer;
-          // background-color: #3a3b3c;
           border-radius: 6px;
           font-size: 16px;
           margin: 4px 0 4px 0;
@@ -314,7 +298,6 @@ section.p-header.dark {
           padding: 17px 16px 17px 16px;
           position: relative;
           top: 3px;
-          // margin: 0 0 3px 0;
           
           span {
             position: relative;
@@ -327,7 +310,6 @@ section.p-header.dark {
           background-color: #242526!important;
         }
         // CHANGE THIS LATER
-
       }
 
       div.right-nav.dark {
@@ -349,7 +331,6 @@ section.p-header.dark {
           }
 
           button.msg-user {
-            // width: 100px;
             position: relative;
             padding: 10px 16px 10px 34px;
 
@@ -401,27 +382,20 @@ section.p-header.dark {
 section.profile-main.dark {
   background-color: #18191a;
   border-top: 1px solid #171819;
-  // height: 100%;
   min-height: 500px;
 
   div.pm-div.dark {
-    // border: 1px solid white;
     display: grid;
-    // justify-content: space-between;
     height: 100%;
     margin: auto;
     padding: 15px 0 0 0;
     width: 878px;
     position: relative;
-    // position: absolute;
-    // left: 0;
 
     div.main-left.sticky {
       position: fixed;
       top: 0;
       padding: 60px 0 0 0;
-      // right: 20px;
-      // width: 100%;
     }
 
     div.main-left {
@@ -429,15 +403,6 @@ section.profile-main.dark {
       width: 360px;
       grid-column: 1;
       grid-row: 1;
-      // position: absolute;
-      // left: 0;
-
-      // img.random-blackness {
-      //   height: 20px;
-      //   width: 100%;
-      //   position: relative;
-      //   top: 2000px;
-      // }
 
       div.intro.dark, div.photos.dark, div.life-events.dark, div.friends.dark {
         span {
@@ -454,9 +419,7 @@ section.profile-main.dark {
         background-color: #242526;
         border-radius: 8px;
         box-shadow: 2px 2px 2px #151617;
-        // height: 508px;
         min-height: 402px;
-        // max-height
         margin: auto;
         width: 100%;
 
@@ -512,23 +475,15 @@ section.profile-main.dark {
         background-color: #242526;
         border-radius: 8px;
         box-shadow: 2px 2px 2px #151617;
-        // min-height: 200px;
         min-height: 40px;
         // NEED THIS, DO NOT REMOVE
         // margin: 18px 0 0 0;
         width: 100%;
-        // position: -webkit-sticky; /* Safari */
-        // position: sticky;
-        // top: 60px;
 
         div.photos {
-          // height: 328px;
-          // width: 328px;
-          // margin: 0 0 16px 16px;
           display: grid;
           grid-template-columns: 106px 106px 106px;
           grid-gap: 0 4px;
-          // grid-gap: 20px 10px;
           height: 100%;
           margin: 0 0 16px 16px;
           padding: 0 0 18px 0;
@@ -567,15 +522,9 @@ section.profile-main.dark {
         background-color: #242526;
         border-radius: 8px;
         box-shadow: 2px 2px 2px #151617;
-        // height: 544px;
-        // min-height: 240px;
         min-height: 40px;
-        // max-height
         margin: 18px 0 0 0;
         width: 100%;
-        // position: -webkit-sticky; /* Safari */
-        // position: sticky;
-        // top: 480px;
 
         span.num-friends {
           color: #b1b3b9;
@@ -587,12 +536,10 @@ section.profile-main.dark {
         }
 
         div.friends {
-          // height: 328px;
           display: grid;
           grid-template-columns: 102px 102px 102px;
           grid-gap: 2px 10px;
           padding: 0 0 20px 0;
-          // grid-gap: 20px 10px;
           height: 100%;
           margin: 0 0 16px 16px;
           width: 328px;
@@ -600,7 +547,6 @@ section.profile-main.dark {
           img.pfp {
             border-radius: 10px;
             height: 102px;
-            // margin: 0 10px 0 0;
             object-fit: cover;
             width: 102px;
           }
@@ -614,19 +560,11 @@ section.profile-main.dark {
             word-wrap: break-word;
           }
 
-          // div.friends-row-1-3, div.friends-row-2-3, div.friends-row-3-3 {
-          //   display: flex;
-          //   padding: 0 0 3px 0;
-          //   justify-content: space-between;
-
-            div.friend-1-9, div.friend-2-9, div.friend-3-9, div.friend-4-9, div.friend-5-9, div.friend-6-9, div.friend-7-9, div.friend-8-9, div.friend-9-9 {
-              // background-color: #18191a;
-              border-radius: 10px;
-              height: 120px;
-              width: 102px;
-            }
-
-          // }
+          div.friend-1-9, div.friend-2-9, div.friend-3-9, div.friend-4-9, div.friend-5-9, div.friend-6-9, div.friend-7-9, div.friend-8-9, div.friend-9-9 {
+            border-radius: 10px;
+            height: 120px;
+            width: 102px;
+          }
         }
       }
 
@@ -635,7 +573,6 @@ section.profile-main.dark {
         border-radius: 8px;
         box-shadow: 2px 2px 2px #151617;
         height: 316px;
-        // max-height
         margin: 18px 0 0 0;
         width: 100%;
       }
@@ -666,7 +603,6 @@ section.profile-main.dark {
           border-bottom: 1px solid #3c3e40;
           display: flex;
           height: 54px;
-          // margin: 6px 0 0 0;
           justify-content: space-between;
           position: relative;
 
@@ -730,7 +666,6 @@ section.profile-main.dark {
           margin: 0 0 0 14px;
           
           div {
-            // background-color: #3a3b3c;
             border-radius: 6px;
             cursor: pointer;
             height: 32px;
@@ -780,15 +715,11 @@ section.wall-post-container.dark {
   background-color: #242526;
   border-radius: 8px;
   box-shadow: 2px 2px 2px #151617;
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: center;
   height: 120px;
   width: 100%;
 
   div.top.dark {
     border-bottom: 1px solid #38393a;
-    // border: 1px solid red;
     display: flex;
     justify-content: space-between;
     height: 50%;
@@ -829,7 +760,6 @@ section.wall-post-container.dark {
   }
 
   div.bottom.dark {
-    // border: 1px solid red;
     height: 50%;
     display: flex;
     height: 50%;
@@ -847,14 +777,11 @@ section.wall-post-container.dark {
       cursor: pointer;
       font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
       font-size: 15px;
-      // font-weight: 300;
       height: 36px;
       position: relative;
       width: 156px;
       display: flex;
       justify-content: center;
-
-      // background-color: #3a3b3c;
 
       .fa-video {
         color: #f12848;
@@ -879,7 +806,6 @@ section.wall-post-container.dark {
       .fa-user-tag {
         color:	#1a76f2;
         font-size: 18px;
-        // bottom: 10px;
       }
 
       .fa-laugh {
@@ -992,14 +918,11 @@ ul.wall-posts {
       }
 
       div.post-photo-div {
-        // width: 400px;
-        // height: 400px;
 
         img.post-photo {
           margin: 0 0 -4px -15px;
           object-fit: cover;
           width: 500px;
-        // height: 400px;
         }
       }
     }
@@ -1022,12 +945,8 @@ ul.wall-posts {
         border-radius: 4px;
         font-size: 18px;
         margin: 4px 0 0 0;
-        // margin: auto;
         height: 32px;
         width: 156px;
-        // position: relative;
-        // display: flex;
-        // justify-content: center;
 
         .fa-thumbs-up.dark, .fa-comment.dark, .fa-share-square.dark {
           padding: 0 6px 0 0;
@@ -1080,7 +999,6 @@ ul.wall-posts {
             border-radius: 18px;
             color: #e4e6ea;
             height: 50px;
-            // height: 100%;
             // change to min later
             margin: 8px 0 0 0;
             min-width: 100px;
@@ -1138,8 +1056,6 @@ ul.wall-posts {
         display: flex;
         margin: auto;
         padding: 8px 0;
-        // position: relative;
-        // top: 6px;
         width: 470px;
 
         img.thumbnail {
@@ -1165,7 +1081,6 @@ ul.wall-posts {
             font-size: 15px;
             min-height: 16px;
             padding: 0 0 0 14px;
-            // resize: vertical;
             width: 420px;
             overflow: auto;
           }
@@ -1204,16 +1119,13 @@ div.post-dropdown.dark {
   z-index: 1;
   right: 2px;
   top: 40px;
-  // margin: auto;
 
   div.pdd-1-3.dark {
     height: 62px;
     width: 100px;
-    // margin: auto;
 
     div.save-post, div.hide-timeline {
       text-align: left;
-      // background-color: #3a3b3c;
       border-radius: 4px;
       height: 45px;
       width: 330px;
@@ -1257,9 +1169,7 @@ div.post-dropdown.dark {
           color: 	#abadb2;
           font-size: 12px;
           margin: 4px 0 0 0;
-          // padding: 0 0 0 14px;
         }
-        
       }
 
       div.pdd-text2 {
@@ -1273,7 +1183,6 @@ div.post-dropdown.dark {
           color: 	#abadb2;
           font-size: 12px;
           margin: 4px 0 0 0;
-          // padding: 0 0 0 14px;
         }
       }
     }
@@ -1297,7 +1206,6 @@ div.post-dropdown.dark {
     }
 
     div.edit-post, div.edit-audience, div.delete-post, div.turn-off-nots, div.change-date {
-      // background-color: #3a3b3c;
       border-radius: 4px;
       height: 36px;
       width: 330px;
@@ -1326,7 +1234,6 @@ div.post-dropdown.dark {
     width: 0px;
     height: 0px;
     border: 10px solid #2f3031;
-    // border-color: transparent transparent #2f3031;
     border-color: transparent transparent #242526;
     right: 4px;
     top: -20px;

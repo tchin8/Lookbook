@@ -46,7 +46,6 @@
     line-height: 0;
   }
 
-  // change to dynamic -- pfp of currentUser
   .fb-pfp {
     height: 60px;
     width: 60px;
@@ -57,13 +56,11 @@
   div.t2 > span:last-child {
     color: #929497;
     font-size: 12px;
-    // padding: 0;
   }
 
   div.t2 > span:first-child {
     color: #dadce0;
     font-size: 15px;
-    // padding-bottom: 4px;
   }
 
   div.cog {

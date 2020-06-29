@@ -35,14 +35,6 @@ class EditProfileForm extends React.Component {
     this.state.count = 101 - this.state.bio.length;
   }
 
-  // componentDidMount() {
-  //   // let bio = this.state.bio;
-  //   // if (this.state.bio !== localStorage.getItem('bio') && localStorage.getItem('bio') !== undefined) {
-  //   //   return this.setState({ "bio": localStorage.getItem('bio') });
-  //   // }
-  //   localStorage.clear();
-  // }
-
   handleCancel(e) {
     e.preventDefault();
     this.setState({
@@ -55,7 +47,6 @@ class EditProfileForm extends React.Component {
     e.preventDefault();
     this.setState({
       current_city: this.state.prevState.current_city,
-      // current_city: this.state.prevState.current_city,
       workplace: this.state.prevState.workplace,
       school: this.state.prevState.school,
       hometown: this.state.prevState.hometown,
@@ -84,7 +75,6 @@ class EditProfileForm extends React.Component {
   }
 
   update(field) {
-    // $('.bio').toggleClass("show hidden");
     return e => (
       this.setState({ [field]: e.target.value })
     )
@@ -93,9 +83,7 @@ class EditProfileForm extends React.Component {
   handleSubmitBio(e) {
     e.preventDefault();
     $('.edit-bio').toggleClass("show hidden");
-    // localStorage.setItem('bio', this.state.bio)
     this.props.updateUser(this.state); 
-    // this.forceUpdate();
   }
 
   handleSubmit(e) {

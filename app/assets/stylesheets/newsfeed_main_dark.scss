@@ -3,7 +3,6 @@ section.newsfeed-main.dark {
   display: flex;
   justify-content: space-between;
   min-height: 1000px;
-  // margin: auto;
   padding: 60px 0 0 0;
   position: relative;
 
@@ -15,7 +14,6 @@ section.newsfeed-main.dark {
     height: 100%;
     
     div {
-      // background-color: #303031;
       border-radius: 8px;
       margin: 8px 8px 0 0;
       width: 304px;
@@ -25,7 +23,6 @@ section.newsfeed-main.dark {
         color: #b0b3b8;
         display: block;
         font-size: 18px;
-        // font-weight: bold;
         padding: 18px 0 0 8px;
       }
     }
@@ -34,7 +31,6 @@ section.newsfeed-main.dark {
       margin: 0 8px 0 0;
 
       li.contact-friend {
-        // background-color: #303031;
         border-radius: 8px;
         color: #e3e5e9;
         width: 304px;
@@ -68,7 +64,6 @@ section.newsfeed-main.dark {
     height: 100%;
     width: 312px;
     top: 60px; /* Stay at the top */
-    // left: 0;
     
     ul.personal-links {
       color: #e3e5e9;
@@ -80,7 +75,6 @@ section.newsfeed-main.dark {
       }
 
       li.profile, li.git, li.linkedin {
-        // background-color: #303031;
         border-radius: 8px;
         color: #e3e5e9;
         width: 304px;
@@ -119,8 +113,6 @@ section.newsfeed-main.dark {
   section.col-2-3.dark {
     color: #e4e6ea;
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
-    // margin: auto;
-    // border: 1px solid red;
     height: 100%;
     width: 680px;
 
@@ -128,16 +120,12 @@ section.newsfeed-main.dark {
       background-color: #242526;
       border-radius: 8px;
       box-shadow: 2px 2px 2px #151617;
-      // display: flex;
-      // flex-direction: column;
-      // justify-content: center;
       margin: 22px 0 0 0;
       height: 120px;
       width: 100%;
 
       div.top.dark {
         border-bottom: 1px solid #38393a;
-        // border: 1px solid red;
         display: flex;
         justify-content: space-between;
         height: 50%;
@@ -178,7 +166,6 @@ section.newsfeed-main.dark {
       }
 
       div.bottom.dark {
-        // border: 1px solid red;
         height: 50%;
         display: flex;
         height: 50%;
@@ -196,14 +183,11 @@ section.newsfeed-main.dark {
           cursor: pointer;
           font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
           font-size: 15px;
-          // font-weight: 300;
           height: 36px;
           position: relative;
           width: 216px;
           display: flex;
           justify-content: center;
-
-          // background-color: #3a3b3c;
 
           .fa-video {
             color: #f12848;
@@ -228,7 +212,6 @@ section.newsfeed-main.dark {
           .fa-user-tag {
             color:	#1a76f2;
             font-size: 18px;
-            // bottom: 10px;
           }
 
           .fa-laugh {
@@ -348,7 +331,6 @@ section.newsfeed-main.dark {
               margin: 0 0 -4px -15px;
               object-fit: cover;
               width: 680px;
-            // height: 400px;
             }
           }
         }
@@ -480,8 +462,6 @@ section.newsfeed-main.dark {
             display: flex;
             margin: auto;
             padding: 8px 0;
-            // position: relative;
-            // top: 6px;
             width: 650px;
 
             img.thumbnail {
@@ -507,9 +487,6 @@ section.newsfeed-main.dark {
                 font-size: 15px;
                 min-height: 16px;
                 padding: 0 0 0 14px;
-                // resize: vertical;
-                // width: 608px;
-                //why this break?
                 width: 598px;
                 overflow: auto;
               }

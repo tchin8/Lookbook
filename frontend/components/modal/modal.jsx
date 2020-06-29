@@ -5,8 +5,6 @@ import DownDropdown from '../navbar/down_dropdown';
 import EditProfileFormContainer from '../profile/edit_profile_form_container';
 
 function Modal({ currentUser, user, modal, closeModal }) {
-  // const { currentUser, user, modal, closeModal } = this.props;
-
   if (!modal) {
     return null;
   }
@@ -23,10 +21,6 @@ function Modal({ currentUser, user, modal, closeModal }) {
     case 'Edit Profile':
       component = <EditProfileFormContainer />;
       break;
-
-    // case 'nav down dropdown':
-    //   component = <DownDropdown />;
-    //   break;
     default:
       return null;
   }

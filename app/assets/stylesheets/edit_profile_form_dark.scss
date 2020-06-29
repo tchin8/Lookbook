@@ -6,19 +6,16 @@ section.edit-profile-modal.dark {
   // min-height: 1434px;
   // change back to ^ later
   min-height: 1040px;
-  // height: 1500px;
   width: 700px;
   position: relative;
   top: 140px;
   margin: 10vh auto 8vh auto;
-  // overflow: auto;
 
   div.header {
     border: 1px solid #2f3031;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     height: 60px;
-    // margin: auto;
     width: 698px;
     position: relative;
 
@@ -28,7 +25,6 @@ section.edit-profile-modal.dark {
       font-weight: bold;
       text-align: center;
       padding: 20px 0 0 0;
-      // margin: auto;
     }
 
     button.close-form {
@@ -45,14 +41,12 @@ section.edit-profile-modal.dark {
         height: 40px;
         width: 40px;
         position: relative;
-        // left: 200px;
 
         .fa-times.dark {
           color: 	#a7abaf;
           font-size: 20px;
           position: relative;
           top: 10px;
-          // left: 1px;
         }
       }
 
@@ -68,11 +62,8 @@ section.edit-profile-modal.dark {
     font-size: 20px;
     font-weight: bold;
     padding: 20px 18px;
-    // min-height: 1330px;
-    // height: 100%;
-    // font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+
     div.pro-pic {
-      // display: block;
       height: 238px;
       width: 100%;
 
@@ -81,7 +72,6 @@ section.edit-profile-modal.dark {
         color: #2e89ff;
         font-size: 16px;
         font-weight: normal;
-        // posit
         margin: 0 0 0 482px;
         padding: 10px;
       }
@@ -94,7 +84,6 @@ section.edit-profile-modal.dark {
         img.pfp {
           border-radius: 100%;
           height: 170px;
-          // margin: auto;
           width: 170px;
         }
       }
@@ -116,7 +105,7 @@ section.edit-profile-modal.dark {
         display: flex;
         justify-content: center;
         margin: 26px 0 0 0;
-        // height: 198px;
+
         img.cv {
           height: 186px;
           width: 500px;
@@ -127,7 +116,6 @@ section.edit-profile-modal.dark {
 
     div.bio-part {
       min-height: 38px;
-      // padding: 18px 0 0 0;
       margin: 18px 0 0 0;
 
       button.edit-bio.dark {
@@ -165,7 +153,6 @@ section.edit-profile-modal.dark {
           padding: 0 0 4px 0;
           position: relative;
           left: 144px;
-          // text-align: right;
         }
 
         textarea.text-bio.dark {
@@ -198,8 +185,6 @@ section.edit-profile-modal.dark {
         }
 
         div {
-          // display: flex;
-          // justify-content: flex-end;
           margin: 6px 0 0 0;
           position: relative;
           left: 166px;
@@ -369,7 +354,6 @@ section.edit-profile-modal.dark {
     }
 
     div.featured {
-      // display: block;
       margin: 36px 0 0 0;
       height: 500px;
       border: 1px solid #242526;

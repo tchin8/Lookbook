@@ -56,7 +56,6 @@ class NavBar extends React.Component {
 
     $(`section.${classN}`).toggleClass('hidden');
     e.currentTarget.classList.toggle('blue');
-    // shouldn't toggle, will need to add class hidden if clicking outside 
   }
 
   handleBlur(e) {
@@ -73,14 +72,6 @@ class NavBar extends React.Component {
       e.currentTarget.classList.toggle('blue');
     }
   }
-
-  // handleProfile(e) {
-  //   if (this.props.match.params.userId === this.props.currentUser.id) {
-  //     e.currentTarget.classList.add('blue');
-  //   } else {
-  //     e.currentTarget.classList.remove('blue');
-  //   }
-  // }
 
   update(field) {
     return e => (
@@ -231,9 +222,7 @@ class NavBar extends React.Component {
             <div className="right-navbar">
               <Link to={`/users/${currentUser.id}`} 
                 style={{ textDecoration: 'none' }}>
-              <div className="profile dark"
-                // onClick={this.handleProfile}
-                >
+              <div className="profile dark">
                 <img src={currentUser.pfpUrl} alt="" className="pfp" />
 
                 <span>{currentUser.fname}</span>

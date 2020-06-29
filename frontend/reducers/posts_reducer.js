@@ -23,7 +23,6 @@ function postsReducer(state = {}, action) {
 
     case RECEIVE_COMMENT: 
       newState[action.comment.post_id]["comments"] = newState[action.comment.post_id]["comments"] || {};
-      // newState[action.comment.post_id]["comments"][action.comment.id] = newState[action.comment.post_id]["comments"][action.comment.id] || {};
       newState[action.comment.post_id]["comments"][action.comment.id] =  action.comment;
       return newState;
     case REMOVE_POST:

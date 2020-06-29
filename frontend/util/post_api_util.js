@@ -48,4 +48,3 @@ export const fetchUserPosts = userId => (
     url: `/api/users/${userId}/posts`
   })
 );
-// is this needed?? see a user's wall posts... index of their wall posts...

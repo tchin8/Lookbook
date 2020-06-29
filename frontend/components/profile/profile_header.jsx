@@ -62,7 +62,6 @@ class ProfileHeader extends React.Component {
     this.handleUploadPfp = this.handleUploadPfp.bind(this);
     this.handleFileClickCoverPhoto = this.handleFileClickCoverPhoto.bind(this);
     this.handleUploadCoverPhoto = this.handleUploadCoverPhoto.bind(this);
-    // this.handleFile = this.handleFile.bind(this);
 
     if (this.state.bio === null) {
       this.state.count = 101;
@@ -72,9 +71,6 @@ class ProfileHeader extends React.Component {
   }
 
   componentDidMount() {
-    // if (this.props.user.friends === undefined) {
-    //   this.props.fetchUsers();
-    // }
     window.scrollTo(0, 0);
   }
 
@@ -201,10 +197,6 @@ class ProfileHeader extends React.Component {
   render() {
     const { user, updateUser, currentUser, openModal, createFriendRequest, deleteFriendRequest } = this.props;
     let bioButton, cameraButton, editCvButton, archive, rightNavBtns, bio, friendBtn;
-
-    // if (user.receivedFriendRequests === undefined) {
-    //   return null;
-    // }
 
     if (currentUser.id === user.id) {
       if (user.bio !== undefined && user.bio !== null) {
@@ -393,7 +385,6 @@ class ProfileHeader extends React.Component {
     let friends;
     if (user.friends !== undefined) {
 
-      // friends = user.friends.length;
       friends = (
         <div>Friends
           <span className="num-friends">{user.friends.length}</span>

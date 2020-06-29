@@ -21,8 +21,6 @@ class Profile extends React.Component {
 
   componentDidMount() {
     this.props.fetchUsers();
-    // this.props.fetchPosts();
-    // window.scrollTo(0, 0);
     this.props.fetchUserPosts(this.props.match.params.userId);
   }
 

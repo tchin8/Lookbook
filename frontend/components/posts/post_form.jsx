@@ -27,7 +27,6 @@ class PostForm extends React.Component {
       }
     }
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.handleUploadPic = this.handleUploadPic.bind(this);
     this.handleUploadPicClick = this.handleUploadPicClick.bind(this);
     this.handlePreview = this.handlePreview.bind(this);
   }

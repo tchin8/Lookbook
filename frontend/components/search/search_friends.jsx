@@ -26,7 +26,7 @@ class SearchFriends extends React.Component {
   }
 
   handleClick(e) {
-    // change icon to 
+    // change icon 
   }
 
   componentDidMount() {
@@ -36,10 +36,6 @@ class SearchFriends extends React.Component {
 
   render() {
     const { currentUser, updateUser, logout } = this.props;
-
-    // if (!user) {
-    //   return null;
-    // }
 
     const { filter, friends } = this.state;
 
@@ -80,9 +76,6 @@ class SearchFriends extends React.Component {
               <FontAwesomeIcon icon="user-plus"
                 className="fa-user-plus dark"
                 onClick={this.handleClick} />
-              {/* <FontAwesomeIcon icon="user-plus"
-              className="fa-user-plus dark" 
-              onClick={this.handleClick}/> */}
             </div>
           )
         }
@@ -131,7 +124,6 @@ class SearchFriends extends React.Component {
               <ul>
                 <li className="all">
                   <div className="id-circle dark"
-                    // onFocus={this.handleFocus}
                     >
                     <FontAwesomeIcon icon="id-card"
                       className="fa-id-card dark" />

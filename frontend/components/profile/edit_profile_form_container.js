@@ -6,7 +6,6 @@ import { closeModal } from '../../actions/modal_actions';
 
 const mSTP = state => ({
   currentUser: state.entities.users[state.session.id],
-  // user: state.entities.users[ownProps.match.params.userId]
 });
 
 const mDTP = dispatch => ({

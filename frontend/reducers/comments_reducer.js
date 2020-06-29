@@ -12,7 +12,6 @@ function commentsReducer(state = {}, action) {
     case RECEIVE_ALL_COMMENTS:
       return Object.assign({}, action.comments);
     case RECEIVE_COMMENT:
-      // let newState = Object.assign({}, state);
       newState[action.comment.id] = action.comment;
       return newState;
 

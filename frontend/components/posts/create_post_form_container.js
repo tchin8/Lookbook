@@ -5,10 +5,6 @@ import { createPost, createPostPhoto } from '../../actions/post_actions';
 import PostForm from './post_form';
 
 const mSTP = (state, ownProps) => ({
-  // currentUser: state.entities.users[state.session.id], 
-  // currentUser: Object.values(state.session)[0],
-  // currentUser: state.entities.users[state.session.id],
-  // wall: ownProps.match.params.userId,
   formType: 'Create Post'
 });
 
@@ -16,7 +12,6 @@ const mDTP = dispatch => ({
   action: post => dispatch(createPost(post)),
   createPostPhoto: formData => dispatch(createPostPhoto(formData)),
   closeModal: () => dispatch(closeModal())
-  // action: post => dispatch(createPost(post))
 });
 
 export default connect(mSTP, mDTP)(PostForm);

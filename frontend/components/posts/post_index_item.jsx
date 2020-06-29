@@ -70,7 +70,6 @@ class PostIndexItem extends React.Component {
       }
     } 
 
-    // let t = new Date(datetime);
     let amOrPm = "AM"; 
     if (t.getHours() > 12) {
       amOrPm = "PM";
@@ -96,7 +95,6 @@ class PostIndexItem extends React.Component {
     } 
 
     $(`#dd-${this.state.id}`).toggleClass('show hidden');
-    // shouldn't toggle, will need to add class hidden if clicking outside 
   }
 
   handleDeletePost(e) {

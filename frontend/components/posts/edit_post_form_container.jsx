@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import PostForm from './post_form';
 import { fetchPost, updatePost } from '../../actions/post_actions';
 import { openModal, closeModal } from '../../actions/modal_actions';
-// import { fetchPosts } from '../../util/post_api_util';
 
 class EditPostForm extends React.Component {
   constructor(props) {
@@ -29,10 +28,8 @@ class EditPostForm extends React.Component {
 const mSTP = (state, ownProps) => {
   return {
     currentUser: state.entities.users[state.session.id], 
-    // post: state.posts[ownProps.match.params.postId],
     post: JSON.parse(localStorage.getItem('editPost')),
     formType: 'Edit Post'
-    // formType: 'Update Post'
   }
 };
 

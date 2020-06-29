@@ -14,7 +14,6 @@ section.search-friends {
     div.top {
       height: 84px;
       margin: 0 16px;
-      // width: 100%;
   
       span {
         color: #ffffff;
@@ -90,15 +89,11 @@ section.search-friends {
 }
 
 section.search-main {
-  // width: 100%;
   height: 100%;
-  // margin: auto;
   padding: 0 0 0 360px;
-  // margin: 60px 0 0 0 360px; 
   position: relative;
   top: 94px;
-  // left: 60px;
-  
+
   section.search-results {
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
     background-color: #242526;
@@ -107,8 +102,6 @@ section.search-main {
     box-shadow: -2px 2px 4px #151516;
     min-height: 130px;
     margin: auto;
-    // margin: 0 0 0 360px;
-    // margin: 60px 0 0 0 360px; 
     width: 680px;
 
     span {
@@ -119,12 +112,10 @@ section.search-main {
     }
 
     ul {
-      // margin: auto;
 
       li.search-friend {
         height: 84px;
         width: 650px;
-        // border-top: 1px solid #393a3b;
         border-bottom: 1px solid #393a3b;
         position: relative;
         left: 18px;
@@ -194,7 +185,3 @@ section.search-main {
     }
   }
 }
-
-// html {
-//   height: 100%;
-// }

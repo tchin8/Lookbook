@@ -13,7 +13,7 @@ function friendRequestReducer(state = {}, action) {
       return newState;
 
     case REMOVE_REQUEST:
-      // might need to change this later!!!
+      // might need to change this later
       delete newState[action.requestId];
       return newState;
     default:

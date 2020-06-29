@@ -3,7 +3,6 @@ section.newsfeed-main.light {
   display: flex;
   justify-content: space-between;
   min-height: 1000px;
-  // margin: auto;
   padding: 60px 0 0 0;
   position: relative;
 
@@ -24,7 +23,6 @@ section.newsfeed-main.light {
         color: #65676b;
         display: block;
         font-size: 18px;
-        // font-weight: bold;
         padding: 18px 0 0 8px;
       }
     }
@@ -33,7 +31,6 @@ section.newsfeed-main.light {
       margin: 0 8px 0 0;
 
       li.contact-friend {
-        // background-color: #303031;
         border-radius: 8px;
         color: #2f2f30;
         width: 304px;
@@ -67,7 +64,6 @@ section.newsfeed-main.light {
     height: 100%;
     width: 312px;
     top: 60px; /* Stay at the top */
-    // left: 0;
     
     ul.personal-links {
       color: #050505;
@@ -79,7 +75,6 @@ section.newsfeed-main.light {
       }
 
       li.profile, li.git, li.linkedin {
-        // background-color: #303031;
         border-radius: 8px;
         color: #050505;
         width: 304px;
@@ -131,7 +126,6 @@ section.newsfeed-main.light {
 
       div.top.light {
         border-bottom: 1px solid #e4e6ea;
-        // border: 1px solid red;
         display: flex;
         justify-content: space-between;
         height: 50%;
@@ -172,7 +166,6 @@ section.newsfeed-main.light {
       }
 
       div.bottom.light {
-        // border: 1px solid red;
         height: 50%;
         display: flex;
         height: 50%;
@@ -190,14 +183,11 @@ section.newsfeed-main.light {
           cursor: pointer;
           font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
           font-size: 15px;
-          // font-weight: 300;
           height: 36px;
           position: relative;
           width: 216px;
           display: flex;
           justify-content: center;
-
-          // background-color: #3a3b3c;
 
           .fa-video {
             color: #f12848;
@@ -222,7 +212,6 @@ section.newsfeed-main.light {
           .fa-user-tag {
             color:	#1a76f2;
             font-size: 18px;
-            // bottom: 10px;
           }
 
           .fa-laugh {
@@ -338,7 +327,6 @@ section.newsfeed-main.light {
               margin: 0 0 -4px -15px;
               object-fit: cover;
               width: 680px;
-            // height: 400px;
             }
           }
         }
@@ -472,8 +460,6 @@ section.newsfeed-main.light {
             display: flex;
             margin: auto;
             padding: 8px 0;
-            // position: relative;
-            // top: 6px;
             width: 650px;
 
             img.thumbnail {
@@ -499,9 +485,6 @@ section.newsfeed-main.light {
                 font-size: 15px;
                 min-height: 16px;
                 padding: 0 0 0 14px;
-                // resize: vertical;
-                // width: 608px;
-                //why this break?
                 width: 598px;
                 overflow: auto;
               }
