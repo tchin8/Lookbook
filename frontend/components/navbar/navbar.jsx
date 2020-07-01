@@ -181,7 +181,9 @@ class NavBar extends React.Component {
             </div>
             </Link>
 
-            <div>
+            {/* KEEP ALL COMMENTED OUT CODE */}
+
+            {/* <div>
               <div className="tv-div dark">
                 <FontAwesomeIcon icon="tv"
                   className="fa-tv dark" />
@@ -215,6 +217,48 @@ class NavBar extends React.Component {
                     className="fa-delicious dark" />
                 </div>
               </div>
+            </div> */}
+            {/* KEEP ALL!! */}
+
+            <div>
+              <a href="https://www.linkedin.com/in/tiffany-chin-86a402199/">
+                <div className="tv-div dark">
+                  <FontAwesomeIcon icon={['fab', 'linkedin-in']}
+                    className="nav-linkedin dark" />
+                </div>
+              </a>
+            </div>
+
+            <div>
+              <a href="https://github.com/tchin8">
+              <div className="store-div dark">
+                <FontAwesomeIcon icon={['fab', 'github']}
+                  className="nav-github dark" />
+              </div>
+              </a>
+            </div>
+
+
+            <div>
+              <a href="https://angel.co/u/tiffany-chin-7">
+              <div className="game-div dark">
+                <div className="game dark">
+                  <FontAwesomeIcon icon={['fab', 'angellist']}
+                    className="fa-delicious dark" />
+                </div>
+              </div>
+              </a>
+            </div>
+
+            <div>
+              <a href="https://tchin8.github.io/">
+                <div className="game-div dark">
+                  <div className="game dark">
+                    <FontAwesomeIcon icon={['far', 'user-circle']}
+                      className="fa-delicious dark" />
+                  </div>
+                </div>
+              </a>
             </div>
           </section>
 

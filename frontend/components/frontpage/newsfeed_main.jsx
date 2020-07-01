@@ -65,6 +65,14 @@ class NewsfeedMain extends React.Component {
             </li>
             </Link>
 
+            <a href="https://www.linkedin.com/in/tiffany-chin-86a402199/">
+            <li className="linkedin">
+              <FontAwesomeIcon icon={['fab', 'linkedin-in']}
+                className="fa-linkedin dark" />
+              <span>LinkedIn</span>
+            </li>
+            </a>
+
             <a href="https://github.com/tchin8">
             <li className="git">
               <FontAwesomeIcon icon={['fab', 'github']}
@@ -73,13 +81,22 @@ class NewsfeedMain extends React.Component {
             </li>
             </a>
 
-            <a href="https://www.linkedin.com/in/tiffany-chin-86a402199/">
-            <li className="linkedin">
-              <FontAwesomeIcon icon={['fab', 'linkedin-in']}
-                className="fa-linkedin dark" />
-              <span>LinkedIn</span>
+            <a href="https://angel.co/u/tiffany-chin-7">
+            <li className="git">
+              <FontAwesomeIcon icon={['fab', 'angellist']}
+                className="fa-github dark" />
+              <span>AngelList</span>
             </li>
             </a>
+
+            <a href="https://tchin8.github.io/">
+            <li className="git">
+              <FontAwesomeIcon icon={['far', 'user-circle']}
+                className="fa-github dark" />
+              <span>Portfolio</span>
+            </li>
+            </a>
+
           </ul>
         </section>
 
