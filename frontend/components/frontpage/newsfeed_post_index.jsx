@@ -14,10 +14,6 @@ class NewsfeedPostIndex extends React.Component {
     }
   }
 
-  componentDidMount() {
-    this.props.fetchUsers();
-  }
-
   render() {
     const { posts, deletePost, updatePost, fetchPost, openModal, currentUser, users } = this.props;
 
