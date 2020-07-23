@@ -200,7 +200,6 @@ class ProfileHeader extends React.Component {
 
     if (currentUser.id === user.id) {
       if (user.bio !== undefined && user.bio !== null && user.bio !== 'null' && user.bio.length > 0) {
-        debugger;
         bioButton = <button className="edit"
           onClick={this.handleClick}>Edit</button> 
         bio = this.state.bio;

@@ -26,7 +26,6 @@ class SearchFriends extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    // debugger;
     // if requestee_id updates, then send request
   }
 
