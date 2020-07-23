@@ -18,15 +18,31 @@ class SearchFriends extends React.Component {
       requester_id: props.currentUser.id,
       requestee_id: '',
       status: false,
+      id: '',
     }
+
+    this.handleSendFriendRequest = this.handleSendFriendRequest.bind(this);
+    this.handleRemoveFriendRequest = this.handleRemoveFriendRequest.bind(this);
   }
 
   componentDidUpdate(prevProps) {
+    // debugger;
     // if requestee_id updates, then send request
   }
 
-  handleClick(e) {
-    // change icon 
+  handleSendFriendRequest(e) {
+    e.preventDefault();
+    this.setState({ id: e.currentTarget.parentNode.parentNode.getAttribute('data-user') }, () => {
+      this.props.createFriendRequest(this.state)
+    });
+  }
+
+  handleRemoveFriendRequest(e) {
+    e.preventDefault();
+    // this.setState({ id: e.currentTarget.parentNode.parentNode.getAttribute('data-user') }, () => {
+    this.props.deleteFriendRequest(parseInt(e.currentTarget.parentNode.parentNode.getAttribute('data-user')));
+    // not the user, but the id 
+    // });
   }
 
   componentDidMount() {
@@ -61,12 +77,12 @@ class SearchFriends extends React.Component {
           )
         } else if (currentUser.id === friend.id) {
           icon = null;
-        } else if (currentUser.sentFriendRequests.includes(friend.id)) {
+        } else if (Object.keys(currentUser.sentFriendRequests).includes(`${friend.id}`)) {
           icon = (
             <div className="add-friend-circle">
             <FontAwesomeIcon icon="user-times"
               className="fa-user-times dark" 
-              // onClick={this.handleClick}
+              // onClick={this.handleRemoveFriendRequest}
               />
             </div>
           )
@@ -75,13 +91,14 @@ class SearchFriends extends React.Component {
             <div className="add-friend-circle">
               <FontAwesomeIcon icon="user-plus"
                 className="fa-user-plus dark"
-                onClick={this.handleClick} />
+                onClick={this.handleSendFriendRequest} />
             </div>
           )
         }
 
         let ele = (
-          <li className="search-friend" key={i}>
+          <li className="search-friend" key={friend.id} 
+          data-user={friend.id}>
             <Link to={`/users/${friend.id}`}
               style={{ textDecoration: 'none' }}>
             <img src={friend.pfpUrl} alt="" 

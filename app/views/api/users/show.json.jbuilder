@@ -12,9 +12,13 @@ json.receivedFriendRequests do
       json.extract! fr, :id, :requester_id, :requestee_id, :status
     end 
   end 
-  #json.array! ((@user.received_friend_requests.reject { |rfr| rfr.#status}).map {|rfr| rfr.requester_id})
 end 
 
 json.sentFriendRequests do 
-  json.array! ((@user.sent_friend_requests.reject { |sfr| sfr.status}).map {|sfr| sfr.requestee_id})
+  # json.array! ((@user.sent_friend_requests.reject { |sfr| sfr.status}).map {|sfr| [sfr.requestee_id, sfr.id]})
+  (@user.sent_friend_requests.reject { |sfr| sfr.status }).each do |fr|
+    json.set! fr.requestee_id do 
+      json.extract! fr, :id, :requester_id, :requestee_id, :status
+    end 
+  end 
 end 
