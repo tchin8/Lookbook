@@ -221,7 +221,8 @@ class ProfileMain extends React.Component {
           <div className="main-right">
             <WallPostContainer currentUser={currentUser} user={user}/>
 
-            {organizeSection}
+            {/* KEEP FOR NOW */}
+            {/* {organizeSection} */}
 
             <PostIndexContainer 
               currentUser={currentUser}

@@ -9,17 +9,17 @@ class ProfileHeader extends React.Component {
 
     this.state = {
       id: user.id,
-      bio: user.bio,
+      bio: user.bio === 'null' ? "" : user.bio,
       birthday: user.birthday,
-      current_city: user.current_city,
+      current_city: user.current_city === 'null' ? "" : user.current_city,
       email: user.email,
       fname: user.fname,
       gender: user.gender,
-      hometown: user.hometown,
+      hometown: user.hometown === 'null' ? "" : user.hometown,
       lname: user.lname,
-      relationship_status: user.relationship_status,
-      school: user.school,
-      workplace: user.workplace,
+      relationship_status: user.relationship_status === 'null' ? "" : user.relationship_status,
+      school: user.school === 'null' ? "" : user.school,
+      workplace: user.workplace === 'null' ? "" : user.workplace,
       pfpUrl: user.pfpUrl,
       coverPhotoUrl: user.coverPhotoUrl
     }
@@ -199,15 +199,16 @@ class ProfileHeader extends React.Component {
     let bioButton, cameraButton, editCvButton, archive, rightNavBtns, bio, friendBtn;
 
     if (currentUser.id === user.id) {
-      if (user.bio !== undefined && user.bio !== null) {
+      if (user.bio !== undefined && user.bio !== null && user.bio !== 'null' && user.bio.length > 0) {
+        debugger;
         bioButton = <button className="edit"
           onClick={this.handleClick}>Edit</button> 
+        bio = this.state.bio;
       } else {
         bioButton = <button className="add-bio"
           onClick={this.handleClick}>Add Bio</button>
+        bio = null;
       }
-
-      bio = this.state.bio;
 
       cameraButton = (
         <div className="cam-circle dark"

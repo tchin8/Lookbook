@@ -7,23 +7,37 @@ class EditProfileForm extends React.Component {
     
     const { currentUser } = this.props;
 
-    this.state = currentUser;
+    // this.state = currentUser;
 
-    this.state.prevState = {
+    this.state = {
       id: currentUser.id,
-      bio: currentUser.bio,
+      bio: currentUser.bio === 'null' ? "" : currentUser.bio,
       birthday: currentUser.birthday,
-      current_city: currentUser.currentCity,
+      current_city: currentUser.currentCity === 'null' ? "" : currentUser.currentCity,
       email: currentUser.email,
       fname: currentUser.fname,
       gender: currentUser.gender,
-      hometown: currentUser.hometown,
+      hometown: currentUser.hometown === 'null' ? "" : currentUser.hometown,
       lname: currentUser.lname,
-      relationship_status: currentUser.relationshipStatus,
-      school: currentUser.school,
-      workplace: currentUser.workplace,
-    }
+      relationship_status: currentUser.relationship_status === 'null' ? "" : currentUser.relationship_status,
+      school: currentUser.school === 'null' ? "" : currentUser.school,
+      workplace: currentUser.workplace === 'null' ? "" : currentUser.workplace,
+    };
 
+    this.state.prevState = {
+      id: currentUser.id,
+      bio: currentUser.bio === 'null' ? "" : currentUser.bio,
+      birthday: currentUser.birthday,
+      current_city: currentUser.currentCity === 'null' ? "" : currentUser.currentCity,
+      email: currentUser.email,
+      fname: currentUser.fname,
+      gender: currentUser.gender,
+      hometown: currentUser.hometown === 'null' ? "" : currentUser.hometown,
+      lname: currentUser.lname,
+      relationship_status: currentUser.relationship_status === 'null' ? "" : currentUser.relationship_status,
+      school: currentUser.school === 'null' ? "" : currentUser.school,
+      workplace: currentUser.workplace === 'null' ? "" : currentUser.workplace,
+    }
 
     this.handleSubmitBio = this.handleSubmitBio.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -96,7 +110,7 @@ class EditProfileForm extends React.Component {
     const { closeModal, currentUser, updateUser } = this.props;
 
     let editBioBtn;
-    if (currentUser.bio !== undefined ) {
+    if (currentUser.bio !== undefined && currentUser.bio.length > 0) {
       editBioBtn = <button className="edit-bio dark"
         onClick={this.handleClick}>Edit</button>
     } else {
