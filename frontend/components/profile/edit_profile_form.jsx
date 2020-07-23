@@ -165,7 +165,6 @@ class EditProfileForm extends React.Component {
           <section className="edit-profile-form dark">
             <div className="bio-part">
               <span>Bio</span>
-              {/* <button className="edit-bio">Edit</button> */}
               {editBioBtn}
               <div className="bio-part">
                 <span className="edit-bio show">{this.state.bio}</span>
@@ -208,9 +207,6 @@ class EditProfileForm extends React.Component {
               <span>Customize Your Intro</span>
               <button className="intro show"
                 onClick={this.toggleEditIntro}>Edit</button>
-
-              {/* <button className="edit-intro hidden"
-                onClick={this.handleSaveIntro}>Save</button> */}
               
               <button
                 className="edit-intro cxl hidden"
