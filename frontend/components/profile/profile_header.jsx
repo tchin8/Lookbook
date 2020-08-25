@@ -61,6 +61,7 @@ class ProfileHeader extends React.Component {
     this.handleFileClick = this.handleFileClick.bind(this);
     this.handleUploadPfp = this.handleUploadPfp.bind(this);
     this.handleFileClickCoverPhoto = this.handleFileClickCoverPhoto.bind(this);
+    this.handleFriendRequest = this.handleFriendRequest.bind(this);
 
     if (this.state.bio === null) {
       this.state.count = 101;
@@ -161,8 +162,22 @@ class ProfileHeader extends React.Component {
     $(".upload-cv").click();
   }
 
+  handleFriendRequest(e) {
+    e.preventDefault();
+    if (e.currentTarget.classList.value.includes("add")) {
+      this.props.createFriendRequest(this.friendRequest)
+        .then(() => this.props.fetchUser(this.props.user.id));
+    } else {
+      this.props
+        .deleteFriendRequest(
+          this.props.user.receivedFriendRequests[currentUser.id].id
+        )
+        .then(() => this.props.fetchUser(this.props.user.id));
+    }
+  }
+
   render() {
-    const { user, updateUser, currentUser, openModal, createFriendRequest, deleteFriendRequest } = this.props;
+    const { user, updateUser, currentUser, openModal, deleteFriendRequest } = this.props;
     let bioButton, cameraButton, editCvButton, archive, rightNavBtns, bio, friendBtn;
 
     if (currentUser.id === user.id) {
@@ -198,7 +213,6 @@ class ProfileHeader extends React.Component {
               type="file"
               id="file"
           onChange={this.handleUploadPfp}
-              // onChange={this.handleUploadCoverPhoto}
             />
             Edit Cover Photo
           </button>
@@ -288,7 +302,7 @@ class ProfileHeader extends React.Component {
           <div className="right-nav dark">
             <div>
               <button className="cxl-friend"
-                onClick={() => deleteFriendRequest(user.receivedFriendRequests[currentUser.id].id)}>
+                onClick={this.handleFriendRequest}>
                 <FontAwesomeIcon icon="user-times"
                   className="fa-user-times dark" />
                 <span>
@@ -320,7 +334,7 @@ class ProfileHeader extends React.Component {
         <div className="right-nav dark">
           <div>
             <button className="add-friend"
-              onClick={() => createFriendRequest(this.friendRequest)}>
+              onClick={this.handleFriendRequest}>
               <FontAwesomeIcon icon="user-plus"
                 className="fa-user-plus dark" />
               <span>

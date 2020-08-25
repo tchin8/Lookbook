@@ -7,12 +7,19 @@ class EditProfileForm extends React.Component {
     
     const { currentUser } = this.props;
 
-    let bio = currentUser.bio === 'null' ? "" : currentUser.bio;
-    let current_city = currentUser.current_city === 'null' ? "" : currentUser.current_city;
-    let hometown = currentUser.hometown === 'null' ? "" : currentUser.hometown;
-    let relationship_status = currentUser.relationship_status === 'null' ? "" : currentUser.relationship_status;
-    let school = currentUser.school === 'null' ? "" : currentUser.school;
-    let workplace = currentUser.workplace === 'null' ? "" : currentUser.workplace;
+    let bio = currentUser.bio === "null" || currentUser.bio === "undefined" ? 
+      "" : currentUser.bio;
+    let current_city = currentUser.current_city === "null" || 
+      currentUser.current_city === "undefined" ? "" : currentUser.current_city;
+    let hometown = currentUser.hometown === "null" || 
+      currentUser.hometown === "undefined" ? "" : currentUser.hometown;
+    let relationship_status = currentUser.relationship_status === "null" ||
+      currentUser.relationship_status === "undefined" ? "" : 
+      currentUser.relationship_status;
+    let school = currentUser.school === "null" || 
+      currentUser.school === "undefined" ? "" : currentUser.school;
+    let workplace = currentUser.workplace === "null" || 
+      currentUser.workplace === "undefined" ? "" : currentUser.workplace;
 
     this.state = {
       id: currentUser.id,

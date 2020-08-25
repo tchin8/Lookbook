@@ -17,8 +17,8 @@ const usersReducer = (state = {}, action) => {
     case RECEIVE_USER:
       return Object.assign({}, state, { [action.user.id]: action.user });
     case RECEIVE_REQUEST:
-      newState[action.request.requester_id].sentFriendRequests.push(action.request.requestee_id);
-      return newState;
+      newState[action.request.requester_id].sentFriendRequests
+        [action.request.requestee_id] = action.request;
     default:
       return state;
   }
