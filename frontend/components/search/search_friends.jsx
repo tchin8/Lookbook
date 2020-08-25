@@ -11,37 +11,19 @@ import {
 class SearchFriends extends React.Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
-      friends: JSON.parse(localStorage.getItem('searchFriends')),
-      filter: localStorage.getItem('filter'),
+      friends: JSON.parse(localStorage.getItem("searchFriends")),
+      filter: localStorage.getItem("filter"),
       requester_id: props.currentUser.id,
-      requestee_id: '',
+      requestee_id: "",
       status: false,
-      id: '',
-    }
+      id: "",
+    };
 
     this.handleSendFriendRequest = this.handleSendFriendRequest.bind(this);
     this.handleRemoveFriendRequest = this.handleRemoveFriendRequest.bind(this);
-  }
-
-  componentDidUpdate(prevProps) {
-    // if requestee_id updates, then send request
-  }
-
-  handleSendFriendRequest(e) {
-    e.preventDefault();
-    this.setState({ id: e.currentTarget.parentNode.parentNode.getAttribute('data-user') }, () => {
-      this.props.createFriendRequest(this.state)
-    });
-  }
-
-  handleRemoveFriendRequest(e) {
-    e.preventDefault();
-    // this.setState({ id: e.currentTarget.parentNode.parentNode.getAttribute('data-user') }, () => {
-    this.props.deleteFriendRequest(parseInt(e.currentTarget.parentNode.parentNode.getAttribute('data-user')));
-    // not the user, but the id 
-    // });
+    this.updateSearch = this.updateSearch.bind(this);
   }
 
   componentDidMount() {
@@ -49,8 +31,35 @@ class SearchFriends extends React.Component {
     this.props.fetchUsers();
   }
 
+  updateSearch() {
+    this.setState({
+      friends: JSON.parse(localStorage.getItem("searchFriends")),
+      filter: localStorage.getItem("filter")
+    });
+  }
+
+  handleSendFriendRequest(e) {
+    e.preventDefault();
+    this.setState(
+      { id: e.currentTarget.parentNode.parentNode.getAttribute("data-user") },
+      () => {
+        this.props.createFriendRequest(this.state);
+      }
+    );
+  }
+
+  handleRemoveFriendRequest(e) {
+    e.preventDefault();
+    // this.setState({ id: e.currentTarget.parentNode.parentNode.getAttribute('data-user') }, () => {
+    this.props.deleteFriendRequest(
+      parseInt(e.currentTarget.parentNode.parentNode.getAttribute("data-user"))
+    );
+    // not the user, but the id
+    // });
+  }
+
   render() {
-    const { currentUser, updateUser, logout } = this.props;
+    const { currentUser, updateUser, logout, users } = this.props;
 
     const { filter, friends } = this.state;
 
@@ -62,7 +71,7 @@ class SearchFriends extends React.Component {
           <span>People</span>
           <span>0 results</span>
         </section>
-      )
+      );
     } else {
       for (let i = 0; i < friends.length; i++) {
         let friend = friends[i];
@@ -70,62 +79,68 @@ class SearchFriends extends React.Component {
         if (currentUser.friends.includes(friend.id)) {
           icon = (
             <div className="add-friend-circle">
-              <FontAwesomeIcon icon={['fab', 'facebook-messenger']}
-                className="fa-facebook-messenger dark" />
-            </div>
-          )
-        } else if (currentUser.id === friend.id) {
-          icon = null;
-        } else if (Object.keys(currentUser.sentFriendRequests).includes(`${friend.id}`)) {
-          icon = (
-            <div className="add-friend-circle">
-            <FontAwesomeIcon icon="user-times"
-              className="fa-user-times dark" 
-              // onClick={this.handleRemoveFriendRequest}
+              <FontAwesomeIcon
+                icon={["fab", "facebook-messenger"]}
+                className="fa-facebook-messenger dark"
               />
             </div>
-          )
+          );
+        } else if (currentUser.id === friend.id) {
+          icon = null;
+        } else if (
+          Object.keys(currentUser.sentFriendRequests).includes(`${friend.id}`)
+        ) {
+          icon = (
+            <div className="add-friend-circle">
+              <FontAwesomeIcon
+                icon="user-times"
+                className="fa-user-times dark"
+                // onClick={this.handleRemoveFriendRequest}
+              />
+            </div>
+          );
         } else {
           icon = (
             <div className="add-friend-circle">
-              <FontAwesomeIcon icon="user-plus"
+              <FontAwesomeIcon
+                icon="user-plus"
                 className="fa-user-plus dark"
-                onClick={this.handleSendFriendRequest} />
+                onClick={this.handleSendFriendRequest}
+              />
             </div>
-          )
+          );
         }
 
         let ele = (
-          <li className="search-friend" key={friend.id} 
-          data-user={friend.id}>
-            <Link to={`/users/${friend.id}`}
-              style={{ textDecoration: 'none' }}>
-            <img src={friend.pfpUrl} alt="" 
-              className="pfp" />
-            <span className="name">{friend.fname} {friend.lname}</span>
+          <li className="search-friend" key={friend.id} data-user={friend.id}>
+            <Link to={`/users/${friend.id}`} style={{ textDecoration: "none" }}>
+              <img src={friend.pfpUrl} alt="" className="pfp" />
+              <span className="name">
+                {friend.fname} {friend.lname}
+              </span>
             </Link>
 
             {icon}
           </li>
-        )
+        );
         searched.push(ele);
       }
 
       searchedFriends = (
         <section className="search-results">
           <span>People</span>
-          <ul>
-            {searched}
-          </ul>
+          <ul>{searched}</ul>
         </section>
-      )
+      );
     }
 
     return (
       <>
-        <NavBar currentUser={currentUser}
-          logout={logout}/> 
-        
+        <NavBar currentUser={currentUser} 
+          logout={logout} 
+          users={users}
+          updateSearch={this.updateSearch}/>
+
         <section className="search-friends">
           <section className="search-sidebar">
             <div className="top">
@@ -139,10 +154,11 @@ class SearchFriends extends React.Component {
               <span className="filters">Filters</span>
               <ul>
                 <li className="all">
-                  <div className="id-circle dark"
-                    >
-                    <FontAwesomeIcon icon="id-card"
-                      className="fa-id-card dark" />
+                  <div className="id-circle dark">
+                    <FontAwesomeIcon
+                      icon="id-card"
+                      className="fa-id-card dark"
+                    />
                   </div>
 
                   <span>All</span>
@@ -157,13 +173,10 @@ class SearchFriends extends React.Component {
             </div>
           </section>
 
-          <section className="search-main">
-            {searchedFriends}
-          </section>
-
+          <section className="search-main">{searchedFriends}</section>
         </section>
       </>
-    )
+    );
   }
 };
 

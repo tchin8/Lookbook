@@ -106,6 +106,7 @@ class NavBar extends React.Component {
       }
 
       localStorage.setItem('searchFriends', JSON.stringify(searchUsers));
+      this.props.updateSearch();
     }
   }
 
