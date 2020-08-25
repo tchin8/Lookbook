@@ -28,7 +28,39 @@ class SearchFriends extends React.Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
-    this.props.fetchUsers();
+    this.props.fetchUsers().then(() => {
+      let searchUsers = [];
+      if (this.state && this.state.filter && this.props.users) {
+        debugger
+        const search = this.state.filter.toLowerCase();
+        const numUsers = Object.keys(this.props.users).length;
+        const usersArr = Object.values(this.props.users);
+        debugger;
+        for (let i = 0; i < numUsers; i++) {
+          const user = usersArr[i];
+          const keys = Object.keys(user);
+  
+          for (let i = 0; i < keys.length; i++) {
+            let key = keys[i];
+            if (key === "fname" || key === "lname") {
+              if (
+                user[key].toLowerCase().includes(search) &&
+                !searchUsers.includes(user)
+              ) {
+                searchUsers.push(user);
+              }
+            }
+          }
+        }
+      }
+      this.setState({ friends: searchUsers });
+    });
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.users !== this.props.users) {
+      this.forceUpdate();
+    }
   }
 
   updateSearch() {
@@ -58,6 +90,8 @@ class SearchFriends extends React.Component {
     // });
   }
 
+
+
   render() {
     const { currentUser, updateUser, logout, users } = this.props;
 
@@ -75,8 +109,9 @@ class SearchFriends extends React.Component {
     } else {
       for (let i = 0; i < friends.length; i++) {
         let friend = friends[i];
-
+        debugger;
         if (currentUser.friends.includes(friend.id)) {
+          debugger;
           icon = (
             <div className="add-friend-circle">
               <FontAwesomeIcon
@@ -86,10 +121,12 @@ class SearchFriends extends React.Component {
             </div>
           );
         } else if (currentUser.id === friend.id) {
+          debugger;
           icon = null;
         } else if (
           Object.keys(currentUser.sentFriendRequests).includes(`${friend.id}`)
         ) {
+          debugger;
           icon = (
             <div className="add-friend-circle">
               <FontAwesomeIcon
@@ -100,6 +137,7 @@ class SearchFriends extends React.Component {
             </div>
           );
         } else {
+          debugger;
           icon = (
             <div className="add-friend-circle">
               <FontAwesomeIcon
@@ -124,7 +162,9 @@ class SearchFriends extends React.Component {
           </li>
         );
         searched.push(ele);
+        debugger;
       }
+      debugger;
 
       searchedFriends = (
         <section className="search-results">
