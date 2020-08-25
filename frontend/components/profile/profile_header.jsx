@@ -61,7 +61,6 @@ class ProfileHeader extends React.Component {
     this.handleFileClick = this.handleFileClick.bind(this);
     this.handleUploadPfp = this.handleUploadPfp.bind(this);
     this.handleFileClickCoverPhoto = this.handleFileClickCoverPhoto.bind(this);
-    this.handleUploadCoverPhoto = this.handleUploadCoverPhoto.bind(this);
 
     if (this.state.bio === null) {
       this.state.count = 101;
@@ -78,14 +77,6 @@ class ProfileHeader extends React.Component {
     if (prevProps.user !== this.props.user) {
       window.scrollTo(0, 0);
     }
-
-    // KEEP FOR NOW
-    if (this.props.user !== undefined && prevProps.user !== undefined) {
-      if (this.props.user.pfpUrl !== prevProps.user.pfpUrl || this.props.user.coverPhotoUrl !== prevProps.user.coverPhotoUrl) {
-        this.props.fetchUser(this.props.user.id);
-      }
-    }
-
   }
 
   disabled() {
@@ -136,9 +127,14 @@ class ProfileHeader extends React.Component {
   }
 
   handleUploadPfp(e) {
-    this.setState({ pfpUrl: e.currentTarget.files[0]});
-
     const formData = new FormData();
+    if (e.currentTarget.classList.value.includes('pfp')) {
+      this.setState({ pfpUrl: e.currentTarget.files[0]});
+      formData.append('user[pfp]', e.currentTarget.files[0]);
+    } else {
+      this.setState({ coverPhotoUrl: e.currentTarget.files[0] });
+      formData.append('user[cover_photo]', e.currentTarget.files[0]);
+    }
     formData.append('user[id]', this.state.id);
     formData.append('user[bio]', this.state.bio);
     formData.append('user[birthday]', this.state.birthday);
@@ -151,7 +147,6 @@ class ProfileHeader extends React.Component {
     formData.append('user[relationship_status]', this.state.relationship_status);
     formData.append('user[school]', this.state.school);
     formData.append('user[workplace]', this.state.workplace);
-    formData.append('user[pfp]', e.currentTarget.files[0]);
 
     $.ajax({
       url: `/api/users/${this.state.id}`,
@@ -159,39 +154,11 @@ class ProfileHeader extends React.Component {
       data: formData,
       contentType: false,
       processData: false
-    });
+    }).then(() => this.props.fetchUser(this.props.currentUser.id));
   }
 
   handleFileClickCoverPhoto() {
     $(".upload-cv").click();
-  }
-
-  handleUploadCoverPhoto(e) {
-    this.setState({ pfpUrl: e.currentTarget.files[0]});
-
-    const formData = new FormData();
-
-    formData.append('user[id]', this.state.id);
-    formData.append('user[bio]', this.state.bio);
-    formData.append('user[birthday]', this.state.birthday);
-    formData.append('user[current_city]', this.state.current_city);
-    formData.append('user[email]', this.state.email);
-    formData.append('user[fname]', this.state.fname);
-    formData.append('user[gender]', this.state.gender);
-    formData.append('user[hometown]', this.state.hometown);
-    formData.append('user[lname]', this.state.lname);
-    formData.append('user[relationship_status]', this.state.relationship_status);
-    formData.append('user[school]', this.state.school);
-    formData.append('user[workplace]', this.state.workplace);
-    formData.append('user[cover_photo]', e.currentTarget.files[0]);
-
-    $.ajax({
-      url: `/api/users/${this.state.id}`,
-      method: 'patch',
-      data: formData,
-      contentType: false,
-      processData: false
-    });
   }
 
   render() {
@@ -230,7 +197,8 @@ class ProfileHeader extends React.Component {
             <input className="upload-cv"
               type="file"
               id="file"
-              onChange={this.handleUploadCoverPhoto}
+          onChange={this.handleUploadPfp}
+              // onChange={this.handleUploadCoverPhoto}
             />
             Edit Cover Photo
           </button>
