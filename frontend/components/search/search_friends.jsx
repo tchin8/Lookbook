@@ -15,14 +15,16 @@ class SearchFriends extends React.Component {
     this.state = {
       friends: JSON.parse(localStorage.getItem("searchFriends")),
       filter: localStorage.getItem("filter"),
-      requester_id: props.currentUser.id,
-      requestee_id: "",
-      status: false,
       id: "",
     };
 
-    this.handleSendFriendRequest = this.handleSendFriendRequest.bind(this);
-    this.handleRemoveFriendRequest = this.handleRemoveFriendRequest.bind(this);
+    this.friendRequest = {
+      requester_id: props.currentUser.id,
+      requestee_id: "",
+      status: false,
+    };
+
+    this.handleFriendRequest = this.handleFriendRequest.bind(this);
     this.updateSearch = this.updateSearch.bind(this);
   }
 
@@ -31,11 +33,9 @@ class SearchFriends extends React.Component {
     this.props.fetchUsers().then(() => {
       let searchUsers = [];
       if (this.state && this.state.filter && this.props.users) {
-        debugger
         const search = this.state.filter.toLowerCase();
         const numUsers = Object.keys(this.props.users).length;
         const usersArr = Object.values(this.props.users);
-        debugger;
         for (let i = 0; i < numUsers; i++) {
           const user = usersArr[i];
           const keys = Object.keys(user);
@@ -57,11 +57,12 @@ class SearchFriends extends React.Component {
     });
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.users !== this.props.users) {
-      this.forceUpdate();
-    }
-  }
+  // not sure if I need this 
+  // componentDidUpdate(prevProps) {
+  //   if (prevProps.users !== this.props.users) {
+  //     this.forceUpdate();
+  //   }
+  // }
 
   updateSearch() {
     this.setState({
@@ -70,33 +71,29 @@ class SearchFriends extends React.Component {
     });
   }
 
-  handleSendFriendRequest(e) {
+  handleFriendRequest(e) {
     e.preventDefault();
-    this.setState(
-      { id: e.currentTarget.parentNode.parentNode.getAttribute("data-user") },
-      () => {
-        this.props.createFriendRequest(this.state);
-      }
-    );
+    if (e.currentTarget.classList.value.includes("cxl")) {
+      let userId = parseInt(e.currentTarget.getAttribute("data-key"));
+      let frId = this.props.users[userId].receivedFriendRequests[currentUser.id].id
+      this.props
+        .deleteFriendRequest(frId)
+        .then(() => this.props.fetchUser(this.props.currentUser.id));
+    } else {
+      this.friendRequest["requestee_id"] = parseInt(
+        e.currentTarget.getAttribute("data-key")
+      );
+      this.props
+        .createFriendRequest(this.friendRequest)
+        .then(() => this.props.fetchUser(this.friendRequest["requestee_id"]));
+    }
   }
-
-  handleRemoveFriendRequest(e) {
-    e.preventDefault();
-    // this.setState({ id: e.currentTarget.parentNode.parentNode.getAttribute('data-user') }, () => {
-    this.props.deleteFriendRequest(
-      parseInt(e.currentTarget.parentNode.parentNode.getAttribute("data-user"))
-    );
-    // not the user, but the id
-    // });
-  }
-
-
 
   render() {
     const { currentUser, updateUser, logout, users } = this.props;
 
     const { filter, friends } = this.state;
-
+    
     let searched = [];
     let searchedFriends, icon;
     if (friends.length === 0) {
@@ -109,9 +106,7 @@ class SearchFriends extends React.Component {
     } else {
       for (let i = 0; i < friends.length; i++) {
         let friend = friends[i];
-        debugger;
         if (currentUser.friends.includes(friend.id)) {
-          debugger;
           icon = (
             <div className="add-friend-circle">
               <FontAwesomeIcon
@@ -121,36 +116,35 @@ class SearchFriends extends React.Component {
             </div>
           );
         } else if (currentUser.id === friend.id) {
-          debugger;
           icon = null;
-        } else if (
+        } else if ( currentUser.sentFriendRequests && 
           Object.keys(currentUser.sentFriendRequests).includes(`${friend.id}`)
         ) {
-          debugger;
           icon = (
-            <div className="add-friend-circle">
+            <div className="add-friend-circle cxl"
+              data-key={friend.id}
+              onClick={this.handleFriendRequest}>
               <FontAwesomeIcon
                 icon="user-times"
                 className="fa-user-times dark"
-                // onClick={this.handleRemoveFriendRequest}
               />
             </div>
           );
         } else {
-          debugger;
           icon = (
-            <div className="add-friend-circle">
+            <div className="add-friend-circle"
+              data-key={friend.id}
+              onClick={this.handleFriendRequest}>
               <FontAwesomeIcon
                 icon="user-plus"
                 className="fa-user-plus dark"
-                onClick={this.handleSendFriendRequest}
               />
             </div>
           );
         }
 
         let ele = (
-          <li className="search-friend" key={friend.id} data-user={friend.id}>
+          <li className="search-friend" key={friend.id}>
             <Link to={`/users/${friend.id}`} style={{ textDecoration: "none" }}>
               <img src={friend.pfpUrl} alt="" className="pfp" />
               <span className="name">
@@ -162,9 +156,7 @@ class SearchFriends extends React.Component {
           </li>
         );
         searched.push(ele);
-        debugger;
       }
-      debugger;
 
       searchedFriends = (
         <section className="search-results">

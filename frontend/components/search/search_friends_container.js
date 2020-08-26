@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import { logout } from '../../actions/session_actions';
-import { fetchUsers } from '../../actions/users_actions';
+import { fetchUsers, fetchUser } from "../../actions/users_actions";
 import { createFriendRequest, deleteFriendRequest } from '../../actions/friend_request_actions';
 
 import SearchFriends from './search_friends';
@@ -11,11 +11,12 @@ const mSTP = state => ({
   users: state.entities.users,
 });
 
-const mDTP = dispatch => ({
+const mDTP = (dispatch) => ({
   fetchUsers: () => dispatch(fetchUsers()),
-  logout: user => dispatch(logout(user)),
-  createFriendRequest: request => dispatch(createFriendRequest(request)),
-  deleteFriendRequest: requestId => dispatch(deleteFriendRequest(requestId)),
+  fetchUser: (userId) => dispatch(fetchUser(userId)),
+  logout: (user) => dispatch(logout(user)),
+  createFriendRequest: (request) => dispatch(createFriendRequest(request)),
+  deleteFriendRequest: (requestId) => dispatch(deleteFriendRequest(requestId)),
 });
 
 export default connect(mSTP, mDTP)(SearchFriends);
